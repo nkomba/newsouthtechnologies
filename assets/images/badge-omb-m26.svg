@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2">
+  <rect x="10" y="8" width="28" height="32" rx="2"/>
+  <path d="M16 16h16"/>
+  <path d="M16 22h16"/>
+  <path d="M16 28h10"/>
+  <text x="24" y="42" font-family="sans-serif" font-size="8" font-weight="bold" text-anchor="middle" fill="currentColor">OMB M-26</text>
+</svg>
