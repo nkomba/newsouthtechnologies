@@ -714,3 +714,179 @@ footer {
         width: 100%;
     }
 }
+/* =========================================
+   11. LEADERSHIP SECTION
+   ========================================= */
+.leadership {
+    background-color: var(--color-white);
+    padding: var(--spacing-2xl) 0;
+    border-top: 1px solid #E2E8F0;
+}
+
+.leadership-content {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.leadership h2 {
+    font-size: var(--font-size-3xl);
+    color: var(--color-navy-primary);
+    margin-bottom: var(--spacing-md);
+}
+
+.leadership-intro {
+    font-size: var(--font-size-lg);
+    color: var(--color-slate);
+    line-height: 1.7;
+    margin-bottom: var(--spacing-xl);
+}
+
+.credibility-grid {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-xl);
+    margin-bottom: var(--spacing-xl);
+    flex-wrap: wrap;
+}
+
+.cred-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+.cred-number {
+    font-size: var(--font-size-3xl);
+    font-weight: 700;
+    color: var(--color-teal-accent);
+    line-height: 1;
+}
+
+.cred-label {
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    color: var(--color-navy-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.leadership-cta {
+    background-color: var(--color-offwhite);
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius);
+    border: 1px solid #E2E8F0;
+}
+
+.leadership-cta p {
+    font-size: var(--font-size-base);
+    color: var(--color-text-dark);
+    margin-bottom: var(--spacing-md);
+    font-weight: 500;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .credibility-grid {
+        gap: var(--spacing-lg);
+    }
+    
+    .cred-item {
+        min-width: 120px;
+    }
+}
+/* =========================================
+   12. LEADERSHIP SPOTLIGHT
+   ========================================= */
+.leadership-spotlight {
+    background-color: var(--color-offwhite);
+    padding: var(--spacing-2xl) 0;
+}
+
+.spotlight-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr; /* Photo takes 1 part, Bio takes 1.5 parts */
+    gap: var(--spacing-xl);
+    align-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Image Styling */
+.spotlight-image {
+    position: relative;
+}
+
+.partner-photo {
+    width: 100%;
+    height: auto;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-lg);
+    object-fit: cover;
+    aspect-ratio: 4/5; /* Portrait orientation */
+    background-color: #e2e8f0; /* Placeholder color if image missing */
+}
+
+.photo-caption {
+    display: flex;
+    gap: var(--spacing-xs);
+    margin-top: var(--spacing-sm);
+    justify-content: center;
+}
+
+.badge-small {
+    background-color: var(--color-navy-primary);
+    color: var(--color-white);
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    padding: 4px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
+}
+
+/* Bio Styling */
+.spotlight-bio h3 {
+    font-size: var(--font-size-2xl);
+    color: var(--color-navy-primary);
+    margin-bottom: var(--spacing-xs);
+}
+
+.spotlight-bio .title {
+    font-size: var(--font-size-lg);
+    color: var(--color-teal-accent);
+    font-weight: 600;
+    margin-bottom: var(--spacing-md);
+}
+
+.bio-text {
+    font-size: var(--font-size-base);
+    color: var(--color-slate);
+    line-height: 1.7;
+    margin-bottom: var(--spacing-md);
+}
+
+.bio-cta {
+    margin-top: var(--spacing-lg);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .spotlight-grid {
+        grid-template-columns: 1fr; /* Stack on mobile */
+        text-align: center;
+    }
+
+    .spotlight-image {
+        max-width: 300px;
+        margin: 0 auto;
+    }
+
+    .photo-caption {
+        justify-content: center;
+    }
+
+    .bio-cta {
+        text-align: center;
+    }
+}
