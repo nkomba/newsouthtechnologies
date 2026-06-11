@@ -741,3 +741,70 @@ input:focus, textarea:focus {
     from { opacity: 0; transform: translateY(-10px); }
     to { opacity: 1; transform: translateY(0); }
 }
+/* =========================================
+   FORCE HAMBURGER ICON VISIBILITY (Mobile)
+   ========================================= */
+
+/* 1. Ensure the toggle button is ALWAYS visible on screens smaller than 900px */
+@media (max-width: 900px) {
+    .mobile-toggle {
+        display: flex !important; /* Force flex to show it */
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        z-index: 10000; /* Highest priority to stay on top */
+        padding: 5px;
+        margin-left: auto; /* Push to the right if using space-between */
+    }
+
+    /* 2. Style the hamburger lines (the icon itself) */
+    /* If your icon uses a span inside */
+    .mobile-toggle span,
+    .mobile-toggle .hamburger-icon {
+        display: block !important;
+        width: 25px;
+        height: 3px;
+        background-color: var(--color-navy-primary); /* Or #0F172A */
+        margin: 6px 0;
+        transition: 0.3s;
+        border-radius: 2px;
+    }
+    
+    /* If your icon uses pseudo-elements (::before, ::after) */
+    .mobile-toggle::before, 
+    .mobile-toggle::after,
+    .mobile-toggle span::before,
+    .mobile-toggle span::after {
+        content: '';
+        display: block !important;
+        width: 25px;
+        height: 3px;
+        background-color: var(--color-navy-primary);
+        margin: 6px 0;
+    }
+}
+
+/* 3. Ensure Desktop hides it */
+@media (min-width: 901px) {
+    .mobile-toggle {
+        display: none !important;
+    }
+}
+
+/* 4. Fix Navbar Container to allow button to sit next to logo */
+@media (max-width: 900px) {
+    .nav-inner {
+        display: flex;
+        justify-content: space-between; /* Space between Logo and Button */
+        align-items: center;
+    }
+    
+    /* Ensure Logo doesn't eat up all space */
+    .logo {
+        max-width: 150px; 
+    }
+}
