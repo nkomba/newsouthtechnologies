@@ -379,10 +379,47 @@
     </footer>
 
     <script src="./js/main.js" defer></script>
+    <script>
+    // EMERGENCY INLINE MOBILE MENU FIX
+    document.addEventListener('DOMContentLoaded', function() {
+        console.log("=== INLINE MENU SCRIPT LOADED ===");
+        
+        var btn = document.querySelector('.mobile-toggle');
+        var menu = document.getElementById('main-nav');
+        
+        console.log("Button element:", btn);
+        console.log("Menu element:", menu);
+        
+        if (!btn) {
+            console.error("ERROR: .mobile-toggle NOT FOUND in DOM");
+            return;
+        }
+        
+        if (!menu) {
+            console.error("ERROR: #main-nav NOT FOUND in DOM");
+            return;
+        }
+        
+        btn.addEventListener('click', function() {
+            console.log("HAMBURGER CLICKED!");
+            menu.classList.toggle('active');
+            
+            var isExpanded = btn.getAttribute('aria-expanded') === 'true';
+            btn.setAttribute('aria-expanded', isExpanded ? 'false' : 'true');
+        });
+        
+        // Close menu when clicking a link
+        var links = menu.querySelectorAll('a');
+        for (var i = 0; i < links.length; i++) {
+            links[i].addEventListener('click', function() {
+                menu.classList.remove('active');
+                btn.setAttribute('aria-expanded', 'false');
+            });
+        }
+        
+        console.log("=== INLINE MENU SCRIPT COMPLETE ===");
+    });
+</script>
 </body>
-</html>
 
-    <!-- JavaScript -->
-    <script src="./js/main.js" defer></script>
-</body>
 </html>
