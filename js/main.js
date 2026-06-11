@@ -1,18 +1,32 @@
-document.addEventListener('DOMContentLoaded', () => {
-    initMobileMenu();
-    initSmoothScroll();
-});
-document.addEventListener('DOMContentLoaded', () => {
-    initSlider();
-    initMobileMenu();
-    initSmoothScroll();
-    initStickyNav();
-});
-
 /**
- * Slider Interaction — Width-Based (Industry Standard)
- * Logic: Sliding RIGHT increases Modern (Teal) area
+ * Sticky Navigation - Keeps navbar visible on scroll
  */
+function initStickyNav() {
+    const navbar = document.querySelector('.navbar');
+    
+    if (!navbar) return;
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            navbar.classList.add('sticky');
+        } else {
+            navbar.classList.remove('sticky');
+        }
+    });
+}
+
+// Also add CSS for .sticky class in style.css:
+/*
+.navbar.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: var(--color-white);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    z-index: 1000;
+}
+*/
+
 /**
  * Slider Interaction — Width-Based (Industry Standard)
  * Fixed: Clamps values 0-100, no gaps at extremes
@@ -80,15 +94,6 @@ function initMobileMenu() {
         });
     });
 }
-
-// Initialize
-document.addEventListener('DOMContentLoaded', () => {
-    initSlider();
-    initMobileMenu(); // <-- MUST BE HERE
-    initSmoothScroll();
-    initStickyNav();
-    initBlogFilter(); // If you added it
-});
 
 function initSmoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -170,27 +175,8 @@ function initBlogFilter() {
     });
 }
 
-// Initialize ONLY when DOM is ready
-document.addEventListener('DOMContentLoaded', () => {
-    initSlider();
-    initMobileMenu();
-    initSmoothScroll();
-    initStickyNav();
-    
-    // Call the filter function
-    initBlogFilter();
-});
 
-// Initialize on DOM load if the element exists
-document.addEventListener('DOMContentLoaded', () => {
-    initSlider();
-    initMobileMenu();
-    initSmoothScroll();
-    initStickyNav();
-    
-    // Initialize Blog Filter
-    initBlogFilter();
-});
+
 document.addEventListener('DOMContentLoaded', () => {
     initSlider();
     initMobileMenu();
