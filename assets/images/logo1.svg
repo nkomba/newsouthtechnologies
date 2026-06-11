@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 200" width="480" height="200" font-family="'Helvetica Neue', Arial, sans-serif">
+  <rect width="480" height="200" fill="#ffffff"/>
+  <line x1="62" y1="52" x2="130" y2="52" stroke="#6B7B8D" stroke-width="1.6"/>
+  <line x1="62" y1="72" x2="130" y2="72" stroke="#6B7B8D" stroke-width="1.6"/>
+  <line x1="62" y1="92" x2="122" y2="92" stroke="#6B7B8D" stroke-width="1.6"/>
+  <line x1="62"  y1="52" x2="62"  y2="92" stroke="#6B7B8D" stroke-width="1.6"/>
+  <line x1="92"  y1="52" x2="92"  y2="92" stroke="#6B7B8D" stroke-width="1.6"/>
+  <line x1="122" y1="52" x2="122" y2="92" stroke="#6B7B8D" stroke-width="1.6"/>
+  <line x1="62" y1="52" x2="92" y2="72" stroke="#6B7B8D" stroke-width="1.2" stroke-dasharray="3,2"/>
+  <circle cx="62"  cy="52" r="5" fill="#6B7B8D"/>
+  <circle cx="92"  cy="52" r="4" fill="#6B7B8D"/>
+  <circle cx="122" cy="52" r="4" fill="#6B7B8D"/>
+  <circle cx="62"  cy="72" r="5" fill="#6B7B8D"/>
+  <circle cx="92"  cy="72" r="6" fill="#6B7B8D"/>
+  <circle cx="122" cy="72" r="4" fill="#6B7B8D"/>
+  <circle cx="62"  cy="92" r="4" fill="#6B7B8D"/>
+  <circle cx="92"  cy="92" r="4" fill="#6B7B8D"/>
+  <circle cx="122" cy="92" r="4" fill="#6B7B8D"/>
+  <line x1="122" y1="52" x2="160" y2="58" stroke="url(#blendH)" stroke-width="1.6"/>
+  <line x1="122" y1="72" x2="168" y2="72" stroke="url(#blendH)" stroke-width="1.8"/>
+  <line x1="122" y1="92" x2="160" y2="86" stroke="url(#blendH)" stroke-width="1.6"/>
+  <line x1="130" y1="52" x2="168" y2="58" stroke="url(#blendH)" stroke-width="1.2"/>
+  <circle cx="148" cy="58" r="4.5" fill="url(#blendR)"/>
+  <circle cx="148" cy="72" r="5"   fill="url(#blendR)"/>
+  <circle cx="148" cy="86" r="4.5" fill="url(#blendR)"/>
+  <path d="M168 58 Q185 48 200 54" stroke="#00B5A3" stroke-width="1.6" fill="none"/>
+  <path d="M168 58 Q175 65 168 72" stroke="#00B5A3" stroke-width="1.6" fill="none"/>
+  <path d="M168 72 Q180 62 200 54" stroke="#00B5A3" stroke-width="1.4" fill="none"/>
+  <path d="M168 72 Q178 80 200 78" stroke="#00B5A3" stroke-width="1.6" fill="none"/>
+  <path d="M168 72 Q175 82 168 86" stroke="#00B5A3" stroke-width="1.4" fill="none"/>
+  <path d="M168 86 Q184 90 200 78" stroke="#00B5A3" stroke-width="1.6" fill="none"/>
+  <path d="M200 54 Q218 50 224 64" stroke="#00B5A3" stroke-width="1.4" fill="none"/>
+  <path d="M200 54 Q212 56 210 72" stroke="#00B5A3" stroke-width="1.2" fill="none"/>
+  <path d="M200 78 Q212 80 210 72" stroke="#00B5A3" stroke-width="1.4" fill="none"/>
+  <path d="M200 78 Q212 88 224 82" stroke="#00B5A3" stroke-width="1.4" fill="none"/>
+  <path d="M224 64 Q232 72 224 82" stroke="#00B5A3" stroke-width="1.6" fill="none"/>
+  <path d="M210 72 Q218 66 224 64" stroke="#00B5A3" stroke-width="1.2" fill="none"/>
+  <path d="M210 72 Q218 78 224 82" stroke="#00B5A3" stroke-width="1.2" fill="none"/>
+  <circle cx="168" cy="58" r="4.5" fill="#00B5A3"/>
+  <circle cx="168" cy="72" r="6.5" fill="#00B5A3"/>
+  <circle cx="168" cy="86" r="4.5" fill="#00B5A3"/>
+  <circle cx="200" cy="54" r="4.5" fill="#00B5A3"/>
+  <circle cx="200" cy="78" r="5"   fill="#00B5A3"/>
+  <circle cx="210" cy="72" r="3.5" fill="#00B5A3" opacity="0.8"/>
+  <circle cx="224" cy="64" r="4"   fill="#00B5A3"/>
+  <circle cx="224" cy="82" r="4"   fill="#00B5A3"/>
+  <circle cx="234" cy="58" r="2.5" fill="#00B5A3" opacity="0.5"/>
+  <circle cx="238" cy="72" r="2"   fill="#00B5A3" opacity="0.4"/>
+  <circle cx="234" cy="87" r="2.5" fill="#00B5A3" opacity="0.5"/>
+  <defs>
+    <linearGradient id="blendH" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#6B7B8D"/>
+      <stop offset="100%" stop-color="#00B5A3"/>
+    </linearGradient>
+    <radialGradient id="blendR" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"   stop-color="#4A9E8E"/>
+      <stop offset="100%" stop-color="#7A8D9A"/>
+    </radialGradient>
+  </defs>
+  <text x="148" y="126" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="22" font-weight="700" letter-spacing="2" fill="#1A2E4A">NEW SOUTH</text>
+  <text x="148" y="146" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="13" font-weight="300" letter-spacing="4.5" fill="#6B7B8D">TECHNOLOGIES</text>
+  <line x1="88" y1="155" x2="208" y2="155" stroke="#D4DCE4" stroke-width="0.8"/>
+  <text x="148" y="170" text-anchor="middle" font-family="'Helvetica Neue', Arial, sans-serif" font-size="9.5" font-weight="400" letter-spacing="1.2" fill="#00B5A3">Governance-First Modernization</text>
+</svg>

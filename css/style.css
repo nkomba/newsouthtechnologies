@@ -660,3 +660,84 @@ input:focus, textarea:focus {
     border-color: var(--color-navy-primary);
     transform: translateY(-2px);
 }
+/* =========================================
+   MOBILE NAVIGATION FIX
+   ========================================= */
+
+/* By default, hide nav links on small screens (Mobile First approach) */
+@media (max-width: 900px) {
+    .nav-links {
+        display: none; /* Hidden initially */
+        position: absolute;
+        top: 70px; /* Adjust based on your navbar height */
+        left: 0;
+        width: 100%;
+        background-color: var(--color-white);
+        flex-direction: column;
+        align-items: center;
+        padding: 2rem 0;
+        box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+        z-index: 1000;
+    }
+
+    /* Show the toggle button ONLY on mobile */
+    .mobile-toggle {
+        display: block !important;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 10px;
+        z-index: 1001;
+        order: 1; /* Ensure it's after the logo */
+    }
+
+    /* Hide the hamburger text/icon if not styled yet, 
+       ensure the button itself is visible */
+    .mobile-toggle span {
+        display: block;
+        width: 25px;
+        height: 3px;
+        background-color: var(--color-navy-primary);
+        margin: 6px 0;
+        transition: 0.4s;
+    }
+    
+    /* Style for the active state (Menu Open) */
+    .nav-links.active {
+        display: flex !important;
+        animation: slideDown 0.3s ease-out;
+    }
+
+    /* Hamburger Animation (Optional) */
+    .mobile-toggle[aria-expanded="true"] .line-1 {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+    .mobile-toggle[aria-expanded="true"] .line-2 {
+        opacity: 0;
+    }
+    .mobile-toggle[aria-expanded="true"] .line-3 {
+        transform: rotate(45deg) translate(-5px, -6px);
+    }
+}
+
+/* Desktop: Hide toggle, show list */
+@media (min-width: 901px) {
+    .mobile-toggle {
+        display: none !important;
+    }
+    .nav-links {
+        display: flex !important;
+        position: static;
+        width: auto;
+        flex-direction: row;
+        background: none;
+        box-shadow: none;
+        padding: 0;
+    }
+}
+
+/* Animation */
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}

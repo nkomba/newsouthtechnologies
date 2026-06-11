@@ -46,18 +46,49 @@ function initSlider() {
 }
 
 // (Keep existing functions: initMobileMenu, initSmoothScroll, initStickyNav below)
+/**
+ * Mobile Menu Toggle
+ */
 function initMobileMenu() {
     const toggleBtn = document.querySelector('.mobile-toggle');
     const navLinks = document.getElementById('main-nav');
+    const nav = document.querySelector('.navbar');
 
-    if (!toggleBtn || !navLinks) return;
+    if (!toggleBtn || !navLinks) {
+        console.warn("Mobile menu elements not found.");
+        return;
+    }
 
     toggleBtn.addEventListener('click', () => {
-        const isExpanded = toggleBtn.getAttribute('aria-expanded') === 'true';
-        toggleBtn.setAttribute('aria-expanded', !isExpanded);
+        const isOpen = toggleBtn.getAttribute('aria-expanded') === 'true';
+        
+        // Toggle classes
+        toggleBtn.setAttribute('aria-expanded', !isOpen);
         navLinks.classList.toggle('active');
+        
+        // Optional: Add close behavior when clicking outside or a link
+        if (!isOpen) {
+            // Animate hamburger if needed
+        }
+    });
+
+    // Close menu when a link is clicked (optional but good UX)
+    navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            toggleBtn.setAttribute('aria-expanded', 'false');
+            navLinks.classList.remove('active');
+        });
     });
 }
+
+// Initialize
+document.addEventListener('DOMContentLoaded', () => {
+    initSlider();
+    initMobileMenu(); // <-- MUST BE HERE
+    initSmoothScroll();
+    initStickyNav();
+    initBlogFilter(); // If you added it
+});
 
 function initSmoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
