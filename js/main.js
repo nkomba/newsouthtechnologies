@@ -179,10 +179,54 @@ function initBlogFilter() {
 
 document.addEventListener('DOMContentLoaded', () => {
     initSlider();
-    initMobileMenu();
+  //  initMobileMenu();
     initSmoothScroll();
-    initStickyNav();
-    
+   // initStickyNav();
+function initMobileMenu() {
+    // 1. Find elements
+    const btn = document.querySelector('.mobile-toggle');
+    const menu = document.getElementById('main-nav');
+
+    // DEBUG: Log what we found
+    console.log("Mobile Menu Init Started");
+    console.log("Button found:", btn);
+    console.log("Menu found:", menu);
+
+    // If either is missing, stop and alert
+    if (!btn || !menu) {
+        console.error("CRITICAL ERROR: Button or Menu NOT FOUND!");
+        return; 
+    }
+
+    // 2. Force a test click immediately to see if logic works
+    // (Remove this line in production, keep it for debugging)
+    setTimeout(() => {
+        console.log("Simulating click...");
+        menu.classList.add('active');
+        btn.setAttribute('aria-expanded', 'true');
+        alert("DEBUG: If you see this, JS is working! But manual click might still fail.");
+    }, 1000); // Runs 1 second after load
+
+    // 3. Attach the real click listener
+    btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        const isOpen = menu.classList.contains('active');
+        
+        console.log("CLICK DETECTED! Toggling from", isOpen ? "OPEN" : "CLOSED");
+        
+        if (isOpen) {
+            menu.classList.remove('active');
+            btn.setAttribute('aria-expanded', 'false');
+        } else {
+            menu.classList.add('active');
+            btn.setAttribute('aria-expanded', 'true');
+        }
+    });
+
+    console.log("Event Listener Attached Successfully");
+}    
     // Initialize Blog Filter (Only runs if on blog page)
     const filterButtons = document.querySelectorAll('.filter-btn');
     if (filterButtons.length > 0) {
