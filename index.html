@@ -34,6 +34,7 @@
               <li><a href="#agility">Governed Agile</a></li>
               <li><a href="#ai">Responsible AI</a></li>
               <li><a href="./careers.html">Careers</a></li>
+              <li><a href="./blog.html">Insights</a></li>
               <li><a href="#contact" class="btn btn-primary">Request Audit</a></li>
           </ul>
         </div>
@@ -57,6 +58,7 @@
         <section class="compliance-bar" aria-label="Compliance Frameworks">
             <div class="container">
                 <p class="compliance-label">Built for the compliance frameworks that govern your mission</p>
+
                 <div class="compliance-grid">
                     <div class="badge">
                         <img src="./assets/images/badge-fedramp.svg" alt="FedRAMP Aligned" class="badge-icon">
@@ -97,26 +99,49 @@
                         </div>
                         <h3>Modernization with Purpose</h3>
                         <p>We decouple business logic from legacy mainframes using incremental strangler-fig patterns — no big-bang cutover, no mission disruption. Every migration step produces a FedRAMP-aligned landing zone and a compliance posture your auditors can trace.</p>
-                        <a href="#" class="card-link">See Our Modernization Approach →</a>
+          <div style="display:flex; flex-direction:column; gap:1rem;">
+    <a href="./assets/downloads/modernization-blueprint.pdf" target="_blank" class="card-link btn-outline" download>
+        📄 Download the Modernization Blueprint (PDF)
+    </a>
+    <a href="#contact" class="card-link btn-primary">Request Consultation →</a>
+          </div>
                     </article>
 
-                    <article class="card card--agility" id="agility">
-                        <div class="card-icon">
-                            <img src="./assets/images/icon-agility.svg" alt="" aria-hidden="true">
-                        </div>
-                        <h3>Governed Agility</h3>
-                        <p>DevSecOps pipelines that audit themselves. Agile governance frameworks that teach PMOs and CIOs how to fund outcomes instead of outputs. We embed with your teams until governed delivery is how you work.</p>
-                        <a href="#" class="card-link">Explore Governed Agile Framework →</a>
-                    </article>
+        <!-- Card 2: Governed Agility -->
+        <article class="card card--agility" id="agility">
+            <div class="card-icon">
+                <img src="./assets/images/icon-agility.svg" alt=""aria-hidden="true">
 
-                    <article class="card card--ai" id="ai">
-                        <div class="card-icon">
-                            <img src="./assets/images/icon-ai.svg" alt="" aria-hidden="true">
-                        </div>
-                        <h3>Responsible AI & Data Governance</h3>
-                        <p>From hype to trustworthy decision support. We implement explainable AI (XAI), model risk management, and data fabric strategies aligned with OMB M-26-04 and NIST's AI Risk Management Framework.</p>
-                        <a href="#" class="card-link">Download Our AI Governance Playbook →</a>
-                    </article>
+            </div>
+            <h3>Governed Agility</h3>
+            <p>Embed compliance directly into your DevSecOps pipelines. Achieve continuous authorization with zero unplanned downtime.</p>
+            
+            <!-- NEW DUAL BUTTON SECTION -->
+            <div style="display:flex; flex-direction:column; gap:0.75rem; margin-top:1.5rem;">
+                <a href="./assets/downloads/governed-agile-framework.pdf" target="_blank" class="card-link btn-outline" download>
+                    📄 Download the GAF White Paper
+                </a>
+                <a href="#contact" class="card-link btn-primary">Discuss Implementation →</a>
+            </div>
+        </article>
+
+        <!-- Card 3: Responsible AI -->
+        <article class="card card--ai" id="ai">
+            <div class="card-icon">
+                <img src="./assets/images/icon-ai.svg" alt=""aria-hidden="true">
+ 
+            </div>
+            <h3>Responsible AI & Data Governance</h3>
+            <p>Deploy AI systems that pass audit. Implement explainability, bias mitigation, and continuous monitoring aligned with OMB M-26-04.</p>
+            
+            <!-- DUAL BUTTON SECTION -->
+            <div style="display:flex; flex-direction:column; gap:0.75rem; margin-top:1.5rem;">
+                <a href="./assets/downloads/ai-governance-playbook.pdf" target="_blank" class="card-link btn-outline" download>
+                    📄 Download the AI Governance Playbook
+                </a>
+                <a href="#contact" class="card-link btn-primary">Schedule AI Assessment →</a>
+            </div>
+        </article>
                 </div>
             </div>
         </section>
@@ -126,26 +151,26 @@
                 <h2>Experience the Transformation</h2>
                 <p>See how governed modernization replaces legacy risk with auditable cloud services.</p>
                 
-                <div class="slider-container" id="sliderContainer">
-                    <!-- Legacy Layer (Behind) -->
-                    <div class="layer layer-legacy" id="layerLegacy">
-                        <span class="layer-label">LEGACY</span>
-                        <span class="layer-sub">COBOL / Siloed Data / Manual Compliance</span>
-                    </div>
-                    
-                    <!-- Modern Layer (On Top) -->
-                    <div class="layer layer-modern" id="layerModern">
-                        <span class="layer-label">MODERN</span>
-                        <span class="layer-sub">Containerized / Unified Data / Automated Governance</span>
-                    </div>
-                    
-                    <!-- Handle (The dragging point) -->
-                    <div class="slider-handle" id="sliderHandle"></div>
-                    
-                    <!-- Invisible Range Input (Actual draggable mechanism) -->
-                    <input type="range" min="0" max="100" value="50" class="slider-input" id="sliderInput">
+
+            <div class="slider-container" id="sliderContainer">
+                <!-- Legacy Layer (Gray - Shows when Modern is 0%) -->
+            <div class="layer layer-legacy" id="layerLegacy">
+                <span class="layer-label">LEGACY</span>
+                <span class="layer-sub">COBOL / Siloed Data / Manual Compliance</span>
                 </div>
-                
+    
+            <!-- Modern Layer (Teal - Controlled by JS) -->
+            <div class="layer layer-modern" id="layerModern">
+              <span class="layer-label">MODERN</span>
+              <span class="layer-sub">Containerized / Unified Data / Automated Governance</span>
+            </div>
+    
+    <!-- Handle (Dragging Point) -->
+    <div class="slider-handle" id="sliderHandle"></div>
+    
+    <!-- Range Input -->
+    <input type="range" min="0" max="100" value="50" class="slider-input" id="sliderInput">
+</div>
                 <p class="slider-caption">Drag the handle to see the difference. Our strangler-fig approach moves you from left to right without stopping the mission.</p>
             </div>
         </section>
@@ -177,6 +202,8 @@
 
                     <div class="leadership-cta">
                         <p>Ready to work with a team that understands the stakes?</p>
+                        <a href="./cmmc-calculator.html" class="btn btn-primary">Calculate Your CMMC Readiness Score Now</a>
+         
                         <a href="#contact" class="btn btn-primary">Request a Consultation</a>
                     </div>
                 </div>
@@ -197,7 +224,7 @@
 
                     <div class="spotlight-bio">
                         <h3>Catherine A. Nkomba</h3>
-                        <p class="title">Managing Partner</p>
+                        <p class="title">Co-Managing Partner</p>
                         
                         <p class="bio-text">
                             With over 30 years of experience solving mission-critical challenges for federal and state agencies, Catherine specializes in <strong>strategic team orchestration</strong>. She believes that technology is only as effective as the people behind it. Her approach is simple: assemble the right mix of cleared talent, domain experts, and agile coaches to fit the specific mission, then empower them to deliver.
@@ -207,6 +234,44 @@
                             A certified Project Management Professional (PMP) and SAFe Program Consultant (SPC6), Catherine has led modernization efforts that reduced technical debt by 40% while maintaining 100% audit compliance. She doesn't just manage projects; she builds the governance frameworks that allow innovation to thrive safely.
                         </p>
 
+                        <div class="bio-cta">
+                            <a href="#contact" class="btn btn-secondary">Connect with Leadership</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Leadership Spotlight: Eugene Nkomba -->
+        <section class="leadership-spotlight leadership-eugene">
+            <div class="container">
+                <div class="spotlight-grid">
+                    <div class="spotlight-image">
+                        <img src="./assets/images/eugene-nkomba.jpg" alt="Eugene Nkomba, Co-Managing Partner" class="partner-photo">
+                        <div class="photo-caption">
+                            <span class="badge-small">MBA</span>
+                            <span class="badge-small">Six Sigma MBB</span>
+                            <span class="badge-small">PCC</span>
+                            <span class="badge-small">CISA/CISM</span>
+                            <span class="badge-small">PMI-ACP</span>
+                        </div>
+                    </div>
+
+                    <div class="spotlight-bio">
+                        <h3>Eugene Nkomba, MBA</h3>
+                        <p class="title">Co-Managing Partner & Executive Coach</p>
+                        
+                        <p class="bio-text">
+                            With over 30 years of experience bridging technology strategy and human performance, Eugene ensures that leadership teams are as effective as the systems they build. As a Certified Six Sigma Master Black Belt and PCC-credentialed coach (ICF), he specializes in guiding executives through high-stakes transformations where technical complexity meets human ambiguity.
+                        </p>
+                        
+                        <p class="bio-text">
+                            Eugene's unique value lies in his ability to translate deep technological understanding—rooted in his background as an MBA, Project Manager (PMP), and Agile Coach—into actionable leadership behaviors. He works alongside C-suite leaders to dismantle silos, foster resilient decision-making cultures, and align organizational agility with rigorous governance frameworks. His coaching ensures that when New South Technologies implements a modernization roadmap, the leadership team possesses the wisdom and presence required to sustain it.
+                        </p>
+                        
+                        <p class="bio-text">
+                            Whether navigating AI-driven disruption or restructuring legacy operations, Eugene helps leaders move beyond mere execution to true strategic stewardship. His clients include tech founders and federal executives who demand results without sacrificing their humanity or long-term vision.
+                        </p>
                         <div class="bio-cta">
                             <a href="#contact" class="btn btn-secondary">Connect with Leadership</a>
                         </div>
@@ -233,36 +298,87 @@
     </main>
 
     <!-- Footer -->
+    <!-- Footer & Contact Form -->
     <footer id="contact">
-        <div class="container footer-grid">
-            <div class="footer-brand">
-                <h3>New South Technologies</h3>
-                <p>Governance-first modernization for the capital region.</p>
+        <div class="container">
+            <!-- Contact Form Section -->
+            <section class="contact-form-section">
+                <h2>Request a Compliance Audit</h2>
+                <p class="contact-sub">Have questions about legacy modernization, AI governance, or audit readiness? Fill out the form below. We typically respond within one business day.</p>
+                
+                <form action="https://formspree.io/f/mvznzwav" method="POST" class="form-grid">
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" name="name" required placeholder="Jane Doe">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Work Email *</label>
+                        <input type="email" id="email" name="email" required placeholder="jane@agency.gov">
+                    </div>
+                    
+                    <div class="form-group full-width">
+                        <label for="agency">Agency / Organization</label>
+                        <input type="text" id="agency" name="agency" placeholder="e.g., U.S. GSA, VA, State of MD">
+                    </div>
+                    
+                    <div class="form-group full-width">
+                        <label for="message">How can we help? *</label>
+                        <textarea id="message" name="message" rows="5" required placeholder="Describe your modernization challenge or compliance need..."></textarea>
+                    </div>
+                    
+                    <div class="form-group full-width">
+                        <button type="submit" class="btn btn-primary btn-large">Send Request</button>
+                    </div>
+                    
+                    <!-- Honeypot (Spam protection) -->
+                    <div style="display:none;">
+                        <label>Don't fill this out if you're human:</label>
+                        <input name="_gotcha">
+                    </div>
+                    
+                    <!-- Redirect after submit (Optional) -->
+                    <input type="hidden" name="_next" value="https://newsouthtechnologies.com/thanks.html">
+                    <input type="hidden" name="_subject" value="New Compliance Audit Request - New South Technologies">
+                </form>
+            </section>
+
+            <!-- Standard Footer Info -->
+            <div class="footer-grid-top">
+                <div class="footer-brand">
+                    <h3>New South Technologies</h3>
+                    <p>Governance-first modernization for the capital region.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Capabilities</h4>
+                    <ul>
+                        <li><a href="#modernize">Modernize</a></li>
+                        <li><a href="#agility">Governed Agile</a></li>
+                        <li><a href="#ai">Responsible AI</a></li>
+                        <li><a href="./careers.html">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-credentials">
+                    <h4>Credentials</h4>
+                    <p>Active Clearances: Secret, TS/SCI</p>
+                    <p>Certifications: PMP, SAFe, AWS GovCloud</p>
+                </div>
+                <div class="footer-contact-info">
+                    <h4>Contact</h4>
+                    <p><a href="mailto:info@newsouthtechnologies.com">info@newsouthtechnologies.com</a></p>
+                    <p>Washington, D.C. Metro</p>
+                </div>
             </div>
-            <div class="footer-links">
-                <h4>Capabilities</h4>
-                <ul>
-                    <li><a href="#modernize">Modernize</a></li>
-                    <li><a href="#agility">Governed Agile</a></li>
-                    <li><a href="#ai">Responsible AI</a></li>
-                    <li><a href="#">Strategy-to-Execution</a></li>
-                </ul>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 New South Technologies. <a href="#">Privacy Policy</a> | <a href="#">Terms</a></p>
             </div>
-            <div class="footer-credentials">
-                <h4>Credentials</h4>
-                <p>Active Clearances: Secret, TS/SCI</p>
-                <p>Certifications: PMP, SAFe, AWS GovCloud</p>
-            </div>
-            <div class="footer-contact">
-                <h4>Contact</h4>
-                <a href="mailto:info@newsouthtechnologies.com" class="btn btn-primary">Request a Compliance Audit</a>
-                <p>Washington, D.C. Metro</p>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 New South Technologies. <a href="#">Privacy Policy</a> | <a href="#">Terms</a></p>
         </div>
     </footer>
+
+    <script src="./js/main.js" defer></script>
+</body>
+</html>
 
     <!-- JavaScript -->
     <script src="./js/main.js" defer></script>

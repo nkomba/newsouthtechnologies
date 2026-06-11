@@ -26,15 +26,42 @@
             </button>
 
             <ul id="main-nav" class="nav-links">
-                <li><a href="./index.html">Home</a></li>
-                <li><a href="./index.html#modernize">Modernize</a></li>
-                <li><a href="./index.html#ai">Responsible AI</a></li>
-                <li><a href="./careers.html" class="active">Careers</a></li>
-                <li><a href="./index.html#contact" class="btn btn-primary">Request Audit</a></li>
+              <li><a href="./index.html">Home</a></li>
+              <li><a href="./index.html#modernize">Modernize</a></li>
+              <li><a href="./index.html#ai">Responsible AI</a></li>
+              <li><a href="./careers.html">Careers</a></li>
+              <li><a href="./blog.html">Insights</a></li>
+              <li><a href="./index.html#contact" class="btn btn-primary">Request Audit</a></li>
             </ul>
         </div>
     </nav>
+    <script>
+    // Pre-select position based on URL parameter
+    // const urlParams = new URLSearchParams(window.location.search);
+    // const position = urlParams.get('position');
+    // if (position) {
+       // document.getElementById('position').value = position;
+    //}
+    </script>
+    <script>
+// Extract the position from the URL
+// We need to look inside the HASH (#...) because you put it there
+const hash = window.location.hash; // e.g., "#apply&position=grc-lead"
+const params = new URLSearchParams(window.location.search); // hash.substring(1)); // Remove the '#' and parse
+const position = params.get('position');
 
+if (position) {
+    // Find the dropdown and set its value
+    const selectBox = document.getElementById('position');
+    if (selectBox && selectBox.querySelector(`option[value="${position}"]`)) {
+        selectBox.value = position;
+        console.log(`Pre-selected position: ${position}`);
+        
+        // Optional: Scroll specifically to the field if needed
+        selectBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+}
+</script>
     <main>
         <!-- Careers Hero -->
         <header class="hero hero-careers">
@@ -83,7 +110,8 @@
                                 <span class="job-tag">Public Trust Required</span>
                             </div>
                         </div>
-                        <a href="#apply" class="btn btn-primary btn-apply">Apply</a>
+                        <!-- In the job cards list, change apply links to: -->
+                        <a href="./careers.html?position=grc-lead#apply" class="btn btn-primary btn-apply">Apply</a>
                     </div>
                     <p>Lead day-to-day GRC operations across federal modernization programs. Oversee RMF implementation, security authorization packages, and continuous monitoring for agency systems transitioning from legacy to governed cloud environments.</p>
                     <details>
@@ -111,7 +139,8 @@
                                 <span class="job-tag">Active Secret Required</span>
                             </div>
                         </div>
-                        <a href="#apply" class="btn btn-primary btn-apply">Apply</a>
+                        <!-- In the job cards list, change apply links to: -->
+                        <a href="./careers.html?position=grc-lead#apply" class="btn btn-primary btn-apply">Apply</a>
                     </div>
                     <p>Support the full RMF lifecycle for systems undergoing modernization. Create and maintain A&A packages, manage continuous monitoring, and coordinate security control implementation with engineering teams.</p>
                     <details>
@@ -139,7 +168,8 @@
                                 <span class="job-tag">Clearance Preferred</span>
                             </div>
                         </div>
-                        <a href="#apply" class="btn btn-primary btn-apply">Apply</a>
+                        <!-- In the job cards list, change apply links to: -->
+                         <a href="./careers.html?position=grc-lead#apply" class="btn btn-primary btn-apply">Apply</a>
                     </div>
                     <p>Drive FedRAMP ATOs and agency-specific authorizations for AI-enabled systems deployed in regulated environments. Bridge the gap between engineering teams and compliance requirements to ensure governed AI adoption.</p>
                     <details>
@@ -167,7 +197,8 @@
                                 <span class="job-tag">U.S. Citizen</span>
                             </div>
                         </div>
-                        <a href="#apply" class="btn btn-primary btn-apply">Apply</a>
+                        <!-- In the job cards list, change apply links to: -->
+                        <a href="./careers.html?position=grc-lead#apply" class="btn btn-primary btn-apply">Apply</a>
                     </div>
                     <p>Architect and implement enterprise GRC integration and compliance automation. Design scalable governance platform architectures, establish automated evidence ingestion, and lead modernization of compliance workflows.</p>
                     <details>
@@ -194,7 +225,8 @@
                                 <span class="job-tag">No Clearance</span>
                             </div>
                         </div>
-                        <a href="#apply" class="btn btn-primary btn-apply">Apply</a>
+                        <!-- In the job cards list, change apply links to: -->
+                        <a href="./careers.html?position=grc-lead#apply" class="btn btn-primary btn-apply">Apply</a>
                     </div>
                     <p>Manage the firm's ISO 27001/27701 certification programs, client security assessments, and internal GRC audit processes. Serve as the primary contact for client compliance inquiries and lead continuous improvement initiatives.</p>
                     <details>
@@ -220,7 +252,8 @@
                                 <span class="job-tag">No Clearance</span>
                             </div>
                         </div>
-                        <a href="#apply" class="btn btn-primary btn-apply">Apply</a>
+                        <!-- In the job cards list, change apply links to: -->
+                        <a href="./careers.html?position=grc-lead#apply" class="btn btn-primary btn-apply">Apply</a>
                     </div>
                     <p>Lead proactive defense of information systems. Architect security solutions (SIEM, ZTS, EDR), conduct threat hunting and vulnerability assessments, and champion security best practices aligned with NIST and ISO 27001.</p>
                     <details>
@@ -247,7 +280,9 @@
                                 <span class="job-tag">No Clearance</span>
                             </div>
                         </div>
-                        <a href="#apply" class="btn btn-primary btn-apply">Apply</a>
+                        <!-- In the job cards list, change apply links to: -->
+                        <a href="./careers.html?position=grc-lead#apply" class="btn btn-primary btn-apply">Apply</a>
+            
                     </div>
                     <p>Lead global privacy operations, AI governance, and third-party risk management. Champion privacy-by-design and AI ethics principles, translating emerging regulatory requirements into repeatable controls and operating rhythms.</p>
                     <details>
@@ -267,12 +302,146 @@
         </section>
 
         <!-- Apply Section -->
-        <section class="apply-section" id="apply">
+               <!-- Application Section -->
+        <section class="application-section" id="apply">
             <div class="container">
-                <h2>Apply Now</h2>
-                <p class="apply-sub">Send your resume and a brief note about why governance-first transformation matters to you.</p>
-                <a href="mailto:careers@newsouthtechnologies.com" class="btn btn-primary btn-large">careers@newsouthtechnologies.com</a>
-                <p class="apply-note">New South Technologies is an equal opportunity employer. All qualified applicants will receive consideration without regard to race, color, religion, sex, national origin, disability, or veteran status.</p>
+                <h2>Join Our Team</h2>
+                <p class="apply-sub">Ready to build governance that matters? Complete the form below and submit your application. We typically respond within 48 hours.</p>
+
+                <form action="https://formspree.io/f/mzdqgjoq" method="POST" enctype="multipart/form-data" class="job-application-form">
+                    
+                    <!-- Job Selection Dropdown -->
+                    <div class="form-group full-width">
+                        <label for="position">Position Applied For *</label>
+                        <select id="position" name="position" required>
+                            <option value="" disabled selected>Select a Position</option>
+                            <option value="grc-lead">GRC Lead — Federal Modernization Programs</option>
+                            <option value="cyber-analyst">Cybersecurity Analyst — RMF & Assessment</option>
+                            <option value="grc-pm">GRC Program Manager — AI Governance & FedRAMP</option>
+                            <option value="grc-engineer">GRC Engineer — Compliance Automation</option>
+                            <option value="iso-grc">GRC Manager — ISO & Client Security Programs</option>
+                            <option value="senior-cyber">Senior Cybersecurity Analyst — Security Operations</option>
+                            <option value="data-governance">Senior Director — Data Governance & AI Ethics</option>
+                            <option value="other">Other (Please Specify)</option>
+                        </select>
+                    </div>
+
+                    <!-- Personal Info Row -->
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="first-name">First Name *</label>
+                            <input type="text" id="first-name" name="first_name" required placeholder="Jane">
+                        </div>
+                        <div class="form-group">
+                            <label for="last-name">Last Name *</label>
+                            <input type="text" id="last-name" name="last_name" required placeholder="Doe">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Work Email *</label>
+                            <input type="email" id="email" name="email" required placeholder="jane@agency.gov">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" name="phone" required placeholder="(555) 123-4567">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="location">Current Location *</label>
+                            <input type="text" id="location" name="location" required placeholder="Reston, VA">
+                        </div>
+                        <div class="form-group">
+                            <label for="clearance">Security Clearance Status</label>
+                            <select id="clearance" name="clearance">
+                                <option value="none">None</option>
+                                <option value="public-trust">Public Trust</option>
+                                <option value="secret">Secret</option>
+                                <option value="ts-sci">TS/SCI</option>
+                                <option value="eligible">Eligible (Cannot Obtain Yet)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Experience Summary -->
+                    <div class="form-group full-width">
+                        <label for="experience">Years of Relevant Experience *</label>
+                        <input type="number" id="experience" name="experience_years" min="0" max="50" required placeholder="e.g., 10">
+                        <small class="field-hint">Minimum years required vary by position. See job posting details above.</small>
+                    </div>
+
+                    <!-- Certifications -->
+                    <div class="form-group full-width">
+                        <label for="certifications">Professional Certifications</label>
+                        <textarea id="certifications" name="certifications" rows="3" placeholder="e.g., CISSP, CISM, PMP, SAFe SPC6 (List all relevant certs)"></textarea>
+                    </div>
+
+                    <!-- Resume Upload -->
+                    <div class="form-group full-width">
+                        <label for="resume">Resume / CV (PDF Only, Max 5MB) *</label>
+                        <div class="file-upload-wrapper">
+                            <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" required>
+                            <span class="upload-hint">Accepted formats: PDF, DOC, DOCX. Maximum size: 5MB</span>
+                        </div>
+                    </div>
+
+                    <!-- Cover Letter -->
+                    <div class="form-group full-width">
+                        <label for="cover-letter">Cover Letter</label>
+                        <textarea id="cover-letter" name="cover_letter" rows="5" placeholder="Tell us why you're interested in this role and how your background aligns with our mission..."></textarea>
+                    </div>
+
+                    <!-- Why Join Question -->
+                    <div class="form-group full-width">
+                        <label for="why-us">Why New South Technologies? *</label>
+                        <textarea id="why-us" name="why_us" rows="3" required placeholder="In 2-3 sentences, explain what attracts you to our governance-first approach..."></textarea>
+                    </div>
+
+                    <!-- Authorization Question -->
+                    <div class="form-group full-width checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="authorization" required>
+                            <span>I am authorized to work in the United States and understand that active security clearance may be required for this position.</span>
+                        </label>
+                    </div>
+
+                    <!-- Equal Opportunity -->
+                    <div class="form-group full-width checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="privacy" required>
+                            <span>I confirm that all information provided is accurate to the best of my knowledge. I understand this information will be used solely for employment consideration.</span>
+                        </label>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="form-group full-width">
+                        <button type="submit" class="btn btn-primary btn-large">Submit Application</button>
+                        <button type="reset" class="btn btn-secondary">Clear Form</button>
+                    </div>
+
+                    <!-- Honeypot (Spam Protection) -->
+                    <div style="display:none;">
+                        <label>Don't fill this out if you're human:</label>
+                        <input name="_gotcha">
+                    </div>
+
+                    <!-- Redirect after submission -->
+                    <input type="hidden" name="_next" value="https://newsouthtechnologies.com/thanks.html">
+                    <input type="hidden" name="_subject" value="New Job Application - New South Technologies">
+                    
+                    <!-- Email Reply To -->
+                    <input type="hidden" name="_replyto" value="">
+                    <!-- This gets populated from the email field using JS if needed -->
+                    
+                </form>
+
+                <p class="apply-note">
+                    New South Technologies is an equal opportunity employer. All qualified applicants will receive consideration without regard to race, color, religion, sex, national origin, disability, or veteran status.<br><br>
+                    Need assistance? Contact us at <a href="mailto:careers@newsouthtechnologies.com">careers@newsouthtechnologies.com</a>.
+                </p>
             </div>
         </section>
     </main>

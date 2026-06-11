@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Featured Card Preview - Test All 3 Options</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* BASE STYLES */
+        :root {
+            --color-navy-primary: #0F172A;
+            --color-teal-accent: #0D9488;
+            --color-slate: #64748B;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F8FAFC;
+            margin: 0;
+            padding: 4rem 2rem;
+        }
+        
+        .preview-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .section-label {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--color-navy-primary);
+            margin-bottom: 1rem;
+            display: block;
+        }
+        
+        .card-wrapper {
+            margin-bottom: 4rem;
+            border: 2px solid #E2E8F0;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        
+        .option-title {
+            background-color: var(--color-navy-primary);
+            color: white;
+            padding: 1rem;
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+        
+        /* OPTION 1: SPLIT CARD */
+        .featured-card.featured-visual {
+            display: flex;
+            position: relative;
+            width: 100%;
+            min-height: 350px;
+            border: none;
+            box-shadow: none;
+        }
+        
+        .featured-visual-split {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+        }
+        
+        .split-side {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .split-legacy {
+            background-color: #334155;
+            color: #94A3B8;
+            border-right: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .split-modern {
+            background-color: var(--color-teal-accent);
+            color: white;
+        }
+        
+        .visual-label {
+            font-size: 1.5rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.5rem;
+        }
+        
+        .visual-sub {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        .featured-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(to bottom, rgba(15,23,42,0.7), rgba(15,23,42,0.9));
+            z-index: 10;
+            text-align: center;
+            padding: 2rem;
+            box-sizing: border-box;
+        }
+        
+        .featured-overlay h2 {
+            color: white;
+            font-size: 1.75rem;
+            max-width: 800px;
+            line-height: 1.3;
+            margin-bottom: 1rem;
+        }
+        
+        .featured-overlay p {
+            color: #E2E8F0;
+            max-width: 700px;
+            margin-bottom: 2rem;
+            font-size: 1rem;
+        }
+        
+        .btn-primary {
+            background-color: white;
+            color: var(--color-teal-accent);
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        /* OPTION 2: GRADIENT FLOW */
+        .featured-card.featured-gradient {
+            position: relative;
+            min-height: 350px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            box-shadow: none;
+        }
+        
+        .gradient-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #334155 0%, #475569 30%, #0D9488 70%, #14B8A6 100%);
+            background-size: 200% 200%;
+            animation: flowGradient 6s ease infinite;
+            z-index: 1;
+        }
+        
+        @keyframes flowGradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .featured-card.featured-gradient .featured-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 800px;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.2);
+            color: white;
+        }
+        
+        .post-category {
+            background-color: var(--color-teal-accent);
+            color: white;
+            margin-bottom: 1rem;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+        
+        .featured-card.featured-gradient h2 {
+            color: white;
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+        }
+        
+        .featured-card.featured-gradient p {
+            color: #E2E8F0;
+            margin-bottom: 1.5rem;
+        }
+        
+        /* OPTION 3: DIAGRAM */
+        .featured-card.featured-diagram {
+            position: relative;
+            min-height: 350px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: white;
+            border: none;
+            box-shadow: none;
+        }
+        
+        .bg-svg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            opacity: 0.6;
+        }
+        
+        .featured-card.featured-diagram .featured-content {
+            position: relative;
+            z-index: 2;
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            max-width: 700px;
+            text-align: center;
+        }
+        
+        .featured-card.featured-diagram h2 {
+            color: var(--color-navy-primary);
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+        }
+        
+        .featured-card.featured-diagram p {
+            color: var(--color-slate);
+            margin-bottom: 1.5rem;
+        }
+        
+        .card-link {
+            color: var(--color-teal-accent);
+            font-weight: 700;
+            text-decoration: none;
+            border-bottom: 2px solid transparent;
+        }
+        
+        .card-link:hover {
+            border-bottom-color: var(--color-teal-accent);
+        }
+        
+        /* MOBILE PREVIEW HINT */
+        .mobile-hint {
+            text-align: center;
+            padding: 1rem;
+            background-color: #FFFBE6;
+            color: #B45309;
+            font-size: 0.9rem;
+            border-radius: 6px;
+            margin-bottom: 2rem;
+        }
+    </style>
+</head>
+<body>
+    
+<div class="preview-container">
+    
+    <div class="mobile-hint">
+        💡 Tip: Resize your browser window to see how each option responds to mobile screens!
+    </div>
+
+    <!-- OPTION 1 -->
+    <span class="section-label">OPTION 1: The Split Visual Card (Direct Message)</span>
+    <div class="card-wrapper">
+        <div class="option-title">Option 1 Preview</div>
+        <article class="featured-card featured-visual">
+            <div class="featured-visual-split">
+                <div class="split-side split-legacy">
+                    <span class="visual-label">LEGACY</span>
+                    <span class="visual-sub">High Risk / Manual Compliance</span>
+                </div>
+                <div class="split-side split-modern">
+                    <span class="visual-label">MODERN</span>
+                    <span class="visual-sub">Audit-Ready / Automated</span>
+                </div>
+                <div class="featured-overlay">
+                    <span class="post-category">Featured Insight</span>
+                    <h2>The Strangler Fig Pattern: Modernizing Mainframes Without Mission Disruption</h2>
+                    <p>Big-bang cutovers are the highest-risk approach. Learn how to incrementally replace legacy components while keeping the system fully operational.</p>
+                    <a href="#" class="btn btn-primary">Read the Full Story →</a>
+                </div>
+            </div>
+        </article>
+    </div>
+
+    <!-- OPTION 2 -->
+    <span class="section-label">OPTION 2: The Animated Gradient Flow (Artistic)</span>
+    <div class="card-wrapper">
+        <div class="option-title">Option 2 Preview</div>
+        <article class="featured-card featured-gradient">
+            <div class="gradient-bg"></div>
+            <div class="featured-content">
+                <span class="post-category">Featured Insight</span>
+                <h2>The Strangler Fig Pattern: Modernizing Mainframes Without Mission Disruption</h2>
+                <p>Big-bang cutovers are the highest-risk approach. Learn how to incrementally replace legacy components while keeping the system fully operational.</p>
+                <a href="#" class="card-link">Read Full Article →</a>
+            </div>
+        </article>
+    </div>
+
+    <!-- OPTION 3 -->
+    <span class="section-label">OPTION 3: The Technical Diagram (Professional)</span>
+    <div class="card-wrapper">
+        <div class="option-title">Option 3 Preview</div>
+        <article class="featured-card featured-diagram">
+            <svg class="bg-svg" viewBox="0 0 800 400" preserveAspectRatio="xMidYMid slice">
+                <rect width="800" height="400" fill="#f1f5f9"/>
+                <rect x="50" y="100" width="150" height="200" fill="#334155" rx="4"/>
+                <text x="125" y="180" fill="#fff" text-anchor="middle" font-size="14" font-family="sans-serif">LEGACY</text>
+                <path d="M220 200 L350 200" stroke="#cbd5e1" stroke-width="2" marker-end="url(#arrow)"/>
+                <circle cx="450" cy="150" r="40" fill="#0D9488" opacity="0.2"/>
+                <circle cx="500" cy="120" r="40" fill="#0D9488" opacity="0.4"/>
+                <circle cx="550" cy="150" r="40" fill="#0D9488" opacity="0.6"/>
+                <circle cx="500" cy="180" r="40" fill="#0D9488" opacity="0.8"/>
+                <text x="500" y="240" fill="#0F172A" text-anchor="middle" font-size="14" font-family="sans-serif">CLOUD</text>
+                <defs>
+                    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                        <path d="M0,0 L10,3 L0,6 Z" fill="#cbd5e1"/>
+                    </marker>
+                </defs>
+            </svg>
+            
+            <div class="featured-content">
+                <span class="post-category">Featured Insight</span>
+                <h2>The Strangler Fig Pattern: Modernizing Mainframes Without Mission Disruption</h2>
+                <p>Big-bang cutovers are the highest-risk approach. Learn how to incrementally replace legacy components while keeping the system fully operational.</p>
+                <a href="#" class="card-link">Read Full Article →</a>
+            </div>
+        </article>
+    </div>
+
+</div>
+
+</body>
+</html>

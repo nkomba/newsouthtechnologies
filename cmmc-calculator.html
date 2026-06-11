@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CMMC 2.0 Readiness Calculator | New South Technologies</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-navy: #0F172A;
+            --color-teal: #0D9488;
+            --color-red: #DC2626;
+            --color-yellow: #F59E0B;
+            --color-green: #10B981;
+            --color-bg: #F8FAFC;
+            --card-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--color-bg);
+            margin: 0;
+            padding: 2rem;
+            color: var(--color-navy);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--card-shadow);
+        }
+
+        h1, h2 { text-align: center; color: var(--color-navy); }
+        h1 { margin-bottom: 0.5rem; }
+        .subtitle { text-align: center; color: #64748B; margin-bottom: 2rem; }
+
+        /* Progress Bar */
+        .progress-container {
+            background-color: #E2E8F0;
+            border-radius: 20px;
+            height: 20px;
+            width: 100%;
+            margin: 2rem 0;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            background-color: var(--color-teal);
+            height: 100%;
+            width: 0%;
+            transition: width 0.5s ease, background-color 0.5s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+
+        .score-display {
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-weight: 700;
+            color: white;
+            margin-top: 0.5rem;
+            background-color: var(--color-gray);
+        }
+
+        /* Questions Section */
+        .question-group {
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            border: 1px solid #E2E8F0;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .question-group:hover { background-color: #F1F5F9; border-color: var(--color-teal); }
+        
+        .question-text { font-weight: 600; display: block; margin-bottom: 0.5rem; }
+        .question-desc { font-size: 0.9rem; color: #64748B; display: block; }
+
+        .radio-group { display: flex; gap: 1rem; margin-top: 0.5rem; }
+        .radio-label { cursor: pointer; display: flex; align-items: center; gap: 0.5rem; font-size: 0.95rem; }
+
+        /* Lead Capture Form */
+        .lead-form-section {
+            margin-top: 3rem;
+            padding: 2rem;
+            background-color: #F0FDFA;
+            border: 2px dashed var(--color-teal);
+            border-radius: 12px;
+            display: none; /* Hidden until scored */
+        }
+
+        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+        input { width: 100%; padding: 0.75rem; border: 1px solid #CBD5E1; border-radius: 6px; margin-bottom: 1rem; }
+        
+        button.btn-primary {
+            background-color: var(--color-teal);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            font-weight: 700;
+            border-radius: 6px;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.3s;
+        }
+        button.btn-primary:hover { background-color: #0F766E; }
+
+        /* Results Summary */
+        .results-summary {
+            margin-top: 2rem;
+            padding: 1rem;
+            background: white;
+            border: 1px solid #E2E8F0;
+            border-radius: 8px;
+            display: none;
+        }
+
+        /* Mobile */
+        @media (max-width: 600px) {
+            .form-grid { grid-template-columns: 1fr; }
+            .container { padding: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>CMMC 2.0 Readiness Calculator</h1>
+    <p class="subtitle">Answer these critical questions to get an instant readiness score and personalized recommendations.</p>
+
+    <!-- Score Display -->
+    <div class="score-display">
+        Current Readiness Score: <span id="scoreValue">0%</span>
+        <br>
+        <span id="statusBadge" class="status-badge">Not Started</span>
+    </div>
+    
+    <div class="progress-container">
+        <div id="progressBar" class="progress-bar">0%</div>
+    </div>
+
+    <form id="assessmentForm">
+        <!-- Section A: Level 1 Critical (Simplified for Demo - Expandable) -->
+        <h2>Section A: Level 1 Foundational Controls</h2>
+        <p style="font-size:0.9rem; color:#64748B; margin-bottom:1rem;">Select the option that best describes your current state.</p>
+
+        <!-- Q1 -->
+        <div class="question-group" onclick="document.getElementById('q1').click()">
+            <span class="question-text">1. Is Multi-Factor Authentication (MFA) enabled for ALL remote access?</span>
+            <span class="question-desc">Critical for both Level 1 and 2. Without this, you are automatically non-compliant.</span>
+            <div class="radio-group">
+                <label class="radio-label"><input type="radio" name="q1" value="1" id="q1_yes" required> Yes, All Users</label>
+                <label class="radio-label"><input type="radio" name="q1" value="0" id="q1_no"> No / Partially</label>
+            </div>
+        </div>
+
+        <!-- Q2 -->
+        <div class="question-group" onclick="document.getElementById('q2').click()">
+            <span class="question-text">2. Do you have a documented Incident Response Plan tested in the last 12 months?</span>
+            <span class="question-desc">Requires proof of drill/testing logs.</span>
+            <div class="radio-group">
+                <label class="radio-label"><input type="radio" name="q2" value="1" id="q2_yes" required> Yes, Tested</label>
+                <label class="radio-label"><input type="radio" name="q2" value="0" id="q2_no"> No / Not Tested</label>
+            </div>
+        </div>
+
+        <!-- Q3 -->
+        <div class="question-group" onclick="document.getElementById('q3').click()">
+            <span class="question-text">3. Are all devices containing CUI encrypted at rest?</span>
+            <span class="question-desc">BitLocker, FileVault, or equivalent.</span>
+            <div class="radio-group">
+                <label class="radio-label"><input type="radio" name="q3" value="1" id="q3_yes" required> Yes, All Devices</label>
+                <label class="radio-label"><input type="radio" name="q3" value="0" id="q3_no"> No</label>
+            </div>
+        </div>
+
+        <!-- Q4 -->
+        <div class="question-group" onclick="document.getElementById('q4').click()">
+            <span class="question-text">4. Have you performed vulnerability scans in the last 30 days?</span>
+            <span class="question-desc">Continuous monitoring requirement.</span>
+            <div class="radio-group">
+                <label class="radio-label"><input type="radio" name="q4" value="1" id="q4_yes" required> Yes</label>
+                <label class="radio-label"><input type="radio" name="q4" value="0" id="q4_no"> No</label>
+            </div>
+        </div>
+
+        <!-- Q5 -->
+        <div class="question-group" onclick="document.getElementById('q5').click()">
+            <span class="question-text">5. Do you maintain an inventory of all hardware and software assets?</span>
+            <span class="question-desc">Required for asset management controls.</span>
+            <div class="radio-group">
+                <label class="radio-label"><input type="radio" name="q5" value="1" id="q5_yes" required> Yes</label>
+                <label class="radio-label"><input type="radio" name="q5" value="0" id="q5_no"> No</label>
+            </div>
+        </div>
+
+        <!-- More questions can be added here following the pattern -->
+
+        <!-- Lead Capture Form -->
+        <div id="leadFormSection" class="lead-form-section">
+            <h2>Get Your Full Report & Action Plan</h2>
+            <p>Enter your details below. We will email you a detailed breakdown of your gaps and send a copy to our compliance experts for review.</p>
+            
+            <!-- Replace ACTION_URL with your Formspree ID -->
+            <form action="https://formspree.io/f/YOUR_FORM_ID_HERE" method="POST">
+                <input type="hidden" name="score" id="finalScore">
+                <input type="hidden" name="company_name" id="companyNameHidden">
+                
+                <div class="form-grid">
+                    <input type="text" name="name" placeholder="Full Name" required>
+                    <input type="text" name="company" placeholder="Company Name" id="companyInput" required>
+                </div>
+                <input type="email" name="email" placeholder="Work Email Address" required>
+                <input type="tel" name="phone" placeholder="Phone Number" required>
+                
+                <button type="submit" class="btn-primary">Download My Report & Send to Experts</button>
+            </form>
+            <p style="font-size:0.8rem; margin-top:0.5rem; color:#64748B;">We respect your privacy. Your data is secure.</p>
+        </div>
+
+        <!-- Printable Summary (Visible after submission logic) -->
+        <div id="resultsSummary" class="results-summary">
+            <h3>Assessment Summary</h3>
+            <p>Your calculated score is <strong><span id="summaryScore"></span></strong>.</p>
+            <p id="summaryRecommendation"></p>
+            <button onclick="window.print()" class="btn-primary" style="margin-top:1rem;">Print / Save as PDF</button>
+        </div>
+
+    </form>
+</div>
+
+<script>
+    const totalQuestions = 5; // Update this number as you add more questions
+    let answers = [];
+
+    function calculateScore() {
+        let yesCount = 0;
+        let answeredCount = 0;
+        
+        // Loop through all radio groups
+        const names = ['q1', 'q2', 'q3', 'q4', 'q5']; // Matches name attributes
+        
+        names.forEach(name => {
+            const selected = document.querySelector(`input[name="${name}"]:checked`);
+            if (selected) {
+                answeredCount++;
+                if (parseInt(selected.value) === 1) yesCount++;
+            }
+        });
+
+        if (answeredCount === 0) return;
+
+        const percentage = Math.round((yesCount / answeredCount) * 100);
+        updateUI(percentage);
+    }
+
+    function updateUI(score) {
+        document.getElementById('scoreValue').textContent = `${score}%`;
+        document.getElementById('progressBar').style.width = `${score}%`;
+        document.getElementById('progressBar').textContent = `${score}%`;
+
+        const badge = document.getElementById('statusBadge');
+        const leadSection = document.getElementById('leadFormSection');
+        const summarySection = document.getElementById('resultsSummary');
+
+        if (score >= 80) {
+            badge.textContent = "Certification Ready";
+            badge.style.backgroundColor = "var(--color-green)";
+            document.getElementById('progressBar').style.backgroundColor = "var(--color-green)";
+        } else if (score >= 60) {
+            badge.textContent = "Near Term (Needs Work)";
+            badge.style.backgroundColor = "var(--color-yellow)";
+            document.getElementById('progressBar').style.backgroundColor = "var(--color-yellow)";
+        } else {
+            badge.textContent = "Critical Risk";
+            badge.style.backgroundColor = "var(--color-red)";
+            document.getElementById('progressBar').style.backgroundColor = "var(--color-red)";
+        }
+
+        // Show Lead Form if all answered
+        if (answeredCount === totalQuestions) {
+            leadSection.style.display = 'block';
+            document.getElementById('finalScore').value = score;
+            
+            // Simple recommendation logic
+            const rec = document.createElement('p');
+            if (score >= 80) rec.textContent = "Great job! You are close to certification. Schedule your C3PAO audit now.";
+            else if (score >= 60) rec.textContent = "You have some critical gaps. Focus on MFA and Encryption first.";
+            else rec.textContent = "Immediate intervention required. Contact us for a gap analysis.";
+            
+            document.getElementById('summaryRecommendation').appendChild(rec);
+            document.getElementById('summaryScore').textContent = `${score}%`;
+            summarySection.style.display = 'block';
+        }
+    }
+
+    // Add event listeners to all radios
+    document.querySelectorAll('input[type="radio"]').forEach(radio => {
+        radio.addEventListener('change', calculateScore);
+    });
+
+    // Copy company name to hidden field for form submission
+    document.getElementById('companyInput').addEventListener('input', (e) => {
+        document.getElementById('companyNameHidden').value = e.target.value;
+    });
+</script>
+
+</body>
+</html>

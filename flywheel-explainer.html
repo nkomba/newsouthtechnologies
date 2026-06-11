@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Governed Agility Framework Explainer</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* =========================================
+           INTERACTIVE FLYWHEEL STYLES
+           ========================================= */
+        :root {
+            --color-navy: #0F172A;
+            --color-teal: #0D9488;
+            --color-amber: #D97706;
+            --color-slate: #64748B;
+            --color-bg: #F8FAFC;
+            --card-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--color-bg);
+            margin: 0;
+            padding: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .flywheel-container {
+            max-width: 900px;
+            width: 100%;
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--card-shadow);
+            text-align: center;
+        }
+
+        .flywheel-header {
+            margin-bottom: 1.5rem;
+        }
+
+        .flywheel-header h2 {
+            color: var(--color-navy);
+            font-size: 1.75rem;
+            margin: 0 0 0.5rem 0;
+        }
+
+        .flywheel-header p {
+            color: var(--color-slate);
+            font-size: 0.95rem;
+            margin: 0;
+        }
+
+        /* SVG Styling */
+        .flywheel-svg {
+            width: 100%;
+            height: auto;
+            max-height: 500px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .flywheel-svg:hover {
+            transform: scale(1.02);
+        }
+
+        /* Interactive Classes for JS */
+        .interactive-group {
+            transition: opacity 0.3s ease, filter 0.3s ease;
+        }
+
+        .interactive-group.dimmed {
+            opacity: 0.3;
+            filter: grayscale(80%);
+        }
+
+        .interactive-group.highlighted {
+            opacity: 1;
+            filter: drop-shadow(0 0 8px rgba(13, 148, 136, 0.5));
+            z-index: 10;
+        }
+
+        /* Tooltip / Info Panel */
+        .info-panel {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            border-radius: 8px;
+            background-color: #f1f5f9;
+            border-left: 4px solid var(--color-teal);
+            min-height: 120px;
+            text-align: left;
+            transition: all 0.3s ease;
+        }
+
+        .info-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--color-navy);
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .info-desc {
+            font-size: 1rem;
+            color: var(--color-navy);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .info-keypoints {
+            margin-top: 1rem;
+            padding-left: 1.2rem;
+            font-size: 0.9rem;
+            color: var(--color-slate);
+        }
+
+        .info-keypoints li {
+            margin-bottom: 0.25rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .flywheel-container {
+                padding: 1rem;
+            }
+            .info-panel {
+                text-align: center;
+            }
+            .info-keypoints {
+                padding-left: 0;
+                list-style: none;
+                font-size: 0.85rem;
+            }
+            .info-keypoints li::before {
+                content: "• ";
+                color: var(--color-teal);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="flywheel-container">
+        <div class="flywheel-header">
+            <h2>The Governed Agility Flywheel</h2>
+            <p>Hover over the rings to explore how speed and safety reinforce each other.</p>
+        </div>
+
+        <!-- Inline SVG for better interactivity control -->
+        <svg id="flywheelSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" class="flywheel-svg">
+          <defs>
+            <radialGradient id="coreGrad" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#14B8A6"/>
+              <stop offset="100%" stop-color="#0D9488"/>
+            </radialGradient>
+            <linearGradient id="gearGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#1E293B"/>
+              <stop offset="100%" stop-color="#0F172A"/>
+            </linearGradient>
+            <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="3" result="blur"/>
+              <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+            </filter>
+            <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+              <polygon points="0 0, 10 3.5, 0 7" fill="#0D9488"/>
+            </marker>
+          </defs>
+
+          <!-- Background -->
+          <rect width="800" height="600" fill="#F8FAFC"/>
+
+          <!-- Title Group (Static) -->
+          <text x="400" y="40" text-anchor="middle" font-size="24" font-weight="700" fill="#0F172A">New South Technologies</text>
+          <text x="400" y="65" text-anchor="middle" font-size="18" font-weight="500" fill="#475569">Governed Agility Framework™ (NS-T-GAF)</text>
+
+          <!-- GROUP 1: Outer Orbit (Strategic Level) -->
+          <g id="layer-strategy" class="interactive-group" data-layer="strategy">
+            <circle r="280" fill="none" stroke="#94A3B8" stroke-width="4" stroke-dasharray="10,5" opacity="0.6">
+              <animateTransform attributeName="transform" type="rotate" from="0 0 0" to="360 0 0" dur="60s" repeatCount="indefinite"/>
+            </circle>
+            <text x="0" y="-260" text-anchor="middle" font-size="14" font-weight="600" fill="#334155">STRATEGIC ORBIT</text>
+            <!-- Strategy Icons -->
+            <circle cx="240" cy="150" r="60" fill="rgba(255,255,255,0.9)" stroke="#64748B" stroke-width="2"/>
+            <text x="240" y="155" text-anchor="middle" font-size="10" font-weight="700" fill="#0F172A">FUNDING</text>
+            <circle cx="-240" cy="150" r="60" fill="rgba(255,255,255,0.9)" stroke="#64748B" stroke-width="2"/>
+            <text x="-240" y="155" text-anchor="middle" font-size="10" font-weight="700" fill="#0F172A">EXEC COUNCIL</text>
+            <circle cx="0" cy="250" r="60" fill="rgba(255,255,255,0.9)" stroke="#64748B" stroke-width="2"/>
+            <text x="0" y="255" text-anchor="middle" font-size="10" font-weight="700" fill="#0F172A">ACQUISITION</text>
+          </g>
+
+          <!-- GROUP 2: Middle Ring (Compliance Shield) -->
+          <g id="layer-shield" class="interactive-group" data-layer="shield">
+            <circle r="220" fill="none" stroke="#F59E0B" stroke-width="12" stroke-opacity="0.3" stroke-dasharray="20,10">
+              <animateTransform attributeName="transform" type="rotate" from="0 0 0" to="-360 0 0" dur="40s" repeatCount="indefinite"/>
+            </circle>
+            <circle r="210" fill="none" stroke="#F59E0B" stroke-width="2" stroke-opacity="0.5"/>
+            <text x="0" y="-200" text-anchor="middle" font-size="16" font-weight="600" fill="#D97706">COMPLIANCE SHIELD</text>
+            <rect x="-120" y="-100" width="80" height="40" rx="5" fill="#FFFBEB" stroke="#F59E0B" stroke-width="2"/>
+            <text x="-80" y="-75" text-anchor="middle" font-size="10" font-weight="600" fill="#B45309">CONTROLS</text>
+            <rect x="40" y="-100" width="80" height="40" rx="5" fill="#FFFBEB" stroke="#F59E0B" stroke-width="2"/>
+            <text x="80" y="-75" text-anchor="middle" font-size="10" font-weight="600" fill="#B45309">AUTO-EVIDENCE</text>
+            <rect x="-80" y="120" width="80" height="40" rx="5" fill="#FFFBEB" stroke="#F59E0B" stroke-width="2"/>
+            <text x="-40" y="145" text-anchor="middle" font-size="10" font-weight="600" fill="#B45309">MONITORING</text>
+          </g>
+
+          <!-- GROUP 3: Inner Ring (Agile Engine) -->
+          <g id="layer-engine" class="interactive-group" data-layer="engine">
+            <circle r="160" fill="url(#gearGrad)" stroke="#CBD5E1" stroke-width="4"/>
+            <!-- Gear Teeth (Visual only) -->
+            <g transform="rotate(0)">
+              <use href="#gearTeeth" transform="rotate(0 0 0) translate(0, -170)" style="display:none;"/> <!-- Placeholder if path missing -->
+              <circle cx="-110" cy="-80" r="35" fill="#0D9488" stroke="#FFF" stroke-width="2"/>
+              <text x="-110" y="-85" text-anchor="middle" font-size="10" font-weight="700" fill="#FFF">PLAN</text>
+              <circle cx="0" cy="-120" r="35" fill="#0D9488" stroke="#FFF" stroke-width="2"/>
+              <text x="0" y="-125" text-anchor="middle" font-size="10" font-weight="700" fill="#FFF">BUILD</text>
+              <circle cx="110" cy="-80" r="35" fill="#0D9488" stroke="#FFF" stroke-width="2"/>
+              <text x="110" y="-85" text-anchor="middle" font-size="10" font-weight="700" fill="#FFF">TEST</text>
+              <circle cx="110" cy="40" r="35" fill="#0D9488" stroke="#FFF" stroke-width="2"/>
+              <text x="110" y="35" text-anchor="middle" font-size="10" font-weight="700" fill="#FFF">REVIEW</text>
+              <circle cx="-110" cy="40" r="35" fill="#0D9488" stroke="#FFF" stroke-width="2"/>
+              <text x="-110" y="35" text-anchor="middle" font-size="10" font-weight="700" fill="#FFF">DEPLOY</text>
+            </g>
+            <text x="0" y="-140" text-anchor="middle" font-size="16" font-weight="700" fill="#FFFFFF">AGILE ENGINE</text>
+            <rect x="-160" y="-100" width="50" height="25" rx="4" fill="#F59E0B" stroke="#FFF" stroke-width="2"/>
+            <text x="-135" y="-84" text-anchor="middle" font-size="10" font-weight="700" fill="#FFF">ISSO</text>
+          </g>
+
+          <!-- GROUP 4: Central Core (Mission) -->
+          <g id="layer-core" class="interactive-group" data-layer="core">
+            <circle r="80" fill="url(#coreGrad)" filter="url(#glow)"/>
+            <text x="0" y="-10" text-anchor="middle" font-size="14" font-weight="800" fill="#FFFFFF" letter-spacing="0.5">MISSION</text>
+            <text x="0" y="10" text-anchor="middle" font-size="12" font-weight="600" fill="#FFFFFF">VALUE</text>
+            <circle r="80" fill="none" stroke="#FFF" stroke-width="2" opacity="0.8">
+              <animate attributeName="r" from="80" to="95" dur="2s" repeatCount="indefinite"/>
+              <animate attributeName="opacity" from="0.8" to="0" dur="2s" repeatCount="indefinite"/>
+            </circle>
+          </g>
+
+          <!-- Feedback Loops -->
+          <g stroke="#0D9488" stroke-width="2" marker-end="url(#arrowhead)" opacity="0.6">
+            <path d="M0,140 Q50,160 180,180" fill="none"/>
+            <path d="M220,180 Q260,200 240,250" fill="none"/>
+            <path d="M0,260 Q-50,220 -160,140" fill="none"/>
+          </g>
+        </svg>
+
+        <!-- Dynamic Info Panel -->
+        <div id="infoPanel" class="info-panel">
+            <span id="infoTitle" class="info-title">Mission Value</span>
+            <p id="infoDesc" class="info-desc">The core of our framework. We deliver working software that satisfies user needs, protected by compliance, not hindered by it.</p>
+            <ul id="infoPoints" class="info-keypoints">
+                <li>Customer-centric delivery</li>
+                <li>Audit-ready outcomes</li>
+                <li>Zero unplanned downtime</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // Data for the layers
+        const layerData = {
+            strategy: {
+                title: "Strategic Orbit",
+                desc: "The outer ring ensures alignment between mission goals, budget, and acquisition strategy. It enables the engine to move without friction.",
+                points: ["Funding Fluidity: Money follows value milestones", "Executive Risk Council: Monthly decisions, not annual", "Deliverable-Based Contracts: Pay for results, not hours"]
+            },
+            shield: {
+                title: "Compliance Shield",
+                desc: "A protective mesh that surrounds the engine. Compliance is automated and continuous, stopping bad code before it deploys.",
+                points: ["Automated Evidence: No manual screenshots", "Continuous Monitoring: Real-time dashboards", "Control Library: Reusable policy-as-code"]
+            },
+            engine: {
+                title: "Agile Engine",
+                desc: "The inner gear where the work happens. Cross-functional teams including an embedded ISSO, building and testing simultaneously.",
+                points: ["Definition of Done includes security gates", "ISSO is part of the team, not an auditor", "Sprint cycles with incremental releases"]
+            },
+            core: {
+                title: "Mission Value",
+                desc: "The heart of the framework. Every decision is made to protect and advance the mission while satisfying the user.",
+                points: ["Working software over documentation", "User needs drive priority", "Compliance protects the mission"]
+            }
+        };
+
+        const groups = document.querySelectorAll('.interactive-group');
+        const infoTitle = document.getElementById('infoTitle');
+        const infoDesc = document.getElementById('infoDesc');
+        const infoPoints = document.getElementById('infoPoints');
+
+        // Mouse Enter Handler
+        groups.forEach(group => {
+            group.addEventListener('mouseenter', function() {
+                const layerKey = this.getAttribute('data-layer');
+                const data = layerData[layerKey];
+
+                // Highlight logic
+                groups.forEach(g => {
+                    g.classList.remove('highlighted');
+                    g.classList.add('dimmed');
+                });
+                this.classList.remove('dimmed');
+                this.classList.add('highlighted');
+
+                // Update Content
+                infoTitle.textContent = data.title;
+                infoDesc.textContent = data.desc;
+                
+                // Clear and refill points
+                infoPoints.innerHTML = '';
+                data.points.forEach(point => {
+                    const li = document.createElement('li');
+                    li.textContent = point;
+                    infoPoints.appendChild(li);
+                });
+
+                // Color accent change based on layer
+                const panel = document.getElementById('infoPanel');
+                if(layerKey === 'shield') panel.style.borderLeftColor = '#D97706';
+                else if(layerKey === 'engine') panel.style.borderLeftColor = '#0D9488';
+                else if(layerKey === 'strategy') panel.style.borderLeftColor = '#64748B';
+                else panel.style.borderLeftColor = '#14B8A6';
+            });
+        });
+
+        // Reset on Mouse Leave (Optional: keep last selection or reset default)
+        document.querySelector('.flywheel-container').addEventListener('mouseleave', () => {
+            groups.forEach(g => {
+                g.classList.remove('highlighted');
+                g.classList.remove('dimmed');
+            });
+            // Reset to core default
+            infoTitle.textContent = "Mission Value";
+            infoDesc.textContent = "The core of our framework. We deliver working software that satisfies user needs.";
+            infoPoints.innerHTML = '<li>Customer-centric delivery</li><li>Audit-ready outcomes</li><li>Zero unplanned downtime</li>';
+        });
+    </script>
+</body>
+</html>
