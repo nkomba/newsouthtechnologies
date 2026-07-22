@@ -160,6 +160,7 @@
 
                 <div class="slider-container" id="sliderContainer">
                     <!-- Legacy Layer (Gray) -->
+                     <div class="slider-value-tooltip" id="valueTooltip">65% transformed</div>
                     <div class="layer layer-legacy" id="layerLegacy">
                         <span class="layer-label">LEGACY</span>
                         <span class="layer-sub">COBOL / Siloed Data / Manual Compliance</span>
@@ -205,6 +206,24 @@
                             <option value="medium" selected>$25M–$100M IT Budget</option>
                             <option value="large">$100M+ IT Budget</option>
                         </select>
+                    </div>
+                    <div style="margin-top: 12px; display: flex; justify-content: center;">
+    <button type="button" id="resetSliderBtn" class="btn btn-outline" 
+            style="padding: 6px 14px; font-size: 0.85rem; color: var(--color-text-light); border-color: var(--color-text-light);">
+        ↺ Reset to 50%
+    </button>
+</div>
+                    <!-- NEW: Snap toggle -->
+                    <div class="slider-settings" style="margin-top: 16px; display: flex; justify-content: center; gap: 12px; font-size: 0.85rem;">
+                        <label style="cursor: pointer; display: flex; align-items: center; gap: 6px;">
+                            <input type="checkbox" id="snapToggle" checked>
+                            <span style="color: var(--color-text-light);">Snap to phases</span>
+                        </label>
+                    </div>                    
+                      <div class="slider-reset-wrap" style="margin-top: 12px; display: flex; justify-content: center;">
+                        <button type="button" id="resetSliderBtn" class="btn btn-outline" style="padding: 6px 14px; font-size: 0.85rem;">
+                            Reset to 50%
+                        </button>
                     </div>
                     <div class="roi-output">
                         <div class="roi-metric">

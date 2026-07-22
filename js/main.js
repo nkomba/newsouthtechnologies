@@ -29,7 +29,99 @@ function initSlider() {
 var instructionOverlay = document.getElementById('sliderInstruction');
 var hintPulse = document.querySelector('.slider-hint-pulse');
 var hasInteracted = false;
+// --- Touch gesture support for mobile ---
+var touchStartX = 0;
+var touchCurrentX = 0;
 
+sliderContainer.addEventListener('touchstart', function(e) {
+    touchStartX = e.touches[0].clientX;
+    touchCurrentX = touchStartX;
+}, { passive: true });
+
+sliderContainer.addEventListener('touchmove', function(e) {
+    touchCurrentX = e.touches[0].clientX;
+    
+    var containerWidth = sliderInput.parentElement.offsetWidth;
+    var offsetX = touchCurrentX - touchStartX;
+    var newValue = parseInt(sliderInput.value) + Math.round((offsetX / containerWidth) * 100);
+    
+    newValue = Math.min(100, Math.max(0, newValue));
+    sliderInput.value = newValue;
+    
+    // Trigger the same input event handlers
+    sliderInput.dispatchEvent(new Event('input'));
+}, { passive: true });
+
+sliderContainer.addEventListener('touchend', function() {
+    if (Math.abs(touchCurrentX - touchStartX) > 10) {
+        // Significant drag happened
+        sliderInput.dispatchEvent(new Event('change'));
+    }
+});
+// --- Keyboard navigation (arrow keys) ---
+sliderInput.addEventListener('keydown', function(e) {
+    var oldValue = parseInt(this.value);
+    var newValue = oldValue;
+    
+    switch(e.key) {
+        case 'ArrowLeft':
+            newValue = Math.max(0, oldValue - 5);
+            e.preventDefault();
+            break;
+        case 'ArrowRight':
+            newValue = Math.min(100, oldValue + 5);
+            e.preventDefault();
+            break;
+        case 'Home':
+            newValue = 0;
+            e.preventDefault();
+            break;
+        case 'End':
+            newValue = 100;
+            e.preventDefault();
+            break;
+    }
+    
+    if (newValue !== oldValue) {
+        this.value = newValue;
+        this.dispatchEvent(new Event('input'));
+        
+        // Add focus-visible class temporarily
+        sliderHandle.classList.add('focus-visible');
+        setTimeout(function() {
+            sliderHandle.classList.remove('focus-visible');
+        }, 200);
+    }
+});
+// --- Snap-to-grid for milestones ---
+var SNAP_THRESHOLD = 8; // Distance in % to snap
+var SNAP_ENABLED = true;
+
+sliderInput.addEventListener('input', function(e) {
+    var rawVal = parseInt(e.target.value);
+    var snappedVal = rawVal;
+    
+    if (SNAP_ENABLED) {
+        // Find nearest milestone
+        milestones.forEach(function(m) {
+            if (Math.abs(m.pos - rawVal) <= SNAP_THRESHOLD) {
+                snappedVal = m.pos;
+            }
+        });
+    }
+    
+    // Only update if changed
+    if (snappedVal !== rawVal) {
+        sliderInput.value = snappedVal;
+    }
+    
+    // ... rest of update logic using snappedVal
+    var val = snappedVal;
+    layerModern.style.width = val + '%';
+    sliderHandle.style.left = val + '%';
+    updateMilestone(val);
+    updateROI(val);
+});
 sliderInput.addEventListener('input', function(e) {
     // Remove overlays after first interaction
     if (!hasInteracted && Math.abs(parseInt(e.target.value) - 50) > 5) {
@@ -39,6 +131,28 @@ sliderInput.addEventListener('input', function(e) {
     }
     // ... rest of existing input handler
 });
+// --- Haptic feedback on milestone arrival ---
+var lastMilestone = -1;
+
+function updateMilestone(value) {
+    if (!milestonePopup) return;
+    
+    var m = findClosestMilestone(value);
+    // ... existing update logic
+    
+    // Vibrate on milestone hit (mobile only)
+    if (m.pos !== lastMilestone && navigator.vibrate) {
+        navigator.vibrate(50); // 50ms vibration
+        lastMilestone = m.pos;
+    }
+}
+// Wire up snap toggle
+var snapToggle = document.getElementById('snapToggle');
+if (snapToggle) {
+    snapToggle.addEventListener('change', function(e) {
+        SNAP_ENABLED = e.target.checked;
+    });
+}
 
 // Hide hint after 5 seconds if not interacted
 setTimeout(function() {
@@ -128,6 +242,28 @@ setTimeout(function() {
             updateROI(parseInt(sliderInput.value));
         });
     }
+    var valueTooltip = document.getElementById('valueTooltip');
+
+sliderInput.addEventListener('input', function(e) {
+    var val = parseInt(e.target.value);
+    
+    if (valueTooltip) {
+        valueTooltip.textContent = val + '% transformed';
+        valueTooltip.classList.add('visible');
+    }
+    
+    // ... rest of handler
+});
+
+// Hide tooltip when stopped
+sliderInput.addEventListener('change', function() {
+    if (valueTooltip) {
+        setTimeout(function() {
+            valueTooltip.classList.remove('visible');
+        }, 1500);
+    }
+    // ... rest of change handler
+});
 
     // --- Hide popup 3 seconds after user stops dragging ---
     var popupTimeout;
@@ -137,7 +273,18 @@ setTimeout(function() {
             if (milestonePopup) milestonePopup.classList.remove('visible');
         }, 3000);
     });
-
+var resetBtn = document.getElementById('resetSliderBtn');
+if (resetBtn) {
+    resetBtn.addEventListener('click', function() {
+        sliderInput.value = 50;
+        sliderInput.dispatchEvent(new Event('input'));
+        sliderInput.dispatchEvent(new Event('change'));
+        
+        if (instructionOverlay) instructionOverlay.classList.remove('hide');
+        if (hintPulse) hintPulse.style.opacity = '0.8';
+        hasInteracted = false;
+    });
+}
     // --- Initialize at 50% ---
     layerModern.style.width = '50%';
     sliderHandle.style.left = '50%';
