@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Request certification training from New South Technologies — individual enrollment, private cohorts, confirmed dates, group pricing, or enterprise delivery. Tell us your goals and we'll follow up on availability and format.">
+    <meta name="theme-color" content="#0F172A">
+
+    <title>Request Training | New South Technologies</title>
+    <link rel="canonical" href="https://newsouthtechnologies.com/request-training.html">
+
+    <!-- Cookie Consent -->
+    <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="624242ee-2ac5-42aa-a480-a0beb5be0497" data-blockingmode="auto" type="text/javascript"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/training.css">
+    <link rel="stylesheet" href="./css/request-training.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-inner">
+            <a href="./index.html" class="logo" aria-label="New South Technologies Home">
+                <img src="./assets/images/logo-lockup.svg" alt="New South Technologies Logo" class="logo-img">
+            </a>
+
+            <button class="mobile-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Toggle navigation menu">
+                <span class="hamburger-icon"></span>
+            </button>
+
+            <ul id="main-nav" class="nav-links">
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./training.html">Training</a></li>
+                <li><a href="./feedback.html">Training Quality</a></li>
+                <li><a href="./index.html#modernize">Modernize</a></li>
+                <li><a href="./careers.html">Careers</a></li>
+                <li><a href="./blog.html">Insights</a></li>
+                <li><a href="#inquiry-form" class="btn btn-primary">Request Training</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero -->
+        <header class="hero hero-request">
+            <div class="hero-pattern" aria-hidden="true"></div>
+            <div class="container hero-content">
+                <span class="hero-eyebrow">Request Training</span>
+                <h1>Request Training for Individuals, Teams, and Private Cohorts.</h1>
+                <p>Tell us what you need — course availability, confirmed dates, private delivery, group pricing, or an enterprise engagement — and we'll follow up with options tailored to your goals, timeline, and format.</p>
+                <div class="hero-actions">
+                    <a href="#inquiry-form" class="btn btn-primary">Start Your Request</a>
+                    <a href="./training.html" class="btn btn-secondary">Browse the Catalog</a>
+                </div>
+            </div>
+        </header>
+
+        <!-- How we can help -->
+        <section class="help-section" id="how-we-help">
+            <div class="container">
+                <div class="section-header">
+                    <h2>How We Can Help</h2>
+                    <p>One short form covers the full range of training requests. Tell us which fits and we'll take it from there.</p>
+                </div>
+                <div class="help-grid">
+                    <div class="help-card">
+                        <h3>Individual Enrollment</h3>
+                        <p>Reserve a seat for yourself or a colleague in an upcoming public cohort.</p>
+                    </div>
+                    <div class="help-card">
+                        <h3>Private Cohort</h3>
+                        <p>Run a dedicated session for your team, tailored to your systems and standards.</p>
+                    </div>
+                    <div class="help-card">
+                        <h3>Confirmed Dates</h3>
+                        <p>Ask us to confirm a tentative date or propose one that fits your timeline.</p>
+                    </div>
+                    <div class="help-card">
+                        <h3>Group Pricing</h3>
+                        <p>Get pricing for multiple participants or a multi-course training plan.</p>
+                    </div>
+                    <div class="help-card">
+                        <h3>Enterprise Delivery</h3>
+                        <p>Discuss a program across departments with governed, audit-ready delivery.</p>
+                    </div>
+                    <div class="help-card">
+                        <h3>General Question</h3>
+                        <p>Not sure yet? Ask about formats, prerequisites, or exam-readiness support.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Inquiry form -->
+        <section class="training-inquiry" id="inquiry-form">
+            <div class="container">
+                <h2>Training Request</h2>
+                <p class="inquiry-sub">Fields marked * are required. Everything else helps us respond faster and more precisely — share what you can.</p>
+
+                <ol class="workflow-steps" aria-label="Request steps">
+                    <li aria-current="step"><span class="step-num">1</span> Tell us what you need</li>
+                    <li aria-hidden="true" class="step-sep">→</li>
+                    <li><span class="step-num">2</span> We review your request</li>
+                    <li aria-hidden="true" class="step-sep">→</li>
+                    <li><span class="step-num">3</span> We follow up with options</li>
+                </ol>
+
+                <!-- Submits to the site's existing Formspree contact endpoint. Swap for a dedicated training inbox if desired. -->
+                <form action="https://formspree.io/f/mvznzwav" method="POST" class="training-form" id="training-request-form">
+
+                    <div class="form-row">
+                        <div>
+                            <label for="r-name">Full Name *</label>
+                            <input type="text" id="r-name" name="name" required placeholder="Jane Doe">
+                        </div>
+                        <div>
+                            <label for="r-email">Email *</label>
+                            <input type="email" id="r-email" name="email" required placeholder="jane@agency.gov">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div>
+                            <label for="r-org">Organization</label>
+                            <input type="text" id="r-org" name="organization" placeholder="Agency or company">
+                        </div>
+                        <div>
+                            <label for="r-title">Job Title</label>
+                            <input type="text" id="r-title" name="job_title" placeholder="e.g., Program Manager">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div>
+                            <label for="r-phone">Phone</label>
+                            <input type="tel" id="r-phone" name="phone" placeholder="(555) 123-4567">
+                            <span class="field-hint">Optional — only if you'd prefer a call back.</span>
+                        </div>
+                        <div>
+                            <label for="r-inquiry">Inquiry Type *</label>
+                            <select id="r-inquiry" name="inquiry_type" required>
+                                <option value="" disabled selected>Select the type of request</option>
+                                <option>Individual enrollment</option>
+                                <option>Private cohort</option>
+                                <option>Confirmed dates</option>
+                                <option>Group pricing</option>
+                                <option>Enterprise delivery</option>
+                                <option>General question</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Conditional hint, revealed by inquiry type -->
+                    <div class="inquiry-hint" id="inquiry-hint" role="status" aria-live="polite" hidden></div>
+
+                    <div class="form-row">
+                        <div>
+                            <label for="r-course">Course of Interest</label>
+                            <select id="r-course" name="course">
+                                <option value="" selected>Select a course (or choose below)</option>
+                                <option>Lean Six Sigma Black Belt</option>
+                                <option>Lean Six Sigma Green Belt</option>
+                                <option>Project Management PMP</option>
+                                <option>PMI-ACP</option>
+                                <option>ISACA CISA</option>
+                                <option>CISM</option>
+                                <option>ISACA CRISC</option>
+                                <option>PSM I</option>
+                                <option>PSM II</option>
+                                <option>PSM III</option>
+                                <option>PSPO I</option>
+                                <option>PSPO II</option>
+                                <option>ASQ CMQ/OE</option>
+                                <option>SAFe ARCH</option>
+                                <option>SAFe APM</option>
+                                <option>SAFe RTE</option>
+                                <option>ITIL 4 Foundation</option>
+                                <option>Google AI Leader</option>
+                                <option>Multiple courses</option>
+                                <option>Not sure yet</option>
+                            </select>
+                            <span class="field-hint">Requesting several courses? Note the rest in Additional Details.</span>
+                        </div>
+                        <div>
+                            <label for="r-format">Preferred Delivery Format</label>
+                            <select id="r-format" name="delivery_format">
+                                <option value="" selected>Select a format</option>
+                                <option>Virtual Live</option>
+                                <option>In Person</option>
+                                <option>Hybrid</option>
+                                <option>Not sure</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row form-row">
+                        <div>
+                            <label for="r-participants">Expected Number of Participants</label>
+                            <input type="number" id="r-participants" name="participants" min="1" max="1000" placeholder="e.g., 8">
+                        </div>
+                        <div>
+                            <label for="r-timeframe">Target Timeframe</label>
+                            <input type="text" id="r-timeframe" name="timeframe" placeholder="e.g., Q4 2026, or by March 2027">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div>
+                            <label for="r-location">Location or Time Zone</label>
+                            <input type="text" id="r-location" name="location_timezone" placeholder="e.g., Washington, D.C. / Eastern Time">
+                        </div>
+                        <div>
+                            <label for="r-exam">Exam Preparation Emphasis</label>
+                            <select id="r-exam" name="exam_prep_emphasis">
+                                <option value="" selected>Select (optional)</option>
+                                <option>Yes — certification is a priority</option>
+                                <option>Some — helpful but not the main goal</option>
+                                <option>No — skills focus, not the exam</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="r-details">Additional Details / Goals</label>
+                        <textarea id="r-details" name="details" rows="4" placeholder="Tell us about your goals, any certification deadlines, group makeup, or constraints."></textarea>
+                    </div>
+
+                    <!-- Honeypot (spam protection) -->
+                    <div style="display:none;" aria-hidden="true">
+                        <label>Don't fill this out if you're human:</label>
+                        <input name="_gotcha" tabindex="-1" autocomplete="off">
+                    </div>
+
+                    <input type="hidden" name="_subject" value="New Training Inquiry - New South Technologies">
+                    <input type="hidden" name="_next" value="https://newsouthtechnologies.com/thanks.html">
+
+                    <div>
+                        <button type="submit" class="btn btn-primary btn-large">Submit Training Request</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <!-- What to expect -->
+        <section class="expect-section" id="what-to-expect">
+            <div class="container">
+                <div class="section-header">
+                    <h2>What to Expect</h2>
+                    <p>A clear, low-friction process. We typically respond within one business day.</p>
+                </div>
+                <div class="expect-steps">
+                    <div class="expect-step">
+                        <h3>Inquiry Received</h3>
+                        <p>You'll get an on-screen confirmation, and your request lands with our training team.</p>
+                    </div>
+                    <div class="expect-step">
+                        <h3>Request Reviewed</h3>
+                        <p>We review course fit, group size, format, and timing against current and planned cohorts.</p>
+                    </div>
+                    <div class="expect-step">
+                        <h3>We Follow Up</h3>
+                        <p>We reply with availability, confirmed or proposed dates, format options, and next steps — including private-cohort or enterprise plans where relevant.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Direct contact + related links -->
+        <section class="connect-section" id="connect">
+            <div class="container">
+                <div class="section-header" style="text-align:left; margin-left:0; max-width:760px;">
+                    <h2>Prefer to Reach Us Directly?</h2>
+                    <p>You're welcome to email us, or explore the training pages before you submit a request.</p>
+                </div>
+                <div class="connect-grid">
+                    <div class="connect-card">
+                        <h3>Email Us</h3>
+                        <p>For direct questions about training, scheduling, or private cohorts:</p>
+                        <p><a href="mailto:info@newsouthtechnologies.com?subject=Training%20Inquiry">info@newsouthtechnologies.com</a></p>
+                        <p style="margin:0;">Based in the Washington, D.C. metro area.</p>
+                    </div>
+                    <div class="connect-card">
+                        <h3>Explore Before You Ask</h3>
+                        <ul>
+                            <li><a href="./training.html">View the training catalog</a></li>
+                            <li><a href="./training.html#calendar">See the delivery calendar</a></li>
+                            <li><a href="./feedback.html">Training Feedback &amp; Quality</a></li>
+                        </ul>
+                    </div>
+                    <div class="connect-card">
+                        <h3>Other Inquiries</h3>
+                        <p>Looking for modernization, governed agility, or AI governance services rather than training?</p>
+                        <p><a href="./index.html#contact">Contact the general team →</a></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <h3>New South Technologies</h3>
+                <p>Governance-first modernization for the capital region.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Capabilities</h4>
+                <ul>
+                    <li><a href="./index.html#modernize">Modernize</a></li>
+                    <li><a href="./index.html#agility">Governed Agile</a></li>
+                    <li><a href="./index.html#ai">Responsible AI</a></li>
+                    <li><a href="./training.html">Training</a></li>
+                    <li><a href="./feedback.html">Training Feedback &amp; Quality</a></li>
+                    <li><a href="./request-training.html">Request Training</a></li>
+                    <li><a href="./blog.html">Thought Leadership</a></li>
+                </ul>
+            </div>
+            <div class="footer-credentials">
+                <h4>Credentials</h4>
+                <p>Active Clearances: Secret, TS/SCI</p>
+                <p>Certifications: PMP, SAFe, AWS GovCloud</p>
+            </div>
+            <div class="footer-contact">
+                <h4>Contact</h4>
+                <a href="mailto:info@newsouthtechnologies.com" class="btn btn-primary">Email New South</a>
+                <p>Washington, D.C. Metro</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 New South Technologies. <a href="./privacy-policy.html">Privacy Policy</a></p>
+        </div>
+    </footer>
+
+    <script src="./js/main.js" defer></script>
+    <script>
+    // Progressive enhancement: contextual hint based on inquiry type.
+    (function () {
+        var select = document.getElementById('r-inquiry');
+        var hint = document.getElementById('inquiry-hint');
+        if (!select || !hint) return;
+        var hints = {
+            'Private cohort': 'For private cohorts, share your expected group size, preferred dates, and any content you’d like tailored to your systems.',
+            'Confirmed dates': 'For date confirmation, tell us the course and your target timeframe — we’ll confirm a tentative date or propose the next available cohort.',
+            'Group pricing': 'For group pricing, an approximate participant count and course list helps us prepare an accurate quote.',
+            'Enterprise delivery': 'For enterprise delivery, note the departments or roles involved and any governance or reporting needs.'
+        };
+        select.addEventListener('change', function () {
+            var msg = hints[select.value];
+            if (msg) { hint.textContent = msg; hint.hidden = false; }
+            else { hint.hidden = true; hint.textContent = ''; }
+        });
+    })();
+    </script>
+</body>
+</html>
