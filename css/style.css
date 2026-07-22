@@ -451,24 +451,85 @@ footer { background-color: var(--color-navy-primary); color: var(--color-text-li
     color: var(--color-text-light);
 }
 
+/* Head: eyebrow + specific headline + support copy */
+.slider-head {
+    max-width: 760px;
+    margin: 0 auto var(--spacing-xl);
+}
+.slider-eyebrow {
+    display: inline-block;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-weight: 600;
+    color: var(--color-teal-accent);
+    margin-bottom: var(--spacing-sm);
+}
+.slider-head h2 { margin-bottom: var(--spacing-md); }
+.slider-head p { color: var(--color-text-light); margin: 0; }
+
+/* CTA row */
+.slider-actions {
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: var(--spacing-lg);
+}
+
+/* Trust / proof points */
+.slider-proof {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: var(--spacing-xl);
+    list-style: none;
+    padding: var(--spacing-xl) 0 0;
+    margin: var(--spacing-lg) auto 0;
+    max-width: 840px;
+    border-top: 1px solid rgba(255,255,255,0.12);
+}
+.slider-proof li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    min-width: 150px;
+}
+.slider-proof strong {
+    font-size: 1.4rem;
+    color: var(--color-white);
+    line-height: 1.1;
+}
+.slider-proof span {
+    font-size: 0.78rem;
+    color: var(--color-text-light);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
 /* Mobile Responsive */
 @media (max-width: 768px) {
     .slider-container {
         height: 300px;
     }
-    
+
     .layer-label {
         font-size: 1.5rem;
     }
-    
+
     .slider-handle::after {
         width: 32px;
         height: 32px;
     }
-    
+
     .slider-handle::before {
         font-size: 0.875rem;
     }
+
+    .slider-actions { flex-direction: column; align-items: center; }
+    .slider-actions .btn { width: 100%; max-width: 340px; }
+    .slider-proof { gap: var(--spacing-lg); }
 }
 /* =========================================
    CONTACT FORM STYLES

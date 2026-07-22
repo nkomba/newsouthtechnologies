@@ -150,10 +150,13 @@
         </section>
 
         <!-- Interactive Transformation Demo -->
-        <section class="slider-demo">
+        <section class="slider-demo" aria-labelledby="transform-title">
             <div class="container">
-                <h2>Experience the Transformation</h2>
-                <p>See how governed modernization replaces legacy risk with auditable cloud services.</p>
+                <div class="slider-head">
+                    <span class="slider-eyebrow">Experience the Transformation</span>
+                    <h2 id="transform-title">Watch Legacy Risk Become Governed, Auditable Systems</h2>
+                    <p>We modernize mission-critical platforms one controlled step at a time — replacing brittle legacy systems with governed cloud services, without a big-bang cutover or unplanned downtime. Drag the divider to compare before and after.</p>
+                </div>
 
                 <div class="slider-container" id="sliderContainer">
                     <!-- Legacy Layer (Gray - Shows when Modern is 0%) -->
@@ -172,9 +175,20 @@
                     <div class="slider-handle" id="sliderHandle"></div>
 
                     <!-- Range Input -->
-                    <input type="range" min="0" max="100" value="50" class="slider-input" id="sliderInput">
+                    <input type="range" min="0" max="100" value="50" class="slider-input" id="sliderInput" aria-label="Drag to compare a legacy system with a modernized system">
                 </div>
-                <p class="slider-caption">Drag the handle to see the difference. Our strangler-fig approach moves you from left to right without stopping the mission.</p>
+                <p class="slider-caption">Drag the handle to compare. Our incremental “strangler-fig” approach moves you from left to right one auditable step at a time — no downtime, full traceability for your auditors.</p>
+
+                <div class="slider-actions">
+                    <a href="#outcomes" class="btn btn-primary">See Our Approach</a>
+                    <a href="#contact" class="btn btn-secondary">Talk to a Modernization Lead</a>
+                </div>
+
+                <ul class="slider-proof" aria-label="Why teams trust New South Technologies">
+                    <li><strong>50+ years</strong><span>Combined modernization experience</span></li>
+                    <li><strong>100%</strong><span>Audit-ready deliveries</span></li>
+                    <li><strong>Plan → Procure → Implement</strong><span>End-to-end delivery discipline</span></li>
+                </ul>
             </div>
         </section>
 
