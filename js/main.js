@@ -25,7 +25,28 @@ function initSlider() {
     const agencySizeSelect = document.getElementById('agencySize');
     const annualSavingsEl = document.getElementById('annualSavings');
     const riskReductionEl = document.getElementById('riskReduction');
+// --- Show/hide instructional overlay on first drag ---
+var instructionOverlay = document.getElementById('sliderInstruction');
+var hintPulse = document.querySelector('.slider-hint-pulse');
+var hasInteracted = false;
 
+sliderInput.addEventListener('input', function(e) {
+    // Remove overlays after first interaction
+    if (!hasInteracted && Math.abs(parseInt(e.target.value) - 50) > 5) {
+        hasInteracted = true;
+        if (instructionOverlay) instructionOverlay.classList.add('hide');
+        if (hintPulse) hintPulse.style.opacity = '0';
+    }
+    // ... rest of existing input handler
+});
+
+// Hide hint after 5 seconds if not interacted
+setTimeout(function() {
+    if (!hasInteracted) {
+        if (instructionOverlay) instructionOverlay.classList.add('hide');
+        if (hintPulse) hintPulse.style.opacity = '0';
+    }
+}, 5000);
     // Exit if core slider elements don't exist (not on this page)
     if (!sliderInput || !layerModern || !sliderHandle) return;
 

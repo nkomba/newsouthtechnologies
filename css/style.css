@@ -626,6 +626,63 @@ footer { background-color: var(--color-navy-primary); color: var(--color-text-li
     color: var(--color-teal-accent);
     transition: color 0.3s ease;
 }
+/* Pulsing hint on handle - appears first time, disappears on interaction */
+.slider-hint-pulse {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 60px;
+    background: rgba(13, 148, 136, 0.2);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 5;
+    animation: pulseHint 2s ease-in-out infinite;
+    opacity: 0.8;
+}
+
+@keyframes pulseHint {
+    0% { transform: translate(-50%, -50%) scale(0.8); opacity: 0.8; }
+    50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.4; }
+    100% { transform: translate(-50%, -50%) scale(0.8); opacity: 0.8; }
+}
+
+/* Swipe instruction overlay - fades out after first drag */
+.slider-instruction-overlay {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    background: rgba(15, 23, 42, 0.85);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    z-index: 6;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    opacity: 1;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.slider-instruction-overlay.hide {
+    opacity: 0;
+    transform: translateY(-50%) translateX(-20px);
+    pointer-events: none;
+}
+
+.slider-instruction-overlay svg {
+    width: 16px;
+    height: 16px;
+    animation: bounceArrow 1s ease-in-out infinite;
+}
+
+@keyframes bounceArrow {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(-3px); }
+}
 
 @media (max-width: 768px) {
     .roi-calculator {
