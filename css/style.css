@@ -11,7 +11,7 @@
     --color-offwhite: #F8FAFC;
     --color-text-dark: #1E293B;
     --color-text-light: #CBD5E1;
-    
+
     --font-main: 'Inter', sans-serif;
     --spacing-xs: 0.5rem;
     --spacing-sm: 1rem;
@@ -19,7 +19,7 @@
     --spacing-lg: 2rem;
     --spacing-xl: 3rem;
     --spacing-2xl: 5rem;
-    
+
     --border-radius: 4px;
     --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
     --shadow-lg: 0 10px 25px -5px rgba(0, 0, 0, 0.15);
@@ -110,7 +110,7 @@ ul { list-style: none; }
 .card p { color: var(--color-slate); margin-bottom: var(--spacing-lg); flex-grow: 1; }
 .card-link { color: var(--color-teal-accent); font-weight: 600; font-size: 0.9rem; display: inline-flex; align-items: center; }
 .card-link:hover { color: var(--color-teal-hover); }
-.card-link::after { content: '→'; margin-left: 6px; transition: margin 0.2s; }
+.card-link::after { content: '\2192'; margin-left: 6px; transition: margin 0.2s; }
 .card-link:hover::after { margin-left: 10px; }
 .card-actions {
     display: flex;
@@ -124,14 +124,12 @@ ul { list-style: none; }
         flex-direction: row;
         align-items: stretch;
     }
-
     .card-actions .card-link {
         flex: 1;
         text-align: center;
     }
-
     .card-actions .card-link::after {
-        content: none; /* hide arrow on buttons inside card-actions */
+        content: none;
     }
 }
 
@@ -196,6 +194,7 @@ footer { background-color: var(--color-navy-primary); color: var(--color-text-li
     .compliance-grid { flex-direction: column; align-items: center; }
     .credibility-grid { gap: var(--spacing-lg); }
 }
+
 /* =========================================
    LEADERSHIP SPOTLIGHT
    ========================================= */
@@ -264,26 +263,23 @@ footer { background-color: var(--color-navy-primary); color: var(--color-text-li
     margin-top: var(--spacing-lg);
 }
 
-/* Mobile Responsive */
 @media (max-width: 900px) {
     .spotlight-grid {
         grid-template-columns: 1fr;
         text-align: center;
     }
-
     .spotlight-image {
         max-width: 300px;
         margin: 0 auto;
     }
-
     .photo-caption {
         justify-content: center;
     }
-
     .bio-cta {
         text-align: center;
     }
 }
+
 /* =========================================
    SLIDER DEMO SECTION
    ========================================= */
@@ -303,9 +299,6 @@ footer { background-color: var(--color-navy-primary); color: var(--color-text-li
     color: var(--color-text-light);
     margin-bottom: var(--spacing-xl);
 }
-/* =========================================
-   SLIDER DEMO SECTION - FIX
-   ========================================= */
 
 .slider-container {
     position: relative;
@@ -314,25 +307,25 @@ footer { background-color: var(--color-navy-primary); color: var(--color-text-li
     height: 400px;
     margin: 0 auto var(--spacing-lg);
     border-radius: var(--border-radius);
-    overflow: hidden; /* Critical: Clips content outside */
-    background-color: #475569; /* Legacy Gray - ensure container matches */
+    overflow: hidden;
+    background-color: #475569;
     box-shadow: var(--shadow-lg);
     cursor: ew-resize;
     user-select: none;
 }
 
 .layer-legacy {
-    width: 100%; /* Always fill container */
+    width: 100%;
     height: 100%;
     position: absolute;
     top: 0;
     left: 0;
-    background-color: #475569; /* Explicit gray */
+    background-color: #475569;
     z-index: 1;
 }
 
 .layer-modern {
-    width: 50%; 
+    width: 50%;
     height: 100%;
     position: absolute;
     top: 0;
@@ -343,11 +336,10 @@ footer { background-color: var(--color-navy-primary); color: var(--color-text-li
     padding: 0;
     border: none;
     box-sizing: border-box;
-    overflow: hidden; /* This clips the text */
+    overflow: hidden;
     will-change: width;
 }
 
-/* Hide the text content completely when the layer is collapsed */
 .layer-modern .layer-label,
 .layer-modern .layer-sub {
     opacity: 1;
@@ -355,27 +347,21 @@ footer { background-color: var(--color-navy-primary); color: var(--color-text-li
     white-space: nowrap;
 }
 
-/* If the layer width is 0, hide text explicitly */
 .layer-modern[style*="width: 0%"] .layer-label,
 .layer-modern[style*="width: 0%"] .layer-sub {
     display: none;
 }
 
-/* Also handle 0px if browsers render it that way */
 .layer-modern[style*="width: 0px"] .layer-label,
 .layer-modern[style*="width: 0px"] .layer-sub {
     display: none;
 }
-/* Ensure the text inside modern layer respects the parent's 0 width */
+
 .layer-modern span {
     max-width: 100%;
     overflow: hidden;
     text-overflow: ellipsis;
-    pointer-events: none; /* Prevents clicking text when slider is at 0 */
-}
-/* Optional: Fade out text as it gets very narrow */
-@media screen and (max-width: 768px) {
-    /* On mobile, ensure text doesn't overlap the handle area */
+    pointer-events: none;
 }
 
 .slider-handle {
@@ -390,9 +376,9 @@ footer { background-color: var(--color-navy-primary); color: var(--color-text-li
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: box-shadow 0.3s ease;
 }
 
-/* Prevent handle from leaving gaps */
 .slider-handle::after {
     content: '';
     width: 40px;
@@ -410,9 +396,9 @@ footer { background-color: var(--color-navy-primary); color: var(--color-text-li
     color: var(--color-navy-primary);
     font-weight: bold;
     font-size: 1rem;
+    z-index: 1;
 }
 
-/* Invisible Range Input */
 .slider-input {
     position: absolute;
     top: 0;
@@ -424,10 +410,9 @@ footer { background-color: var(--color-navy-primary); color: var(--color-text-li
     z-index: 4;
     margin: 0;
     -webkit-appearance: none;
+    appearance: none;
 }
 
-
-/* Text Styling */
 .layer-label {
     font-size: var(--font-size-2xl);
     display: block;
@@ -442,16 +427,12 @@ footer { background-color: var(--color-navy-primary); color: var(--color-text-li
     opacity: 0.9;
 }
 
-/* The Handle (Vertical line you drag) */
-
-/* Caption */
 .slider-caption {
     margin-top: var(--spacing-md);
     font-size: var(--font-size-sm);
     color: var(--color-text-light);
 }
 
-/* Head: eyebrow + specific headline + support copy */
 .slider-head {
     max-width: 760px;
     margin: 0 auto var(--spacing-xl);
@@ -468,7 +449,6 @@ footer { background-color: var(--color-navy-primary); color: var(--color-text-li
 .slider-head h2 { margin-bottom: var(--spacing-md); }
 .slider-head p { color: var(--color-text-light); margin: 0; }
 
-/* CTA row */
 .slider-actions {
     display: flex;
     gap: var(--spacing-md);
@@ -477,7 +457,6 @@ footer { background-color: var(--color-navy-primary); color: var(--color-text-li
     margin-top: var(--spacing-lg);
 }
 
-/* Trust / proof points */
 .slider-proof {
     display: flex;
     justify-content: center;
@@ -508,29 +487,156 @@ footer { background-color: var(--color-navy-primary); color: var(--color-text-li
     letter-spacing: 0.04em;
 }
 
-/* Mobile Responsive */
 @media (max-width: 768px) {
     .slider-container {
         height: 300px;
     }
-
     .layer-label {
         font-size: 1.5rem;
     }
-
     .slider-handle::after {
         width: 32px;
         height: 32px;
     }
-
     .slider-handle::before {
         font-size: 0.875rem;
     }
-
     .slider-actions { flex-direction: column; align-items: center; }
     .slider-actions .btn { width: 100%; max-width: 340px; }
     .slider-proof { gap: var(--spacing-lg); }
 }
+
+/* =========================================
+   SLIDER ENHANCEMENTS
+   ========================================= */
+
+/* Milestone popup floating above handle */
+.milestone-popup {
+    position: absolute;
+    top: -70px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--color-navy-primary);
+    color: var(--color-white);
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 10;
+    box-shadow: var(--shadow-md);
+}
+
+.milestone-popup.visible {
+    opacity: 1;
+}
+
+/* Small triangle pointing down from popup */
+.milestone-popup::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid var(--color-navy-primary);
+}
+
+/* Shimmer on modern layer */
+.layer-modern::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.08), transparent);
+    animation: shimmer 3s infinite;
+    pointer-events: none;
+    z-index: 0;
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+/* ROI calculator */
+.roi-calculator {
+    margin-top: 32px;
+    padding: 24px;
+    background: var(--color-offwhite);
+    border: 1px solid #E2E8F0;
+    border-radius: 12px;
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.roi-inputs {
+    flex: 1;
+    min-width: 200px;
+}
+
+.roi-inputs label {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--color-slate);
+    margin-bottom: 6px;
+    font-weight: 600;
+}
+
+.roi-inputs select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #CBD5E1;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 0.95rem;
+    background-color: var(--color-white);
+}
+
+.roi-output {
+    display: flex;
+    gap: 32px;
+    flex-shrink: 0;
+}
+
+.roi-metric {
+    display: flex;
+    flex-direction: column;
+}
+
+.roi-label {
+    font-size: 0.75rem;
+    color: var(--color-slate);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 4px;
+}
+
+.roi-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-teal-accent);
+    transition: color 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .roi-calculator {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .roi-output {
+        gap: 20px;
+    }
+}
+
 /* =========================================
    CONTACT FORM STYLES
    ========================================= */
@@ -606,7 +712,6 @@ input:focus, textarea:focus {
     font-size: 1.1rem;
 }
 
-/* Footer Top Grid (Reorganized) */
 .footer-grid-top {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -616,22 +721,18 @@ input:focus, textarea:focus {
     border-top: 1px solid rgba(255,255,255,0.1);
 }
 
-/* Mobile Responsive */
 @media (max-width: 768px) {
     .form-grid {
         grid-template-columns: 1fr;
     }
-    
     .footer-grid-top {
         text-align: center;
     }
-    
     .footer-brand, .footer-links ul, .footer-credentials p, .footer-contact-info p {
         text-align: left;
     }
-    
-
 }
+
 /* =========================================
    DUAL LEADERSHIP GRID
    ========================================= */
@@ -656,13 +757,6 @@ input:focus, textarea:focus {
     width: 100%;
     height: 350px;
     overflow: hidden;
-}
-
-.partner-photo {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: top center;
 }
 
 .photo-creds {
@@ -709,17 +803,15 @@ input:focus, textarea:focus {
     margin-bottom: var(--spacing-md);
 }
 
-/* Responsive */
 @media (max-width: 900px) {
     .leadership-grid {
         grid-template-columns: 1fr;
     }
-    
     .partner-image {
         height: 300px;
     }
 }
-/* Add to css/style.css */
+
 /* =========================================
    SECONDARY BUTTON STYLES
    ========================================= */
@@ -743,7 +835,6 @@ input:focus, textarea:focus {
     transform: translateY(-2px);
 }
 
-/* Ensure the primary button looks good next to it */
 .card-link.btn-primary {
     background-color: var(--color-teal-accent);
     color: white;
@@ -762,16 +853,15 @@ input:focus, textarea:focus {
     border-color: var(--color-navy-primary);
     transform: translateY(-2px);
 }
-/* =========================================
-   MOBILE NAVIGATION FIX
-   ========================================= */
 
-/* By default, hide nav links on small screens (Mobile First approach) */
+/* =========================================
+   MOBILE NAVIGATION
+   ========================================= */
 @media (max-width: 900px) {
     .nav-links {
-        display: none; /* Hidden initially */
+        display: none;
         position: absolute;
-        top: 70px; /* Adjust based on your navbar height */
+        top: 70px;
         left: 0;
         width: 100%;
         background-color: var(--color-white);
@@ -782,47 +872,47 @@ input:focus, textarea:focus {
         z-index: 1000;
     }
 
-    /* Show the toggle button ONLY on mobile */
     .mobile-toggle {
-        display: block !important;
-        background: none;
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background-color: transparent;
         border: none;
         cursor: pointer;
-        padding: 10px;
-        z-index: 1001;
-        order: 1; /* Ensure it's after the logo */
+        z-index: 10000;
+        padding: 5px;
+        margin-left: auto;
     }
 
-    /* Hide the hamburger text/icon if not styled yet, 
-       ensure the button itself is visible */
-    .mobile-toggle span {
-        display: block;
+    .mobile-toggle span,
+    .mobile-toggle .hamburger-icon {
+        display: block !important;
         width: 25px;
         height: 3px;
         background-color: var(--color-navy-primary);
         margin: 6px 0;
-        transition: 0.4s;
+        transition: 0.3s;
+        border-radius: 2px;
     }
-    
-    /* Style for the active state (Menu Open) */
+
     .nav-links.active {
         display: flex !important;
         animation: slideDown 0.3s ease-out;
     }
 
-    /* Hamburger Animation (Optional) */
-    .mobile-toggle[aria-expanded="true"] .line-1 {
-        transform: rotate(-45deg) translate(-5px, 6px);
+    .nav-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
     }
-    .mobile-toggle[aria-expanded="true"] .line-2 {
-        opacity: 0;
-    }
-    .mobile-toggle[aria-expanded="true"] .line-3 {
-        transform: rotate(45deg) translate(-5px, -6px);
+
+    .logo {
+        max-width: 150px;
     }
 }
 
-/* Desktop: Hide toggle, show list */
 @media (min-width: 901px) {
     .mobile-toggle {
         display: none !important;
@@ -838,79 +928,6 @@ input:focus, textarea:focus {
     }
 }
 
-/* Animation */
-@keyframes slideDown {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-/* =========================================
-   FORCE HAMBURGER ICON VISIBILITY (Mobile)
-   ========================================= */
-
-/* 1. Ensure the toggle button is ALWAYS visible on screens smaller than 900px */
-@media (max-width: 900px) {
-    .mobile-toggle {
-        display: flex !important; /* Force flex to show it */
-        align-items: center;
-        justify-content: center;
-        width: 40px;
-        height: 40px;
-        background-color: transparent;
-        border: none;
-        cursor: pointer;
-        z-index: 10000; /* Highest priority to stay on top */
-        padding: 5px;
-        margin-left: auto; /* Push to the right if using space-between */
-    }
-
-    /* 2. Style the hamburger lines (the icon itself) */
-    /* If your icon uses a span inside */
-    .mobile-toggle span,
-    .mobile-toggle .hamburger-icon {
-        display: block !important;
-        width: 25px;
-        height: 3px;
-        background-color: var(--color-navy-primary); /* Or #0F172A */
-        margin: 6px 0;
-        transition: 0.3s;
-        border-radius: 2px;
-    }
-    
-    /* If your icon uses pseudo-elements (::before, ::after) */
-    .mobile-toggle::before, 
-    .mobile-toggle::after,
-    .mobile-toggle span::before,
-    .mobile-toggle span::after {
-        content: '';
-        display: block !important;
-        width: 25px;
-        height: 3px;
-        background-color: var(--color-navy-primary);
-        margin: 6px 0;
-    }
-}
-
-/* 3. Ensure Desktop hides it */
-@media (min-width: 901px) {
-    .mobile-toggle {
-        display: none !important;
-    }
-}
-
-/* 4. Fix Navbar Container to allow button to sit next to logo */
-@media (max-width: 900px) {
-    .nav-inner {
-        display: flex;
-        justify-content: space-between; /* Space between Logo and Button */
-        align-items: center;
-    }
-    
-    /* Ensure Logo doesn't eat up all space */
-    .logo {
-        max-width: 150px; 
-    }
-}
-/* MOBILE MENU - ACTIVE STATE */
 @media (max-width: 900px) {
     #main-nav.active {
         display: flex !important;
@@ -924,4 +941,9 @@ input:focus, textarea:focus {
         box-shadow: 0 10px 20px rgba(0,0,0,0.15) !important;
         z-index: 9999 !important;
     }
+}
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
 }

@@ -159,25 +159,55 @@
                 </div>
 
                 <div class="slider-container" id="sliderContainer">
-                    <!-- Legacy Layer (Gray - Shows when Modern is 0%) -->
+                    <!-- Legacy Layer (Gray) -->
                     <div class="layer layer-legacy" id="layerLegacy">
                         <span class="layer-label">LEGACY</span>
                         <span class="layer-sub">COBOL / Siloed Data / Manual Compliance</span>
                     </div>
 
-                    <!-- Modern Layer (Teal - Controlled by JS) -->
+                    <!-- Modern Layer (Teal - controlled by JS) -->
                     <div class="layer layer-modern" id="layerModern">
                         <span class="layer-label">MODERN</span>
                         <span class="layer-sub">Containerized / Unified Data / Automated Governance</span>
                     </div>
 
-                    <!-- Handle (Dragging Point) -->
+                    <!-- Handle -->
                     <div class="slider-handle" id="sliderHandle"></div>
+
+                    <!-- Milestone popup — INSIDE slider-container so it positions correctly -->
+                    <div class="milestone-popup" id="milestonePopup">
+                        <span class="milestone-phase">Phase 2 of 4</span>
+                        <span class="milestone-risk">Risk Level: MEDIUM</span>
+                        <span class="milestone-cost">Est. Cost: $1.2M/yr</span>
+                    </div>
 
                     <!-- Range Input -->
                     <input type="range" min="0" max="100" value="50" class="slider-input" id="sliderInput" aria-label="Drag to compare a legacy system with a modernized system">
                 </div>
-                <p class="slider-caption">Drag the handle to compare. Our incremental “strangler-fig” approach moves you from left to right one auditable step at a time — no downtime, full traceability for your auditors.</p>
+
+                <!-- ROI calculator below slider -->
+                <div class="roi-calculator" aria-live="polite">
+                    <div class="roi-inputs">
+                        <label for="agencySize">Select Your Agency Size</label>
+                        <select id="agencySize">
+                            <option value="small">$5M–$25M IT Budget</option>
+                            <option value="medium" selected>$25M–$100M IT Budget</option>
+                            <option value="large">$100M+ IT Budget</option>
+                        </select>
+                    </div>
+                    <div class="roi-output">
+                        <div class="roi-metric">
+                            <span class="roi-label">Potential Annual Savings</span>
+                            <span class="roi-value" id="annualSavings">$5.4M</span>
+                        </div>
+                        <div class="roi-metric">
+                            <span class="roi-label">Compliance Risk Reduction</span>
+                            <span class="roi-value" id="riskReduction">28%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="slider-caption">Drag the handle to compare. Our incremental "strangler-fig" approach moves you from left to right one auditable step at a time — no downtime, full traceability for your auditors.</p>
 
                 <div class="slider-actions">
                     <a href="#outcomes" class="btn btn-primary">See Our Approach</a>
@@ -191,7 +221,6 @@
                 </ul>
             </div>
         </section>
-
         <!-- Leadership Spotlight -->
         <section class="leadership">
             <div class="container">
