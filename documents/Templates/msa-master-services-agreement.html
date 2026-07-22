@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Master Services Agreement</title>
+    <style>
+        @page { size: letter; margin: 1in 1in 1in 1in; }
+        html { font-size: 10pt; }
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            color: #000;
+            line-height: 1.6;
+            background: #fff;
+        }
+
+        h1 {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-size: 16pt;
+            text-align: center;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .meta {
+            text-align: center;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-size: 9pt;
+            margin-bottom: 32px;
+        }
+        .meta p { margin-bottom: 4px; }
+
+        h2 {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-size: 11pt;
+            font-weight: 700;
+            margin-top: 24px;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+        }
+
+        h3 {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-size: 10pt;
+            font-weight: 700;
+            margin-top: 16px;
+            margin-bottom: 8px;
+        }
+
+        p { margin-bottom: 12px; text-align: justify; }
+        ul, ol { margin-bottom: 12px; padding-left: 24px; }
+        li { margin-bottom: 6px; }
+
+        .party-box {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin: 24px 0;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+        }
+        .party-column {
+            padding: 16px;
+            background: #f8f9fa;
+            border-left: 3px solid #1a2332;
+        }
+        .party-column strong {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 11pt;
+            color: #1a2332;
+        }
+
+        .numbered-section {
+            margin-bottom: 18px;
+        }
+        .numbered-section .section-num {
+            font-weight: 700;
+            color: #1a2332;
+        }
+
+        .definition-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-size: 9.5pt;
+        }
+        .definition-table td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #e0e0e0;
+            vertical-align: top;
+        }
+        .definition-table .term {
+            font-weight: 700;
+            width: 35%;
+            color: #1a2332;
+        }
+
+        .signature-section {
+            margin-top: 48px;
+        }
+        .signature-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 32px;
+        }
+        .sig-column {
+            width: 45%;
+        }
+        .sig-block {
+            margin-bottom: 24px;
+        }
+        .sig-space {
+            height: 50px;
+            margin-bottom: 8px;
+        }
+        .sig-name-line {
+            border-top: 1px solid #333;
+            padding-top: 6px;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-size: 9pt;
+        }
+        .sig-name-line strong {
+            display: block;
+            color: #1a2332;
+            margin-bottom: 2px;
+        }
+
+        .schedule-heading {
+            page-break-before: always;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-size: 14pt;
+            font-weight: 700;
+            text-align: center;
+            margin: 48px 0 24px;
+            text-transform: uppercase;
+        }
+
+        .exhibit-title {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-size: 16pt;
+            font-weight: 700;
+            text-align: center;
+            margin: 60px 0 24px;
+            text-transform: uppercase;
+        }
+
+        .no-print {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: #333;
+            color: #fff;
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-family: Arial, sans-serif;
+            font-size: 11px;
+            cursor: pointer;
+            border: none;
+            z-index: 9999;
+        }
+
+        @media print {
+            .no-print { display: none !important; }
+            body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+        }
+    </style>
+</head>
+<body>
+    <button class="no-print" onclick="window.print()">🖨️ Print / Save as PDF</button>
+
+    <div style="border-bottom:3px solid #16245C;padding-bottom:14px;margin-bottom:28px;">
+        <img src="../../assets/images/logo-lockup.svg" alt="New South Technologies" style="height:48px;width:auto;display:block;">
+    </div>
+
+    <h1>MASTER SERVICES AGREEMENT</h1>
+
+    <div class="meta">
+        <p><strong>Agreement Number:</strong> MSA-[YEAR]-[NUMBER]</p>
+        <p><strong>Effective Date:</strong> [DATE]</p>
+    </div>
+
+    <p>This Master Services Agreement ("Agreement") is entered into by and between:</p>
+
+    <div class="party-box">
+        <div class="party-column">
+            <strong>CONTRACTOR</strong>
+            NewSouth Technologies<br>
+            [FULL ADDRESS]<br>
+            Email: [EMAIL]
+        </div>
+        <div class="party-column">
+            <strong>CLIENT</strong>
+            [CLIENT COMPANY NAME]<br>
+            [FULL ADDRESS]<br>
+            Email: [EMAIL]
+        </div>
+    </div>
+
+    <p>Collectively referred to as the "Parties" and individually as a "Party."</p>
+
+    <!-- RECITALS -->
+    <p><strong>WHEREAS,</strong> Contractor possesses expertise in professional services including legacy modernization, governed agility, cybersecurity, and AI governance;</p>
+    <p><strong>WHEREAS,</strong> Client desires to engage Contractor to provide certain professional services from time to time;</p>
+    <p><strong>NOW, THEREFORE,</strong> in consideration of the mutual covenants contained herein, the Parties agree as follows:</p>
+
+    <!-- ARTICLE 1: DEFINITIONS -->
+    <h2>ARTICLE 1 — DEFINITIONS</h2>
+
+    <table class="definition-table">
+        <tr>
+            <td class="term">1.1 "Affiliate"</td>
+            <td>means any entity that directly or indirectly controls, is controlled by, or is under common control with a Party.</td>
+        </tr>
+        <tr>
+            <td class="term">1.2 "Confidential Information"</td>
+            <td>has the meaning set forth in Article 6.</td>
+        </tr>
+        <tr>
+            <td class="term">1.3 "Deliverables"</td>
+            <td>means the tangible outputs, reports, software, documentation, or other work product specified in a Statement of Work to be delivered by Contractor to Client.</td>
+        </tr>
+        <tr>
+            <td class="term">1.4 "Effective Date"</td>
+            <td>means the date first written above when this Agreement is executed by both Parties.</td>
+        </tr>
+        <tr>
+            <td class="term">1.5 "Intellectual Property Rights"</td>
+            <td>means patents, copyrights, trademarks, trade secrets, moral rights, and other intellectual property rights worldwide.</td>
+        </tr>
+        <tr>
+            <td class="term">1.6 "Services"</td>
+            <td>means the professional services to be performed by Contractor as described in a Statement of Work.</td>
+        </tr>
+        <tr>
+            <td class="term">1.7 "Statement of Work" or "SOW"</td>
+            <td>means a written document executed by both Parties that describes specific Services, Deliverables, fees, and timelines for a particular engagement.</td>
+        </tr>
+        <tr>
+            <td class="term">1.8 "Term"</td>
+            <td>has the meaning set forth in Article 10.</td>
+        </tr>
+    </table>
+
+    <!-- ARTICLE 2: SCOPE OF SERVICES -->
+    <h2>ARTICLE 2 — SCOPE OF SERVICES</h2>
+
+    <div class="numbered-section">
+        <span class="section-num">2.1</span>
+        <span>In accordance with this Agreement, Client hereby engages Contractor, and Contractor accepts such engagement, to perform the Services and provide the Deliverables as described in one or more Statements of Work.</span>
+    </div>
+
+    <div class="numbered-section">
+        <span class="section-num">2.2</span>
+        <span>Each SOW shall specify, at a minimum: (a) description of Services and Deliverables; (b) applicable timelines and milestones; (c) fees and payment terms; (d) personnel assigned; and (e) any special terms or conditions.</span>
+    </div>
+
+    <div class="numbered-section">
+        <span class="section-num">2.3</span>
+        <span>In the event of any conflict between the terms of this Agreement and an SOW, the terms of this Agreement shall prevail, except that the specific terms of an SOW shall control with respect to the particular engagement covered by that SOW.</span>
+    </div>
+
+    <div class="numbered-section">
+        <span class="section-num">2.4</span>
+        <span>Contractor shall perform the Services in a professional and workmanlike manner consistent with industry standards for similar services.</span>
+    </div>
+
+    <!-- ARTICLE 3: FEES AND PAYMENT -->
+    <h2>ARTICLE 3 — FEES AND PAYMENT</h2>
+
+    <div class="numbered-section">
+        <span class="section-num">3.1 Fees</span>
+        <p>Client shall pay Contractor the fees set forth in each SOW. All fees are in United States Dollars unless otherwise stated.</p>
+    </div>
+
+    <div class="numbered-section">
+        <span class="section-num">3.2 Invoicing</span>
+        <p>Contractor shall submit invoices in accordance with the payment schedule specified in each SOW. Unless otherwise stated in an SOW, invoices are due within fifteen (15) days of receipt.</p>
+    </div>
+
+    <div class="numbered-section">
+        <span class="section-num">3.3 Late Payments</span>
+        <p>Overdue amounts shall bear interest at the rate of 1.5% per month (18% APR) or the maximum rate permitted by law, whichever is less. Client shall also reimburse Contractor for all reasonable costs of collection, including attorney's fees.</p>
+    </div>
+
+    <div class="numbered-section">
+        <span class="section-num">3.4 Expenses</span>
+        <p>Unless otherwise stated in an SOW, Contractor's fees are all-inclusive and Client shall not be responsible for any out-of-pocket expenses. Travel expenses must be pre-approved in writing by Client and will be billed at cost.</p>
+    </div>
+
+    <div class="numbered-section">
+        <span class="section-num">3.5 Taxes</span>
+        <p>Fees do not include any sales, use, or value-added taxes. Client is responsible for all such taxes except for taxes on Contractor's net income.</p>
+    </div>
+
+    <!-- ARTICLE 4: INTELLECTUAL PROPERTY -->
+    <h2>ARTICLE 4 — INTELLECTUAL PROPERTY RIGHTS</h2>
+
+    <div class="numbered-section">
+        <span class="section-num">4.1 Client Materials</span>
+        <p>Client retains all ownership rights to its pre-existing materials, data, and Intellectual Property Rights provided to Contractor for purposes of performing the Services ("Client Materials"). Client grants Contractor a limited, non-exclusive license to use Client Materials solely for the purpose of providing the Services under this Agreement.</p>
+    </div>
+
+    <div class="numbered-section">
+        <span class="section-num">4.2 Contractor Background IP</span>
+        <p>Contractor retains all ownership rights to its pre-existing intellectual property, methodologies, frameworks, tools, and know-how used in performing the Services ("Contractor Background IP"). Nothing in this Agreement transfers ownership of Contractor Background IP to Client.</p>
+    </div>
+
+    <div class="numbered-section">
+        <span class="section-num">4.3 Work Product</span>
+        <p>Upon full payment of all fees, all Deliverables created specifically for Client under an SOW shall become the exclusive property of Client. Contractor hereby assigns to Client all right, title, and interest in and to such Deliverables, excluding Contractor Background IP incorporated therein.</p>
+    </div>
+
+    <div class="numbered-section">
+        <span class="section-num">4.4 License to Background IP</span>
+        <p>To the extent any Contractor Background IP is incorporated into Deliverables, Contractor grants Client a perpetual, non-exclusive, royalty-free license to use such Background IP as part of or in connection with the Deliverables.</p>
+    </div>
+
+    <div class="numbered-section">
+        <span class="section-num">4.5 Moral Rights</span>
+        <p>To the extent permitted by law, Contractor waives any moral rights in the Deliverables assigned to Client under this Agreement.</p>
+    </div>
+
+    <!-- ARTICLE 5: CONFIDENTIALITY -->
+    <h2>ARTICLE 5 — CONFIDENTIALITY</h2>
+
+    <div class="numbered-section">
+        <span class="section-num">5.1 Mutual Obligations</span>
+        <p>Each Party ("Disclosing Party") may disclose Confidential Information to the other Party ("Receiving Party"). The Receiving Party agrees to:</p>
+        <ul>
+            <li>(a) hold all Confidential Information in strict confidence;</li>
+            <li>(b) not disclose Confidential Information to any third party without prior written consent;</li>
+            <li>(c) use Confidential Information solely for purposes of this Agreement;</li>
+            <li>(d) limit access to employees and contractors who have a need to know and are bound by confidentiality obligations at least as restrictive as this Article.</li>
+        </ul>
+    </div>
+
+    <div class="numbered-section">
+        <span class="section-num">5.2 Definition</span>
+        <p>"Confidential Information" means all non-public information disclosed by the Disclosing Party, whether orally or in writing, that is designated as confidential or that reasonably should be understood to be confidential given the nature of the information and circumstances of disclosure. This includes business plans, technical data, customer information, financial data, and project details.</p>
+    </div>
+
+    <div class="numbered-section">
+        <span class="section-num">5.3 Exceptions</span>
+        <p>Confidential Information does not include information that: (a) was publicly known prior to disclosure; (b) becomes publicly known through no wrongful act of the Receiving Party; (c) was rightfully received from a third party without breach; (d) was independently developed without use of the Confidential Information; or (e) must be disclosed by law or court order (with prompt notice to the Disclosing Party).</p>
+    </div>
+
+    <div class="numbered-section">
+        <span class="section-num">5.4 Return or Destruction</span>
+        <p>Upon termination of this Agreement or at the Disclosing Party's request, the Receiving Party shall promptly return or destroy all copies of Confidential Information and certify such destruction in writing.</p>
+    </div>
+
+    <div class="numbered-section">
+        <span class="section-num">5.5 Survival</span>
+        <p>The obligations of this Article shall survive termination of this Agreement for a period of three (3) years, except for trade secrets which shall remain protected indefinitely.</p>
+    </div>
+
+    <!-- ARTICLE 6: DATA PROTECTION & SECURITY -->
+    <h2>ARTICLE 6 — DATA PROTECTION AND SECURITY</h2>
+
+    <div class="numbered-section">
+        <span class="section-num">6.1 Data Protection Standards</span>
+        <p>Contractor shall implement and maintain appropriate technical and organizational measures to protect Client data processed under this Agreement, including encryption, access controls, and security monitoring.</p>
+    </div>
+
+    <div class="numbered-section">
+        <span class="section-num">6.2 Breach Notification</span>
+        <p>Contractor shall notify Client within forty-eight (48) hours of becoming aware of any actual or suspected unauthorized access, disclosure, or loss of Client data.</p>
+    </div>
+
+    <div class="numbered-section">
+        <span class="section-num">6.3 Compliance</span>
+        <p>Contractor represents that it complies with applicable data protection laws and regulations, including but not limited to NIST standards, CMMC requirements, and relevant federal cybersecurity mandates where applicable.</p>
+    </div>
+
+    <!-- ARTICLE 7: WARRANTIES AND DISCLAIMERS -->
+    <h2>ARTICLE 7 — WARRANTIES AND DISCLAIMERS</h2>
+
+    <div class="numbered-section">
+        <span class="section-num">7.1 Contractor Warranty</span>
+        <p>Contractor warrants that: (a) Services will be performed in a professional and workmanlike manner; (b) Deliverables will conform to specifications in the applicable SOW; and (c) Contractor has the right to enter into this Agreement and perform the Services.</p>
+    </div>
+
+    <div class="numbered-section">
+        <span class="section-num">7.2 Remedy for Non-Conformance</span>
+        <p>Client's sole remedy for breach of the warranty in Section 7.1(b) is that Contractor shall, at no additional cost, correct or replace non-conforming Deliverables within a reasonable time after notice from Client.</p>
+    </div>
+
+    <div class="numbered-section">
+        <span class="section-num">7.3 Disclaimer</span>
+        <p>EXCEPT AS EXPRESSLY STATED IN THIS ARTICLE, CONTRACTOR MAKES NO OTHER WARRANTIES, EXPRESS OR IMPLIED, INCLUDING ANY IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, OR NON-INFRINGEMENT. CONTRACTOR DOES NOT WARRANT THAT THE SERVICES WILL BE UNINTERRUPTED OR ERROR-FREE.</p>
+    </div>
+
+    <!-- ARTICLE 8: LIMITATION OF LIABILITY -->
+    <h2>ARTICLE 8 — LIMITATION OF LIABILITY</h2>
+
+    <div class="numbered-section">
+        <span class="section-num">8.1 Cap on Liability</span>
+        <p>IN NO EVENT SHALL EITHER PARTY'S AGGREGATE LIABILITY ARISING OUT OF THIS AGREEMENT EXCEED THE TOTAL FEES PAID BY CLIENT TO CONTRACTOR UNDER THE SOW GIVING RISE TO SUCH CLAIM IN THE TWELVE (12) MONTHS PRECEDING THE CLAIM.</p>
+    </div>
+
+    <div class="numbered-section">
+        <span class="section-num">8.2 Consequential Damages Waiver</span>
+        <p>IN NO EVENT SHALL EITHER PARTY BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING LOST PROFITS, LOST REVENUE, LOSS OF GOODWILL, OR DATA LOSS, WHETHER BASED IN CONTRACT, TORT, OR OTHERWISE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.</p>
+    </div>
+
+    <div class="numbered-section">
+        <span class="section-num">8.3 Exceptions</span>
+        <p>The limitations in Sections 8.1 and 8.2 shall not apply to: (a) either Party's obligation to pay fees; (b) either Party's breach of confidentiality obligations; (c) gross negligence or willful misconduct; or (d) claims arising from infringement of Intellectual Property Rights.</p>
+    </div>
+
+    <!-- ARTICLE 9: INDEMNIFICATION -->
+    <h2>ARTICLE 9 — INDEMNIFICATION</h2>
+
+    <div class="numbered-section">
+        <span class="section-num">9.1 Contractor Indemnification</span>
+        <p>Contractor shall indemnify, defend, and hold harmless Client and its Affiliates from and against any third-party claims, losses, damages, liabilities, and expenses (including reasonable attorney's fees) arising out of: (a) Contractor's gross negligence or willful misconduct; or (b) allegations that the Deliverables infringe a third party's Intellectual Property Rights.</p>
+    </div>
+
+    <div class="numbered-section">
+        <span class="section-num">9.2 Client Indemnification</span>
+        <p>Client shall indemnify, defend, and hold harmless Contractor and its Affiliates from and against any third-party claims arising out of: (a) Client's use of Deliverables in a manner not authorized by this Agreement; or (b) Client's negligence or willful misconduct.</p>
+    </div>
+
+    <div class="numbered-section">
+        <span class="section-num">9.3 Procedure</span>
+        <p>The indemnified Party shall promptly notify the indemnifying Party of any claim, cooperate in the defense, and allow the indemnifying Party to control the defense and settlement of the claim.</p>
+    </div>
+
+    <!-- ARTICLE 10: TERM AND TERMINATION -->
+    <h2>ARTICLE 10 — TERM AND TERMINATION</h2>
+
+    <div class="numbered-section">
+        <span class="section-num">10.1 Term</span>
+        <p>This Agreement shall commence on the Effective Date and continue for a period of [TWO / THREE / FIVE] years ("Initial Term"), unless earlier terminated as provided herein. This Agreement may be renewed for successive one-year periods upon mutual written agreement.</p>
+    </div>
+
+    <div class="numbered-section">
+        <span class="section-num">10.2 Termination for Convenience</span>
+        <p>Either Party may terminate this Agreement or any outstanding SOW for convenience upon thirty (30) days written notice to the other Party.</p>
+    </div>
+
+    <div class="numbered-section">
+        <span class="section-num">10.3 Termination for Cause</span>
+        <p>Either Party may terminate this Agreement immediately upon written notice if the other Party materially breaches this Agreement and fails to cure such breach within ten (10) days of receiving written notice of the breach.</p>
+    </div>
+
+    <div class="numbered-section">
+        <span class="section-num">10.4 Effect of Termination</span>
+        <p>Upon termination: (a) Client shall pay Contractor for all Services performed and expenses incurred through the termination date; (b) Contractor shall deliver all completed Deliverables; (c) each Party shall return or destroy the other's Confidential Information; and (d) all outstanding SOWs shall be cancelled except as expressly agreed otherwise.</p>
+    </div>
+
+    <div class="numbered-section">
+        <span class="section-num">10.5 Survival</span>
+        <p>The following Articles shall survive termination: 4 (Intellectual Property), 5 (Confidentiality), 7.3 (Disclaimer), 8 (Limitation of Liability), 9 (Indemnification), 12 (Governing Law), and 13 (Miscellaneous).</p>
+    </div>
+
+    <!-- ARTICLE 11: GENERAL PROVISIONS -->
+    <h2>ARTICLE 11 — GENERAL PROVISIONS</h2>
+
+    <div class="numbered-section">
+        <span class="section-num">11.1 Independent Contractor</span>
+        <p>Contractor is an independent contractor. Nothing in this Agreement creates an employment, partnership, or joint venture relationship. Contractor has no authority to bind Client to any agreement.</p>
+    </div>
+
+    <div class="numbered-section">
+        <span class="section-num">11.2 Assignment</span>
+        <p>Neither Party may assign this Agreement without the prior written consent of the other Party, except that either Party may assign this Agreement to an Affiliate or in connection with a merger, acquisition, or sale of substantially all assets.</p>
+    </div>
+
+    <div class="numbered-section">
+        <span class="section-num">11.3 Force Majeure</span>
+        <p>Neither Party shall be liable for any delay or failure to perform due to causes beyond its reasonable control, including acts of God, natural disasters, war, terrorism, government actions, epidemics, or interruptions of telecommunications or power infrastructure.</p>
+    </div>
+
+    <div class="numbered-section">
+        <span class="section-num">11.4 Notices</span>
+        <p>All notices shall be in writing and delivered by email with confirmation of receipt, certified mail, or recognized overnight courier to the addresses set forth in the preamble.</p>
+    </div>
+
+    <div class="numbered-section">
+        <span class="section-num">11.5 Entire Agreement</span>
+        <p>This Agreement, together with all SOWs and exhibits, constitutes the entire agreement between the Parties and supersedes all prior or contemporaneous agreements, understandings, negotiations, and discussions, whether oral or written.</p>
+    </div>
+
+    <div class="numbered-section">
+        <span class="section-num">11.6 Amendments</span>
+        <p>This Agreement may only be amended or modified by a written instrument signed by authorized representatives of both Parties.</p>
+    </div>
+
+    <div class="numbered-section">
+        <span class="section-num">11.7 Severability</span>
+        <p>If any provision of this Agreement is held invalid or unenforceable, the remaining provisions shall continue in full force and effect. The Parties shall negotiate in good faith to replace the invalid provision with a valid one that achieves the original intent.</p>
+    </div>
+
+    <div class="numbered-section">
+        <span class="section-num">11.8 Waiver</span>
+        <p>No waiver of any term of this Agreement shall be effective unless in writing. A waiver shall not constitute a continuing waiver unless expressly stated.</p>
+    </div>
+
+    <!-- ARTICLE 12: GOVERNING LAW -->
+    <h2>ARTICLE 12 — GOVERNING LAW AND DISPUTE RESOLUTION</h2>
+
+    <div class="numbered-section">
+        <span class="section-num">12.1 Governing Law</span>
+        <p>This Agreement shall be governed by and construed in accordance with the laws of the Commonwealth of [STATE], without regard to its conflict of law principles.</p>
+    </div>
+
+    <div class="numbered-section">
+        <span class="section-num">12.2 Jurisdiction</span>
+        <p>Any legal action or proceeding arising under this Agreement shall be brought exclusively in the state or federal courts located in [COUNTY, STATE], and each Party hereby submits to the jurisdiction of such courts.</p>
+    </div>
+
+    <div class="numbered-section">
+        <span class="section-num">12.3 Dispute Resolution</span>
+        <p>The Parties agree to first attempt to resolve any dispute through good-faith negotiation for at least thirty (30) days before initiating litigation. If negotiation fails, the Parties may pursue mediation before resorting to litigation.</p>
+    </div>
+
+    <!-- SIGNATURES -->
+    <div class="signature-section">
+        <p><strong>IN WITNESS WHEREOF,</strong> the Parties have executed this Master Services Agreement as of the Effective Date.</p>
+
+        <div class="signature-row">
+            <div class="sig-column">
+                <div class="sig-block">
+                    <div class="sig-space"></div>
+                    <div class="sig-name-line">
+                        <strong>Eugene Nkomba</strong>
+                        Co-Managing Partner<br>
+                        NewSouth Technologies<br>
+                        Date: _________________
+                    </div>
+                </div>
+            </div>
+            <div class="sig-column">
+                <div class="sig-block">
+                    <div class="sig-space"></div>
+                    <div class="sig-name-line">
+                        <strong>[CLIENT AUTHORIZED SIGNATORY]</strong>
+                        [Title]<br>
+                        [Client Company Name]<br>
+                        Date: _________________
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCHEDULES/EXHIBITS -->
+    <div class="exhibit-title">SCHEDULE A — FORM OF STATEMENT OF WORK</div>
+
+    <p>Each Statement of Work issued under this Agreement shall follow the format below and be executed by both Parties:</p>
+
+    <table class="definition-table">
+        <tr>
+            <td class="term">SOW Number:</td>
+            <td>[SOW-[MSA NUMBER]-XXX]</td>
+        </tr>
+        <tr>
+            <td class="term">Effective Date:</td>
+            <td>[DATE]</td>
+        </tr>
+        <tr>
+            <td class="term">Description of Services:</td>
+            <td>[Detailed scope description]</td>
+        </tr>
+        <tr>
+            <td class="term">Deliverables:</td>
+            <td>[List of specific deliverables]</td>
+        </tr>
+        <tr>
+            <td class="term">Timeline:</td>
+            <td>[Start date] to [End date] with milestone dates</td>
+        </tr>
+        <tr>
+            <td class="term">Fees:</td>
+            <td>[Total amount] payable as [payment schedule]</td>
+        </tr>
+        <tr>
+            <td class="term">Key Personnel:</td>
+            <td>[Names and roles of assigned staff]</td>
+        </tr>
+        <tr>
+            <td class="term">Special Terms:</td>
+            <td>[Any SOW-specific terms that deviate from the MSA]</td>
+        </tr>
+    </table>
+
+    <div style="margin-top: 40px; text-align: center; font-size: 8pt; color: #666;">
+        <p>END OF MASTER SERVICES AGREEMENT</p>
+        <p>This document consists of [X] pages and includes Schedule A attached hereto.</p>
+    </div>
+</body>
+</html>

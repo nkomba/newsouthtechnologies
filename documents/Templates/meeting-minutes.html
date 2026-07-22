@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NewSouth Technologies — Meeting Minutes</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        @page { size: letter; margin: 0.75in 1in 1in 1in; }
+        html { font-size: 10.5pt; }
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            color: #333;
+            line-height: 1.5;
+            background: #fff;
+        }
+
+        /* HEADER */
+        .doc-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            border-bottom: 3px solid #1a2332;
+            padding-bottom: 14px;
+            margin-bottom: 28px;
+        }
+        .logo-name {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-size: 18pt;
+            font-weight: 700;
+            color: #1a2332;
+        }
+        .logo-name .accent { color: #c9a961; }
+        .doc-type {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-size: 9pt;
+            color: #888;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-align: right;
+        }
+
+        /* MEETING META */
+        .meeting-meta {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4px 32px;
+            margin-bottom: 28px;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-size: 10pt;
+        }
+        .meeting-meta .field {
+            display: flex;
+            padding: 6px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .meeting-meta .label {
+            width: 130px;
+            font-weight: 600;
+            color: #1a2332;
+            flex-shrink: 0;
+        }
+        .meeting-meta .value {
+            color: #555;
+        }
+
+        /* ATTENDEES */
+        h2 {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-size: 12pt;
+            color: #1a2332;
+            font-weight: 700;
+            border-bottom: 2px solid #c9a961;
+            padding-bottom: 5px;
+            margin-bottom: 14px;
+            margin-top: 24px;
+        }
+
+        .attendee-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-size: 9.5pt;
+        }
+        .attendee-table th {
+            background: #1a2332;
+            color: #fff;
+            text-align: left;
+            padding: 8px 10px;
+            font-weight: 600;
+        }
+        .attendee-table td {
+            padding: 8px 10px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .attendee-table tr:nth-child(even) td { background: #f8f9fb; }
+
+        /* AGENDA */
+        .agenda-item {
+            margin-bottom: 16px;
+            padding: 14px 18px;
+            background: #fafafa;
+            border-left: 3px solid #1a2332;
+        }
+        .agenda-item .item-header {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-weight: 700;
+            color: #1a2332;
+            font-size: 10.5pt;
+            margin-bottom: 6px;
+        }
+        .agenda-item .item-text {
+            font-size: 10pt;
+            color: #444;
+            margin-bottom: 8px;
+        }
+
+        /* ACTION ITEMS */
+        .action-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-size: 9.5pt;
+        }
+        .action-table th {
+            background: #1a2332;
+            color: #fff;
+            text-align: left;
+            padding: 8px 10px;
+            font-weight: 600;
+        }
+        .action-table td {
+            padding: 8px 10px;
+            border-bottom: 1px solid #e0e0e0;
+            vertical-align: top;
+        }
+        .action-table tr:nth-child(even) td { background: #f8f9fb; }
+        .action-table .priority-high {
+            color: #c0392b;
+            font-weight: 700;
+        }
+        .action-table .priority-med {
+            color: #c9a961;
+            font-weight: 700;
+        }
+        .action-table .priority-low {
+            color: #27ae60;
+            font-weight: 700;
+        }
+
+        /* DECISIONS */
+        .decision-item {
+            margin-bottom: 12px;
+            padding: 10px 16px;
+            background: #f4f1ea;
+            border-left: 4px solid #c9a961;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-size: 9.5pt;
+            color: #444;
+        }
+        .decision-item strong {
+            color: #1a2332;
+        }
+
+        p { margin-bottom: 12px; }
+
+        /* FOOTER */
+        .doc-footer {
+            border-top: 1px solid #ddd;
+            padding-top: 10px;
+            margin-top: 40px;
+            display: flex;
+            justify-content: space-between;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-size: 8pt;
+            color: #999;
+        }
+
+        .no-print {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: #1a2332;
+            color: #fff;
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-family: Arial, sans-serif;
+            font-size: 11px;
+            cursor: pointer;
+            border: none;
+            z-index: 9999;
+        }
+
+        @media print {
+            .no-print { display: none !important; }
+            body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .doc-footer { position: fixed; bottom: 0.3in; width: calc(100% - 2in); }
+        }
+    </style>
+</head>
+<body>
+    <button class="no-print" onclick="window.print()">🖨️ Print / Save as PDF</button>
+
+    <!-- HEADER -->
+    <div class="doc-header">
+        <img src="../../assets/images/logo-lockup.svg" alt="New South Technologies" style="height:50px;width:auto;display:block;">
+        <div class="doc-type">Meeting Minutes</div>
+    </div>
+
+    <!-- MEETING META -->
+    <div class="meeting-meta">
+        <div class="field">
+            <span class="label">Meeting Subject:</span>
+            <span class="value">[MEETING SUBJECT]</span>
+        </div>
+        <div class="field">
+            <span class="label">Date:</span>
+            <span class="value">[DATE]</span>
+        </div>
+        <div class="field">
+            <span class="label">Start Time:</span>
+            <span class="value">[START TIME]</span>
+        </div>
+        <div class="field">
+            <span class="label">End Time:</span>
+            <span class="value">[END TIME]</span>
+        </div>
+        <div class="field">
+            <span class="label">Location:</span>
+            <span class="value">[LOCATION / VIRTUAL LINK]</span>
+        </div>
+        <div class="field">
+            <span class="label">Facilitator:</span>
+            <span class="value">[FACILITATOR NAME]</span>
+        </div>
+        <div class="field">
+            <span class="label">Minutes By:</span>
+            <span class="value">[NOTE TAKER NAME]</span>
+        </div>
+        <div class="field">
+            <span class="label">Distribution:</span>
+            <span class="value">[DISTRIBUTION LIST]</span>
+        </div>
+    </div>
+
+    <!-- ATTENDEES -->
+    <h2>Attendees</h2>
+    <table class="attendee-table">
+        <thead>
+            <tr>
+                <th style="width: 25%;">Name</th>
+                <th style="width: 20%;">Organization</th>
+                <th style="width: 20%;">Role</th>
+                <th style="width: 10%;">Attended</th>
+                <th style="width: 25%;">Contact</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>[NAME]</td>
+                <td>[ORG]</td>
+                <td>[ROLE]</td>
+                <td>✓</td>
+                <td>[EMAIL]</td>
+            </tr>
+            <tr>
+                <td>[NAME]</td>
+                <td>[ORG]</td>
+                <td>[ROLE]</td>
+                <td>✓</td>
+                <td>[EMAIL]</td>
+            </tr>
+            <tr>
+                <td>[NAME]</td>
+                <td>[ORG]</td>
+                <td>[ROLE]</td>
+                <td>✓</td>
+                <td>[EMAIL]</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- AGENDA & DISCUSSION -->
+    <h2>Agenda & Discussion Summary</h2>
+
+    <div class="agenda-item">
+        <div class="item-header">Agenda Item 1: [TOPIC TITLE]</div>
+        <div class="item-text">
+            [Summary of discussion points, key questions raised, and perspectives shared.]
+        </div>
+        <div class="item-text" style="font-style: italic; color: #777;">
+            Presenter: [NAME] · Duration: [XX minutes]
+        </div>
+    </div>
+
+    <div class="agenda-item">
+        <div class="item-header">Agenda Item 2: [TOPIC TITLE]</div>
+        <div class="item-text">
+            [Summary of discussion points, key questions raised, and perspectives shared.]
+        </div>
+        <div class="item-text" style="font-style: italic; color: #777;">
+            Presenter: [NAME] · Duration: [XX minutes]
+        </div>
+    </div>
+
+    <div class="agenda-item">
+        <div class="item-header">Agenda Item 3: [TOPIC TITLE]</div>
+        <div class="item-text">
+            [Summary of discussion points, key questions raised, and perspectives shared.]
+        </div>
+        <div class="item-text" style="font-style: italic; color: #777;">
+            Presenter: [NAME] · Duration: [XX minutes]
+        </div>
+    </div>
+
+    <!-- DECISIONS -->
+    <h2>Decisions Made</h2>
+
+    <div class="decision-item">
+        <strong>Decision 1:</strong> [Description of the decision reached and rationale.]
+    </div>
+    <div class="decision-item">
+        <strong>Decision 2:</strong> [Description of the decision reached and rationale.]
+    </div>
+
+    <!-- ACTION ITEMS -->
+    <h2>Action Items</h2>
+    <table class="action-table">
+        <thead>
+            <tr>
+                <th style="width: 5%;">#</th>
+                <th style="width: 35%;">Action Item</th>
+                <th style="width: 18%;">Owner</th>
+                <th style="width: 17%;">Due Date</th>
+                <th style="width: 12%;">Priority</th>
+                <th style="width: 13%;">Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>[Action item description]</td>
+                <td>[OWNER NAME]</td>
+                <td>[DUE DATE]</td>
+                <td><span class="priority-high">HIGH</span></td>
+                <td>Open</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>[Action item description]</td>
+                <td>[OWNER NAME]</td>
+                <td>[DUE DATE]</td>
+                <td><span class="priority-med">MEDIUM</span></td>
+                <td>Open</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>[Action item description]</td>
+                <td>[OWNER NAME]</td>
+                <td>[DUE DATE]</td>
+                <td><span class="priority-low">LOW</span></td>
+                <td>Open</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- NEXT MEETING -->
+    <h2>Next Meeting</h2>
+    <p><strong>Date:</strong> [NEXT MEETING DATE] &nbsp;&nbsp; <strong>Time:</strong> [TIME] &nbsp;&nbsp; <strong>Location:</strong> [LOCATION/VIRTUAL] &nbsp;&nbsp; <strong>Agenda Items:</strong> [KEY TOPICS FOR NEXT MEETING]</p>
+
+    <!-- FOOTER -->
+    <div class="doc-footer">
+        <div>NewSouth Technologies | [ADDRESS] | [PHONE]</div>
+        <div>Minutes prepared July 19, 2026 | Page 1 of 1</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NewSouth Technologies — Project Status Report</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        @page { size: letter; margin: 0.75in 1in 1in 1in; }
+        html { font-size: 10pt; }
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            color: #333;
+            line-height: 1.5;
+            background: #fff;
+        }
+
+        .doc-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            border-bottom: 3px solid #1a2332;
+            padding-bottom: 14px;
+            margin-bottom: 24px;
+        }
+        .logo-name {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-size: 18pt;
+            font-weight: 700;
+            color: #1a2332;
+        }
+        .logo-name .accent { color: #c9a961; }
+        .doc-type {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-size: 9pt;
+            color: #888;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-align: right;
+        }
+
+        h2 {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-size: 12pt;
+            color: #1a2332;
+            font-weight: 700;
+            border-bottom: 2px solid #c9a961;
+            padding-bottom: 5px;
+            margin-bottom: 14px;
+            margin-top: 24px;
+        }
+
+        /* PROJECT INFO GRID */
+        .project-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px 32px;
+            margin-bottom: 24px;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-size: 9.5pt;
+        }
+        .project-info .field {
+            display: flex;
+            padding: 5px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .project-info .label {
+            width: 140px;
+            font-weight: 600;
+            color: #1a2332;
+            flex-shrink: 0;
+        }
+        .project-info .value { color: #555; }
+
+        /* OVERALL STATUS BADGE */
+        .status-badge-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 24px;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+        }
+        .status-label {
+            font-size: 10pt;
+            font-weight: 700;
+            color: #1a2332;
+        }
+        .status-badge {
+            padding: 6px 20px;
+            font-size: 10pt;
+            font-weight: 700;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .status-green { background: #27ae60; color: #fff; }
+        .status-yellow { background: #c9a961; color: #fff; }
+        .status-red { background: #c0392b; color: #fff; }
+
+        /* SUMMARY TABLE */
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+        .summary-card {
+            background: #f8f9fa;
+            border: 1px solid #e0e0e0;
+            border-top: 3px solid #1a2332;
+            padding: 14px 16px;
+            text-align: center;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+        }
+        .summary-card .label {
+            font-size: 8pt;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 6px;
+        }
+        .summary-card .value {
+            font-size: 14pt;
+            font-weight: 700;
+            color: #1a2332;
+        }
+        .summary-card .detail {
+            font-size: 8.5pt;
+            color: #666;
+            margin-top: 4px;
+        }
+
+        /* TABLES */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-size: 9pt;
+        }
+        th {
+            background: #1a2332;
+            color: #fff;
+            text-align: left;
+            padding: 8px 10px;
+            font-weight: 600;
+        }
+        td {
+            padding: 8px 10px;
+            border-bottom: 1px solid #e0e0e0;
+            vertical-align: top;
+        }
+        tr:nth-child(even) td { background: #f8f9fb; }
+
+        .task-status-complete { color: #27ae60; font-weight: 700; }
+        .task-status-progress { color: #c9a961; font-weight: 700; }
+        .task-status-delayed { color: #c0392b; font-weight: 700; }
+        .task-status-notstarted { color: #999; font-weight: 700; }
+
+        /* PROGRESS BAR */
+        .progress-bar-container {
+            background: #eee;
+            border-radius: 10px;
+            overflow: hidden;
+            height: 14px;
+            margin-top: 4px;
+        }
+        .progress-bar-fill {
+            height: 100%;
+            background: #1a2332;
+            border-radius: 10px;
+        }
+
+        .progress-overall {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+        }
+        .progress-overall .bar-container {
+            flex: 1;
+            background: #eee;
+            border-radius: 10px;
+            overflow: hidden;
+            height: 20px;
+        }
+        .progress-overall .bar-fill {
+            height: 100%;
+            background: linear-gradient(to right, #1a2332, #c9a961);
+            border-radius: 10px;
+        }
+        .progress-overall .percent {
+            font-size: 12pt;
+            font-weight: 700;
+            color: #1a2332;
+            width: 50px;
+            text-align: right;
+        }
+
+        /* RISK/ISSUE CARDS */
+        .issue-card {
+            margin-bottom: 10px;
+            padding: 12px 16px;
+            border-left: 4px solid #c9a961;
+            background: #fafafa;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-size: 9.5pt;
+        }
+        .issue-card.high { border-left-color: #c0392b; }
+        .issue-card.medium { border-left-color: #c9a961; }
+        .issue-card.low { border-left-color: #27ae60; }
+        .issue-card .issue-header {
+            font-weight: 700;
+            color: #1a2332;
+            margin-bottom: 4px;
+        }
+        .issue-card .issue-detail {
+            color: #555;
+        }
+        .issue-card .issue-meta {
+            font-size: 8pt;
+            color: #999;
+            margin-top: 6px;
+        }
+
+        /* CALL OUT */
+        .callout {
+            background: #f4f1ea;
+            border-left: 4px solid #c9a961;
+            padding: 14px 18px;
+            margin: 16px 0;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-size: 9.5pt;
+            color: #444;
+        }
+
+        p { margin-bottom: 12px; }
+
+        .doc-footer {
+            border-top: 1px solid #ddd;
+            padding-top: 10px;
+            margin-top: 36px;
+            display: flex;
+            justify-content: space-between;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-size: 8pt;
+            color: #999;
+        }
+
+        .no-print {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: #1a2332;
+            color: #fff;
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-family: Arial, sans-serif;
+            font-size: 11px;
+            cursor: pointer;
+            border: none;
+            z-index: 9999;
+        }
+
+        @media print {
+            .no-print { display: none !important; }
+            body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .doc-footer { position: fixed; bottom: 0.3in; width: calc(100% - 2in); }
+        }
+    </style>
+</head>
+<body>
+    <button class="no-print" onclick="window.print()">🖨️ Print / Save as PDF</button>
+
+    <!-- HEADER -->
+    <div class="doc-header">
+        <img src="../../assets/images/logo-lockup.svg" alt="New South Technologies" style="height:50px;width:auto;display:block;">
+        <div class="doc-type">Project Status Report</div>
+    </div>
+
+    <!-- PROJECT INFO -->
+    <div class="project-info">
+        <div class="field">
+            <span class="label">Project Name:</span>
+            <span class="value">[PROJECT NAME]</span>
+        </div>
+        <div class="field">
+            <span class="label">Client:</span>
+            <span class="value">[CLIENT ORGANIZATION]</span>
+        </div>
+        <div class="field">
+            <span class="label">Report Period:</span>
+            <span class="value">[WEEK ENDING DATE]</span>
+        </div>
+        <div class="field">
+            <span class="label">Report Date:</span>
+            <span class="value">[REPORT DATE]</span>
+        </div>
+        <div class="field">
+            <span class="label">Project Manager:</span>
+            <span class="value">[PM NAME]</span>
+        </div>
+        <div class="field">
+            <span class="label">Sponsor:</span>
+            <span class="value">[SPONSOR NAME]</span>
+        </div>
+        <div class="field">
+            <span class="label">Project Start:</span>
+            <span class="value">[START DATE]</span>
+        </div>
+        <div class="field">
+            <span class="label">Target Completion:</span>
+            <span class="value">[END DATE]</span>
+        </div>
+    </div>
+
+    <!-- OVERALL STATUS -->
+    <div class="status-badge-container">
+        <span class="status-label">Overall Status:</span>
+        <span class="status-badge status-green">ON TRACK</span>
+        <span style="font-size: 9pt; color: #888;">(Update badge class: status-green, status-yellow, or status-red)</span>
+    </div>
+
+    <!-- QUICK METRICS -->
+    <div class="summary-grid">
+        <div class="summary-card">
+            <div class="label">Budget Used</div>
+            <div class="value">$[AMOUNT]</div>
+            <div class="detail">of $[TOTAL BUDGET]</div>
+        </div>
+        <div class="summary-card">
+            <div class="label">Schedule</div>
+            <div class="value">[ON TRACK]</div>
+            <div class="detail">[Phase X of Y]</div>
+        </div>
+        <div class="summary-card">
+            <div class="label">Open Risks</div>
+            <div class="value">[NUMBER]</div>
+            <div class="detail">[X] High · [Y] Medium · [Z] Low</div>
+        </div>
+    </div>
+
+    <!-- OVERALL PROGRESS -->
+    <div class="progress-overall">
+        <span style="font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 9pt; font-weight: 600; color: #1a2332;">Overall Progress</span>
+        <div class="bar-container">
+            <div class="bar-fill" style="width: [X]%;"></div>
+        </div>
+        <span class="percent">[X]%</span>
+    </div>
+
+    <!-- ACCOMPLISHMENTS -->
+    <h2>Accomplishments This Period</h2>
+    <table>
+        <thead>
+            <tr>
+                <th style="width: 40%;">Task</th>
+                <th style="width: 20%;">Phase</th>
+                <th style="width: 15%;">Status</th>
+                <th style="width: 25%;">Progress Bar</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>[Accomplishment/task completed]</td>
+                <td>Phase [X]</td>
+                <td><span class="task-status-complete">COMPLETE</span></td>
+                <td>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar-fill" style="width: 100%;"></div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>[Accomplishment/task completed]</td>
+                <td>Phase [X]</td>
+                <td><span class="task-status-complete">COMPLETE</span></td>
+                <td>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar-fill" style="width: 100%;"></div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>[Accomplishment/task in progress]</td>
+                <td>Phase [X]</td>
+                <td><span class="task-status-progress">IN PROGRESS</span></td>
+                <td>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar-fill" style="width: [X]%;"></div>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- PLANNED FOR NEXT PERIOD -->
+    <h2>Planned for Next Period</h2>
+    <table>
+        <thead>
+            <tr>
+                <th style="width: 40%;">Task</th>
+                <th style="width: 20%;">Phase</th>
+                <th style="width: 15%;">Priority</th>
+                <th style="width: 25%;">Owner</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>[Upcoming task]</td>
+                <td>Phase [X]</td>
+                <td><span class="task-status-progress">HIGH</span></td>
+                <td>[OWNER]</td>
+            </tr>
+            <tr>
+                <td>[Upcoming task]</td>
+                <td>Phase [X]</td>
+                <td><span class="task-status-progress">MEDIUM</span></td>
+                <td>[OWNER]</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- ISSUES & RISKS -->
+    <h2>Issues & Risks</h2>
+
+    <div class="issue-card high">
+        <div class="issue-header">Issue/Risk 1: [TITLE]</div>
+        <div class="issue-detail">[Description of the issue or risk and its potential impact on schedule, budget, or scope.]</div>
+        <div class="issue-meta">
+            <strong>Severity:</strong> HIGH &nbsp;|&nbsp;
+            <strong>Owner:</strong> [NAME] &nbsp;|&nbsp;
+            <strong>Mitigation:</strong> [Planned response/action] &nbsp;|&nbsp;
+            <strong>Status:</strong> [Open/Monitoring/Resolved]
+        </div>
+    </div>
+
+    <div class="issue-card medium">
+        <div class="issue-header">Issue/Risk 2: [TITLE]</div>
+        <div class="issue-detail">[Description of the issue or risk and its potential impact.]</div>
+        <div class="issue-meta">
+            <strong>Severity:</strong> MEDIUM &nbsp;|&nbsp;
+            <strong>Owner:</strong> [NAME] &nbsp;|&nbsp;
+            <strong>Mitigation:</strong> [Planned response/action] &nbsp;|&nbsp;
+            <strong>Status:</strong> [Open/Monitoring/Resolved]
+        </div>
+    </div>
+
+    <div class="issue-card low">
+        <div class="issue-header">Issue/Risk 3: [TITLE]</div>
+        <div class="issue-detail">[Description of the issue or risk and its potential impact.]</div>
+        <div class="issue-meta">
+            <strong>Severity:</strong> LOW &nbsp;|&nbsp;
+            <strong>Owner:</strong> [NAME] &nbsp;|&nbsp;
+            <strong>Mitigation:</strong> [Planned response/action] &nbsp;|&nbsp;
+            <strong>Status:</strong> [Open/Monitoring/Resolved]
+        </div>
+    </div>
+
+    <!-- CHANGE REQUESTS -->
+    <h2>Change Requests</h2>
+    <table>
+        <thead>
+            <tr>
+                <th style="width: 8%;">CR #</th>
+                <th style="width: 35%;">Description</th>
+                <th style="width: 12%;">Type</th>
+                <th style="width: 12%;">Impact</th>
+                <th style="width: 15%;">Submitted By</th>
+                <th style="width: 18%;">Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>CR-001</td>
+                <td>[Change description]</td>
+                <td>Scope</td>
+                <td>+$[AMOUNT]</td>
+                <td>[NAME]</td>
+                <td><span class="task-status-progress">PENDING</span></td>
+            </tr>
+            <tr>
+                <td>CR-002</td>
+                <td>[Change description]</td>
+                <td>Schedule</td>
+                <td>+ [X] days</td>
+                <td>[NAME]</td>
+                <td><span class="task-status-complete">APPROVED</span></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- SUMMARY NARRATIVE -->
+    <h2>Executive Summary</h2>
+    <p>[2-3 paragraph narrative summarizing the overall health of the project, key achievements, concerns, and outlook for the coming period. This section should be suitable for executive-level consumption.]</p>
+
+    <div class="callout">
+        <strong>Needs Client Attention:</strong> [List any items requiring client input, decisions, or action before the next reporting period. Include deadlines.]
+    </div>
+
+    <!-- UPCOMING MILESTONES -->
+    <h2>Upcoming Milestones</h2>
+    <table>
+        <thead>
+            <tr>
+                <th style="width: 30%;">Milestone</th>
+                <th style="width: 15%;">Target Date</th>
+                <th style="width: 15%;">Status</th>
+                <th style="width: 40%;">Notes</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>[Milestone name]</td>
+                <td>[DATE]</td>
+                <td><span class="task-status-progress">ON TRACK</span></td>
+                <td>[Notes]</td>
+            </tr>
+            <tr>
+                <td>[Milestone name]</td>
+                <td>[DATE]</td>
+                <td><span class="task-status-notstarted">NOT STARTED</span></td>
+                <td>[Notes]</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- FOOTER -->
+    <div class="doc-footer">
+        <div>NewSouth Technologies | [ADDRESS] | [PHONE] | www.newsouthtechnologies.com</div>
+        <div>Status Report — [DATE] — Confidential</div>
+    </div>
+</body>
+</html>

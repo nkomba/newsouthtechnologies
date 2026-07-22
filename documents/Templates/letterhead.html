@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NewSouth Technologies — Letterhead</title>
+    <style>
+        /* ===== RESET & BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* ===== PAGE SETUP — LETTER SIZE ===== */
+        @page {
+            size: letter;
+            margin: 0.75in 1in 1in 1in;
+        }
+
+        html {
+            font-size: 11pt;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            color: #333;
+            line-height: 1.6;
+            background: #fff;
+        }
+
+        /* ===== HEADER ===== */
+        .letterhead-header {
+            border-bottom: 3px solid #1a2332;
+            padding-bottom: 18px;
+            margin-bottom: 36px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .logo-block {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+        }
+
+        .logo-name {
+            font-size: 22pt;
+            font-weight: 700;
+            color: #1a2332;
+            letter-spacing: -0.5px;
+        }
+
+        .logo-name .accent {
+            color: #c9a961;
+        }
+
+        .logo-tagline {
+            font-size: 8.5pt;
+            color: #888;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-top: 2px;
+        }
+
+        .header-contact {
+            text-align: right;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-size: 9pt;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        .header-contact a {
+            color: #666;
+            text-decoration: none;
+        }
+
+        .header-contact .website {
+            color: #1a2332;
+            font-weight: 600;
+        }
+
+        /* ===== BODY CONTENT ===== */
+        .letter-body {
+            min-height: 7in; /* fills most of the page */
+        }
+
+        .letter-date {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-size: 10pt;
+            color: #666;
+            margin-bottom: 24px;
+        }
+
+        .recipient {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-size: 10pt;
+            color: #333;
+            line-height: 1.5;
+            margin-bottom: 24px;
+        }
+
+        .subject-line {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-size: 10pt;
+            font-weight: 700;
+            color: #1a2332;
+            margin-bottom: 24px;
+        }
+
+        .salutation {
+            margin-bottom: 16px;
+        }
+
+        .letter-body p {
+            margin-bottom: 14px;
+            text-align: justify;
+        }
+
+        .closing {
+            margin-top: 36px;
+        }
+
+        .signature-space {
+            height: 50px;
+        }
+
+        .signature-name {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-weight: 700;
+            color: #1a2332;
+        }
+
+        .signature-title {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-size: 9pt;
+            color: #888;
+        }
+
+        /* ===== FOOTER ===== */
+        .letterhead-footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            border-top: 1px solid #ddd;
+            padding-top: 10px;
+            display: flex;
+            justify-content: space-between;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-size: 8pt;
+            color: #999;
+        }
+
+        .footer-left span {
+            margin-right: 16px;
+        }
+
+        .footer-right {
+            text-align: right;
+        }
+
+        /* ===== PRINT RULES ===== */
+        @media print {
+            .no-print {
+                display: none !important;
+            }
+            body {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .letterhead-footer {
+                position: fixed;
+                bottom: 0.3in;
+            }
+        }
+
+        .no-print {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: #1a2332;
+            color: #fff;
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-family: Arial, sans-serif;
+            font-size: 11px;
+            cursor: pointer;
+            border: none;
+            z-index: 9999;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- PRINT BUTTON (screen only) -->
+    <button class="no-print" onclick="window.print()">🖨️ Print / Save as PDF</button>
+
+    <!-- ===== HEADER ===== -->
+    <div class="letterhead-header">
+        <div class="logo-block">
+            <img src="../../assets/images/logo-lockup.svg" alt="New South Technologies" style="height:54px;width:auto;display:block;">
+            <div class="logo-tagline">Legacy Modernization · Governed Agility · Cybersecurity · AI Governance</div>
+        </div>
+        <div class="header-contact">
+            [COMPANY ADDRESS LINE 1]<br>
+            [CITY, STATE ZIP]<br>
+            [PHONE] | [EMAIL]<br>
+            <span class="website">www.newsouthtechnologies.com</span>
+        </div>
+    </div>
+
+    <!-- ===== BODY ===== -->
+    <div class="letter-body">
+        <div class="letter-date">July 19, 2026</div>
+
+        <div class="recipient">
+            [Recipient Name]<br>
+            [Recipient Title]<br>
+            [Organization Name]<br>
+            [Address]
+        </div>
+
+        <div class="subject-line">RE: [Subject Line]</div>
+
+        <p>Dear [Recipient Name],</p>
+
+        <p>[Body paragraph 1 — Purpose and context of the letter.]</p>
+
+        <p>[Body paragraph 2 — Key details, scope, or offering.]</p>
+
+        <p>[Body paragraph 3 — Call to action, next steps, availability for discussion.]</p>
+
+        <p>We welcome the opportunity to discuss this further at your convenience. Please feel free to reach me directly at [PHONE] or [EMAIL].</p>
+
+        <div class="closing">
+            <p>Sincerely,</p>
+            <div class="signature-space"></div>
+            <div class="signature-name">Eugene Nkomba</div>
+            <div class="signature-title">Co-Managing Partner, NewSouth Technologies</div>
+        </div>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <div class="letterhead-footer">
+        <div class="footer-left">
+            <span>NewSouth Technologies</span>
+            <span>|</span>
+            <span>[ADDRESS]</span>
+            <span>|</span>
+            <span>[PHONE]</span>
+        </div>
+        <div class="footer-right">
+            www.newsouthtechnologies.com
+        </div>
+    </div>
+
+</body>
+</html>

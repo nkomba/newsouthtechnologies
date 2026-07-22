@@ -3,325 +3,589 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free CMMC 2.0 readiness self-assessment. Answer 5 questions to gauge your compliance posture and identify the gaps between your current state and CMMC 2.0 certification.">
+    <meta name="theme-color" content="#0F172A">
     <title>CMMC 2.0 Readiness Calculator | New South Technologies</title>
+
+    <!-- Cookie Consent -->
+    <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="624242ee-2ac5-42aa-a480-a0beb5be0497" data-blockingmode="auto" type="text/javascript"></script>
+
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="./css/style.css">
+
     <style>
-        :root {
-            --color-navy: #0F172A;
-            --color-teal: #0D9488;
-            --color-red: #DC2626;
-            --color-yellow: #F59E0B;
-            --color-green: #10B981;
-            --color-bg: #F8FAFC;
-            --card-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--color-bg);
-            margin: 0;
-            padding: 2rem;
-            color: var(--color-navy);
-        }
-
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            background: white;
-            padding: 2rem;
-            border-radius: 12px;
-            box-shadow: var(--card-shadow);
-        }
-
-        h1, h2 { text-align: center; color: var(--color-navy); }
-        h1 { margin-bottom: 0.5rem; }
-        .subtitle { text-align: center; color: #64748B; margin-bottom: 2rem; }
-
-        /* Progress Bar */
-        .progress-container {
-            background-color: #E2E8F0;
-            border-radius: 20px;
-            height: 20px;
-            width: 100%;
-            margin: 2rem 0;
-            overflow: hidden;
-        }
-
-        .progress-bar {
-            background-color: var(--color-teal);
-            height: 100%;
-            width: 0%;
-            transition: width 0.5s ease, background-color 0.5s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 0.8rem;
-            font-weight: 700;
-        }
-
-        .score-display {
-            text-align: center;
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 2rem;
-        }
-
-        .status-badge {
-            display: inline-block;
-            padding: 0.5rem 1rem;
-            border-radius: 6px;
-            font-weight: 700;
-            color: white;
-            margin-top: 0.5rem;
-            background-color: var(--color-gray);
-        }
-
-        /* Questions Section */
-        .question-group {
-            margin-bottom: 1.5rem;
-            padding: 1rem;
-            border: 1px solid #E2E8F0;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-
-        .question-group:hover { background-color: #F1F5F9; border-color: var(--color-teal); }
-        
-        .question-text { font-weight: 600; display: block; margin-bottom: 0.5rem; }
-        .question-desc { font-size: 0.9rem; color: #64748B; display: block; }
-
-        .radio-group { display: flex; gap: 1rem; margin-top: 0.5rem; }
-        .radio-label { cursor: pointer; display: flex; align-items: center; gap: 0.5rem; font-size: 0.95rem; }
-
-        /* Lead Capture Form */
-        .lead-form-section {
-            margin-top: 3rem;
-            padding: 2rem;
-            background-color: #F0FDFA;
-            border: 2px dashed var(--color-teal);
-            border-radius: 12px;
-            display: none; /* Hidden until scored */
-        }
-
-        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-        input { width: 100%; padding: 0.75rem; border: 1px solid #CBD5E1; border-radius: 6px; margin-bottom: 1rem; }
-        
-        button.btn-primary {
-            background-color: var(--color-teal);
-            color: white;
-            border: none;
-            padding: 1rem 2rem;
-            font-size: 1rem;
-            font-weight: 700;
-            border-radius: 6px;
-            cursor: pointer;
-            width: 100%;
-            transition: background 0.3s;
-        }
-        button.btn-primary:hover { background-color: #0F766E; }
-
-        /* Results Summary */
-        .results-summary {
-            margin-top: 2rem;
-            padding: 1rem;
-            background: white;
-            border: 1px solid #E2E8F0;
-            border-radius: 8px;
-            display: none;
-        }
-
-        /* Mobile */
-        @media (max-width: 600px) {
-            .form-grid { grid-template-columns: 1fr; }
-            .container { padding: 1rem; }
-        }
+        .calc-hero { background: var(--color-navy-primary); color: var(--color-white); padding: var(--spacing-2xl) 0 var(--spacing-xl); text-align: center; }
+        .calc-hero h1 { font-size: var(--font-size-3xl); margin-bottom: var(--spacing-sm); }
+        .calc-hero p { max-width: 640px; margin: 0 auto; color: var(--color-text-light); }
+        .calc-section { padding: var(--spacing-xl) 0; background: var(--color-offwhite); }
+        .calc-card { max-width: 760px; margin: 0 auto; background: var(--color-white); border-radius: 8px; box-shadow: var(--shadow-lg); padding: var(--spacing-xl); }
+        .calc-progress { height: 6px; background: #e2e8f0; border-radius: 3px; margin-bottom: var(--spacing-lg); overflow: hidden; }
+        .calc-progress-bar { height: 100%; width: 0; background: var(--color-teal-accent); transition: width 0.3s ease; }
+        .calc-question { margin-bottom: var(--spacing-lg); }
+        .calc-question h3 { font-size: 1.15rem; color: var(--color-navy-primary); margin-bottom: 4px; }
+        .calc-question .hint { font-size: var(--font-size-sm); color: var(--color-slate); margin-bottom: var(--spacing-sm); }
+        .calc-options { display: flex; flex-direction: column; gap: 0.5rem; }
+        .calc-option { display: flex; align-items: center; gap: 0.75rem; border: 1px solid #e2e8f0; border-radius: 6px; padding: 0.75rem 1rem; cursor: pointer; transition: var(--transition); }
+        .calc-option:hover { border-color: var(--color-teal-accent); background: #f0fdfa; }
+        .calc-option input { accent-color: var(--color-teal-accent); width: 18px; height: 18px; }
+        .calc-actions { text-align: center; margin-top: var(--spacing-lg); }
+        .calc-error { color: #b91c1c; font-size: var(--font-size-sm); text-align: center; margin-top: var(--spacing-sm); min-height: 1.2em; }
+        .calc-results { display: none; }
+        .score-ring { text-align: center; margin-bottom: var(--spacing-lg); }
+        .score-number { font-size: 3.5rem; font-weight: 700; line-height: 1; }
+        .score-band { font-size: 1.25rem; font-weight: 600; margin-top: 4px; }
+        .score-band.risk-high { color: #b91c1c; }
+        .score-band.risk-mid { color: #b45309; }
+        .score-band.risk-low { color: var(--color-teal-accent); }
+        .gap-list { list-style: none; margin: var(--spacing-md) 0; padding: 0; }
+        .gap-list li { padding: 0.6rem 0.9rem; border-left: 3px solid #e2e8f0; margin-bottom: 0.5rem; background: var(--color-offwhite); font-size: 0.95rem; }
+        .gap-list li.gap { border-left-color: #b91c1c; }
+        .gap-list li.pass { border-left-color: var(--color-teal-accent); }
+        .lead-form { margin-top: var(--spacing-lg); border-top: 1px solid #e2e8f0; padding-top: var(--spacing-lg); }
+        .lead-form h3 { color: var(--color-navy-primary); margin-bottom: var(--spacing-sm); }
+        .lead-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-sm); }
+        .lead-grid .full { grid-column: 1 / -1; }
+        .lead-grid label { display: block; font-size: var(--font-size-sm); font-weight: 500; margin-bottom: 4px; color: var(--color-text-dark); }
+        .lead-grid input { width: 100%; padding: 0.65rem 0.8rem; border: 1px solid #cbd5e1; border-radius: 6px; font-family: var(--font-main); }
+        @media (max-width: 640px) { .lead-grid { grid-template-columns: 1fr; } .calc-card { padding: var(--spacing-lg); } }
     </style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://newsouthtechnologies.com/#website",
+      "url": "https://newsouthtechnologies.com/",
+      "name": "New South Technologies",
+      "publisher": {
+        "@id": "https://newsouthtechnologies.com/#organization"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://newsouthtechnologies.com/#organization",
+      "name": "New South Technologies",
+      "url": "https://newsouthtechnologies.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://newsouthtechnologies.com/assets/images/logo-lockup.svg",
+        "width": 200,
+        "height": 60
+      },
+      "sameAs": [
+        "https://www.linkedin.com/company/newsouthtechnologies",
+        "https://twitter.com/newsouthtech"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+1-555-123-4567",
+        "contactType": "customer service",
+        "areaServed": "US",
+        "availableLanguage": "English"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://newsouthtechnologies.com/cmmc-calculator.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://newsouthtechnologies.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Services",
+          "item": "https://newsouthtechnologies.com/services/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "CMMC 2.0 Readiness Calculator",
+          "item": "https://newsouthtechnologies.com/cmmc-calculator.html"
+        }
+      ]
+    },
+    {
+      "@type": "WebApplication",
+      "@id": "https://newsouthtechnologies.com/cmmc-calculator.html#webapplication",
+      "name": "CMMC 2.0 Readiness Calculator",
+      "url": "https://newsouthtechnologies.com/cmmc-calculator.html",
+      "description": "Free online tool to assess your organization's readiness for CMMC 2.0 compliance with instant scoring and gap analysis.",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "All",
+      "inLanguage": "en",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "author": {
+        "@id": "https://newsouthtechnologies.com/#organization"
+      },
+      "featureList": [
+        "Instant CMMC readiness scoring",
+        "Gap analysis for Level 1 & Level 2 controls",
+        "Multi-factor authentication assessment",
+        "Incident response plan evaluation",
+        "Encryption status verification"
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://newsouthtechnologies.com/cmmc-calculator.html#howto",
+      "name": "How to Assess Your CMMC 2.0 Readiness",
+      "description": "Follow these steps to evaluate your organization's Cybersecurity Maturity Model Certification (CMMC 2.0) compliance readiness and receive personalized gap analysis recommendations.",
+      "totalTime": "PT5M",
+      "estimatedCost": {
+        "@type": "MonetaryAmount",
+        "currency": "USD",
+        "value": "0"
+      },
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Answer Foundational Control Questions",
+          "text": "Review and answer each question in Section A covering Level 1 Foundational Controls, including MFA status, incident response planning, encryption, vulnerability scanning, and asset inventory.",
+          "itemListElement": {
+            "@type": "HowToDirection",
+            "text": "Select 'Yes' or 'No' for each of the 5 assessment questions based on your organization's current cybersecurity posture."
+          }
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Review Your Readiness Score",
+          "text": "Your score is calculated instantly as you answer each question. The progress bar and status badge indicate whether you are Certification Ready (80%+), Near Term (60–79%), or at Critical Risk (below 60%).",
+          "itemListElement": {
+            "@type": "HowToDirection",
+            "text": "Check the score display at the top of the calculator for your real-time readiness percentage and status classification."
+          }
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Read Your Personalized Recommendations",
+          "text": "Based on your score, you receive tailored guidance — whether to schedule a C3PAO audit, prioritize MFA and encryption gaps, or seek immediate intervention for critical risks.",
+          "itemListElement": {
+            "@type": "HowToDirection",
+            "text": "Locate the Assessment Summary section below the questionnaire for your specific action items."
+          }
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Submit Your Details for a Full Report",
+          "text": "Once all questions are answered, enter your name, company, email, and phone to receive a detailed gap analysis report reviewed by compliance experts at New South Technologies.",
+          "itemListElement": {
+            "@type": "HowToDirection",
+            "text": "Fill out the lead capture form and click 'Download My Report & Send to Experts' to submit."
+          }
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Print or Save Your Assessment",
+          "text": "Use the Print / Save as PDF button to keep a physical or digital copy of your assessment summary for internal records or stakeholder review.",
+          "itemListElement": {
+            "@type": "HowToDirection",
+            "text": "Click the print button in the results summary section to generate a printable version."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://newsouthtechnologies.com/cmmc-calculator.html#service",
+      "name": "CMMC 2.0 Compliance Consulting",
+      "description": "Expert cybersecurity compliance consulting services to help defense contractors and organizations achieve CMMC 2.0 certification, including gap analysis, remediation planning, and audit preparation.",
+      "url": "https://newsouthtechnologies.com/services/",
+      "serviceType": "Cybersecurity Compliance Consulting",
+      "areaServed": {
+        "@type": "Country",
+        "name": "United States"
+      },
+      "provider": {
+        "@id": "https://newsouthtechnologies.com/#organization"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "CMMC Compliance Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "CMMC Gap Analysis",
+              "description": "Comprehensive assessment identifying gaps between your current cybersecurity posture and CMMC 2.0 requirements."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "CMMC Remediation Planning",
+              "description": "Prioritized action plan to close identified compliance gaps and prepare for formal C3PAO assessment."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "CMMC Audit Preparation",
+              "description": "Hands-on support preparing documentation, evidence, and processes for your C3PAO certification audit."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@type": "Quiz",
+      "mainEntity": {
+        "@type": "Question",
+        "name": "Is Multi-Factor Authentication (MFA) enabled for ALL remote access?",
+        "description": "Critical for both Level 1 and 2. Without this, you are automatically non-compliant.",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, All Users / No / Partially"
+        }
+      },
+      "partOfQuiz": "https://newsouthtechnologies.com/cmmc-calculator.html#webapplication"
+    },
+    {
+      "@type": "Quiz",
+      "mainEntity": {
+        "@type": "Question",
+        "name": "Do you have a documented Incident Response Plan tested in the last 12 months?",
+        "description": "Requires proof of drill/testing logs.",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, Tested / No / Not Tested"
+        }
+      },
+      "partOfQuiz": "https://newsouthtechnologies.com/cmmc-calculator.html#webapplication"
+    },
+    {
+      "@type": "Quiz",
+      "mainEntity": {
+        "@type": "Question",
+        "name": "Are all devices containing CUI encrypted at rest?",
+        "description": "BitLocker, FileVault, or equivalent.",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, All Devices / No"
+        }
+      },
+      "partOfQuiz": "https://newsouthtechnologies.com/cmmc-calculator.html#webapplication"
+    },
+    {
+      "@type": "Quiz",
+      "mainEntity": {
+        "@type": "Question",
+        "name": "Have you performed vulnerability scans in the last 30 days?",
+        "description": "Continuous monitoring requirement.",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes / No"
+        }
+      },
+      "partOfQuiz": "https://newsouthtechnologies.com/cmmc-calculator.html#webapplication"
+    },
+    {
+      "@type": "Quiz",
+      "mainEntity": {
+        "@type": "Question",
+        "name": "Do you maintain an inventory of all hardware and software assets?",
+        "description": "Required for asset management controls.",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes / No"
+        }
+      },
+      "partOfQuiz": "https://newsouthtechnologies.com/cmmc-calculator.html#webapplication"
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
-<div class="container">
-    <h1>CMMC 2.0 Readiness Calculator</h1>
-    <p class="subtitle">Answer these critical questions to get an instant readiness score and personalized recommendations.</p>
-
-    <!-- Score Display -->
-    <div class="score-display">
-        Current Readiness Score: <span id="scoreValue">0%</span>
-        <br>
-        <span id="statusBadge" class="status-badge">Not Started</span>
-    </div>
-    
-    <div class="progress-container">
-        <div id="progressBar" class="progress-bar">0%</div>
-    </div>
-
-    <form id="assessmentForm">
-        <!-- Section A: Level 1 Critical (Simplified for Demo - Expandable) -->
-        <h2>Section A: Level 1 Foundational Controls</h2>
-        <p style="font-size:0.9rem; color:#64748B; margin-bottom:1rem;">Select the option that best describes your current state.</p>
-
-        <!-- Q1 -->
-        <div class="question-group" onclick="document.getElementById('q1').click()">
-            <span class="question-text">1. Is Multi-Factor Authentication (MFA) enabled for ALL remote access?</span>
-            <span class="question-desc">Critical for both Level 1 and 2. Without this, you are automatically non-compliant.</span>
-            <div class="radio-group">
-                <label class="radio-label"><input type="radio" name="q1" value="1" id="q1_yes" required> Yes, All Users</label>
-                <label class="radio-label"><input type="radio" name="q1" value="0" id="q1_no"> No / Partially</label>
-            </div>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-inner">
+            <a href="./index.html" class="logo" aria-label="New South Technologies Home">
+                <img src="./assets/images/logo-lockup.svg" alt="New South Technologies Logo" class="logo-img">
+            </a>
+            <button class="mobile-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Toggle navigation menu">
+                <span class="hamburger-icon"></span>
+            </button>
+            <ul id="main-nav" class="nav-links">
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./index.html#modernize">Modernize</a></li>
+                <li><a href="./index.html#agility">Governed Agile</a></li>
+                <li><a href="./index.html#ai">Responsible AI</a></li>
+                <li><a href="./careers.html">Careers</a></li>
+                <li><a href="./blog.html">Insights</a></li>
+                <li><a href="./index.html#contact" class="btn btn-primary">Request Audit</a></li>
+            </ul>
         </div>
+    </nav>
 
-        <!-- Q2 -->
-        <div class="question-group" onclick="document.getElementById('q2').click()">
-            <span class="question-text">2. Do you have a documented Incident Response Plan tested in the last 12 months?</span>
-            <span class="question-desc">Requires proof of drill/testing logs.</span>
-            <div class="radio-group">
-                <label class="radio-label"><input type="radio" name="q2" value="1" id="q2_yes" required> Yes, Tested</label>
-                <label class="radio-label"><input type="radio" name="q2" value="0" id="q2_no"> No / Not Tested</label>
+    <main>
+        <header class="calc-hero">
+            <div class="container">
+                <h1>CMMC 2.0 Readiness Calculator</h1>
+                <p>Answer five quick questions to gauge where you stand against core CMMC 2.0 controls. You'll get an instant readiness score and a breakdown of your biggest gaps — no email required to see your result.</p>
             </div>
-        </div>
+        </header>
 
-        <!-- Q3 -->
-        <div class="question-group" onclick="document.getElementById('q3').click()">
-            <span class="question-text">3. Are all devices containing CUI encrypted at rest?</span>
-            <span class="question-desc">BitLocker, FileVault, or equivalent.</span>
-            <div class="radio-group">
-                <label class="radio-label"><input type="radio" name="q3" value="1" id="q3_yes" required> Yes, All Devices</label>
-                <label class="radio-label"><input type="radio" name="q3" value="0" id="q3_no"> No</label>
-            </div>
-        </div>
+        <section class="calc-section">
+            <div class="container">
+                <div class="calc-card">
 
-        <!-- Q4 -->
-        <div class="question-group" onclick="document.getElementById('q4').click()">
-            <span class="question-text">4. Have you performed vulnerability scans in the last 30 days?</span>
-            <span class="question-desc">Continuous monitoring requirement.</span>
-            <div class="radio-group">
-                <label class="radio-label"><input type="radio" name="q4" value="1" id="q4_yes" required> Yes</label>
-                <label class="radio-label"><input type="radio" name="q4" value="0" id="q4_no"> No</label>
-            </div>
-        </div>
+                    <!-- QUIZ -->
+                    <form id="calcForm">
+                        <div class="calc-progress"><div class="calc-progress-bar" id="progressBar"></div></div>
 
-        <!-- Q5 -->
-        <div class="question-group" onclick="document.getElementById('q5').click()">
-            <span class="question-text">5. Do you maintain an inventory of all hardware and software assets?</span>
-            <span class="question-desc">Required for asset management controls.</span>
-            <div class="radio-group">
-                <label class="radio-label"><input type="radio" name="q5" value="1" id="q5_yes" required> Yes</label>
-                <label class="radio-label"><input type="radio" name="q5" value="0" id="q5_no"> No</label>
-            </div>
-        </div>
+                        <div class="calc-question" data-q="1">
+                            <h3>1. Is Multi-Factor Authentication (MFA) enabled for ALL remote access?</h3>
+                            <p class="hint">Critical for both Level 1 and 2. Without this, you are automatically non-compliant.</p>
+                            <div class="calc-options">
+                                <label class="calc-option"><input type="radio" name="q1" value="2" data-pass="true"> Yes, all users</label>
+                                <label class="calc-option"><input type="radio" name="q1" value="1"> Partially</label>
+                                <label class="calc-option"><input type="radio" name="q1" value="0"> No</label>
+                            </div>
+                        </div>
 
-        <!-- More questions can be added here following the pattern -->
+                        <div class="calc-question" data-q="2">
+                            <h3>2. Do you have a documented Incident Response Plan tested in the last 12 months?</h3>
+                            <p class="hint">Requires proof of drill / testing logs.</p>
+                            <div class="calc-options">
+                                <label class="calc-option"><input type="radio" name="q2" value="2" data-pass="true"> Yes, tested</label>
+                                <label class="calc-option"><input type="radio" name="q2" value="1"> Documented, not tested</label>
+                                <label class="calc-option"><input type="radio" name="q2" value="0"> No</label>
+                            </div>
+                        </div>
 
-        <!-- Lead Capture Form -->
-        <div id="leadFormSection" class="lead-form-section">
-            <h2>Get Your Full Report & Action Plan</h2>
-            <p>Enter your details below. We will email you a detailed breakdown of your gaps and send a copy to our compliance experts for review.</p>
-            
-            <!-- Replace ACTION_URL with your Formspree ID -->
-            <form action="https://formspree.io/f/YOUR_FORM_ID_HERE" method="POST">
-                <input type="hidden" name="score" id="finalScore">
-                <input type="hidden" name="company_name" id="companyNameHidden">
-                
-                <div class="form-grid">
-                    <input type="text" name="name" placeholder="Full Name" required>
-                    <input type="text" name="company" placeholder="Company Name" id="companyInput" required>
+                        <div class="calc-question" data-q="3">
+                            <h3>3. Are all devices containing CUI encrypted at rest?</h3>
+                            <p class="hint">BitLocker, FileVault, or equivalent.</p>
+                            <div class="calc-options">
+                                <label class="calc-option"><input type="radio" name="q3" value="2" data-pass="true"> Yes, all devices</label>
+                                <label class="calc-option"><input type="radio" name="q3" value="0"> No</label>
+                            </div>
+                        </div>
+
+                        <div class="calc-question" data-q="4">
+                            <h3>4. Have you performed vulnerability scans in the last 30 days?</h3>
+                            <p class="hint">Continuous monitoring requirement.</p>
+                            <div class="calc-options">
+                                <label class="calc-option"><input type="radio" name="q4" value="2" data-pass="true"> Yes</label>
+                                <label class="calc-option"><input type="radio" name="q4" value="0"> No</label>
+                            </div>
+                        </div>
+
+                        <div class="calc-question" data-q="5">
+                            <h3>5. Do you maintain an inventory of all hardware and software assets?</h3>
+                            <p class="hint">Required for asset management controls.</p>
+                            <div class="calc-options">
+                                <label class="calc-option"><input type="radio" name="q5" value="2" data-pass="true"> Yes</label>
+                                <label class="calc-option"><input type="radio" name="q5" value="0"> No</label>
+                            </div>
+                        </div>
+
+                        <div class="calc-actions">
+                            <button type="submit" class="btn btn-primary btn-large">See My Readiness Score</button>
+                            <p class="calc-error" id="calcError" aria-live="polite"></p>
+                        </div>
+                    </form>
+
+                    <!-- RESULTS -->
+                    <div class="calc-results" id="calcResults">
+                        <div class="score-ring">
+                            <div class="score-number" id="scoreNumber">0%</div>
+                            <div class="score-band" id="scoreBand"></div>
+                        </div>
+                        <p id="scoreSummary"></p>
+                        <ul class="gap-list" id="gapList"></ul>
+
+                        <div class="lead-form">
+                            <h3>Get your detailed gap analysis</h3>
+                            <p class="hint">Our compliance experts will review your answers and send a prioritized remediation roadmap. We typically respond within one business day.</p>
+                            <form action="https://formspree.io/f/mvznzwav" method="POST" class="lead-grid">
+                                <div>
+                                    <label for="lead-name">Full Name *</label>
+                                    <input type="text" id="lead-name" name="name" required placeholder="Jane Doe">
+                                </div>
+                                <div>
+                                    <label for="lead-email">Work Email *</label>
+                                    <input type="email" id="lead-email" name="email" required placeholder="jane@agency.gov">
+                                </div>
+                                <div>
+                                    <label for="lead-company">Company / Agency</label>
+                                    <input type="text" id="lead-company" name="company" placeholder="Organization">
+                                </div>
+                                <div>
+                                    <label for="lead-phone">Phone</label>
+                                    <input type="tel" id="lead-phone" name="phone" placeholder="(555) 555-5555">
+                                </div>
+                                <input type="hidden" name="_subject" value="CMMC Calculator Lead - Gap Analysis Request">
+                                <input type="hidden" name="cmmc_score" id="leadScore" value="">
+                                <div style="display:none;" aria-hidden="true"><label>Leave blank<input name="_gotcha" tabindex="-1" autocomplete="off"></label></div>
+                                <div class="full">
+                                    <button type="submit" class="btn btn-primary btn-large">Request My Gap Analysis</button>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="calc-actions">
+                            <button type="button" class="btn btn-secondary" id="retakeBtn">Retake Assessment</button>
+                        </div>
+                    </div>
+
                 </div>
-                <input type="email" name="email" placeholder="Work Email Address" required>
-                <input type="tel" name="phone" placeholder="Phone Number" required>
-                
-                <button type="submit" class="btn-primary">Download My Report & Send to Experts</button>
-            </form>
-            <p style="font-size:0.8rem; margin-top:0.5rem; color:#64748B;">We respect your privacy. Your data is secure.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <h3>New South Technologies</h3>
+                <p>Governance-first modernization for the capital region.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Capabilities</h4>
+                <ul>
+                    <li><a href="./index.html#modernize">Modernize</a></li>
+                    <li><a href="./index.html#agility">Governed Agile</a></li>
+                    <li><a href="./index.html#ai">Responsible AI</a></li>
+                    <li><a href="./careers.html">Careers</a></li>
+                </ul>
+            </div>
+            <div class="footer-credentials">
+                <h4>Credentials</h4>
+                <p>Active Clearances: Secret, TS/SCI</p>
+                <p>Certifications: PMP, SAFe, AWS GovCloud</p>
+            </div>
+            <div class="footer-contact">
+                <h4>Contact</h4>
+                <a href="mailto:info@newsouthtechnologies.com" class="btn btn-primary">Request a Compliance Audit</a>
+                <p>Washington, D.C. Metro</p>
+            </div>
         </div>
-
-        <!-- Printable Summary (Visible after submission logic) -->
-        <div id="resultsSummary" class="results-summary">
-            <h3>Assessment Summary</h3>
-            <p>Your calculated score is <strong><span id="summaryScore"></span></strong>.</p>
-            <p id="summaryRecommendation"></p>
-            <button onclick="window.print()" class="btn-primary" style="margin-top:1rem;">Print / Save as PDF</button>
+        <div class="footer-bottom">
+            <p>&copy; 2026 New South Technologies. <a href="./privacy-policy.html">Privacy Policy</a></p>
         </div>
+    </footer>
 
-    </form>
-</div>
+    <script src="./js/main.js" defer></script>
+    <script src="./js/modules/mobile-menu.js" defer></script>
+    <script>
+    (function () {
+        const form = document.getElementById('calcForm');
+        const results = document.getElementById('calcResults');
+        const errorEl = document.getElementById('calcError');
+        const progressBar = document.getElementById('progressBar');
+        const labels = {
+            q1: 'Multi-Factor Authentication for all remote access',
+            q2: 'Tested Incident Response Plan (last 12 months)',
+            q3: 'Encryption at rest for all CUI devices',
+            q4: 'Vulnerability scans within the last 30 days',
+            q5: 'Complete hardware & software asset inventory'
+        };
+        const keys = Object.keys(labels);
 
-<script>
-    const totalQuestions = 5; // Update this number as you add more questions
-    let answers = [];
+        function updateProgress() {
+            const answered = keys.filter(k => form.querySelector(`input[name="${k}"]:checked`)).length;
+            progressBar.style.width = (answered / keys.length * 100) + '%';
+        }
+        form.addEventListener('change', () => { updateProgress(); errorEl.textContent = ''; });
 
-    function calculateScore() {
-        let yesCount = 0;
-        let answeredCount = 0;
-        
-        // Loop through all radio groups
-        const names = ['q1', 'q2', 'q3', 'q4', 'q5']; // Matches name attributes
-        
-        names.forEach(name => {
-            const selected = document.querySelector(`input[name="${name}"]:checked`);
-            if (selected) {
-                answeredCount++;
-                if (parseInt(selected.value) === 1) yesCount++;
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            const unanswered = keys.filter(k => !form.querySelector(`input[name="${k}"]:checked`));
+            if (unanswered.length) {
+                errorEl.textContent = `Please answer all questions (${unanswered.length} remaining).`;
+                return;
             }
+
+            let score = 0;
+            const maxScore = keys.length * 2;
+            const gaps = [];
+            keys.forEach(k => {
+                const input = form.querySelector(`input[name="${k}"]:checked`);
+                score += parseInt(input.value, 10);
+                if (input.dataset.pass !== 'true') gaps.push(labels[k]);
+            });
+
+            const pct = Math.round(score / maxScore * 100);
+            const mfaFail = form.querySelector('input[name="q1"]:checked').value === '0';
+
+            document.getElementById('scoreNumber').textContent = pct + '%';
+            document.getElementById('leadScore').value = pct + '% (' + score + '/' + maxScore + ')';
+
+            const bandEl = document.getElementById('scoreBand');
+            let band, cls, summary;
+            if (mfaFail) {
+                band = 'Automatic Non-Compliance';
+                cls = 'risk-high';
+                summary = 'Because MFA is not enabled for all remote access, your environment is automatically non-compliant with CMMC 2.0 regardless of other controls. This is the first gap to close.';
+            } else if (pct < 50) {
+                band = 'High Risk'; cls = 'risk-high';
+                summary = 'You have significant gaps between your current posture and CMMC 2.0 requirements. Several core controls need to be established before an assessment.';
+            } else if (pct < 80) {
+                band = 'Developing'; cls = 'risk-mid';
+                summary = 'You have a foundation in place but important controls are still missing or unverified. Focused remediation will move you toward readiness.';
+            } else if (pct < 100) {
+                band = 'Nearly Ready'; cls = 'risk-low';
+                summary = 'You are close. A few remaining gaps and supporting evidence stand between you and assessment readiness.';
+            } else {
+                band = 'Strong Posture'; cls = 'risk-low';
+                summary = 'You answered yes to all core controls. Formal readiness still depends on documented evidence, but your fundamentals are in good shape.';
+            }
+            bandEl.textContent = band;
+            bandEl.className = 'score-band ' + cls;
+            document.getElementById('scoreSummary').textContent = summary;
+
+            const gapList = document.getElementById('gapList');
+            gapList.innerHTML = '';
+            keys.forEach(k => {
+                const input = form.querySelector(`input[name="${k}"]:checked`);
+                const li = document.createElement('li');
+                const passed = input.dataset.pass === 'true';
+                li.className = passed ? 'pass' : 'gap';
+                li.textContent = (passed ? '✓ ' : '✕ ') + labels[k];
+                gapList.appendChild(li);
+            });
+
+            form.style.display = 'none';
+            results.style.display = 'block';
+            results.scrollIntoView({ behavior: 'smooth', block: 'start' });
         });
 
-        if (answeredCount === 0) return;
-
-        const percentage = Math.round((yesCount / answeredCount) * 100);
-        updateUI(percentage);
-    }
-
-    function updateUI(score) {
-        document.getElementById('scoreValue').textContent = `${score}%`;
-        document.getElementById('progressBar').style.width = `${score}%`;
-        document.getElementById('progressBar').textContent = `${score}%`;
-
-        const badge = document.getElementById('statusBadge');
-        const leadSection = document.getElementById('leadFormSection');
-        const summarySection = document.getElementById('resultsSummary');
-
-        if (score >= 80) {
-            badge.textContent = "Certification Ready";
-            badge.style.backgroundColor = "var(--color-green)";
-            document.getElementById('progressBar').style.backgroundColor = "var(--color-green)";
-        } else if (score >= 60) {
-            badge.textContent = "Near Term (Needs Work)";
-            badge.style.backgroundColor = "var(--color-yellow)";
-            document.getElementById('progressBar').style.backgroundColor = "var(--color-yellow)";
-        } else {
-            badge.textContent = "Critical Risk";
-            badge.style.backgroundColor = "var(--color-red)";
-            document.getElementById('progressBar').style.backgroundColor = "var(--color-red)";
-        }
-
-        // Show Lead Form if all answered
-        if (answeredCount === totalQuestions) {
-            leadSection.style.display = 'block';
-            document.getElementById('finalScore').value = score;
-            
-            // Simple recommendation logic
-            const rec = document.createElement('p');
-            if (score >= 80) rec.textContent = "Great job! You are close to certification. Schedule your C3PAO audit now.";
-            else if (score >= 60) rec.textContent = "You have some critical gaps. Focus on MFA and Encryption first.";
-            else rec.textContent = "Immediate intervention required. Contact us for a gap analysis.";
-            
-            document.getElementById('summaryRecommendation').appendChild(rec);
-            document.getElementById('summaryScore').textContent = `${score}%`;
-            summarySection.style.display = 'block';
-        }
-    }
-
-    // Add event listeners to all radios
-    document.querySelectorAll('input[type="radio"]').forEach(radio => {
-        radio.addEventListener('change', calculateScore);
-    });
-
-    // Copy company name to hidden field for form submission
-    document.getElementById('companyInput').addEventListener('input', (e) => {
-        document.getElementById('companyNameHidden').value = e.target.value;
-    });
-</script>
-
+        document.getElementById('retakeBtn').addEventListener('click', function () {
+            form.reset();
+            updateProgress();
+            results.style.display = 'none';
+            form.style.display = 'block';
+            form.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+    })();
+    </script>
 </body>
 </html>

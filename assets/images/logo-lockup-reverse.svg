@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" role="img" aria-label="New South Technologies — Governance-First Modernization">
+  <title>New South Technologies</title>
+  <desc>Governance-First Modernization</desc>
+  <!-- Reversed (for dark backgrounds): white mark/text, teal circles + tagline -->
+  <g>
+    <rect x="40"  y="95"  width="150" height="150" rx="8" fill="#FFFFFF"/>
+    <rect x="40"  y="270" width="150" height="150" rx="8" fill="#FFFFFF"/>
+    <rect x="40"  y="445" width="150" height="150" rx="8" fill="#FFFFFF"/>
+    <circle cx="310" cy="170" r="78" fill="#2CBFA3"/>
+    <circle cx="310" cy="345" r="78" fill="#2CBFA3"/>
+    <circle cx="310" cy="520" r="78" fill="#2CBFA3"/>
+  </g>
+  <g font-family="'Helvetica Neue', Arial, sans-serif">
+    <text x="480" y="250" font-size="150" font-weight="800" fill="#FFFFFF" letter-spacing="1">NEW</text>
+    <text x="480" y="415" font-size="150" font-weight="800" fill="#FFFFFF" letter-spacing="1">SOUTH</text>
+    <text x="482" y="485" font-size="46"  font-weight="600" fill="#C6CBD3" letter-spacing="7">TECHNOLOGIES</text>
+    <text x="480" y="580" font-size="80"  font-weight="700" fill="#2CBFA3">Governance-First</text>
+    <text x="480" y="680" font-size="80"  font-weight="700" fill="#2CBFA3">Modernization</text>
+  </g>
+</svg>

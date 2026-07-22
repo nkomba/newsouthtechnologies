@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NewSouth Technologies — Engagement Letter</title>
+    <style>
+        @page { size: letter; margin: 0.75in 1in 1in 1in; }
+        html { font-size: 10.5pt; }
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            color: #333;
+            line-height: 1.6;
+            background: #fff;
+        }
+
+        .letterhead {
+            border-bottom: 3px solid #1a2332;
+            padding-bottom: 16px;
+            margin-bottom: 32px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+        .logo-block {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+        }
+        .logo-name {
+            font-size: 20pt;
+            font-weight: 700;
+            color: #1a2332;
+        }
+        .logo-name .accent { color: #c9a961; }
+        .logo-tagline {
+            font-size: 8pt;
+            color: #888;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-top: 2px;
+        }
+        .header-contact {
+            text-align: right;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-size: 8.5pt;
+            color: #666;
+        }
+
+        .date { margin-bottom: 20px; font-family: 'Helvetica Neue', Arial, sans-serif; }
+        .recipient { margin-bottom: 20px; font-family: 'Helvetica Neue', Arial, sans-serif; line-height: 1.5; }
+        .subject {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-weight: 700;
+            color: #1a2332;
+            margin-bottom: 20px;
+        }
+
+        p { margin-bottom: 14px; text-align: justify; }
+
+        h2 {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-size: 11pt;
+            font-weight: 700;
+            color: #1a2332;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        ul, ol { margin-bottom: 12px; padding-left: 24px; }
+        li { margin-bottom: 6px; }
+
+        .fee-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-size: 10pt;
+        }
+        .fee-table th {
+            background: #1a2332;
+            color: #fff;
+            text-align: left;
+            padding: 8px 10px;
+            font-weight: 600;
+        }
+        .fee-table td {
+            padding: 8px 10px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .fee-table .right { text-align: right; }
+
+        .signature-block {
+            margin-top: 36px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .sig-col {
+            width: 42%;
+        }
+        .sig-line {
+            border-top: 1px solid #333;
+            padding-top: 8px;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-size: 9pt;
+            color: #666;
+        }
+        .sig-line strong {
+            color: #1a2332;
+            display: block;
+            font-size: 9.5pt;
+            margin-bottom: 2px;
+        }
+
+        .footer {
+            border-top: 1px solid #ddd;
+            padding-top: 12px;
+            display: flex;
+            justify-content: space-between;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-size: 8pt;
+            color: #999;
+            margin-top: 48px;
+        }
+
+        .no-print {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: #1a2332;
+            color: #fff;
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-family: Arial, sans-serif;
+            font-size: 11px;
+            cursor: pointer;
+            border: none;
+            z-index: 9999;
+        }
+
+        @media print {
+            .no-print { display: none !important; }
+            body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            .footer { position: fixed; bottom: 0.3in; width: calc(100% - 2in); }
+        }
+    </style>
+</head>
+<body>
+    <button class="no-print" onclick="window.print()">🖨️ Print / Save as PDF</button>
+
+    <!-- LETTERHEAD -->
+    <div class="letterhead">
+        <div class="logo-block">
+            <img src="../../assets/images/logo-lockup.svg" alt="New South Technologies" style="height:54px;width:auto;display:block;">
+            <div class="logo-tagline">Legacy Modernization · Governed Agility · Cybersecurity · AI Governance</div>
+        </div>
+        <div class="header-contact">
+            [COMPANY ADDRESS]<br>
+            [CITY, STATE ZIP]<br>
+            [PHONE] | [EMAIL]
+        </div>
+    </div>
+
+    <!-- BODY -->
+    <div class="date">July 19, 2026</div>
+
+    <div class="recipient">
+        <p>[Recipient Name]</p>
+        <p>[Recipient Title]</p>
+        <p>[Organization Name]</p>
+        <p>[Address]</p>
+    </div>
+
+    <div class="subject">Re: Engagement Letter — [ENGAGEMENT DESCRIPTION]</div>
+
+    <p>Dear [Recipient Name],</p>
+
+    <p>Thank you for selecting NewSouth Technologies to partner with [Organization Name] on [briefly describe project/engagement]. We are pleased to confirm our understanding of the services we will provide and the terms of our engagement.</p>
+
+    <h2>1. Scope of Services</h2>
+    <p>NewSouth Technologies will provide the following professional services:</p>
+    <ul>
+        <li>[Service 1 — e.g., Legacy System Architecture Assessment]</li>
+        <li>[Service 2 — e.g., Cybersecurity Gap Analysis against CMMC 2.0]</li>
+        <li>[Service 3 — e.g., Strategic Modernization Roadmap Development]</li>
+    </ul>
+    <p>A more detailed description of deliverables, timelines, and acceptance criteria is attached as <strong>Exhibit A — Statement of Work</strong>, which is incorporated by reference.</p>
+
+    <h2>2. Fees & Payment Terms</h2>
+    <p>The total fee for this engagement is <strong>$[TOTAL AMOUNT]</strong>, payable as follows:</p>
+
+    <table class="fee-table">
+        <thead>
+            <tr>
+                <th>Milestone / Phase</th>
+                <th class="right">Amount</th>
+                <th class="right">Due Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Upon Execution of This Engagement Letter</td>
+                <td class="right">$[AMOUNT]</td>
+                <td class="right">Within 15 days</td>
+            </tr>
+            <tr>
+                <td>Upon Completion of [PHASE/MILESTONE]</td>
+                <td class="right">$[AMOUNT]</td>
+                <td class="right">Within 15 days of invoice</td>
+            </tr>
+            <tr>
+                <td>Upon Project Closeout</td>
+                <td class="right">$[AMOUNT]</td>
+                <td class="right">Within 15 days of invoice</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p>All invoices are payable within [15/30] days of receipt. Late payments may incur interest charges at 1.5% per month (18% APR).</p>
+
+    <h2>3. Term & Termination</h2>
+    <p>This engagement shall commence on [START DATE] and continue until [END DATE] or completion of all services, whichever comes first. Either party may terminate this engagement with [30] days written notice. Upon termination, NewSouth Technologies shall be compensated for all services rendered up to the termination date.</p>
+
+    <h2>4. Confidentiality</h2>
+    <p>NewSouth Technologies acknowledges that it may have access to confidential and proprietary information of [Organization Name]. We agree to maintain the confidentiality of all such information in accordance with the Mutual Non-Disclosure Agreement executed on [DATE].</p>
+
+    <h2>5. Independence & Conflicts</h2>
+    <p>NewSouth Technologies represents that, to the best of our knowledge, there are no conflicts of interest that would impair our ability to provide services to [Organization Name]. We will promptly notify you if any potential conflicts arise during the engagement.</p>
+
+    <h2>6. Limitation of Liability</h2>
+    <p>NewSouth Technologies' liability for damages arising from this engagement shall not exceed the total fees paid under this engagement letter. Neither party shall be liable for consequential, indirect, or punitive damages.</p>
+
+    <h2>7. Governing Law</h2>
+    <p>This engagement letter shall be governed by and construed in accordance with the laws of the Commonwealth of [STATE]. Any disputes shall be resolved in the state or federal courts located in [COUNTY, STATE].</p>
+
+    <p>Please sign and return a copy of this engagement letter to indicate your acceptance of the terms outlined above. We look forward to a successful partnership.</p>
+
+    <p>Sincerely,</p>
+
+    <div class="signature-block">
+        <div class="sig-col">
+            <div style="height: 60px;"></div>
+            <div class="sig-line">
+                <strong>Eugene Nkomba</strong>
+                Co-Managing Partner<br>
+                NewSouth Technologies
+            </div>
+        </div>
+        <div class="sig-col">
+            <div style="height: 60px;"></div>
+            <div class="sig-line">
+                <strong>[CLIENT AUTHORIZED SIGNATORY]</strong>
+                [Title]<br>
+                [Client Organization]
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        <div>NewSouth Technologies | [ADDRESS] | [PHONE]</div>
+        <div>Engagement Letter — Confidential</div>
+    </div>
+</body>
+</html>

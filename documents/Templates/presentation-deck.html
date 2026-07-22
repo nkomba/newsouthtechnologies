@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NewSouth Technologies — Presentation Deck</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background: #2a2a2a;
+            padding: 20px;
+        }
+
+        /* SLIDE FRAMEWORK */
+        .slide {
+            width: 10in;
+            height: 7.5in;
+            background: #fff;
+            margin: 0 auto 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* NAVIGATION */
+        .nav-bar {
+            position: fixed;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 9999;
+            display: flex;
+            gap: 8px;
+            background: rgba(26, 35, 50, 0.9);
+            padding: 8px 16px;
+            border-radius: 6px;
+        }
+        .nav-bar button {
+            background: #c9a961;
+            color: #fff;
+            border: none;
+            padding: 6px 14px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 11px;
+            font-weight: 600;
+        }
+        .nav-bar button:hover { background: #1a2332; }
+        .nav-bar .slide-counter {
+            color: #fff;
+            font-size: 11px;
+            padding: 6px 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .print-btn {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: #c9a961;
+            color: #fff;
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-size: 11px;
+            cursor: pointer;
+            border: none;
+            z-index: 9999;
+            font-weight: 600;
+        }
+
+        /* ===== SLIDE TYPES ===== */
+
+        /* COVER SLIDE */
+        .slide-cover {
+            background: #1a2332;
+            color: #fff;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        .slide-cover .logo {
+            font-size: 36pt;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .slide-cover .logo .accent { color: #c9a961; }
+        .slide-cover .tagline {
+            font-size: 10pt;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #aaa;
+            margin-bottom: 60px;
+        }
+        .slide-cover .presentation-label {
+            font-size: 11pt;
+            color: #c9a961;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+        .slide-cover .presentation-title {
+            font-size: 32pt;
+            font-weight: 300;
+            line-height: 1.2;
+            max-width: 8in;
+            margin-bottom: 16px;
+        }
+        .slide-cover .presentation-subtitle {
+            font-size: 14pt;
+            color: #aaa;
+            margin-bottom: 60px;
+        }
+        .slide-cover .presentation-meta {
+            font-size: 10pt;
+            color: #888;
+            line-height: 1.8;
+        }
+        .slide-cover .divider {
+            width: 60px;
+            height: 3px;
+            background: #c9a961;
+            margin: 0 auto 40px;
+        }
+
+        /* STANDARD CONTENT SLIDE */
+        .slide-content {
+            padding: 0.7in 0.9in;
+        }
+        .slide-content .slide-number {
+            position: absolute;
+            bottom: 0.35in;
+            right: 0.5in;
+            font-size: 8pt;
+            color: #bbb;
+        }
+        .slide-content .slide-brand {
+            position: absolute;
+            bottom: 0.35in;
+            left: 0.5in;
+            font-size: 8pt;
+            color: #bbb;
+        }
+        .slide-content .slide-brand strong { color: #1a2332; }
+        .slide-content .top-accent {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: #c9a961;
+        }
+        .slide-content h2 {
+            font-size: 22pt;
+            color: #1a2332;
+            font-weight: 700;
+            margin-bottom: 6px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #c9a961;
+        }
+        .slide-content .subtitle {
+            font-size: 12pt;
+            color: #777;
+            margin-bottom: 24px;
+        }
+        .slide-content ul {
+            list-style: none;
+            padding: 0;
+        }
+        .slide-content ul li {
+            position: relative;
+            padding-left: 24px;
+            margin-bottom: 12px;
+            font-size: 13pt;
+            color: #444;
+            line-height: 1.5;
+        }
+        .slide-content ul li::before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: #c9a961;
+            font-weight: bold;
+        }
+        .slide-content p {
+            font-size: 12pt;
+            color: #444;
+            line-height: 1.6;
+            margin-bottom: 12px;
+        }
+
+        /* TWO COLUMN SLIDE */
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            margin-top: 16px;
+        }
+        .col h3 {
+            font-size: 13pt;
+            color: #1a2332;
+            margin-bottom: 10px;
+        }
+        .col ul li { font-size: 11pt; }
+
+        /* METRICS SLIDE */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .metric-card {
+            background: #f8f9fa;
+            border-top: 3px solid #1a2332;
+            padding: 20px;
+            text-align: center;
+        }
+        .metric-card .number {
+            font-size: 28pt;
+            font-weight: 700;
+            color: #1a2332;
+            line-height: 1;
+        }
+        .metric-card .label {
+            font-size: 9pt;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 8px;
+        }
+        .metric-card .detail {
+            font-size: 9pt;
+            color: #666;
+            margin-top: 4px;
+        }
+
+        /* TABLE SLIDE */
+        .slide-content table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 10pt;
+        }
+        .slide-content table th {
+            background: #1a2332;
+            color: #fff;
+            text-align: left;
+            padding: 10px;
+        }
+        .slide-content table td {
+            padding: 10px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .slide-content table tr:nth-child(even) td { background: #f8f9fb; }
+
+        /* QUOTE SLIDE */
+        .slide-quote {
+            background: #1a2332;
+            color: #fff;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 1.5in;
+        }
+        .slide-quote .quote-mark {
+            font-size: 48pt;
+            color: #c9a961;
+            line-height: 1;
+            margin-bottom: 16px;
+        }
+        .slide-quote .quote-text {
+            font-size: 22pt;
+            font-weight: 300;
+            line-height: 1.4;
+            margin-bottom: 32px;
+        }
+        .slide-quote .quote-author {
+            font-size: 11pt;
+            color: #c9a961;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* CLOSING SLIDE */
+        .slide-closing {
+            background: #1a2332;
+            color: #fff;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        .slide-closing .closing-title {
+            font-size: 28pt;
+            font-weight: 300;
+            margin-bottom: 12px;
+        }
+        .slide-closing .closing-subtitle {
+            font-size: 12pt;
+            color: #aaa;
+            margin-bottom: 50px;
+        }
+        .slide-closing .contact-info {
+            font-size: 11pt;
+            color: #888;
+            line-height: 2;
+        }
+        .slide-closing .contact-info strong { color: #c9a961; }
+        .slide-closing .divider {
+            width: 60px;
+            height: 3px;
+            background: #c9a961;
+            margin: 0 auto 30px;
+        }
+
+        /* PRINT RULES */
+        @media print {
+            body { background: #fff; padding: 0; }
+            .nav-bar, .print-btn { display: none !important; }
+            .slide {
+                page-break-after: always;
+                margin: 0;
+                box-shadow: none;
+                width: 10in;
+                height: 7.5in;
+            }
+            .slide:last-child { page-break-after: avoid; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <div class="nav-bar">
+        <button onclick="prevSlide()">◀ Prev</button>
+        <span class="slide-counter"><span id="currentSlide">1</span> / <span id="totalSlides">8</span></span>
+        <button onclick="nextSlide()">Next ▶</button>
+    </div>
+    <button class="print-btn" onclick="window.print()">🖨️ Save as PDF</button>
+
+    <!-- ===== SLIDE 1: COVER ===== -->
+    <div class="slide slide-cover" data-slide="1">
+        <img src="../../assets/images/logo-lockup-reverse.svg" alt="New South Technologies" style="height:150px;width:auto;display:block;margin:0 auto 8px;">
+        <div class="tagline">Legacy Modernization · Governed Agility · Cybersecurity · AI Governance</div>
+        <div class="divider"></div>
+        <div class="presentation-label">PRESENTATION</div>
+        <div class="presentation-title">[Presentation Title]</div>
+        <div class="presentation-subtitle">Prepared for [Client Organization]</div>
+        <div class="presentation-meta">
+            <strong style="color: #c9a961;">Presented by:</strong> Eugene Nkomba, Co-Managing Partner<br>
+            <strong style="color: #c9a961;">Date:</strong> [DATE]<br>
+            <strong style="color: #c9a961;">Contact:</strong> [PHONE] | [EMAIL]
+        </div>
+    </div>
+
+    <!-- ===== SLIDE 2: AGENDA ===== -->
+    <div class="slide slide-content" data-slide="2">
+        <div class="top-accent"></div>
+        <h2>Agenda</h2>
+        <div class="subtitle">Today's discussion overview</div>
+        <ul>
+            <li><strong>01.</strong> Executive Summary &amp; Context</li>
+            <li><strong>02.</strong> Understanding Your Challenges</li>
+            <li><strong>03.</strong> Proposed Approach &amp; Methodology</li>
+            <li><strong>04.</strong> Scope of Work &amp; Deliverables</li>
+            <li><strong>05.</strong> Timeline &amp; Milestones</li>
+            <li><strong>06.</strong> Investment Summary</li>
+            <li><strong>07.</strong> Why NewSouth Technologies</li>
+            <li><strong>08.</strong> Q&amp;A &amp; Next Steps</li>
+        </ul>
+        <div class="slide-brand"><strong>NewSouth</strong> Technologies</div>
+        <div class="slide-number">2</div>
+    </div>
+
+    <!-- ===== SLIDE 3: EXECUTIVE SUMMARY ===== -->
+    <div class="slide slide-content" data-slide="3">
+        <div class="top-accent"></div>
+        <h2>Executive Summary</h2>
+        <div class="subtitle">Key takeaways at a glance</div>
+        <p>[One paragraph summarizing the purpose of this presentation and the value proposition for the client.]</p>
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <div class="number">[X]</div>
+                <div class="label">Systems Assessed</div>
+                <div class="detail">[Brief context]</div>
+            </div>
+            <div class="metric-card">
+                <div class="number">[X]</div>
+                <div class="label">Compliance Gaps</div>
+                <div class="detail">[Brief context]</div>
+            </div>
+            <div class="metric-card">
+                <div class="number">[X]</div>
+                <div class="label">Weeks to Deliver</div>
+                <div class="detail">[Brief context]</div>
+            </div>
+        </div>
+        <div class="slide-brand"><strong>NewSouth</strong> Technologies</div>
+        <div class="slide-number">3</div>
+    </div>
+
+    <!-- ===== SLIDE 4: UNDERSTANDING CHALLENGES ===== -->
+    <div class="slide slide-content" data-slide="4">
+        <div class="top-accent"></div>
+        <h2>Understanding Your Challenges</h2>
+        <div class="subtitle">Current state &amp; pain points</div>
+        <div class="two-col">
+            <div class="col">
+                <h3>Current State</h3>
+                <ul>
+                    <li>[Challenge 1 — e.g., Aging legacy infrastructure]</li>
+                    <li>[Challenge 2 — e.g., CMMC compliance deadline]</li>
+                    <li>[Challenge 3 — e.g., Manual security processes]</li>
+                </ul>
+            </div>
+            <div class="col">
+                <h3>Business Impact</h3>
+                <ul>
+                    <li>[Impact 1 — e.g., Operational inefficiency]</li>
+                    <li>[Impact 2 — e.g., Audit findings &amp; risk exposure]</li>
+                    <li>[Impact 3 — e.g., Missed contract opportunities]</li>
+                </ul>
+            </div>
+        </div>
+        <div class="slide-brand"><strong>NewSouth</strong> Technologies</div>
+        <div class="slide-number">4</div>
+    </div>
+
+    <!-- ===== SLIDE 5: PROPOSED APPROACH ===== -->
+    <div class="slide slide-content" data-slide="5">
+        <div class="top-accent"></div>
+        <h2>Proposed Approach</h2>
+        <div class="subtitle">Governed agile delivery methodology</div>
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 20%;">Phase</th>
+                    <th style="width: 50%;">Key Activities</th>
+                    <th style="width: 30%;">Outcome</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Phase 1</strong> Discovery</td>
+                    <td>System inventory, stakeholder workshops, gap analysis, risk assessment</td>
+                    <td>Assessment Report</td>
+                </tr>
+                <tr>
+                    <td><strong>Phase 2</strong> Strategy</td>
+                    <td>Architecture design, roadmap development, prioritization</td>
+                    <td>Strategic Roadmap</td>
+                </tr>
+                <tr>
+                    <td><strong>Phase 3</strong> Implementation</td>
+                    <td>Agile sprint delivery, DevSecOps pipeline, security controls</td>
+                    <td>Deployed Solutions</td>
+                </tr>
+                <tr>
+                    <td><strong>Phase 4</strong> Transition</td>
+                    <td>Documentation, training, knowledge transfer, 30-day support</td>
+                    <td>Operational Readiness</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="slide-brand"><strong>NewSouth</strong> Technologies</div>
+        <div class="slide-number">5</div>
+    </div>
+
+    <!-- ===== SLIDE 6: TIMELINE ===== -->
+    <div class="slide slide-content" data-slide="6">
+        <div class="top-accent"></div>
+        <h2>Timeline &amp; Milestones</h2>
+        <div class="subtitle">Projected 16-week engagement</div>
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 25%;">Milestone</th>
+                    <th style="width: 15%;">Target Date</th>
+                    <th style="width: 60%;">Acceptance Criteria</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Kickoff</td>
+                    <td>[DATE]</td>
+                    <td>Charter approved, access provisioned</td>
+                </tr>
+                <tr>
+                    <td>Assessment Complete</td>
+                    <td>[DATE]</td>
+                    <td>Findings presented, risk register delivered</td>
+                </tr>
+                <tr>
+                    <td>Roadmap Approved</td>
+                    <td>[DATE]</td>
+                    <td>Steering committee sign-off</td>
+                </tr>
+                <tr>
+                    <td>Implementation Complete</td>
+                    <td>[DATE]</td>
+                    <td>All sprint deliverables accepted</td>
+                </tr>
+                <tr>
+                    <td>Project Closeout</td>
+                    <td>[DATE]</td>
+                    <td>KT sessions completed, documentation handed over</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="slide-brand"><strong>NewSouth</strong> Technologies</div>
+        <div class="slide-number">6</div>
+    </div>
+
+    <!-- ===== SLIDE 7: INVESTMENT ===== -->
+    <div class="slide slide-content" data-slide="7">
+        <div class="top-accent"></div>
+        <h2>Investment Summary</h2>
+        <div class="subtitle">Fixed-price engagement</div>
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 50%;">Phase</th>
+                    <th style="width: 25%; text-align: right;">Duration</th>
+                    <th style="width: 25%; text-align: right;">Investment</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Phase 1 — Discovery &amp; Assessment</td>
+                    <td style="text-align: right;">3 weeks</td>
+                    <td style="text-align: right; font-weight: 700;">$[AMOUNT]</td>
+                </tr>
+                <tr>
+                    <td>Phase 2 — Strategy &amp; Roadmap</td>
+                    <td style="text-align: right;">2 weeks</td>
+                    <td style="text-align: right; font-weight: 700;">$[AMOUNT]</td>
+                </tr>
+                <tr>
+                    <td>Phase 3 — Implementation</td>
+                    <td style="text-align: right;">[N] weeks</td>
+                    <td style="text-align: right; font-weight: 700;">$[AMOUNT]</td>
+                </tr>
+                <tr>
+                    <td>Phase 4 — Transition &amp; KT</td>
+                    <td style="text-align: right;">2 weeks</td>
+                    <td style="text-align: right; font-weight: 700;">$[AMOUNT]</td>
+                </tr>
+                <tr style="border-top: 2px solid #1a2332;">
+                    <td style="font-size: 12pt; font-weight: 700; color: #1a2332;">Total Investment</td>
+                    <td style="text-align: right; font-weight: 700;">[TOTAL]</td>
+                    <td style="text-align: right; font-size: 13pt; font-weight: 700; color: #1a2332;">$[TOTAL]</td>
+                </tr>
+            </tbody>
+        </table>
+        <p style="font-size: 9pt; color: #888; margin-top: 12px;">Payment Terms: 30% on signing · 40% at midpoint · 30% at closeout · Net 15</p>
+        <div class="slide-brand"><strong>NewSouth</strong> Technologies</div>
+        <div class="slide-number">7</div>
+    </div>
+
+    <!-- ===== SLIDE 8: CLOSING ===== -->
+    <div class="slide slide-closing" data-slide="8">
+        <div class="closing-title">Let's Build What's Next</div>
+        <div class="closing-subtitle">Together.</div>
+        <div class="divider"></div>
+        <div class="contact-info">
+            <strong>Eugene Nkomba</strong> — Co-Managing Partner<br>
+            NewSouth Technologies<br>
+            [PHONE] | [EMAIL]<br>
+            www.newsouthtechnologies.com
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT FOR NAVIGATION -->
+    <script>
+        const slides = document.querySelectorAll('.slide');
+        let currentIdx = 0;
+        document.getElementById('totalSlides').textContent = slides.length;
+
+        // Show only active slide on screen
+        function showSlide(idx) {
+            slides.forEach((s, i) => {
+                s.style.display = i === idx ? 'flex' : 'none';
+            });
+            document.getElementById('currentSlide').textContent = idx + 1;
+        }
+
+        function nextSlide() {
+            if (currentIdx < slides.length - 1) {
+                currentIdx++;
+                showSlide(currentIdx);
+            }
+        }
+
+        function prevSlide() {
+            if (currentIdx > 0) {
+                currentIdx--;
+                showSlide(currentIdx);
+            }
+        }
+
+        // Initialize: show first slide only
+        showSlide(0);
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') nextSlide();
+            if (e.key === 'ArrowLeft') prevSlide();
+        });
+    </script>
+</body>
+</html>

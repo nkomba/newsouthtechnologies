@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NewSouth Technologies — Quick Reference Guide</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        @page { size: letter; margin: 0.5in 0.75in 0.5in 0.75in; }
+        html { font-size: 10pt; }
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            color: #333;
+            line-height: 1.5;
+            background: #fff;
+        }
+
+        /* COVER BANNER */
+        .cover-banner {
+            background: #1a2332;
+            color: #fff;
+            padding: 28px 36px;
+            margin-bottom: 32px;
+        }
+        .cover-banner .brand {
+            font-size: 18pt;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+        .cover-banner .brand .accent { color: #c9a961; }
+        .cover-banner .title {
+            font-size: 10pt;
+            color: #c9a961;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .cover-banner .subtitle {
+            font-size: 9pt;
+            color: #aaa;
+            margin-top: 8px;
+        }
+
+        /* SECTION HEADINGS */
+        h2 {
+            font-size: 13pt;
+            color: #1a2332;
+            font-weight: 700;
+            border-bottom: 2px solid #c9a961;
+            padding-bottom: 4px;
+            margin-bottom: 16px;
+            margin-top: 32px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        h3 {
+            font-size: 11pt;
+            color: #1a2332;
+            font-weight: 700;
+            margin-bottom: 8px;
+            margin-top: 20px;
+        }
+
+        p { margin-bottom: 10px; }
+
+        /* DOCUMENT CARDS GRID */
+        .doc-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            margin-bottom: 24px;
+        }
+
+        .doc-card {
+            border: 1px solid #e0e0e0;
+            border-left: 4px solid #1a2332;
+            padding: 14px 16px;
+            border-radius: 3px;
+        }
+        .doc-card.gold-border { border-left-color: #c9a961; }
+
+        .doc-card .doc-number {
+            font-size: 8pt;
+            font-weight: 700;
+            color: #c9a961;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+        }
+        .doc-card .doc-name {
+            font-size: 11pt;
+            font-weight: 700;
+            color: #1a2332;
+            margin-bottom: 4px;
+        }
+        .doc-card .doc-file {
+            font-size: 8.5pt;
+            color: #888;
+            font-family: 'Courier New', monospace;
+            margin-bottom: 6px;
+        }
+        .doc-card .doc-purpose {
+            font-size: 9pt;
+            color: #555;
+            line-height: 1.4;
+        }
+
+        /* SCENARIO TABLE */
+        .scenario-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 24px;
+            font-size: 9pt;
+        }
+        .scenario-table th {
+            background: #1a2332;
+            color: #fff;
+            text-align: left;
+            padding: 8px 10px;
+            font-weight: 600;
+        }
+        .scenario-table td {
+            padding: 8px 10px;
+            border-bottom: 1px solid #e0e0e0;
+            vertical-align: top;
+        }
+        .scenario-table tr:nth-child(even) td { background: #f8f9fb; }
+        .scenario-table .scenario {
+            font-weight: 600;
+            color: #1a2332;
+        }
+        .scenario-table .documents {
+            color: #555;
+        }
+        .scenario-table .documents strong {
+            color: #1a2332;
+        }
+
+        /* STEPS */
+        .steps {
+            counter-reset: step-counter;
+            list-style: none;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+        .steps li {
+            counter-increment: step-counter;
+            position: relative;
+            padding-left: 36px;
+            margin-bottom: 10px;
+            font-size: 9.5pt;
+            color: #444;
+            line-height: 1.5;
+        }
+        .steps li::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: -1px;
+            width: 24px;
+            height: 24px;
+            background: #1a2332;
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 9pt;
+            font-weight: 700;
+        }
+        .steps li strong {
+            color: #1a2332;
+        }
+
+        /* BRAND REFERENCE BOX */
+        .brand-box {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+        .swatch {
+            text-align: center;
+            border-radius: 4px;
+            overflow: hidden;
+            border: 1px solid #e0e0e0;
+        }
+        .swatch .color-block {
+            height: 40px;
+        }
+        .swatch .label {
+            padding: 6px;
+            font-size: 8pt;
+        }
+        .swatch .hex {
+            font-size: 7.5pt;
+            color: #888;
+            font-family: 'Courier New', monospace;
+        }
+
+        /* TIPS BOX */
+        .tips-box {
+            background: #f4f1ea;
+            border-left: 4px solid #c9a961;
+            padding: 14px 18px;
+            margin-bottom: 20px;
+        }
+        .tips-box h3 {
+            margin-top: 0;
+            color: #1a2332;
+        }
+        .tips-box ul {
+            padding-left: 20px;
+            font-size: 9pt;
+            color: #555;
+        }
+        .tips-box li {
+            margin-bottom: 6px;
+        }
+        .tips-box li strong { color: #1a2332; }
+
+        /* WARNING BOX */
+        .warning-box {
+            background: #fff3f3;
+            border-left: 4px solid #c0392b;
+            padding: 14px 18px;
+            margin-bottom: 20px;
+        }
+        .warning-box h3 {
+            margin-top: 0;
+            color: #c0392b;
+        }
+        .warning-box p {
+            font-size: 9pt;
+            color: #555;
+            margin-bottom: 4px;
+        }
+        .warning-box strong { color: #c0392b; }
+
+        /* WORKFLOW DIAGRAM */
+        .workflow {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+            gap: 4px;
+            flex-wrap: wrap;
+        }
+        .workflow-step {
+            text-align: center;
+            flex: 1;
+            min-width: 100px;
+        }
+        .workflow-step .step-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #1a2332;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18pt;
+            margin: 0 auto 8px;
+        }
+        .workflow-step .step-label {
+            font-size: 8pt;
+            font-weight: 600;
+            color: #1a2332;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            line-height: 1.3;
+        }
+        .workflow-arrow {
+            font-size: 14pt;
+            color: #c9a961;
+            font-weight: 700;
+        }
+
+        /* FOOTER */
+        .footer {
+            border-top: 2px solid #1a2332;
+            padding-top: 12px;
+            margin-top: 36px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 8pt;
+            color: #999;
+        }
+
+        .no-print {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: #1a2332;
+            color: #fff;
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-size: 11px;
+            cursor: pointer;
+            border: none;
+            z-index: 9999;
+        }
+
+        @media print {
+            .no-print { display: none !important; }
+            body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+        }
+    </style>
+</head>
+<body>
+    <button class="no-print" onclick="window.print()">🖨️ Print / Save as PDF</button>
+
+    <!-- COVER BANNER -->
+    <div class="cover-banner">
+        <img src="../../assets/images/logo-lockup-reverse.svg" alt="New South Technologies" style="height:46px;width:auto;display:block;margin-bottom:6px;">
+        <div class="title">Quick Reference Guide</div>
+        <div class="subtitle">Document Templates Suite — Version 1.0 | July 2026</div>
+    </div>
+
+    <!-- SECTION 1: DOCUMENT INVENTORY -->
+    <h2>Document Inventory</h2>
+    <p>The following 13 templates are available in <code style="background:#f0f0f0; padding:2px 6px; border-radius:3px; font-size:8.5pt;">C:\NewSouthTechnologies\documents\templates\</code></p>
+
+    <div class="doc-grid">
+        <div class="doc-card">
+            <div class="doc-number">01</div>
+            <div class="doc-name">Letterhead</div>
+            <div class="doc-file">letterhead.html</div>
+            <div class="doc-purpose">Branded letterhead for formal correspondence and cover letters.</div>
+        </div>
+        <div class="doc-card gold-border">
+            <div class="doc-number">02</div>
+            <div class="doc-name">Proposal Template</div>
+            <div class="doc-file">proposal-template.html</div>
+            <div class="doc-purpose">Full multi-page proposal with cover page, scope, timeline, pricing, and signatures.</div>
+        </div>
+        <div class="doc-card">
+            <div class="doc-number">03</div>
+            <div class="doc-name">Capability Statement</div>
+            <div class="doc-file">capability-statement.html</div>
+            <div class="doc-purpose">One-page summary of capabilities, credentials, and metrics for RFP responses.</div>
+        </div>
+        <div class="doc-card gold-border">
+            <div class="doc-number">04</div>
+            <div class="doc-name">Statement of Work (SOW)</div>
+            <div class="doc-file">sow-template.html</div>
+            <div class="doc-purpose">Detailed engagement scoping with deliverables, milestones, acceptance criteria.</div>
+        </div>
+        <div class="doc-card">
+            <div class="doc-number">05</div>
+            <div class="doc-name">Invoice</div>
+            <div class="doc-file">invoice-template.html</div>
+            <div class="doc-purpose">Branded client invoice with line items, payment terms, and remittance instructions.</div>
+        </div>
+        <div class="doc-card gold-border">
+            <div class="doc-number">06</div>
+            <div class="doc-name">Engagement Letter</div>
+            <div class="doc-file">engagement-letter.html</div>
+            <div class="doc-purpose">Short-form authorization letter confirming scope, fees, and terms.</div>
+        </div>
+        <div class="doc-card">
+            <div class="doc-number">07</div>
+            <div class="doc-name">Mutual NDA</div>
+            <div class="doc-file">nda-mutual.html</div>
+            <div class="doc-purpose">Protects confidential information exchanged between parties.</div>
+        </div>
+        <div class="doc-card gold-border">
+            <div class="doc-number">08</div>
+            <div class="doc-name">Email Signature</div>
+            <div class="doc-file">email-signature.html</div>
+            <div class="doc-purpose">Setup guide and preview for consistent email branding.</div>
+        </div>
+        <div class="doc-card">
+            <div class="doc-number">09</div>
+            <div class="doc-name">Meeting Minutes</div>
+            <div class="doc-file">meeting-minutes.html</div>
+            <div class="doc-purpose">Standardized client meeting record with attendees, decisions, action items.</div>
+        </div>
+        <div class="doc-card gold-border">
+            <div class="doc-number">10</div>
+            <div class="doc-name">Status Report</div>
+            <div class="doc-file">status-report.html</div>
+            <div class="doc-purpose">Weekly/biweekly project update with progress bars, risks, milestones.</div>
+        </div>
+        <div class="doc-card">
+            <div class="doc-number">11</div>
+            <div class="doc-name">Presentation Deck</div>
+            <div class="doc-file">presentation-deck.html</div>
+            <div class="doc-purpose">Slide deck with cover, agenda, content, metrics, and closing slides.</div>
+        </div>
+        <div class="doc-card gold-border">
+            <div class="doc-number">12</div>
+            <div class="doc-name">Business Card</div>
+            <div class="doc-file">business-card.html</div>
+            <div class="doc-purpose">Print-ready business card layout with front, back, and alternate designs.</div>
+        </div>
+        <div class="doc-card" style="grid-column: span 2;">
+            <div class="doc-number">13</div>
+            <div class="doc-name">Master Services Agreement (MSA)</div>
+            <div class="doc-file">msa-master-services-agreement.html</div>
+            <div class="doc-purpose">Umbrella legal contract governing all engagements. Individual SOWs are issued under this MSA.</div>
+        </div>
+    </div>
+
+    <!-- SECTION 2: WHEN TO USE WHAT -->
+    <h2>When to Use Which Document</h2>
+
+    <table class="scenario-table">
+        <thead>
+            <tr>
+                <th style="width: 35%;">Scenario</th>
+                <th style="width: 65%;">Documents to Use</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="scenario">First contact with a potential client</td>
+                <td class="documents"><strong>Letterhead</strong> + <strong>Capability Statement</strong> + <strong>Email Signature</strong></td>
+            </tr>
+            <tr>
+                <td class="scenario">Responding to an RFP or RFQ</td>
+                <td class="documents"><strong>Capability Statement</strong> + <strong>Proposal Template</strong> + <strong>Presentation Deck</strong></td>
+            </tr>
+            <tr>
+                <td class="scenario">Sending a proposal</td>
+                <td class="documents"><strong>Proposal Template</strong> + <strong>NDA</strong> (if sharing sensitive info)</td>
+            </tr>
+            <tr>
+                <td class="scenario">Client accepts proposal</td>
+                <td class="documents"><strong>MSA</strong> (if not already signed) + <strong>SOW</strong> + <strong>Engagement Letter</strong></td>
+            </tr>
+            <tr>
+                <td class="scenario">Project kickoff meeting</td>
+                <td class="documents"><strong>Meeting Minutes</strong> + <strong>NDA</strong> (if not yet executed)</td>
+            </tr>
+            <tr>
+                <td class="scenario">Weekly client check-in</td>
+                <td class="documents"><strong>Status Report</strong> + <strong>Meeting Minutes</strong></td>
+            </tr>
+            <tr>
+                <td class="scenario">Client decision or approval needed</td>
+                <td class="documents"><strong>Letterhead</strong> (formal letter) + <strong>Status Report</strong> (context)</td>
+            </tr>
+            <tr>
+                <td class="scenario">Billing milestone reached</td>
+                <td class="documents"><strong>Invoice</strong> + <strong>Letterhead</strong> (cover note if needed)</td>
+            </tr>
+            <tr>
+                <td class="scenario">Scope change requested</td>
+                <td class="documents">New <strong>SOW</strong> or amendment to existing SOW (referenced under MSA)</td>
+            </tr>
+            <tr>
+                <td class="scenario">Client presentation or pitch</td>
+                <td class="documents"><strong>Presentation Deck</strong> + <strong>Capability Statement</strong> (leave-behind)</td>
+            </tr>
+            <tr>
+                <td class="scenario">Onboarding a new team member</td>
+                <td class="documents"><strong>This Guide</strong> + <strong>Email Signature</strong> + <strong>Business Card</strong> (order)</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- SECTION 3: CLIENT ENGAGEMENT WORKFLOW -->
+    <h2>Client Engagement Workflow</h2>
+    <p>Follow these steps from initial contact through project closeout:</p>
+
+    <div class="workflow">
+        <div class="workflow-step">
+            <div class="step-icon">1</div>
+            <div class="step-label">Outreach</div>
+        </div>
+        <div class="workflow-arrow">→</div>
+        <div class="workflow-step">
+            <div class="step-icon">2</div>
+            <div class="step-label">NDA</div>
+        </div>
+        <div class="workflow-arrow">→</div>
+        <div class="workflow-step">
+            <div class="step-icon">3</div>
+            <div class="step-label">Proposal</div>
+        </div>
+        <div class="workflow-arrow">→</div>
+        <div class="workflow-step">
+            <div class="step-icon">4</div>
+            <div class="step-label">MSA + SOW</div>
+        </div>
+        <div class="workflow-arrow">→</div>
+        <div class="workflow-step">
+            <div class="step-icon">5</div>
+            <div class="step-label">Kickoff</div>
+        </div>
+        <div class="workflow-arrow">→</div>
+        <div class="workflow-step">
+            <div class="step-icon">6</div>
+            <div class="step-label">Delivery</div>
+        </div>
+        <div class="workflow-arrow">→</div>
+        <div class="workflow-step">
+            <div class="step-icon">7</div>
+            <div class="step-label">Invoice</div>
+        </div>
+        <div class="workflow-arrow">→</div>
+        <div class="workflow-step">
+            <div class="step-icon">8</div>
+            <div class="step-label">Closeout</div>
+        </div>
+    </div>
+
+    <p style="font-size: 9pt; color: #777;">
+        <strong>Step 1 — Outreach:</strong> Letterhead + Capability Statement &nbsp;|&nbsp;
+        <strong>Step 2 — NDA:</strong> nda-mutual.html &nbsp;|&nbsp;
+        <strong>Step 3 — Proposal:</strong> proposal-template.html + presentation-deck.html &nbsp;|&nbsp;
+        <strong>Step 4 — MSA + SOW:</strong> msa + sow templates + engagement-letter.html &nbsp;|&nbsp;
+        <strong>Step 5 — Kickoff:</strong> meeting-minutes.html &nbsp;|&nbsp;
+        <strong>Step 6 — Delivery:</strong> status-report.html (recurring) &nbsp;|&nbsp;
+        <strong>Step 7 — Invoice:</strong> invoice-template.html &nbsp;|&nbsp;
+        <strong>Step 8 — Closeout:</strong> Letterhead (thank-you letter) + final invoice
+    </p>
+
+    <!-- SECTION 4: HOW TO GENERATE A PDF -->
+    <h2>How to Generate a PDF from Any Template</h2>
+
+    <ol class="steps">
+        <li><strong>Open the HTML file</strong> in your browser (Chrome, Firefox, or Edge). Double-click the file or drag it into a browser window.</li>
+        <li><strong>Replace bracketed fields</strong> — use Ctrl+F to find each <code style="background:#f0f0f0;padding:1px 4px;border-radius:2px;font-size:8.5pt;">[PLACEHOLDER]</code> and type the real value. Use Ctrl+H (Find and Replace) for repeating fields like <code style="background:#f0f0f0;padding:1px 4px;border-radius:2px;font-size:8.5pt;">[PHONE]</code>.</li>
+        <li><strong>Review the page</strong> — scroll through and verify all content looks correct. No bracketed placeholders should remain.</li>
+        <li><strong>Click "Print / Save as PDF"</strong> — the button appears in the top-right corner of every template.</li>
+        <li><strong>Configure print settings:</strong>
+            <ul style="margin-top: 6px; padding-left: 20px;">
+                <li>Destination: <strong>Save as PDF</strong></li>
+                <li>Layout: <strong>Portrait</strong></li>
+                <li>Margins: <strong>None</strong> (CSS handles internal margins)</li>
+                <li>Scale: <strong>100%</strong></li>
+                <li>Paper size: <strong>Letter (8.5" × 11")</strong></li>
+                <li>Check: <strong>Background graphics</strong> (enabled)</li>
+            </ul>
+        </li>
+        <li><strong>Save the file</strong> using the naming convention: <code style="background:#f0f0f0;padding:1px 4px;border-radius:2px;font-size:8.5pt;">[TYPE]_[CLIENT]_[YYYY-MM-DD].pdf</code></li>
+        <li><strong>Verify the PDF</strong> — open and review the saved PDF before sending to the client.</li>
+    </ol>
+
+    <!-- SECTION 5: BRAND QUICK REFERENCE -->
+    <h2>Brand Quick Reference</h2>
+
+    <div class="brand-box">
+        <div class="swatch">
+            <div class="color-block" style="background: #1a2332;"></div>
+            <div class="label">
+                <strong>Navy</strong><br>
+                <span class="hex">#1a2332</span>
+            </div>
+        </div>
+        <div class="swatch">
+            <div class="color-block" style="background: #c9a961;"></div>
+            <div class="label">
+                <strong>Gold</strong><br>
+                <span class="hex">#c9a961</span>
+            </div>
+        </div>
+        <div class="swatch">
+            <div class="color-block" style="background: #333333;"></div>
+            <div class="label">
+                <strong>Gray</strong><br>
+                <span class="hex">#333333</span>
+            </div>
+        </div>
+        <div class="swatch">
+            <div class="color-block" style="background: #ffffff; border: 1px solid #e0e0e0;"></div>
+            <div class="label">
+                <strong>White</strong><br>
+                <span class="hex">#ffffff</span>
+            </div>
+        </div>
+    </div>
+
+    <table style="width:100%; border-collapse:collapse; font-size:9pt; margin-bottom: 20px;">
+        <thead>
+            <tr>
+                <th style="background:#1a2332; color:#fff; text-align:left; padding:8px 10px;">Element</th>
+                <th style="background:#1a2332; color:#fff; text-align:left; padding:8px 10px;">Specification</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="padding:8px 10px; border-bottom:1px solid #e0e0e0;"><strong>Logo Wordmark</strong></td>
+                <td style="padding:8px 10px; border-bottom:1px solid #e0e0e0;">NewSouth (Navy) + Technologies (Gold)</td>
+            </tr>
+            <tr>
+                <td style="padding:8px 10px; border-bottom:1px solid #e0e0e0;"><strong>Headings Font</strong></td>
+                <td style="padding:8px 10px; border-bottom:1px solid #e0e0e0;">Helvetica Neue, Arial, sans-serif</td>
+            </tr>
+            <tr>
+                <td style="padding:8px 10px; border-bottom:1px solid #e0e0e0;"><strong>Body Font</strong></td>
+                <td style="padding:8px 10px; border-bottom:1px solid #e0e0e0;">Georgia, Times New Roman, serif</td>
+            </tr>
+            <tr>
+                <td style="padding:8px 10px; border-bottom:1px solid #e0e0e0;"><strong>Tagline</strong></td>
+                <td style="padding:8px 10px; border-bottom:1px solid #e0e0e0;">Legacy Modernization · Governed Agility · Cybersecurity · AI Governance</td>
+            </tr>
+            <tr>
+                <td style="padding:8px 10px; border-bottom:1px solid #e0e0e0;"><strong>Paper Size</strong></td>
+                <td style="padding:8px 10px; border-bottom:1px solid #e0e0e0;">US Letter (8.5" × 11")</td>
+            </tr>
+            <tr>
+                <td style="padding:8px 10px;"><strong>Margins</strong></td>
+                <td style="padding:8px 10px;">0.75" sides · 0.5"-0.75" top/bottom (handled by CSS)</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- SECTION 6: PRO TIPS -->
+    <h2>Pro Tips</h2>
+
+    <div class="tips-box">
+        <h3>Efficiency</h3>
+        <ul>
+            <li><strong>Keep a master "find-and-replace" list</strong> of your company details so you can quickly paste them into Find &amp; Replace when editing a template.</li>
+            <li><strong>Save filled-in versions</strong> — when you customize a template for a specific client, save a copy in <code style="background:#fff;padding:1px 4px;border-radius:2px;font-size:8.5pt;">\documents\executed\</code> with the naming convention.</li>
+            <li><strong>Use browser bookmarks</strong> — bookmark each template file for quick access.</li>
+            <li><strong>Create client subfolders</strong> — once volume grows, organize executed PDFs by client name in the <code style="background:#fff;padding:1px 4px;border-radius:2px;font-size:8.5pt;">\executed\</code> folder.</li>
+        </ul>
+    </div>
+
+    <div class="tips-box">
+        <h3>Quality Control</h3>
+        <ul>
+            <li><strong>Always test-print</strong> a new template the first time you use it to verify layout and pagination.</li>
+            <li><strong>Check page breaks</strong> — for multi-page documents, ensure content doesn't awkwardly split across pages. Adjust the print scaling slightly if needed.</li>
+            <li><strong>Proofread after replacing placeholders</strong> — search for any remaining <code style="background:#fff;padding:1px 4px;border-radius:2px;font-size:8.5pt;">[</code> brackets to catch missed fields.</li>
+            <li><strong>Verify on mobile</strong> — if the client may view the PDF on a phone, check readability at small sizes.</li>
+        </ul>
+    </div>
+
+    <!-- SECTION 7: LEGAL WARNING -->
+    <h2>Legal Document Notice</h2>
+
+    <div class="warning-box">
+        <h3>⚠ Before Using Legal Templates</h3>
+        <p>The following documents contain legal language and should be <strong>reviewed by qualified legal counsel</strong> before first use:</p>
+        <p>• <strong>Master Services Agreement (MSA)</strong> — the umbrella contract for all engagements</p>
+        <p>• <strong>Mutual NDA</strong> — confidentiality agreement</p>
+        <p>• <strong>Engagement Letter</strong> — binding commitment letter</p>
+        <p>• <strong>Statement of Work (SOW)</strong> — contractual deliverables and acceptance criteria</p>
+        <p style="margin-top: 10px;"><strong>Recommended:</strong> Have an attorney review these once, approve the master templates, and then team members can safely customize the bracketed fields for each client without altering the legal language.</p>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        <div>NewSouth Technologies — Quick Reference Guide v1.0 — July 2026</div>
+        <div>Internal Use Only — Do Not Distribute</div>
+    </div>
+</body>
+</html>

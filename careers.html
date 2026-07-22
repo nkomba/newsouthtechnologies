@@ -9,6 +9,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Cookie Consent -->
+    <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="624242ee-2ac5-42aa-a480-a0beb5be0497" data-blockingmode="auto" type="text/javascript"></script>
+
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/careers.css">
 </head>
@@ -18,7 +22,7 @@
     <nav class="navbar">
         <div class="container nav-inner">
             <a href="./index.html" class="logo" aria-label="New South Technologies Home">
-                <img src="./assets/images/logo.svg" alt="New South Technologies Logo" class="logo-img">
+                <img src="./assets/images/logo-lockup.svg" alt="New South Technologies Logo" class="logo-img">
             </a>
 
             <button class="mobile-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Toggle navigation menu">
@@ -43,25 +47,7 @@
        // document.getElementById('position').value = position;
     //}
     </script>
-    <script>
-// Extract the position from the URL
-// We need to look inside the HASH (#...) because you put it there
-const hash = window.location.hash; // e.g., "#apply&position=grc-lead"
-const params = new URLSearchParams(window.location.search); // hash.substring(1)); // Remove the '#' and parse
-const position = params.get('position');
 
-if (position) {
-    // Find the dropdown and set its value
-    const selectBox = document.getElementById('position');
-    if (selectBox && selectBox.querySelector(`option[value="${position}"]`)) {
-        selectBox.value = position;
-        console.log(`Pre-selected position: ${position}`);
-        
-        // Optional: Scroll specifically to the field if needed
-        selectBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }
-}
-</script>
     <main>
         <!-- Careers Hero -->
         <header class="hero hero-careers">
@@ -139,8 +125,7 @@ if (position) {
                                 <span class="job-tag">Active Secret Required</span>
                             </div>
                         </div>
-                        <!-- In the job cards list, change apply links to: -->
-                        <a href="./careers.html?position=grc-lead#apply" class="btn btn-primary btn-apply">Apply</a>
+                        <a href="./careers.html?position=cyber-analyst#apply" class="btn btn-primary btn-apply">Apply</a>
                     </div>
                     <p>Support the full RMF lifecycle for systems undergoing modernization. Create and maintain A&A packages, manage continuous monitoring, and coordinate security control implementation with engineering teams.</p>
                     <details>
@@ -168,8 +153,7 @@ if (position) {
                                 <span class="job-tag">Clearance Preferred</span>
                             </div>
                         </div>
-                        <!-- In the job cards list, change apply links to: -->
-                         <a href="./careers.html?position=grc-lead#apply" class="btn btn-primary btn-apply">Apply</a>
+                        <a href="./careers.html?position=grc-pm#apply" class="btn btn-primary btn-apply">Apply</a>
                     </div>
                     <p>Drive FedRAMP ATOs and agency-specific authorizations for AI-enabled systems deployed in regulated environments. Bridge the gap between engineering teams and compliance requirements to ensure governed AI adoption.</p>
                     <details>
@@ -197,8 +181,7 @@ if (position) {
                                 <span class="job-tag">U.S. Citizen</span>
                             </div>
                         </div>
-                        <!-- In the job cards list, change apply links to: -->
-                        <a href="./careers.html?position=grc-lead#apply" class="btn btn-primary btn-apply">Apply</a>
+                        <a href="./careers.html?position=grc-engineer#apply" class="btn btn-primary btn-apply">Apply</a>
                     </div>
                     <p>Architect and implement enterprise GRC integration and compliance automation. Design scalable governance platform architectures, establish automated evidence ingestion, and lead modernization of compliance workflows.</p>
                     <details>
@@ -225,8 +208,7 @@ if (position) {
                                 <span class="job-tag">No Clearance</span>
                             </div>
                         </div>
-                        <!-- In the job cards list, change apply links to: -->
-                        <a href="./careers.html?position=grc-lead#apply" class="btn btn-primary btn-apply">Apply</a>
+                        <a href="./careers.html?position=iso-grc#apply" class="btn btn-primary btn-apply">Apply</a>
                     </div>
                     <p>Manage the firm's ISO 27001/27701 certification programs, client security assessments, and internal GRC audit processes. Serve as the primary contact for client compliance inquiries and lead continuous improvement initiatives.</p>
                     <details>
@@ -252,8 +234,7 @@ if (position) {
                                 <span class="job-tag">No Clearance</span>
                             </div>
                         </div>
-                        <!-- In the job cards list, change apply links to: -->
-                        <a href="./careers.html?position=grc-lead#apply" class="btn btn-primary btn-apply">Apply</a>
+                        <a href="./careers.html?position=senior-cyber#apply" class="btn btn-primary btn-apply">Apply</a>
                     </div>
                     <p>Lead proactive defense of information systems. Architect security solutions (SIEM, ZTS, EDR), conduct threat hunting and vulnerability assessments, and champion security best practices aligned with NIST and ISO 27001.</p>
                     <details>
@@ -280,9 +261,7 @@ if (position) {
                                 <span class="job-tag">No Clearance</span>
                             </div>
                         </div>
-                        <!-- In the job cards list, change apply links to: -->
-                        <a href="./careers.html?position=grc-lead#apply" class="btn btn-primary btn-apply">Apply</a>
-            
+                        <a href="./careers.html?position=data-governance#apply" class="btn btn-primary btn-apply">Apply</a>
                     </div>
                     <p>Lead global privacy operations, AI governance, and third-party risk management. Champion privacy-by-design and AI ethics principles, translating emerging regulatory requirements into repeatable controls and operating rhythms.</p>
                     <details>
@@ -381,7 +360,7 @@ if (position) {
 
                     <!-- Resume Upload -->
                     <div class="form-group full-width">
-                        <label for="resume">Resume / CV (PDF Only, Max 5MB) *</label>
+                        <label for="resume">Resume / CV (PDF or Word, Max 5MB) *</label>
                         <div class="file-upload-wrapper">
                             <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" required>
                             <span class="upload-hint">Accepted formats: PDF, DOC, DOCX. Maximum size: 5MB</span>
@@ -474,10 +453,28 @@ if (position) {
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 New South Technologies. <a href="#">Privacy Policy</a> | <a href="#">Terms</a></p>
+            <p>&copy; 2026 New South Technologies. <a href="./privacy-policy.html">Privacy Policy</a></p>
         </div>
     </footer>
 
     <script src="./js/main.js" defer></script>
+        <script>
+// Extract the position from the URL
+// We need to look inside the HASH (#...) because you put it there
+const hash = window.location.hash; // e.g., "#apply&position=grc-lead"
+const params = new URLSearchParams(window.location.search); // hash.substring(1)); // Remove the '#' and parse
+const position = params.get('position');
+
+if (position) {
+    // Find the dropdown and set its value
+    const selectBox = document.getElementById('position');
+    if (selectBox && selectBox.querySelector(`option[value="${position}"]`)) {
+        selectBox.value = position;
+
+        // Optional: Scroll specifically to the field if needed
+        selectBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+}
+</script>
 </body>
 </html>
