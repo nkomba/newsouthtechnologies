@@ -39,12 +39,12 @@
             <ul id="main-nav" class="nav-links">
                 <li><a href="./index.html">Home</a></li>
                 <li><a href="./training.html">Training</a></li>
-                <li><a href="./feedback.html" aria-current="page">Training Quality</a></li>
-                <li><a href="./index.html#modernize">Modernize</a></li>
-                <li><a href="./index.html#ai">Responsible AI</a></li>
+                <li><a href="./modernization.html">Modernize</a></li>
+                <li><a href="./governed-agility.html">Governed Agile</a></li>
+                <li><a href="./responsible-ai.html">Responsible AI</a></li>
                 <li><a href="./careers.html">Careers</a></li>
                 <li><a href="./blog.html">Insights</a></li>
-                <li><a href="./request-training.html" class="btn btn-primary">Request Training</a></li>
+                <li><a href="./index.html#contact" class="btn btn-primary">Request Audit</a></li>
             </ul>
         </div>
     </nav>
@@ -334,8 +334,10 @@
                 </div>
 
                 <div class="feedback-form-card">
-                    <!-- NOTE: Replace the Formspree endpoint below with your own form ID. -->
-                    <form action="https://formspree.io/f/YOUR_FEEDBACK_FORM_ID" method="POST" class="feedback-form">
+                    <!-- Recommendation: create a DEDICATED Formspree form for feedback (separate
+                         from the lead endpoint) so feedback and sales inquiries stay isolated,
+                         then swap the action below. Using the working shared endpoint for now. -->
+                    <form action="https://formspree.io/f/mvznzwav" method="POST" class="feedback-form">
                         <div class="form-row">
                             <div>
                                 <label for="f-course">Course / Session <span class="req">*</span></label>
@@ -477,6 +479,14 @@
                         <input type="hidden" name="_subject" value="New Training Feedback - New South Technologies">
                         <input type="hidden" name="_next" value="https://newsouthtechnologies.com/thanks.html">
 
+                        <div class="form-privacy-notice">
+                            <p><span aria-hidden="true">🔒</span> Submitted over <strong>TLS 1.3 (HTTPS)</strong> and processed by our third-party form provider, <strong>Formspree</strong> (US-based, SOC 2 Type II). We collect only what you enter here. See how form data is encrypted, stored, and retained in our <a href="./privacy-form-submissions.html">Form Submissions Notice</a>.</p>
+                            <div class="form-consent">
+                                <input type="checkbox" id="privacy-consent" name="privacyConsent" required>
+                                <label for="privacy-consent">I consent to New South Technologies processing my feedback as described in the <a href="./privacy-form-submissions.html">Form Submissions Notice</a>. *</label>
+                            </div>
+                        </div>
+
                         <div>
                             <button type="submit" class="btn btn-primary btn-large">Submit Feedback</button>
                         </div>
@@ -509,19 +519,20 @@
             <div class="footer-links">
                 <h4>Capabilities</h4>
                 <ul>
-                    <li><a href="./index.html#modernize">Modernize</a></li>
-                    <li><a href="./index.html#agility">Governed Agile</a></li>
-                    <li><a href="./index.html#ai">Responsible AI</a></li>
+                    <li><a href="./modernization.html">Modernize</a></li>
+                    <li><a href="./governed-agility.html">Governed Agile</a></li>
+                    <li><a href="./responsible-ai.html">Responsible AI</a></li>
                     <li><a href="./training.html">Training</a></li>
                     <li><a href="./feedback.html">Training Feedback &amp; Quality</a></li>
                     <li><a href="./request-training.html">Request Training</a></li>
-                    <li><a href="./blog.html">Thought Leadership</a></li>
+                    <li><a href="./blog.html">Insights</a></li>
                 </ul>
             </div>
             <div class="footer-credentials">
                 <h4>Credentials</h4>
                 <p>Active Clearances: Secret, TS/SCI</p>
                 <p>Certifications: PMP, SAFe, AWS GovCloud</p>
+                <!-- FEDLINE:start --><p>SAM.gov: Registered &amp; active &middot; Small Business, 8(a) / SDB, SDVOSB / VOSB</p><!-- FEDLINE:end -->
             </div>
             <div class="footer-contact">
                 <h4>Contact</h4>
@@ -530,7 +541,14 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 New South Technologies. <a href="./privacy-policy.html">Privacy Policy</a></p>
+            <nav class="footer-nav" aria-label="Legal">
+                <a href="./privacy-policy.html">Privacy Policy</a>
+                <a href="./privacy-form-submissions.html">Form Submissions Notice</a>
+                <a href="./accessibility.html">Accessibility</a>
+                <a href="./terms.html">Terms of Service</a>
+                <a href="./contact.html">Contact</a>
+            </nav>
+            <p>&copy; 2026 New South Technologies. All rights reserved.</p>
         </div>
     </footer>
 

@@ -21,6 +21,7 @@
 
     <!-- Stylesheets -->
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/accessible-comparison.css">
 </head>
 <body>
 
@@ -36,11 +37,11 @@
             </button>
 
             <ul id="main-nav" class="nav-links">
-                <li><a href="./index.html">Home</a></li>
+                <li><a href="./index.html" aria-current="page">Home</a></li>
                 <li><a href="./training.html">Training</a></li>
-                <li><a href="#modernize">Modernize</a></li>
-                <li><a href="#agility">Governed Agile</a></li>
-                <li><a href="#ai">Responsible AI</a></li>
+                <li><a href="./modernization.html">Modernize</a></li>
+                <li><a href="./governed-agility.html">Governed Agile</a></li>
+                <li><a href="./responsible-ai.html">Responsible AI</a></li>
                 <li><a href="./careers.html">Careers</a></li>
                 <li><a href="./blog.html">Insights</a></li>
                 <li><a href="#contact" class="btn btn-primary">Request Audit</a></li>
@@ -85,7 +86,7 @@
                         <span>Zero Trust</span>
                     </div>
                     <div class="badge">
-                        <img src="./assets/images/badge-omb-m26.svg" alt="OMB M-26-04 Compliant" class="badge-icon">
+                        <img src="./assets/images/badge-omb-m26.svg" alt="OMB M-26-04 Aligned" class="badge-icon">
                         <span>OMB M-26-04</span>
                     </div>
                 </div>
@@ -106,7 +107,7 @@
                         <div class="card-icon">
                             <img src="./assets/images/icon-modernize.svg" alt="" aria-hidden="true">
                         </div>
-                        <h3>Modernization with Purpose</h3>
+                        <h3><a href="./modernization.html">Modernization with Purpose</a></h3>
                         <p>We decouple business logic from legacy mainframes using incremental strangler-fig patterns — no big-bang cutover, no mission disruption. Every migration step produces a FedRAMP-aligned landing zone and a compliance posture your auditors can trace.</p>
                         <div class="card-actions">
                             <a href="./assets/downloads/modernization-blueprint.pdf" target="_blank" class="card-link btn-outline" download>
@@ -121,7 +122,7 @@
                         <div class="card-icon">
                             <img src="./assets/images/icon-agility.svg" alt="" aria-hidden="true">
                         </div>
-                        <h3>Governed Agility</h3>
+                        <h3><a href="./governed-agility.html">Governed Agility</a></h3>
                         <p>Embed compliance directly into your DevSecOps pipelines. Achieve continuous authorization with zero unplanned downtime.</p>
                         <div class="card-actions">
                             <a href="./assets/downloads/governed-agile-framework.pdf" target="_blank" class="card-link btn-outline" download>
@@ -136,8 +137,8 @@
                         <div class="card-icon">
                             <img src="./assets/images/icon-ai.svg" alt="" aria-hidden="true">
                         </div>
-                        <h3>Responsible AI & Data Governance</h3>
-                        <p>Deploy AI systems that pass audit. Implement explainability, bias mitigation, and continuous monitoring aligned with OMB M-26-04.</p>
+                        <h3><a href="./responsible-ai.html">Responsible AI &amp; Data Governance</a></h3>
+                        <p>Deploy AI systems that pass audit. Implement explainability, bias mitigation, and continuous monitoring on the NIST AI RMF — and be ready for OMB M-26-04 unbiased-LLM procurement.</p>
                         <div class="card-actions">
                             <a href="./assets/downloads/ai-governance-playbook.pdf" target="_blank" class="card-link btn-outline" download>
                                 📄 Download the AI Governance Playbook
@@ -155,46 +156,102 @@
                 <div class="slider-head">
                     <span class="slider-eyebrow">Experience the Transformation</span>
                     <h2 id="transform-title">Watch Legacy Risk Become Governed, Auditable Systems</h2>
-                    <p>We modernize mission-critical platforms one controlled step at a time — replacing brittle legacy systems with governed cloud services, without a big-bang cutover or unplanned downtime. Drag the divider to compare before and after.</p>
+                    <p>We modernize mission-critical platforms one controlled step at a time — replacing brittle legacy systems with governed cloud services, without a big-bang cutover or unplanned downtime. Use the controls below to compare the legacy system with the modernized approach.</p>
                 </div>
 
-                <div class="slider-container" id="sliderContainer">
-                    <!-- Legacy Layer (Gray) -->
-                     <div class="slider-value-tooltip" id="valueTooltip">65% transformed</div>
-                    <div class="layer layer-legacy" id="layerLegacy">
-                        <span class="layer-label">LEGACY</span>
-                        <span class="layer-sub">COBOL / Siloed Data / Manual Compliance</span>
+                <!-- Accessible Before/After Comparison (replaces the drag slider) -->
+                <div class="comparison-wrapper">
+
+                    <!-- Accessibility Controls -->
+                    <div id="comparison-radiogroup" class="comparison-controls" role="radiogroup" aria-label="Compare before and after states">
+                        <button type="button"
+                                id="btn-before"
+                                class="comparison-btn comparison-btn--primary"
+                                role="radio"
+                                aria-checked="true"
+                                tabindex="0"
+                                aria-describedby="btn-before-desc">
+                            <span class="btn-icon" aria-hidden="true">📋</span>
+                            Before State
+                        </button>
+
+                        <button type="button"
+                                id="btn-after"
+                                class="comparison-btn comparison-btn--secondary"
+                                role="radio"
+                                aria-checked="false"
+                                tabindex="-1"
+                                aria-describedby="btn-after-desc">
+                            <span class="btn-icon" aria-hidden="true">✨</span>
+                            After State
+                        </button>
                     </div>
 
-                    <!-- Modern Layer (Teal - controlled by JS) -->
-                    <div class="layer layer-modern" id="layerModern">
-                        <span class="layer-label">MODERN</span>
-                        <span class="layer-sub">Containerized / Unified Data / Automated Governance</span>
+                    <!-- Hidden descriptions for screen readers -->
+                    <div class="sr-only">
+                        <span id="btn-before-desc">Shows the legacy system with fragmented workflows and manual processes.</span>
+                        <span id="btn-after-desc">Shows the modernized system with automated governance and unified interface.</span>
                     </div>
 
-                    <!-- Handle -->
-                    <div class="slider-handle" id="sliderHandle"></div>
-
-                    <!-- Milestone popup — INSIDE slider-container so it positions correctly -->
-                            <!-- Draggable hint indicator -->
-                        <div class="slider-hint-pulse" aria-hidden="true"></div>
-
-                        <!-- Swipe instruction overlay -->
-                        <div class="slider-instruction-overlay" id="sliderInstruction">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M14 7l-5 5 5 5V7z"/>
-                                <path d="M18 7l-5 5 5 5V7z" opacity=".5"/>
-                            </svg>
-                            <span>Drag to explore transformation</span>
+                    <!-- Image Display Area -->
+                    <div class="comparison-stage">
+                        <!-- BEFORE: Legacy System -->
+                        <div class="comparison-panel comparison-panel--before is-active" id="panel-before" aria-hidden="false">
+                            <span class="panel-badge panel-badge--before"><span aria-hidden="true">📋</span> Before</span>
+                            <h3 class="panel-title">Legacy System</h3>
+                            <p class="panel-sub">Brittle, manual, and hard to audit.</p>
+                            <ul class="panel-list">
+                                <li>
+                                    <svg class="panel-ico panel-ico--warn" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                                    <span>Fragmented workflows across siloed, disconnected tools</span>
+                                </li>
+                                <li>
+                                    <svg class="panel-ico panel-ico--warn" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                                    <span>Manual, spreadsheet-tracked compliance</span>
+                                </li>
+                                <li>
+                                    <svg class="panel-ico panel-ico--warn" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                                    <span>Incomplete audit trails and version conflicts</span>
+                                </li>
+                            </ul>
                         </div>
-                    <div class="milestone-popup" id="milestonePopup">
-                        <span class="milestone-phase">Phase 2 of 4</span>
-                        <span class="milestone-risk">Risk Level: MEDIUM</span>
-                        <span class="milestone-cost">Est. Cost: $1.2M/yr</span>
+
+                        <!-- AFTER: Modern System -->
+                        <div class="comparison-panel comparison-panel--after" id="panel-after" aria-hidden="true">
+                            <span class="panel-badge panel-badge--after"><span aria-hidden="true">✨</span> After</span>
+                            <h3 class="panel-title">Modern System</h3>
+                            <p class="panel-sub">Governed, automated, and fully auditable.</p>
+                            <ul class="panel-list">
+                                <li>
+                                    <svg class="panel-ico panel-ico--ok" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                                    <span>Unified data and containerized cloud services</span>
+                                </li>
+                                <li>
+                                    <svg class="panel-ico panel-ico--ok" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                                    <span>Automated, continuous governance and controls</span>
+                                </li>
+                                <li>
+                                    <svg class="panel-ico panel-ico--ok" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                                    <span>Complete, immutable audit trails</span>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
 
-                    <!-- Range Input -->
-                    <input type="range" min="0" max="100" value="50" class="slider-input" id="sliderInput" aria-label="Drag to compare a legacy system with a modernized system">
+                    <!-- Accessibility Announcer (Live Region) -->
+                    <div role="status"
+                         aria-live="polite"
+                         aria-atomic="true"
+                         class="sr-only"
+                         id="comparison-announcer">
+                        Before state displayed. Legacy system with fragmented workflows.
+                    </div>
+
+                </div>
+
+                <!-- Keyboard Instructions for sighted keyboard users -->
+                <div class="comparison-help">
+                    <p><strong>Navigation:</strong> Press <kbd>Tab</kbd> to reach the controls, then use the <kbd>←</kbd> / <kbd>→</kbd> arrow keys (or <kbd>Enter</kbd> / <kbd>Space</kbd>) to switch between the Before and After views.</p>
                 </div>
 
                 <!-- ROI calculator below slider -->
@@ -207,24 +264,9 @@
                             <option value="large">$100M+ IT Budget</option>
                         </select>
                     </div>
-                    <div style="margin-top: 12px; display: flex; justify-content: center;">
-    <button type="button" id="resetSliderBtn" class="btn btn-outline" 
-            style="padding: 6px 14px; font-size: 0.85rem; color: var(--color-text-light); border-color: var(--color-text-light);">
-        ↺ Reset to 50%
-    </button>
-</div>
-                    <!-- NEW: Snap toggle -->
-                    <div class="slider-settings" style="margin-top: 16px; display: flex; justify-content: center; gap: 12px; font-size: 0.85rem;">
-                        <label style="cursor: pointer; display: flex; align-items: center; gap: 6px;">
-                            <input type="checkbox" id="snapToggle" checked>
-                            <span style="color: var(--color-text-light);">Snap to phases</span>
-                        </label>
-                    </div>                    
-                      <div class="slider-reset-wrap" style="margin-top: 12px; display: flex; justify-content: center;">
-                        <button type="button" id="resetSliderBtn" class="btn btn-outline" style="padding: 6px 14px; font-size: 0.85rem;">
-                            Reset to 50%
-                        </button>
-                    </div>
+                    <p class="roi-hint" style="margin-top: 12px; text-align: center; font-size: 0.85rem; color: var(--color-text-light);">
+                        Toggle <strong>Before</strong> / <strong>After</strong> above to see the projected impact of full modernization.
+                    </p>
                     <div class="roi-output">
                         <div class="roi-metric">
                             <span class="roi-label">Potential Annual Savings</span>
@@ -237,7 +279,7 @@
                     </div>
                 </div>
 
-                <p class="slider-caption">Drag the handle to compare. Our incremental "strangler-fig" approach moves you from left to right one auditable step at a time — no downtime, full traceability for your auditors.</p>
+                <p class="slider-caption">Our incremental "strangler-fig" approach moves you from legacy to modernized one auditable step at a time — no downtime, full traceability for your auditors.</p>
 
                 <div class="slider-actions">
                     <a href="#outcomes" class="btn btn-primary">See Our Approach</a>
@@ -246,7 +288,7 @@
 
                 <ul class="slider-proof" aria-label="Why teams trust New South Technologies">
                     <li><strong>50+ years</strong><span>Combined modernization experience</span></li>
-                    <li><strong>100%</strong><span>Audit-ready deliveries</span></li>
+                    <li><strong>Evidence-backed</strong><span>Every deliverable ships with a compliance evidence trail</span></li>
                     <li><strong>Plan → Procure → Implement</strong><span>End-to-end delivery discipline</span></li>
                 </ul>
             </div>
@@ -268,12 +310,12 @@
                             <span class="cred-label">Years Combined Experience</span>
                         </div>
                         <div class="cred-item">
-                            <span class="cred-number">100%</span>
-                            <span class="cred-label">Audit-Ready Deliveries</span>
-                        </div>
-                        <div class="cred-item">
                             <span class="cred-number">TS/SCI</span>
                             <span class="cred-label">Active Clearances Held</span>
+                        </div>
+                        <div class="cred-item">
+                            <span class="cred-number">PMP · SAFe · AWS</span>
+                            <span class="cred-label">Certifications Held</span>
                         </div>
                     </div>
 
@@ -310,7 +352,7 @@
                         </p>
 
                         <p class="bio-text">
-                            A certified Project Management Professional (PMP) and SAFe Program Consultant (SPC6), Catherine has led modernization efforts that reduced technical debt by 40% while maintaining 100% audit compliance. She doesn't just manage projects; she builds the governance frameworks that allow innovation to thrive safely.
+                            A certified Project Management Professional (PMP) and SAFe Program Consultant (SPC6), Catherine has led modernization efforts that measurably reduced technical debt while keeping deliveries audit-ready throughout. She doesn't just manage projects; she builds the governance frameworks that allow innovation to thrive safely.
                         </p>
 
                         <div class="bio-cta">
@@ -360,10 +402,63 @@
             </div>
         </section>
 
-        <!-- Testimonials -->
-        <section class="testimonials">
+<!-- FEDPROFILE:start -->
+        <section class="fed-contracting" aria-label="Federal contracting and company data">
             <div class="container">
-                <h2>Trusted by Leaders Who Answer to Inspectors General</h2>
+                <h2>Federal Contracting &amp; Company Data</h2>
+                <p class="fed-intro">The identifiers a contracting officer needs, in one place — active in SAM.gov and available to team on federal opportunities.</p>
+                <div class="fed-grid">
+                    <div class="fed-item"><span class="fed-label">SAM.gov</span><span class="fed-value">Registered &amp; active</span></div>
+                    <div class="fed-item"><span class="fed-label">UEI</span><span class="fed-value fed-pending">Available on request</span></div>
+                    <div class="fed-item"><span class="fed-label">CAGE Code</span><span class="fed-value fed-pending">Available on request</span></div>
+                    <div class="fed-item"><span class="fed-label">NAICS</span><span class="fed-value fed-pending">Available on request</span></div>
+                    <div class="fed-item"><span class="fed-label">Designations</span><span class="fed-value">Small Business &middot; 8(a) / SDB &middot; SDVOSB / VOSB</span></div>
+                    <div class="fed-item"><span class="fed-label">Contract Vehicles</span><span class="fed-value">Available for teaming &amp; subcontracting (no prime vehicle yet)</span></div>
+                </div>
+                <p class="fed-note">Full registration details and named past-performance references are available to qualified evaluators — contact <a href="mailto:procurement@newsouthtechnologies.com">procurement@newsouthtechnologies.com</a> or download our <a href="./assets/downloads/newsouth-capabilities-statement.pdf" download>Capabilities Statement (PDF)</a>.</p>
+            </div>
+        </section>
+        <!-- FEDPROFILE:end -->
+
+        <!-- Proof / Evidence -->
+        <section class="testimonials" id="proof">
+            <div class="container">
+                <h2>Proof an Inspector Can Follow</h2>
+                <p class="proof-intro">We'd rather show our work than ask for your trust. Every engagement produces the same evidence trail — the artifacts your auditors, Authorizing Officials, and Inspectors General actually ask for.</p>
+
+                <ul class="evidence-grid" aria-label="Artifacts every engagement produces">
+                    <li class="evidence-item">
+                        <h3>Control-to-requirement traceability</h3>
+                        <p>A matrix mapping every control back to its requirement and forward to the deployed implementation.</p>
+                    </li>
+                    <li class="evidence-item">
+                        <h3>Compliance evidence pack</h3>
+                        <p>Controls mapped to NIST SP 800-53 and FedRAMP baselines, packaged for assessment.</p>
+                    </li>
+                    <li class="evidence-item">
+                        <h3>Immutable audit log &amp; change history</h3>
+                        <p>A complete, tamper-evident record of who changed what, when, and why.</p>
+                    </li>
+                    <li class="evidence-item">
+                        <h3>Automated test, scan &amp; security results</h3>
+                        <p>Pipeline-generated evidence from every build — not a point-in-time snapshot.</p>
+                    </li>
+                    <li class="evidence-item">
+                        <h3>FedRAMP-aligned landing-zone docs</h3>
+                        <p>Identity, logging, encryption, and network controls documented from day one.</p>
+                    </li>
+                    <li class="evidence-item">
+                        <h3>Plain-language decision records</h3>
+                        <p>Why each governance decision was made — readable by auditors and OIG, not just engineers.</p>
+                    </li>
+                </ul>
+
+                <div class="proof-actions">
+                    <a href="./assets/downloads/newsouth-capabilities-statement.pdf" class="btn btn-primary" download>📄 Download the Capabilities Statement (PDF)</a>
+                    <a href="./case-studies.html" class="btn btn-secondary">See Case Studies</a>
+                </div>
+
+                <h3 class="proof-quote-heading">In our clients' words</h3>
                 <div class="testimonial-grid">
                     <blockquote class="testimonial">
                         <p>"They didn't just modernize our systems — they gave us a governance framework our OIG could actually follow. That's rare."</p>
@@ -374,6 +469,7 @@
                         <cite>— CTO, State Agency (VA)</cite>
                     </blockquote>
                 </div>
+                <p class="quote-disclaimer"><small>These quotes are representative of the outcomes our clients describe, not attributed statements. Named, attributable references are available to qualified evaluators under NDA, and cleared testimonials will be published here as they are collected.</small></p>
             </div>
         </section>
     </main>
@@ -407,6 +503,14 @@
                         <textarea id="message" name="message" rows="5" required placeholder="Describe your modernization challenge or compliance need..."></textarea>
                     </div>
 
+                    <div class="form-privacy-notice">
+                        <p><span aria-hidden="true">🔒</span> Submitted over <strong>TLS 1.3 (HTTPS)</strong> and processed by our third-party form provider, <strong>Formspree</strong> (US-based, SOC 2 Type II). We collect only the details you enter here. See how form data is encrypted, stored, and retained in our <a href="./privacy-form-submissions.html">Form Submissions Notice</a>.</p>
+                        <div class="form-consent">
+                            <input type="checkbox" id="privacy-consent" name="privacyConsent" required>
+                            <label for="privacy-consent">I consent to New South Technologies processing my information as described in the <a href="./privacy-form-submissions.html">Form Submissions Notice</a>. *</label>
+                        </div>
+                    </div>
+
                     <div class="form-group full-width">
                         <button type="submit" class="btn btn-primary btn-large">Send Request</button>
                     </div>
@@ -432,12 +536,13 @@
                 <div class="footer-links">
                     <h4>Capabilities</h4>
                     <ul>
-                        <li><a href="#modernize">Modernize</a></li>
-                        <li><a href="#agility">Governed Agile</a></li>
-                        <li><a href="#ai">Responsible AI</a></li>
+                        <li><a href="./modernization.html">Modernize</a></li>
+                        <li><a href="./governed-agility.html">Governed Agile</a></li>
+                        <li><a href="./responsible-ai.html">Responsible AI</a></li>
                         <li><a href="./training.html">Training</a></li>
                         <li><a href="./feedback.html">Training Feedback &amp; Quality</a></li>
                         <li><a href="./request-training.html">Request Training</a></li>
+                        <li><a href="./case-studies.html">Case Studies</a></li>
                         <li><a href="./careers.html">Careers</a></li>
                         <li><a href="./blog.html">Insights</a></li>
                     </ul>
@@ -446,6 +551,7 @@
                     <h4>Credentials</h4>
                     <p>Active Clearances: Secret, TS/SCI</p>
                     <p>Certifications: PMP, SAFe, AWS GovCloud</p>
+                    <!-- FEDLINE:start --><p>SAM.gov: Registered &amp; active &middot; Small Business, 8(a) / SDB, SDVOSB / VOSB</p><!-- FEDLINE:end -->
                 </div>
                 <div class="footer-contact-info">
                     <h4>Contact</h4>
@@ -457,12 +563,19 @@
             <nav class="legal-links" aria-label="Legal">
                 <a href="./privacy-policy.html">Privacy Policy</a>
                 <span class="separator" aria-hidden="true">&middot;</span>
-                <a href="mailto:privacy@newsouthtechnologies.com">Contact</a>
+                <a href="./privacy-form-submissions.html">Form Submissions Notice</a>
+                <span class="separator" aria-hidden="true">&middot;</span>
+                <a href="./accessibility.html">Accessibility</a>
+                <span class="separator" aria-hidden="true">&middot;</span>
+                <a href="./terms.html">Terms of Service</a>
+                <span class="separator" aria-hidden="true">&middot;</span>
+                <a href="./contact.html">Contact</a>
             </nav>
         </div>
     </footer>
 
     <!-- Scripts (at root) -->
     <script src="./js/main.js" defer></script>
+    <script src="./js/accessible-comparison.js" defer></script>
 </body>
 </html>

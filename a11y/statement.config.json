@@ -1,0 +1,19 @@
+{
+  "_comment": "SINGLE SOURCE OF TRUTH for New South Technologies' accessibility statement. Edit values here, then run `npm run a11y:sync` to propagate to accessibility.html and every template notice. Do not hand-edit the generated blocks.",
+  "organization": "New South Technologies",
+  "standards": ["WCAG 2.1 Level AA", "Section 508"],
+  "conformanceLevel": "WCAG 2.1 Level AA",
+  "evaluationDate": "July 22, 2026",
+  "lastUpdated": "July 22, 2026",
+  "evaluationMethod": "a combination of automated tooling and manual assistive-technology testing",
+  "emails": {
+    "general": "info@newsouthtechnologies.com",
+    "accessibility": "accessibility@newsouthtechnologies.com",
+    "procurement": "procurement@newsouthtechnologies.com"
+  },
+  "responseBusinessDays": 5,
+  "urls": {
+    "statement": "https://newsouthtechnologies.com/accessibility.html",
+    "contact": "https://newsouthtechnologies.com/contact.html"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "_comment": "SINGLE SOURCE OF TRUTH for federal-buyer proof points. Edit here, then run `node data/build-profile.js` to propagate to the homepage Federal Contracting section and every footer, and `python3 data/gen_capstmt.py` (or the outputs generator) to refresh the Capabilities Statement PDF. Leave a value as \"\" to display 'Available on request' until finalized.",
+  "organization": "New South Technologies",
+  "samStatus": "Registered & active",
+  "uei": "",
+  "cageCode": "",
+  "naics": [],
+  "naicsSuggested": ["541512 (Computer Systems Design)", "541511 (Custom Programming)", "541611 (Management Consulting)", "611430 (Professional & Management Training)"],
+  "designations": ["Small Business", "8(a) / SDB", "SDVOSB / VOSB"],
+  "contractVehicles": "Available for teaming & subcontracting (no prime vehicle yet)",
+  "procurementEmail": "procurement@newsouthtechnologies.com"
+}

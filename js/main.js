@@ -25,6 +25,13 @@ function initSlider() {
     const agencySizeSelect = document.getElementById('agencySize');
     const annualSavingsEl = document.getElementById('annualSavings');
     const riskReductionEl = document.getElementById('riskReduction');
+
+    // The interactive drag slider was replaced by the accessible before/after
+    // component. If its elements aren't on the page, skip this initializer
+    // entirely so the rest of main.js keeps running.
+    const sliderContainer = document.getElementById('sliderContainer');
+    if (!sliderInput || !sliderContainer || !layerModern || !sliderHandle) return;
+
 // --- Show/hide instructional overlay on first drag ---
 var instructionOverlay = document.getElementById('sliderInstruction');
 var hintPulse = document.querySelector('.slider-hint-pulse');
@@ -293,6 +300,52 @@ if (resetBtn) {
 }
 
 /**
+ * ROI calculator driven by the accessible Before/After comparison.
+ * Before = baseline (0% modernized), After = fully modernized (100%).
+ */
+function initComparisonROI() {
+    const group = document.getElementById('comparison-radiogroup');
+    const agencySizeSelect = document.getElementById('agencySize');
+    const annualSavingsEl = document.getElementById('annualSavings');
+    const riskReductionEl = document.getElementById('riskReduction');
+    if (!group || !agencySizeSelect || !annualSavingsEl || !riskReductionEl) return;
+
+    const budgetTiers = {
+        small:  { budget: 15000000,  savingsPct: 0.15, riskBase: 0.40 },
+        medium: { budget: 60000000,  savingsPct: 0.18, riskBase: 0.55 },
+        large:  { budget: 250000000, savingsPct: 0.22, riskBase: 0.65 }
+    };
+
+    // 0 = Before/baseline, 1 = After/fully modernized.
+    // Initialize at full potential so the card shows the value proposition on load.
+    let progress = 1;
+
+    function updateROI() {
+        const tier = budgetTiers[agencySizeSelect.value] || budgetTiers.medium;
+        const savings = tier.budget * tier.savingsPct * progress;
+        const riskReduction = Math.round(tier.riskBase * progress * 100);
+
+        annualSavingsEl.textContent = savings.toLocaleString('en-US', {
+            style: 'currency',
+            currency: 'USD',
+            maximumFractionDigits: 0
+        });
+        riskReductionEl.textContent = riskReduction + '%';
+    }
+
+    // Drive the ROI from the comparison component's state change (works for both
+    // mouse clicks and keyboard selection), rather than binding to specific buttons.
+    group.addEventListener('comparison:change', function (e) {
+        progress = (e.detail && e.detail.state === 'before') ? 0 : 1;
+        updateROI();
+    });
+
+    agencySizeSelect.addEventListener('change', updateROI);
+
+    updateROI();
+}
+
+/**
  * Mobile Menu Toggle
  */
 function initMobileMenu() {
@@ -372,6 +425,7 @@ function initBlogFilter() {
  */
 document.addEventListener('DOMContentLoaded', () => {
     initSlider();
+    initComparisonROI();
     initMobileMenu();
     initSmoothScroll();
     initStickyNav();

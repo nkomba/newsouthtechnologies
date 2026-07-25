@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accessible Before/After Comparison</title>
+    <link rel="stylesheet" href="css/accessible-comparison.css">
+</head>
+<body>
+    <!-- ==============================================
+         ACCESSIBLE COMPARISON COMPONENT
+         Drop-in replacement for your before/after slider
+         ============================================== -->
+
+    <section class="comparison-section" aria-labelledby="comparison-heading">
+        <h2 id="comparison-heading">Legacy Modernization Outcomes</h2>
+        
+        <p class="comparison-intro">
+            Compare the legacy system (before) with the governed modernization approach (after). 
+            Use the controls below to view each state.
+        </p>
+
+        <!-- Main Comparison Container -->
+        <div class="comparison-wrapper">
+            
+            <!-- Accessibility Controls -->
+            <div id="comparison-radiogroup" class="comparison-controls" role="radiogroup" aria-label="Compare before and after states">
+                <button type="button"
+                        id="btn-before"
+                        class="comparison-btn comparison-btn--primary"
+                        role="radio"
+                        aria-checked="true"
+                        tabindex="0"
+                        aria-describedby="btn-before-desc">
+                    <span class="btn-icon" aria-hidden="true">📋</span>
+                    Before State
+                </button>
+
+                <button type="button"
+                        id="btn-after"
+                        class="comparison-btn comparison-btn--secondary"
+                        role="radio"
+                        aria-checked="false"
+                        tabindex="-1"
+                        aria-describedby="btn-after-desc">
+                    <span class="btn-icon" aria-hidden="true">✨</span>
+                    After State
+                </button>
+            </div>
+
+            <!-- Hidden descriptions for screen readers -->
+            <div class="sr-only">
+                <span id="btn-before-desc">Shows the legacy system with fragmented workflows and manual processes.</span>
+                <span id="btn-after-desc">Shows the modernized system with automated governance and unified interface.</span>
+            </div>
+
+            <!-- Content Display Area (real text, not an image) -->
+            <div class="comparison-stage">
+                <!-- BEFORE: Legacy System -->
+                <div class="comparison-panel comparison-panel--before is-active" id="panel-before" aria-hidden="false">
+                    <span class="panel-badge panel-badge--before"><span aria-hidden="true">📋</span> Before</span>
+                    <h3 class="panel-title">Legacy System</h3>
+                    <p class="panel-sub">Brittle, manual, and hard to audit.</p>
+                    <ul class="panel-list">
+                        <li>
+                            <svg class="panel-ico panel-ico--warn" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                            <span>Fragmented workflows across siloed, disconnected tools</span>
+                        </li>
+                        <li>
+                            <svg class="panel-ico panel-ico--warn" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                            <span>Manual, spreadsheet-tracked compliance</span>
+                        </li>
+                        <li>
+                            <svg class="panel-ico panel-ico--warn" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                            <span>Incomplete audit trails and version conflicts</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- AFTER: Modern System -->
+                <div class="comparison-panel comparison-panel--after" id="panel-after" aria-hidden="true">
+                    <span class="panel-badge panel-badge--after"><span aria-hidden="true">✨</span> After</span>
+                    <h3 class="panel-title">Modern System</h3>
+                    <p class="panel-sub">Governed, automated, and fully auditable.</p>
+                    <ul class="panel-list">
+                        <li>
+                            <svg class="panel-ico panel-ico--ok" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                            <span>Unified data and containerized cloud services</span>
+                        </li>
+                        <li>
+                            <svg class="panel-ico panel-ico--ok" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                            <span>Automated, continuous governance and controls</span>
+                        </li>
+                        <li>
+                            <svg class="panel-ico panel-ico--ok" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                            <span>Complete, immutable audit trails</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Accessibility Announcer (Live Region) -->
+            <div role="status" 
+                 aria-live="polite" 
+                 aria-atomic="true" 
+                 class="sr-only"
+                 id="comparison-announcer">
+                Before state displayed. Legacy system with fragmented workflows.
+            </div>
+
+        </div>
+
+        <!-- Keyboard Instructions for sighted keyboard users -->
+        <div class="comparison-help">
+            <p><strong>Navigation:</strong> Press <kbd>Tab</kbd> to reach the controls, then use the <kbd>←</kbd> / <kbd>→</kbd> arrow keys (or <kbd>Enter</kbd> / <kbd>Space</kbd>) to switch between the Before and After views.</p>
+        </div>
+
+    </section>
+
+    <script src="js/accessible-comparison.js"></script>
+    <!-- Accessibility & Legal Footer -->
+    <footer style="margin-top:2rem;padding:1.5rem;text-align:center;font-size:0.85rem;line-height:1.6;color:#64748B;border-top:1px solid #e2e8f0;font-family:'Inter',Arial,sans-serif;">
+        <nav aria-label="Legal" style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;margin-bottom:0.5rem;">
+            <a href="./accessibility.html" style="color:#0D9488;">Accessibility Statement</a>
+            <a href="./privacy-policy.html" style="color:#0D9488;">Privacy Policy</a>
+            <a href="./terms.html" style="color:#0D9488;">Terms of Service</a>
+            <a href="./contact.html" style="color:#0D9488;">Contact</a>
+        </nav>
+        <p>&copy; 2026 New South Technologies. All rights reserved. New South Technologies is committed to digital accessibility (WCAG 2.1 AA &amp; Section 508). Read our <a href="./accessibility.html" style="color:#0D9488;">Accessibility Statement</a>.</p>
+    </footer>
+</body>
+</html>

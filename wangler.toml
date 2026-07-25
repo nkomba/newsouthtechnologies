@@ -1,0 +1,20 @@
+name = "newsouth-technologies"
+compatibility_date = "2024-01-01"
+pages_build_output_dir = "./public"
+
+# Environment variables (DO NOT commit secrets to Git!)
+[vars]
+LOG_LEVEL = "info"
+
+# Secrets (add via `wrangler secret put`)
+# wrangler secret put AZURE_STORAGE_CONNECTION_STRING
+# wrangler secret put SENDGRID_API_KEY
+
+# Bindings for Cloudflare services
+[[r2_buckets]]
+binding = 'RESUMES_BUCKET'
+bucket_name = 'newsouth-resumes'
+
+[[kv_namespaces]]
+binding = 'RATE_LIMIT_STORE'
+id = 'your-kv-namespace-id'

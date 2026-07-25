@@ -1,0 +1,79 @@
+/* ==============================================
+   FORM SECURITY DISCLOSURE STYLES
+   Place in css/components/ directory
+   ============================================== */
+
+.form-security-banner {
+    background: #f8f7ff;
+    border: 2px solid #e0ddff;
+    border-radius: 8px;
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 1.5rem;
+    font-family: system-ui, -apple-system, sans-serif;
+}
+
+.form-security-banner h4 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #1a1a2e;
+    margin: 0 0 1rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.security-icon {
+    flex-shrink: 0;
+}
+
+.security-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.security-item {
+    font-size: 0.9375rem;
+    line-height: 1.5;
+    color: #333333;
+}
+
+.security-item ul {
+    margin: 0.25rem 0 0 1.25rem;
+    padding: 0;
+}
+
+.security-item li {
+    margin-bottom: 0.25rem;
+}
+
+.security-note {
+    margin-top: 1rem;
+    padding-top: 0.75rem;
+    border-top: 1px dashed #c0bcff;
+    color: #555555;
+}
+
+.security-note a {
+    color: #6d4aff;
+    text-decoration: underline;
+}
+
+.security-note a:hover {
+    color: #5a3fd6;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: forced) {
+    .form-security-banner {
+        border: 3px solid currentColor;
+    }
+}
+
+/* Print styles */
+@media print {
+    .form-security-banner {
+        break-inside: avoid;
+        border: 1px solid #000;
+    }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "newsouth-technologies-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "New South Technologies marketing site with automated accessibility (Section 508 / WCAG 2.1 AA) tooling.",
+  "scripts": {
+    "a11y": "node a11y/axe-scan.js",
+    "a11y:sync": "node a11y/build.js",
+    "a11y:check": "node a11y/build.js --check",
+    "setup": "npm install && npx playwright install chromium"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.10.0",
+    "playwright": "^1.47.0"
+  }
+}

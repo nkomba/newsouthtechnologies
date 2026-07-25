@@ -1,0 +1,51 @@
+/* Table styling for privacy notice pages */
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0 2rem 0;
+    font-size: 0.9375rem;
+}
+
+.data-table th,
+.data-table td {
+    padding: 0.75rem 1rem;
+    border: 1px solid #e0e0e0;
+    text-align: left;
+}
+
+.data-table th {
+    background: #f5f3ff;
+    font-weight: 600;
+    color: #1a1a2e;
+}
+
+.data-table tr:nth-child(even) {
+    background: #fafafa;
+}
+
+.data-table tr:hover {
+    background: #f0f0f0;
+}
+
+.important-note {
+    background: #fff8e6;
+    border-left: 4px solid #ffb300;
+    padding: 1rem 1.25rem;
+    margin: 1.5rem 0;
+    font-size: 0.9375rem;
+}
+
+.last-updated {
+    font-size: 0.875rem;
+    color: #666666;
+    margin-bottom: 2rem;
+}
+
+@media (max-width: 768px) {
+    .data-table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+}

@@ -3,481 +3,379 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Join New South Technologies. We're hiring IT governance, cybersecurity, and digital transformation professionals in the Washington D.C. metro area.">
-    <title>Careers | New South Technologies</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Cookie Consent -->
-    <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="624242ee-2ac5-42aa-a480-a0beb5be0497" data-blockingmode="auto" type="text/javascript"></script>
-
-    <link rel="icon" href="./favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/careers.css">
+    <meta name="description" content="Join NewSouth Technologies. We're hiring professionals in legacy modernization, cybersecurity, AI governance, and governed agility. Apply now.">
+    <title>Careers | NewSouth Technologies</title>
+    
+    <!-- Core styles -->
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <!-- Form security disclosure component styles -->
+    <link rel="stylesheet" href="css/components/form-security-disclosure.css">
+    
+    <!-- Career page specific styles -->
+    <link rel="stylesheet" href="css/careers.css">
 </head>
 <body>
 
-    <!-- Navigation (Same as index.html) -->
-    <nav class="navbar">
-        <div class="container nav-inner">
-            <a href="./index.html" class="logo" aria-label="New South Technologies Home">
-                <img src="./assets/images/logo-lockup.svg" alt="New South Technologies Logo" class="logo-img">
+    <!-- Header / Navigation (existing) -->
+    <header class="site-header">
+        <nav class="main-nav" aria-label="Main navigation">
+            <a href="index.html" class="logo">
+                <span class="logo-text">NewSouth Technologies</span>
             </a>
-
-            <button class="mobile-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Toggle navigation menu">
-                <span class="hamburger-icon"></span>
-            </button>
-
-            <ul id="main-nav" class="nav-links">
-              <li><a href="./index.html">Home</a></li>
-              <li><a href="./training.html">Training</a></li>
-              <li><a href="./index.html#modernize">Modernize</a></li>
-              <li><a href="./index.html#ai">Responsible AI</a></li>
-              <li><a href="./careers.html">Careers</a></li>
-              <li><a href="./blog.html">Insights</a></li>
-              <li><a href="./index.html#contact" class="btn btn-primary">Request Audit</a></li>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="training.html">Training</a></li>
+                <li><a href="modernization.html">Modernize</a></li>
+                <li><a href="governed-agility.html">Governed Agile</a></li>
+                <li><a href="responsible-ai.html">Responsible AI</a></li>
+                <li><a href="careers.html" class="active" aria-current="page">Careers</a></li>
+                <li><a href="blog.html">Insights</a></li>
+                <li><a href="index.html#contact">Request Audit</a></li>
             </ul>
-        </div>
-    </nav>
-    <script>
-    // Pre-select position based on URL parameter
-    // const urlParams = new URLSearchParams(window.location.search);
-    // const position = urlParams.get('position');
-    // if (position) {
-       // document.getElementById('position').value = position;
-    //}
-    </script>
+        </nav>
+    </header>
 
-    <main>
-        <!-- Careers Hero -->
-        <header class="hero hero-careers">
-            <div class="hero-pattern" aria-hidden="true"></div>
-            <div class="container hero-content">
-                <h1>Build Governance That Matters.</h1>
-                <p>We hire professionals who believe that technology without accountability isn't progress — it's risk. If you want to modernize systems the right way, with audit trails inspectors can follow, we want to talk.</p>
-            </div>
-        </header>
+    <!-- Main content -->
+    <main id="main-content">
 
-        <!-- Why Join -->
-        <section class="why-join">
+        <section class="page-hero">
             <div class="container">
-                <h2>Why New South Technologies?</h2>
-                <div class="why-grid">
-                    <div class="why-card">
-                        <h3>Mission Over Metrics</h3>
-                        <p>We don't count story points. We measure success by reduced technical debt, tightened controls, and deliverables your OIG can verify.</p>
-                    </div>
-                    <div class="why-card">
-                        <h3>Governance-First Culture</h3>
-                        <p>Compliance isn't an afterthought here. It's baked into every sprint, every pipeline, every architecture decision — from Day 1.</p>
-                    </div>
-                    <div class="why-card">
-                        <h3>Real Impact</h3>
-                        <p>Your work directly supports civilian agencies and state governments serving millions of citizens. No vaporware. No shelfware.</p>
-                    </div>
+                <h1>Build Your Career at NewSouth Technologies</h1>
+                <p class="hero-subtitle">Shape the future of federal IT while advancing your professional growth.</p>
+            </div>
+        </section>
+
+        <section class="career-benefits container">
+            <h2>Why Join Us</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <h3>Meaningful Work</h3>
+                    <p>Impact federal agencies serving millions of citizens through modernized systems and secure infrastructure.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Growth Investment</h3>
+                    <p>Certification sponsorship (CISSP, CISM, PMP, AWS) plus dedicated learning time.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Flexibility</h3>
+                    <p>Remote-first culture with hybrid options. Flexible schedules for work-life integration.</p>
+                </div>
+                <div class="benefit-card">
+                    <h3>Competitive Compensation</h3>
+                    <p>Salary ranges commensurate with experience. Comprehensive benefits package.</p>
                 </div>
             </div>
         </section>
 
-        <!-- Open Positions -->
-        <section class="positions">
-            <div class="container">
-                <h2>Open Positions</h2>
-                <p class="positions-sub">All positions based in the Washington, D.C. metropolitan area. Clearance requirements vary by role.</p>
+        <!-- ============================================
+             APPLICATION FORM SECTION
+             ============================================ -->
+        <section class="application-form-section container" aria-labelledby="application-heading">
+            <h2 id="application-heading">Submit Your Application</h2>
+            <p>We're currently seeking candidates for the following areas:</p>
+            <ul class="open-positions">
+                <li>Senior Cloud Architect (Azure Government)</li>
+                <li>CMMC Assessor / Cybersecurity Consultant</li>
+                <li>AI Governance Specialist</li>
+                <li>Legacy Modernization Program Manager</li>
+                <li>DevSecOps Engineer</li>
+            </ul>
 
-                <!-- Position 1 -->
-                <article class="job-card" id="grc-lead">
-                    <div class="job-header">
-                        <div>
-                            <h3>GRC Lead — Federal Modernization Programs</h3>
-                            <div class="job-meta">
-                                <span class="job-tag">Full-Time</span>
-                                <span class="job-tag">Hybrid</span>
-                                <span class="job-tag">Public Trust Required</span>
-                            </div>
-                        </div>
-                        <!-- In the job cards list, change apply links to: -->
-                        <a href="./careers.html?position=grc-lead#apply" class="btn btn-primary btn-apply">Apply</a>
+            <!-- ===================================================
+                 FORM SECURITY DISCLOSURE - INSERTED HERE
+                 =================================================== -->
+            <div class="form-security-banner" role="region" aria-labelledby="security-heading">
+                <div class="security-icon" aria-hidden="true">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6d4aff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                    </svg>
+                </div>
+                
+                <h4 id="security-heading">How We Protect Your Submission</h4>
+                
+                <div class="security-details">
+                    <div class="security-item">
+                        <strong>🔒 Encrypted in Transit:</strong> All data is transmitted over TLS 1.3 (HTTPS). Your connection is verified by Cloudflare SSL certificates.
                     </div>
-                    <p>Lead day-to-day GRC operations across federal modernization programs. Oversee RMF implementation, security authorization packages, and continuous monitoring for agency systems transitioning from legacy to governed cloud environments.</p>
-                    <details>
-                        <summary>Full Requirements</summary>
+                    <div class="security-item">
+                        <strong>🏛️ Where Data Is Stored:</strong> Submissions are processed by Cloudflare Workers and stored in Azure Government Cloud. See full details below.
+                    </div>
+                    <div class="security-item">
+                        <strong>👥 Who Can Access:</strong> Only authorized NewSouth personnel with a legitimate business need. Access is logged and audited quarterly.
+                    </div>
+                    <div class="security-item">
+                        <strong>⏱️ Retention Period:</strong> 
                         <ul>
-                            <li>Bachelor's degree + 10+ years in IT security, GRC, or RMF; OR Master's + 8 years</li>
-                            <li>3+ years leading cybersecurity teams in federal environments</li>
-                            <li>Strong experience with NIST RMF, FISMA, NIST 800-53, and security authorization packages</li>
-                            <li>Experience with GRC tools: eMASS, Archer, Xacta, or CSAM</li>
-                            <li>Familiarity with FedRAMP and cloud compliance requirements</li>
-                            <li>CISSP preferred; CISM, CAP, or CRISC accepted</li>
-                            <li>U.S. Citizenship or Green Card required for Public Trust eligibility</li>
+                            <li>Careers/resumes: <strong>18 months</strong> from submission (then securely deleted)</li>
+                            <li>Accepted candidates: <strong>7 years</strong> post-hire (HRIS archive)</li>
                         </ul>
-                    </details>
-                </article>
-
-                <!-- Position 2 -->
-                <article class="job-card" id="cyber-analyst">
-                    <div class="job-header">
-                        <div>
-                            <h3>Cybersecurity Analyst — RMF & Assessment</h3>
-                            <div class="job-meta">
-                                <span class="job-tag">Full-Time</span>
-                                <span class="job-tag">Hybrid</span>
-                                <span class="job-tag">Active Secret Required</span>
-                            </div>
-                        </div>
-                        <a href="./careers.html?position=cyber-analyst#apply" class="btn btn-primary btn-apply">Apply</a>
                     </div>
-                    <p>Support the full RMF lifecycle for systems undergoing modernization. Create and maintain A&A packages, manage continuous monitoring, and coordinate security control implementation with engineering teams.</p>
-                    <details>
-                        <summary>Full Requirements</summary>
-                        <ul>
-                            <li>Bachelor's in Computer Science or related field</li>
-                            <li>3+ years of cybersecurity experience in federal environments</li>
-                            <li>Experience as ISSO, IA Engineer, or POA&M Manager</li>
-                            <li>Knowledge of NIST 800-53, CNSSI 1253, and DoDI 8510.01</li>
-                            <li>Experience with vulnerability assessment tools (Nessus, SCAP)</li>
-                            <li>At least one active certification: Security+ CE, CISSP, CISM, CASP, or equivalent</li>
-                            <li>Active Secret clearance; U.S. Citizenship required</li>
-                        </ul>
-                    </details>
-                </article>
-
-                <!-- Position 3 -->
-                <article class="job-card" id="grc-pm">
-                    <div class="job-header">
-                        <div>
-                            <h3>GRC Program Manager — AI Governance & FedRAMP</h3>
-                            <div class="job-meta">
-                                <span class="job-tag">Full-Time</span>
-                                <span class="job-tag">Hybrid</span>
-                                <span class="job-tag">Clearance Preferred</span>
-                            </div>
-                        </div>
-                        <a href="./careers.html?position=grc-pm#apply" class="btn btn-primary btn-apply">Apply</a>
+                    <div class="security-item">
+                        <strong>📄 Compliance Framework:</strong> We follow NIST SP 800-171 controls for CUI. See our <a href="privacy-form-submissions.html">Form-Specific Privacy Notice</a>.
                     </div>
-                    <p>Drive FedRAMP ATOs and agency-specific authorizations for AI-enabled systems deployed in regulated environments. Bridge the gap between engineering teams and compliance requirements to ensure governed AI adoption.</p>
-                    <details>
-                        <summary>Full Requirements</summary>
-                        <ul>
-                            <li>Proven experience obtaining and maintaining FedRAMP ATOs</li>
-                            <li>Deep understanding of NIST, RMF, and FedRAMP frameworks</li>
-                            <li>5+ years in compliance for information security or infrastructure security</li>
-                            <li>Familiarity with cloud deployment models (Azure, AWS) and Kubernetes/Terraform</li>
-                            <li>Understanding of AI governance principles, model risk management, and OMB M-26-04</li>
-                            <li>Exceptional program management skills under pressure</li>
-                            <li>Active U.S. security clearance preferred</li>
-                        </ul>
-                    </details>
-                </article>
-
-                <!-- Position 4 -->
-                <article class="job-card" id="grc-engineer">
-                    <div class="job-header">
-                        <div>
-                            <h3>GRC Engineer — Compliance Automation</h3>
-                            <div class="job-meta">
-                                <span class="job-tag">Full-Time</span>
-                                <span class="job-tag">On-Site</span>
-                                <span class="job-tag">U.S. Citizen</span>
-                            </div>
-                        </div>
-                        <a href="./careers.html?position=grc-engineer#apply" class="btn btn-primary btn-apply">Apply</a>
-                    </div>
-                    <p>Architect and implement enterprise GRC integration and compliance automation. Design scalable governance platform architectures, establish automated evidence ingestion, and lead modernization of compliance workflows.</p>
-                    <details>
-                        <summary>Full Requirements</summary>
-                        <ul>
-                            <li>Bachelor's in Cybersecurity, Information Systems, or related field</li>
-                            <li>9+ years of GRC experience</li>
-                            <li>Active certifications required: CAP, CISSP, and one platform-specific certification</li>
-                            <li>Deep knowledge of NIST, RMF, and FISMA frameworks</li>
-                            <li>Experience architecting enterprise GRC platforms (Archer, eMASS, ServiceNow GRC)</li>
-                            <li>U.S. Citizenship required for federal project support</li>
-                        </ul>
-                    </details>
-                </article>
-
-                <!-- Position 5 -->
-                <article class="job-card" id="iso-grc">
-                    <div class="job-header">
-                        <div>
-                            <h3>GRC Manager — ISO & Client Security Programs</h3>
-                            <div class="job-meta">
-                                <span class="job-tag">Full-Time</span>
-                                <span class="job-tag">On-Site</span>
-                                <span class="job-tag">No Clearance</span>
-                            </div>
-                        </div>
-                        <a href="./careers.html?position=iso-grc#apply" class="btn btn-primary btn-apply">Apply</a>
-                    </div>
-                    <p>Manage the firm's ISO 27001/27701 certification programs, client security assessments, and internal GRC audit processes. Serve as the primary contact for client compliance inquiries and lead continuous improvement initiatives.</p>
-                    <details>
-                        <summary>Full Requirements</summary>
-                        <ul>
-                            <li>5+ years managing ISO 27001 or SOC 2 certification programs</li>
-                            <li>In-depth knowledge of ISO 27001, SOC 2, GDPR, and related standards</li>
-                            <li>Experience with GRC automation platforms (Vanta, Drata, or similar)</li>
-                            <li>Relevant certifications preferred: CISA, CRISC, CISSP, or PMP</li>
-                            <li>Strong communication skills across technical and non-technical audiences</li>
-                        </ul>
-                    </details>
-                </article>
-
-                <!-- Position 6 -->
-                <article class="job-card" id="senior-cyber">
-                    <div class="job-header">
-                        <div>
-                            <h3>Senior Cybersecurity Analyst — Security Operations</h3>
-                            <div class="job-meta">
-                                <span class="job-tag">Full-Time</span>
-                                <span class="job-tag">Remote / Occasional On-Site</span>
-                                <span class="job-tag">No Clearance</span>
-                            </div>
-                        </div>
-                        <a href="./careers.html?position=senior-cyber#apply" class="btn btn-primary btn-apply">Apply</a>
-                    </div>
-                    <p>Lead proactive defense of information systems. Architect security solutions (SIEM, ZTS, EDR), conduct threat hunting and vulnerability assessments, and champion security best practices aligned with NIST and ISO 27001.</p>
-                    <details>
-                        <summary>Full Requirements</summary>
-                        <ul>
-                            <li>U.S. Citizenship required</li>
-                            <li>10+ years of hands-on cybersecurity experience</li>
-                            <li>Deep expertise in SIEM, IDS/IPS, ZTS, EDR, and vulnerability scanning</li>
-                            <li>Experience with NIST, ISO 27001, and incident response frameworks</li>
-                            <li>Strong leadership, mentoring, and communication skills</li>
-                            <li>Ability to translate complex technical risks for non-technical stakeholders</li>
-                        </ul>
-                    </details>
-                </article>
-
-                <!-- Position 7 -->
-                <article class="job-card" id="data-governance">
-                    <div class="job-header">
-                        <div>
-                            <h3>Senior Director — Data Governance & AI Ethics</h3>
-                            <div class="job-meta">
-                                <span class="job-tag">Full-Time</span>
-                                <span class="job-tag">On-Site</span>
-                                <span class="job-tag">No Clearance</span>
-                            </div>
-                        </div>
-                        <a href="./careers.html?position=data-governance#apply" class="btn btn-primary btn-apply">Apply</a>
-                    </div>
-                    <p>Lead global privacy operations, AI governance, and third-party risk management. Champion privacy-by-design and AI ethics principles, translating emerging regulatory requirements into repeatable controls and operating rhythms.</p>
-                    <details>
-                        <summary>Full Requirements</summary>
-                        <ul>
-                            <li>Expert familiarity with ethical AI principles, bias detection, and mitigation</li>
-                            <li>Demonstrated experience applying AI governance at enterprise and product level</li>
-                            <li>Experience implementing governance readiness for emerging technology initiatives</li>
-                            <li>Strong negotiation skills with third parties and clients on GRC matters</li>
-                            <li>Preferred certifications: CISA, CRISC, CISSP, CIPP, or equivalent</li>
-                            <li>Passion for AI ethics, privacy, and accountable innovation</li>
-                        </ul>
-                    </details>
-                </article>
-
-            </div>
-        </section>
-
-        <!-- Apply Section -->
-               <!-- Application Section -->
-        <section class="application-section" id="apply">
-            <div class="container">
-                <h2>Join Our Team</h2>
-                <p class="apply-sub">Ready to build governance that matters? Complete the form below and submit your application. We typically respond within 48 hours.</p>
-
-                <form action="https://formspree.io/f/mzdqgjoq" method="POST" enctype="multipart/form-data" class="job-application-form">
-                    
-                    <!-- Job Selection Dropdown -->
-                    <div class="form-group full-width">
-                        <label for="position">Position Applied For *</label>
-                        <select id="position" name="position" required>
-                            <option value="" disabled selected>Select a Position</option>
-                            <option value="grc-lead">GRC Lead — Federal Modernization Programs</option>
-                            <option value="cyber-analyst">Cybersecurity Analyst — RMF & Assessment</option>
-                            <option value="grc-pm">GRC Program Manager — AI Governance & FedRAMP</option>
-                            <option value="grc-engineer">GRC Engineer — Compliance Automation</option>
-                            <option value="iso-grc">GRC Manager — ISO & Client Security Programs</option>
-                            <option value="senior-cyber">Senior Cybersecurity Analyst — Security Operations</option>
-                            <option value="data-governance">Senior Director — Data Governance & AI Ethics</option>
-                            <option value="other">Other (Please Specify)</option>
-                        </select>
-                    </div>
-
-                    <!-- Personal Info Row -->
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="first-name">First Name *</label>
-                            <input type="text" id="first-name" name="first_name" required placeholder="Jane">
-                        </div>
-                        <div class="form-group">
-                            <label for="last-name">Last Name *</label>
-                            <input type="text" id="last-name" name="last_name" required placeholder="Doe">
-                        </div>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="email">Work Email *</label>
-                            <input type="email" id="email" name="email" required placeholder="jane@agency.gov">
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">Phone Number *</label>
-                            <input type="tel" id="phone" name="phone" required placeholder="(555) 123-4567">
-                        </div>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="location">Current Location *</label>
-                            <input type="text" id="location" name="location" required placeholder="Reston, VA">
-                        </div>
-                        <div class="form-group">
-                            <label for="clearance">Security Clearance Status</label>
-                            <select id="clearance" name="clearance">
-                                <option value="none">None</option>
-                                <option value="public-trust">Public Trust</option>
-                                <option value="secret">Secret</option>
-                                <option value="ts-sci">TS/SCI</option>
-                                <option value="eligible">Eligible (Cannot Obtain Yet)</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <!-- Experience Summary -->
-                    <div class="form-group full-width">
-                        <label for="experience">Years of Relevant Experience *</label>
-                        <input type="number" id="experience" name="experience_years" min="0" max="50" required placeholder="e.g., 10">
-                        <small class="field-hint">Minimum years required vary by position. See job posting details above.</small>
-                    </div>
-
-                    <!-- Certifications -->
-                    <div class="form-group full-width">
-                        <label for="certifications">Professional Certifications</label>
-                        <textarea id="certifications" name="certifications" rows="3" placeholder="e.g., CISSP, CISM, PMP, SAFe SPC6 (List all relevant certs)"></textarea>
-                    </div>
-
-                    <!-- Resume Upload -->
-                    <div class="form-group full-width">
-                        <label for="resume">Resume / CV (PDF or Word, Max 5MB) *</label>
-                        <div class="file-upload-wrapper">
-                            <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" required>
-                            <span class="upload-hint">Accepted formats: PDF, DOC, DOCX. Maximum size: 5MB</span>
-                        </div>
-                    </div>
-
-                    <!-- Cover Letter -->
-                    <div class="form-group full-width">
-                        <label for="cover-letter">Cover Letter</label>
-                        <textarea id="cover-letter" name="cover_letter" rows="5" placeholder="Tell us why you're interested in this role and how your background aligns with our mission..."></textarea>
-                    </div>
-
-                    <!-- Why Join Question -->
-                    <div class="form-group full-width">
-                        <label for="why-us">Why New South Technologies? *</label>
-                        <textarea id="why-us" name="why_us" rows="3" required placeholder="In 2-3 sentences, explain what attracts you to our governance-first approach..."></textarea>
-                    </div>
-
-                    <!-- Authorization Question -->
-                    <div class="form-group full-width checkbox-group">
-                        <label class="checkbox-label">
-                            <input type="checkbox" name="authorization" required>
-                            <span>I am authorized to work in the United States and understand that active security clearance may be required for this position.</span>
-                        </label>
-                    </div>
-
-                    <!-- Equal Opportunity -->
-                    <div class="form-group full-width checkbox-group">
-                        <label class="checkbox-label">
-                            <input type="checkbox" name="privacy" required>
-                            <span>I confirm that all information provided is accurate to the best of my knowledge. I understand this information will be used solely for employment consideration.</span>
-                        </label>
-                    </div>
-
-                    <!-- Submit Button -->
-                    <div class="form-group full-width">
-                        <button type="submit" class="btn btn-primary btn-large">Submit Application</button>
-                        <button type="reset" class="btn btn-secondary">Clear Form</button>
-                    </div>
-
-                    <!-- Honeypot (Spam Protection) -->
-                    <div style="display:none;">
-                        <label>Don't fill this out if you're human:</label>
-                        <input name="_gotcha">
-                    </div>
-
-                    <!-- Redirect after submission -->
-                    <input type="hidden" name="_next" value="https://newsouthtechnologies.com/thanks.html">
-                    <input type="hidden" name="_subject" value="New Job Application - New South Technologies">
-                    
-                    <!-- Email Reply To -->
-                    <input type="hidden" name="_replyto" value="">
-                    <!-- This gets populated from the email field using JS if needed -->
-                    
-                </form>
-
-                <p class="apply-note">
-                    New South Technologies is an equal opportunity employer. All qualified applicants will receive consideration without regard to race, color, religion, sex, national origin, disability, or veteran status.<br><br>
-                    Need assistance? Contact us at <a href="mailto:careers@newsouthtechnologies.com">careers@newsouthtechnologies.com</a>.
+                </div>
+                
+                <p class="security-note">
+                    <small>Questions? Contact us at <a href="mailto:privacy@newsouthtechnologies.com">privacy@newsouthtechnologies.com</a>.</small>
                 </p>
             </div>
+            <!-- END SECURITY DISCLOSURE -->
+
+            <!-- Application Form -->
+            <form id="careers-application" 
+                  action="/api/forms/careers" 
+                  method="POST" 
+                  enctype="multipart/form-data"
+                  novalidate>
+                
+                <!-- Personal Information -->
+                <fieldset class="form-fieldset">
+                    <legend>Contact Information</legend>
+                    
+                    <div class="form-group">
+                        <label for="full-name">Full Name <span class="required">*</span></label>
+                        <input type="text" 
+                               id="full-name" 
+                               name="fullName" 
+                               required
+                               autocomplete="name">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address <span class="required">*</span></label>
+                        <input type="email" 
+                               id="email" 
+                               name="email" 
+                               required
+                               autocomplete="email">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Phone Number <span class="required">*</span></label>
+                        <input type="tel" 
+                               id="phone" 
+                               name="phone" 
+                               required
+                               autocomplete="tel">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="linkedin">LinkedIn Profile URL (optional)</label>
+                        <input type="url" 
+                               id="linkedin" 
+                               name="linkedin" 
+                               placeholder="https://linkedin.com/in/yourprofile"
+                               autocomplete="url">
+                    </div>
+                </fieldset>
+
+                <!-- Professional Information -->
+                <fieldset class="form-fieldset">
+                    <legend>Professional Background</legend>
+                    
+                    <div class="form-group">
+                        <label for="position-interest">Position of Interest <span class="required">*</span></label>
+                        <select id="position-interest" 
+                                name="positionInterest" 
+                                required>
+                            <option value="">Select a position...</option>
+                            <option value="cloud-architect">Senior Cloud Architect (Azure Government)</option>
+                            <option value="cmmc-assessor">CMMC Assessor / Cybersecurity Consultant</option>
+                            <option value="ai-governance">AI Governance Specialist</option>
+                            <option value="program-manager">Legacy Modernization Program Manager</option>
+                            <option value="devsecops">DevSecOps Engineer</option>
+                            <option value="other">Other / Not Specified</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="clearance-status">Current Security Clearance <span class="required">*</span></label>
+                        <select id="clearance-status" 
+                                name="clearanceStatus" 
+                                required>
+                            <option value="">Select clearance status...</option>
+                            <option value="none">No current clearance</option>
+                            <option value="secret">Secret (active)</option>
+                            <option value="top-secret">Top Secret (active)</option>
+                            <option value="ts-si">TS/SCI (active)</option>
+                            <option value="eligible">Clearance eligible</option>
+                            <option value="pending">Pending clearance</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="work-authorisation">Work Authorization Status <span class="required">*</span></label>
+                        <select id="work-authorisation" 
+                                name="workAuthorization" 
+                                required>
+                            <option value="">Select authorization...</option>
+                            <option value="us-citizen">U.S. Citizen</option>
+                            <option value="permanent-resident">Permanent Resident (Green Card)</option>
+                            <option value="visa">Visa Holder (need sponsorship)</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="experience-years">Years of Relevant Experience</label>
+                        <input type="number" 
+                               id="experience-years" 
+                               name="experienceYears" 
+                               min="0" 
+                               max="50"
+                               placeholder="e.g., 10">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="certifications">Relevant Certifications (comma-separated)</label>
+                        <input type="text" 
+                               id="certifications" 
+                               name="certifications" 
+                               placeholder="e.g., CISSP, CISM, PMP, AWS Solutions Architect">
+                    </div>
+                </fieldset>
+
+                <!-- Resume Upload -->
+                <fieldset class="form-fieldset">
+                    <legend>Resume Upload</legend>
+                    
+                    <div class="form-group">
+                        <label for="resume">Resume / CV <span class="required">*</span></label>
+                        <input type="file" 
+                               id="resume" 
+                               name="resume" 
+                               accept=".pdf,.doc,.docx" 
+                               required
+                               aria-describedby="resume-help resume-limit">
+                        <div id="resume-help" class="form-help">
+                            Accepted formats: PDF, DOC, DOCX. Maximum file size: 5MB.
+                        </div>
+                        <div id="resume-limit" class="form-warning" hidden>
+                            File exceeds 5MB limit. Please compress or convert to PDF.
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="cover-letter">Cover Letter (optional)</label>
+                        <textarea id="cover-letter" 
+                                  name="coverLetter" 
+                                  rows="4"
+                                  maxlength="2000"
+                                  aria-describedby="cover-letter-help"></textarea>
+                        <div id="cover-letter-help" class="form-help">
+                            Maximum 2,000 characters. Tell us why you're interested in NewSouth Technologies.
+                        </div>
+                    </div>
+                </fieldset>
+
+                <!-- Equal Opportunity Declaration -->
+                <fieldset class="form-fieldset eeo-section">
+                    <legend>Equal Employment Opportunity</legend>
+                    <p class="form-intro">
+                        This information is collected for EEO tracking purposes only. Your response is voluntary
+                        and will not affect your application consideration.
+                    </p>
+                    
+                    <div class="form-group">
+                        <label>Veteran Status</label>
+                        <div class="radio-group">
+                            <input type="radio" id="veteran-protected" name="veteranStatus" value="protected">
+                            <label for="veteran-protected">Protected Veteran</label>
+                            
+                            <input type="radio" id="veteran-not" name="veteranStatus" value="not">
+                            <label for="veteran-not">Not a Protected Veteran</label>
+                            
+                            <input type="radio" id="veteran-prefer" name="veteranStatus" value="prefer">
+                            <label for="veteran-prefer">I prefer not to self-identify</label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Disability Status</label>
+                        <div class="radio-group">
+                            <input type="radio" id="disability-yes" name="disabilityStatus" value="yes">
+                            <label for="disability-yes">Yes, I have a disability</label>
+                            
+                            <input type="radio" id="disability-no" name="disabilityStatus" value="no">
+                            <label for="disability-no">No, I do not have a disability</label>
+                            
+                            <input type="radio" id="disability-prefer" name="disabilityStatus" value="prefer">
+                            <label for="disability-prefer">I prefer not to self-identify</label>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <!-- Privacy Acknowledgment -->
+                <fieldset class="form-fieldset acknowledgment-section">
+                    <legend>Privacy Acknowledgment</legend>
+                    
+                    <div class="checkbox-group">
+                        <input type="checkbox" 
+                               id="privacy-consent" 
+                               name="privacyConsent" 
+                               required>
+                        <label for="privacy-consent">
+                            I acknowledge that I have read and understood the 
+                            <a href="privacy-form-submissions.html" target="_blank">Form-Specific Privacy Notice</a>
+                            and consent to the collection and processing of my information as described.
+                            <span class="required">*</span>
+                        </label>
+                    </div>
+                    
+                    <div class="checkbox-group">
+                        <input type="checkbox" 
+                               id="terms-consent" 
+                               name="termsConsent" 
+                               required>
+                        <label for="terms-consent">
+                            I certify that all information provided is accurate and complete.
+                            <span class="required">*</span>
+                        </label>
+                    </div>
+                </fieldset>
+
+                <!-- Submit Button -->
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary" id="submit-application">
+                        Submit Application
+                    </button>
+                    <button type="reset" class="btn btn-secondary">
+                        Clear Form
+                    </button>
+                </div>
+
+                <!-- Success/Error Messages (hidden by default) -->
+                <div class="form-message success-message" id="success-message" hidden role="alert">
+                    <h4>Application Submitted Successfully</h4>
+                    <p>Thank you for your interest in NewSouth Technologies. We've sent a confirmation email to your address. Our recruiting team will review your application within 5 business days.</p>
+                </div>
+                
+                <div class="form-message error-message" id="error-message" hidden role="alert">
+                    <h4>Submission Error</h4>
+                    <p>There was an issue submitting your application. Please try again. If the problem persists, contact us at <a href="mailto:careers@newsouthtechnologies.com">careers@newsouthtechnologies.com</a>.</p>
+                </div>
+            </form>
         </section>
+
     </main>
 
-    <!-- Footer (Same as index.html) -->
-    <footer id="contact">
-        <div class="container footer-grid">
-            <div class="footer-brand">
-                <h3>New South Technologies</h3>
-                <p>Governance-first modernization for the capital region.</p>
-            </div>
-            <div class="footer-links">
-                <h4>Capabilities</h4>
-                <ul>
-                    <li><a href="./index.html#modernize">Modernize</a></li>
-                    <li><a href="./index.html#agility">Governed Agile</a></li>
-                    <li><a href="./index.html#ai">Responsible AI</a></li>
-                    <li><a href="./training.html">Training</a></li>
-                    <li><a href="./feedback.html">Training Feedback &amp; Quality</a></li>
-                    <li><a href="./blog.html">Thought Leadership</a></li>
-                </ul>
-            </div>
-            <div class="footer-credentials">
-                <h4>Credentials</h4>
-                <p>Active Clearances: Secret, TS/SCI</p>
-                <p>Certifications: PMP, SAFe, AWS GovCloud</p>
-            </div>
-            <div class="footer-contact">
-                <h4>Contact</h4>
-                <a href="mailto:info@newsouthtechnologies.com" class="btn btn-primary">Request a Compliance Audit</a>
-                <p>Washington, D.C. Metro</p>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 New South Technologies. <a href="./privacy-policy.html">Privacy Policy</a></p>
+    <!-- Footer (existing) -->
+    <footer class="site-footer">
+        <div class="container">
+            <nav class="footer-nav">
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="privacy-form-submissions.html">Form Submissions Notice</a>
+                <a href="accessibility.html">Accessibility</a>
+                <a href="terms.html">Terms of Service</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+            <p>&copy; 2026 NewSouth Technologies. All rights reserved.</p>
         </div>
     </footer>
 
-    <script src="./js/main.js" defer></script>
-        <script>
-// Extract the position from the URL
-// We need to look inside the HASH (#...) because you put it there
-const hash = window.location.hash; // e.g., "#apply&position=grc-lead"
-const params = new URLSearchParams(window.location.search); // hash.substring(1)); // Remove the '#' and parse
-const position = params.get('position');
-
-if (position) {
-    // Find the dropdown and set its value
-    const selectBox = document.getElementById('position');
-    if (selectBox && selectBox.querySelector(`option[value="${position}"]`)) {
-        selectBox.value = position;
-
-        // Optional: Scroll specifically to the field if needed
-        selectBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }
-}
-</script>
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+    <script src="js/careers-form-validation.js"></script>
 </body>
 </html>

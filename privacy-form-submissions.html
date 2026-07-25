@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Form-specific privacy notice for New South Technologies — what we collect through website forms, where it goes, how it is protected, and how long we keep it.">
+    <meta name="theme-color" content="#0F172A">
+    <title>Form Submissions Privacy Notice | New South Technologies</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/article.css">
+    <link rel="stylesheet" href="./css/data-table.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-inner">
+            <a href="./index.html" class="logo" aria-label="New South Technologies Home">
+                <img src="./assets/images/logo-lockup.svg" alt="New South Technologies Logo" class="logo-img">
+            </a>
+            <button class="mobile-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Toggle navigation menu">
+                <span class="hamburger-icon"></span>
+            </button>
+            <ul id="main-nav" class="nav-links">
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./training.html">Training</a></li>
+                <li><a href="./modernization.html">Modernize</a></li>
+                <li><a href="./governed-agility.html">Governed Agile</a></li>
+                <li><a href="./responsible-ai.html">Responsible AI</a></li>
+                <li><a href="./careers.html">Careers</a></li>
+                <li><a href="./blog.html">Insights</a></li>
+                <li><a href="./index.html#contact" class="btn btn-primary">Request Audit</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main id="main-content">
+
+        <h1>Form-Specific Privacy Notice</h1>
+        <p class="last-updated"><em>Last updated: July 22, 2026</em></p>
+
+        <p>NewSouth Technologies collects personal information through our website forms for specific business purposes. This notice explains exactly what we collect, where it goes, how it's protected, and how long we keep it.</p>
+
+        <hr>
+
+        <h2>1. What Information We Collect by Form Type</h2>
+
+        <h3>Careers / Job Application Form</h3>
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Data Category</th>
+                    <th>Purpose</th>
+                    <th>Legal Basis</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Name, email, phone number</td>
+                    <td>Contact candidate, schedule interviews</td>
+                    <td>Legitimate business interest</td>
+                </tr>
+                <tr>
+                    <td>Resume/CV (PDF or DOCX, up to 5MB)</td>
+                    <td>Evaluate qualifications for open positions</td>
+                    <td>Pre-contractual steps at candidate request</td>
+                </tr>
+                <tr>
+                    <td>Security clearance status</td>
+                    <td>Determine eligibility for cleared positions</td>
+                    <td>Required for federal contract staffing</td>
+                </tr>
+                <tr>
+                    <td>Work authorization status</td>
+                    <td>Verify legal employment eligibility</td>
+                    <td>I-9 compliance requirement</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Audit / Consultation Inquiry Form</h3>
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Data Category</th>
+                    <th>Purpose</th>
+                    <th>Legal Basis</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Name, company, email, phone</td>
+                    <td>Respond to inquiry, prepare proposal</td>
+                    <td>Legitimate business interest</td>
+                </tr>
+                <tr>
+                    <td>Agency/organization affiliation</td>
+                    <td>Assess potential conflict of interest</td>
+                    <td>Compliance requirement</td>
+                </tr>
+                <tr>
+                    <td>Service interest (CMMC, FedRAMP, etc.)</td>
+                    <td>Route inquiry to appropriate specialist</td>
+                    <td>Legitimate business interest</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <hr>
+
+        <h2>2. Where Your Data Goes (Form Processors)</h2>
+
+        <p>Our forms follow two different paths, and it matters which one your submission takes:</p>
+        <ul>
+            <li><strong>Contact, Audit/Consultation, CMMC, Training, and Session-Feedback forms</strong> are handled by <strong>Formspree</strong>, a third-party form provider. Your submission is transmitted to Formspree and delivered to us by email. While in transit and briefly at rest on Formspree's systems, that provider's security controls apply in addition to ours.</li>
+            <li><strong>The Careers / Job Application form</strong> is handled by our own first-party serverless endpoint and stored in US government cloud. It is not routed through a commercial form provider.</li>
+        </ul>
+
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Form(s)</th>
+                    <th>Processor</th>
+                    <th>Data Collected</th>
+                    <th>Location &amp; Certification</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Contact, Audit/Consultation, CMMC, Training, Feedback</td>
+                    <td><strong>Formspree</strong> (third-party form provider)</td>
+                    <td>Name, work email, organization, message/inquiry details</td>
+                    <td>US-based AWS infrastructure &middot; SOC 2 Type II &middot; GDPR-compliant</td>
+                </tr>
+                <tr>
+                    <td>Careers / Job Application</td>
+                    <td><strong>New South Technologies serverless endpoint</strong> (first-party)</td>
+                    <td>Resume/CV, security clearance status, contact details, EEO data</td>
+                    <td>US-based Azure Government Cloud &middot; FISMA Moderate &middot; NIST SP 800-171 (resumes encrypted at rest with AES-256 — see Section 3)</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p class="important-note"><strong>Important:</strong> We do NOT sell, trade, or share your data with third parties for marketing purposes. Your information is only used for the purpose you submitted it. For the Formspree-handled forms above, your data also passes through that provider's infrastructure; we have configured it with encryption and access controls, and it processes data only on our behalf.</p>
+
+        <hr>
+
+        <h2>3. Encryption and Security Measures</h2>
+
+        <h3>In Transit</h3>
+        <ul>
+            <li>All form submissions are transmitted over <strong>TLS 1.3</strong> (HTTPS)</li>
+            <li>Cloudflare SSL certificates verify server identity</li>
+            <li>HSTS (HTTP Strict Transport Security) enforced site-wide</li>
+        </ul>
+
+        <h3>At Rest</h3>
+        <ul>
+            <li>Resumes and attachments are encrypted using <strong>AES-256</strong> (FIPS 197 validated)</li>
+            <li>Database records are encrypted using <strong>AES-256-GCM</strong></li>
+            <li>Encryption keys managed via <strong>AWS KMS / Azure Key Vault</strong></li>
+        </ul>
+
+        <h3>Access Controls</h3>
+        <ul>
+            <li>Mandatory Multi-Factor Authentication (MFA) for all staff accounts</li>
+            <li>Role-based access control (RBAC) — only HR and hiring managers can view resumes</li>
+            <li>Access logging enabled; audit logs retained for 1 year</li>
+            <li>Quarterly access reviews performed</li>
+        </ul>
+
+        <hr>
+
+        <h2>4. Data Retention and Deletion</h2>
+
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Data Type</th>
+                    <th>Retention Period</th>
+                    <th>Deletion Method</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Careers resumes (rejected applicants)</td>
+                    <td>18 months from submission</td>
+                    <td>Secure deletion per NIST 800-88 Rev. 1</td>
+                </tr>
+                <tr>
+                    <td>Careers resumes (accepted candidates)</td>
+                    <td>7 years from hire date</td>
+                    <td>Archived in HRIS; secure deletion after period</td>
+                </tr>
+                <tr>
+                    <td>Consultation inquiries (no engagement)</td>
+                    <td>1 year from last contact</td>
+                    <td>Secure deletion</td>
+                </tr>
+                <tr>
+                    <td>Active client records</td>
+                    <td>7 years post-engagement</td>
+                    <td>NIST 800-88 compliant destruction</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <hr>
+
+        <h2>5. Your Rights</h2>
+
+        <p>Depending on your jurisdiction, you may have the following rights:</p>
+
+        <ul>
+            <li><strong>Access:</strong> Request a copy of the data we hold about you</li>
+            <li><strong>Correction:</strong> Request correction of inaccurate information</li>
+            <li><strong>Deletion:</strong> Request erasure of your data (subject to legal retention requirements)</li>
+            <li><strong>Portability:</strong> Receive your data in machine-readable format</li>
+            <li><strong>Withdraw Consent:</strong> Opt out of future communications</li>
+        </ul>
+
+        <p>To exercise any of these rights, contact us at <a href="mailto:privacy@newsouthtechnologies.com">privacy@newsouthtechnologies.com</a>.</p>
+
+        <hr>
+
+        <h2>6. Breach Notification</h2>
+
+        <p>If we discover unauthorized access to your personal data, we will:</p>
+
+        <ol>
+            <li>Notify affected individuals within <strong>72 hours</strong> of discovery</li>
+            <li>Provide details about what data was involved and steps you can take</li>
+            <li>Report to applicable regulatory authorities as required by law</li>
+        </ol>
+
+        <p>See our full <a href="privacy-policy.html">Privacy Policy</a> for additional details.</p>
+
+        <hr>
+
+        <h2>7. Contact Us</h2>
+
+        <p>Questions about this notice or your data?</p>
+
+        <address>
+            <strong>Privacy Officer</strong><br>
+            New South Technologies<br>
+            Email: <a href="mailto:privacy@newsouthtechnologies.com">privacy@newsouthtechnologies.com</a><br>
+            Reston, Virginia
+        </address>
+
+    </main>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <h3>New South Technologies</h3>
+                <p>Governance-first modernization for the capital region.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Capabilities</h4>
+                <ul>
+                    <li><a href="./modernization.html">Modernize</a></li>
+                    <li><a href="./governed-agility.html">Governed Agile</a></li>
+                    <li><a href="./responsible-ai.html">Responsible AI</a></li>
+                    <li><a href="./training.html">Training</a></li>
+                    <li><a href="./careers.html">Careers</a></li>
+                </ul>
+            </div>
+            <div class="footer-credentials">
+                <h4>Credentials</h4>
+                <p>Active Clearances: Secret, TS/SCI</p>
+                <p>Certifications: PMP, SAFe, AWS GovCloud</p>
+                <!-- FEDLINE:start --><p>SAM.gov: Registered &amp; active &middot; Small Business, 8(a) / SDB, SDVOSB / VOSB</p><!-- FEDLINE:end -->
+            </div>
+            <div class="footer-contact">
+                <h4>Contact</h4>
+                <a href="mailto:info@newsouthtechnologies.com" class="btn btn-primary">Request a Compliance Audit</a>
+                <p>Washington, D.C. Metro</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <nav class="footer-nav" aria-label="Legal">
+                <a href="./privacy-policy.html">Privacy Policy</a>
+                <a href="./privacy-form-submissions.html">Form Submissions Notice</a>
+                <a href="./accessibility.html">Accessibility</a>
+                <a href="./terms.html">Terms of Service</a>
+                <a href="./contact.html">Contact</a>
+            </nav>
+            <p>&copy; 2026 New South Technologies. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="./js/main.js" defer></script>
+
+</body>
+</html>

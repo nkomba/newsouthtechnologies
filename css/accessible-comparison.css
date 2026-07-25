@@ -1,0 +1,298 @@
+/* ==============================================
+   ACCESSIBLE COMPARISON STYLES
+   Matches your Proton purple theme (#6d4aff)
+   ============================================== */
+
+/* Utility class for screen-reader-only content */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.comparison-section {
+    max-width: 960px;
+    margin: 2rem auto;
+    padding: 2rem;
+    font-family: system-ui, -apple-system, sans-serif;
+}
+
+.comparison-heading {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin-bottom: 1rem;
+}
+
+.comparison-intro {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    color: #4a4a5e;
+    margin-bottom: 2rem;
+}
+
+/* Control Buttons */
+.comparison-controls {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.comparison-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.875rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background: #ffffff;
+    color: #1a1a2e;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.comparison-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.comparison-btn:focus {
+    /* Critical: Visible focus indicator for keyboard users */
+    outline: 3px solid #6d4aff;
+    outline-offset: 2px;
+}
+
+.comparison-btn:focus:not(:focus-visible) {
+    /* Hide outline for mouse users */
+    outline: none;
+}
+
+.comparison-btn:focus-visible {
+    outline: 3px solid #6d4aff;
+    outline-offset: 2px;
+}
+
+.comparison-btn--primary {
+    background: #6d4aff;
+    color: #ffffff;
+    border-color: #6d4aff;
+}
+
+.comparison-btn--primary:hover {
+    background: #5a3fd6;
+    border-color: #5a3fd6;
+}
+
+.comparison-btn--secondary {
+    background: #ffffff;
+    border-color: #6d4aff;
+    color: #6d4aff;
+}
+
+.comparison-btn--secondary:hover {
+    background: #f5f3ff;
+}
+
+/* Selected / unselected state for the radio controls.
+   Higher specificity than the --primary/--secondary colors, so selection wins. */
+.comparison-btn[aria-checked="true"] {
+    background: #6d4aff;
+    color: #ffffff;
+    border-color: #6d4aff;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15);
+    transform: translateY(0);
+}
+
+.comparison-btn[aria-checked="false"] {
+    background: #ffffff;
+    color: #6d4aff;
+    border-color: #6d4aff;
+}
+
+.comparison-btn[aria-checked="false"]:hover {
+    background: #f5f3ff;
+}
+
+/* Back-compat: keep supporting the older aria-pressed toggle styling. */
+.comparison-btn[aria-pressed="true"] {
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15);
+    transform: translateY(0);
+}
+
+.btn-icon {
+    font-size: 1.25rem;
+    line-height: 1;
+}
+
+/* Content Stage — the Before/After panels are stacked in one grid cell so they
+   cross-fade in place, and the stage sizes itself to the taller panel. The
+   states are REAL TEXT (not images of text): they resize, reflow, translate,
+   and are read natively by assistive technology. */
+.comparison-figure { margin: 0; }
+
+.comparison-stage {
+    display: grid;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    background: #ffffff;
+}
+
+.comparison-panel {
+    grid-area: 1 / 1; /* stack both panels in the same cell */
+    padding: 1.75rem 1.75rem 2rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+}
+
+.comparison-panel.is-active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.comparison-panel--before { background: #fffdf7; border-left: 5px solid #d97706; }
+.comparison-panel--after  { background: #f2fbf9; border-left: 5px solid #0d9488; }
+
+.panel-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.3rem 0.75rem;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+}
+.panel-badge--before { background: #fef3c7; color: #92400e; }
+.panel-badge--after  { background: #ccfbf1; color: #115e59; }
+
+.panel-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin: 0.9rem 0 0.25rem;
+}
+
+.panel-sub {
+    font-size: 1rem;
+    color: #4a4a5e;
+    margin: 0 0 1.1rem;
+}
+
+.panel-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.panel-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.7rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #334155;
+}
+
+.panel-ico { flex: 0 0 auto; margin-top: 2px; }
+.panel-ico--warn { color: #b45309; }
+.panel-ico--ok   { color: #0f766e; }
+
+/* Keyboard Help Text */
+.comparison-help {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background: #f5f3ff;
+    border-left: 4px solid #6d4aff;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    color: #4a4a5e;
+}
+
+.comparison-help kbd {
+    display: inline-block;
+    padding: 0.125rem 0.5rem;
+    font-family: monospace;
+    font-size: 0.8125rem;
+    background: #ffffff;
+    border: 1px solid #cccccc;
+    border-radius: 3px;
+    box-shadow: 0 1px 0 #cccccc;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .comparison-section {
+        padding: 1rem;
+    }
+
+    .comparison-heading {
+        font-size: 1.5rem;
+    }
+
+    .comparison-controls {
+        flex-direction: column;
+    }
+
+    .comparison-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .comparison-image-wrapper {
+        aspect-ratio: 16 / 10;
+    }
+}
+
+/* Forced Colors Mode (Windows High Contrast) */
+@media (prefers-contrast: forced) {
+    .comparison-btn {
+        border: 2px solid currentColor;
+    }
+
+    .comparison-btn:focus {
+        outline: 3px solid Highlight;
+    }
+}
+
+/* Reduced Motion Preference */
+@media (prefers-reduced-motion: reduce) {
+    .comparison-btn,
+    .comparison-panel {
+        transition: none;
+    }
+}
+
+/* Print Styles — show BOTH panels (no toggle on paper). */
+@media print {
+    .comparison-controls,
+    .comparison-help {
+        display: none;
+    }
+
+    .comparison-stage {
+        display: block;
+    }
+
+    .comparison-panel {
+        opacity: 1 !important;
+        visibility: visible !important;
+        break-inside: avoid;
+    }
+}

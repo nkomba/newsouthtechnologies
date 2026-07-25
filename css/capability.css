@@ -1,0 +1,78 @@
+/* ==========================================================================
+   Capability landing-page treatment
+   Distinguishes the Modernize / Governed Agility / Responsible AI pages from
+   the article/legal pages: a stat band under the hero and a feature grid.
+   Depends on the design tokens in style.css.
+   ========================================================================== */
+
+/* Stat band */
+.capability-stats {
+    background: var(--color-navy-primary);
+    color: var(--color-white);
+}
+.capability-stats .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 1.5rem;
+    padding-top: 2.25rem;
+    padding-bottom: 2.25rem;
+}
+.capability-stat {
+    text-align: center;
+    padding: 0 0.75rem;
+}
+.capability-stat .stat-value {
+    display: block;
+    font-size: 1.85rem;
+    font-weight: 700;
+    line-height: 1.1;
+    color: #2DD4BF; /* teal-300: 3:1+ on navy for large text */
+}
+.capability-stat .stat-label {
+    display: block;
+    margin-top: 0.4rem;
+    font-size: 0.95rem;
+    color: #E2E8F0;
+}
+
+/* Feature grid */
+.capability-features {
+    background: var(--color-offwhite);
+}
+.capability-features .container {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+.capability-features > .container > h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--color-navy-primary);
+}
+.capability-feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+}
+.capability-feature {
+    background: var(--color-white);
+    border: 1px solid #e2e8f0;
+    border-top: 3px solid var(--color-teal-accent);
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: var(--shadow-md);
+}
+.capability-feature .feature-icon {
+    font-size: 1.6rem;
+    line-height: 1;
+}
+.capability-feature h3 {
+    margin: 0.6rem 0 0.5rem;
+    font-size: 1.15rem;
+    color: var(--color-navy-primary);
+}
+.capability-feature p {
+    margin: 0;
+    color: #475569;
+    font-size: 0.95rem;
+    line-height: 1.55;
+}

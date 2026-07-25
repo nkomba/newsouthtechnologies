@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450" role="img" aria-label="Placeholder illustration of a legacy system">
+  <rect width="800" height="450" fill="#f1f5f9"/>
+  <rect x="40" y="40" width="720" height="370" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="400" y="150" text-anchor="middle" font-family="system-ui, sans-serif" font-size="34" font-weight="700" fill="#64748b">BEFORE</text>
+  <text x="400" y="200" text-anchor="middle" font-family="system-ui, sans-serif" font-size="20" fill="#94a3b8">Legacy System</text>
+  <text x="400" y="240" text-anchor="middle" font-family="system-ui, sans-serif" font-size="15" fill="#94a3b8">Fragmented workflows · manual processes · audit gaps</text>
+  <text x="400" y="380" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#cbd5e1">Placeholder — replace with real before image (800×450)</text>
+</svg>
