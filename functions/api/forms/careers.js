@@ -150,29 +150,67 @@ function checkRateLimit(ipAddress) {
 // ============================================
 
 /**
- * Store metadata in database (Azure Cosmos DB / AWS DynamoDB placeholder)
- * Replace with actual implementation for your chosen database
+ * Shared helper: build Azure Blob config from env (container-scoped SAS auth).
+ * Works in the Cloudflare Workers runtime (fetch only — no Node SDKs).
+ *
+ * Env (set as encrypted secrets in the Cloudflare Pages dashboard):
+ *   AZURE_BLOB_ACCOUNT      storage account name
+ *   AZURE_BLOB_CONTAINER    container name (default: "resumes")
+ *   AZURE_BLOB_SAS          container-scoped SAS token with create/write
+ *   AZURE_BLOB_HOST_SUFFIX  default "blob.core.usgovcloudapi.net" (Azure Government)
  */
-async function storeSubmissionMetadata(submissionData) {
+function azureBlobConfig(env) {
+    const account = env.AZURE_BLOB_ACCOUNT;
+    const sas = env.AZURE_BLOB_SAS;
+    if (!account || !sas) return null;
+    return {
+        account,
+        sas: sas.startsWith('?') ? sas : `?${sas}`,
+        suffix: env.AZURE_BLOB_HOST_SUFFIX || 'blob.core.usgovcloudapi.net',
+        container: env.AZURE_BLOB_CONTAINER || 'resumes'
+    };
+}
+
+/**
+ * PUT a block blob to Azure Blob Storage via the REST API.
+ */
+async function azureBlobPut(env, blobPath, body, contentType, meta = {}) {
+    const cfg = azureBlobConfig(env);
+    if (!cfg) throw new Error('Azure Blob storage is not configured (AZURE_BLOB_ACCOUNT / AZURE_BLOB_SAS)');
+    const url = `https://${cfg.account}.${cfg.suffix}/${cfg.container}/${blobPath}${cfg.sas}`;
+    const headers = {
+        'x-ms-blob-type': 'BlockBlob',
+        'x-ms-version': '2021-08-06',
+        'Content-Type': contentType || 'application/octet-stream'
+    };
+    for (const [k, v] of Object.entries(meta)) {
+        // Azure metadata values must be ASCII / HTTP-header-safe
+        headers[`x-ms-meta-${k}`] = encodeURIComponent(String(v ?? ''));
+    }
+    const res = await fetch(url, { method: 'PUT', headers, body });
+    if (!res.ok) {
+        const detail = (await res.text().catch(() => '')).slice(0, 300);
+        throw new Error(`Azure blob PUT ${res.status}: ${detail}`);
+    }
+    return blobPath;
+}
+
+/**
+ * Store submission metadata as a JSON blob alongside the resume.
+ */
+async function storeSubmissionMetadata(submissionData, env) {
+    const datePath = new Date().toISOString().split('T')[0];
+    const key = `applications/${datePath}/${submissionData.id}/metadata.json`;
+    const record = {
+        ...submissionData,
+        createdAt: new Date().toISOString(),
+        expiresAt: new Date(Date.now() + CONFIG.RESUME_RETENTION_DAYS * 24 * 60 * 60 * 1000).toISOString()
+    };
     try {
-        // TODO: Implement actual database storage
-        // Example using Azure Cosmos DB:
-        /*
-        const { CosmosClient } = require('@azure/cosmos');
-        const connectionString = env.get(CONFIG.STORAGE_BUCKET_ENV);
-        const client = new CosmosClient(connectionString);
-        const db = client.database('NewSouthApplications');
-        const container = db.container('submissions');
-        
-        await container.items.create({
-            id: submissionData.submissionId,
-            ...submissionData,
-            createdAt: new Date().toISOString(),
-            expiresAt: new Date(Date.now() + CONFIG.RESUME_RETENTION_DAYS * 24 * 60 * 60 * 1000).toISOString()
+        await azureBlobPut(env, key, JSON.stringify(record, null, 2), 'application/json', {
+            submissionid: submissionData.id
         });
-        */
-        
-        log('info', 'Metadata stored successfully', { submissionId: submissionData.submissionId });
+        log('info', 'Metadata stored successfully', { submissionId: submissionData.id });
         return true;
     } catch (error) {
         log('error', 'Failed to store metadata', { error: error.message });
@@ -181,41 +219,20 @@ async function storeSubmissionMetadata(submissionData) {
 }
 
 /**
- * Store resume file securely (Azure Blob Storage / AWS S3 placeholder)
- * Replace with actual implementation
+ * Store the resume file securely in Azure Blob Storage.
  */
-async function storeResumeFile(file, submissionId) {
+async function storeResumeFile(file, submissionId, env) {
+    const ext = (file.name.split('.').pop() || 'bin').replace(/[^a-z0-9]/gi, '').toLowerCase();
+    const datePath = new Date().toISOString().split('T')[0];
+    const storageKey = `applications/${datePath}/${submissionId}/${submissionId}_resume.${ext}`;
+    const fileHash = await calculateFileHash(file);
     try {
-        // Generate secure filename (prevent path traversal attacks)
-        const safeFileName = `${submissionId}_resume.${file.name.split('.').pop()}`;
-        const folderPath = `applications/${new Date().toISOString().split('T')[0]}/${submissionId}`;
-        const storageKey = `${folderPath}/${safeFileName}`;
-        
-        // Calculate file hash for integrity
-        const fileHash = await calculateFileHash(file);
-        
-        // TODO: Implement actual blob/storage upload
-        // Example using Azure Blob Storage:
-        /*
-        const { BlobServiceClient } = require('@azure/storage-blob');
-        const connectionString = env.get(CONFIG.STORAGE_BUCKET_ENV);
-        const blobServiceClient = BlobServiceClient.fromConnectionString(connectionString);
-        const containerClient = blobServiceClient.getContainerClient('resumes');
-        const blockBlobClient = containerClient.getBlockBlobClient(storageKey);
-        
-        await blockBlobClient.upload(file, file.size, {
-            blobHTTPHeaders: {
-                blobContentType: file.type
-            },
-            metadata: {
-                submissionId,
-                fileHash,
-                originalName: file.name,
-                uploadedAt: new Date().toISOString()
-            }
+        await azureBlobPut(env, storageKey, await file.arrayBuffer(), file.type, {
+            submissionid: submissionId,
+            filehash: fileHash,
+            originalname: file.name,
+            uploadedat: new Date().toISOString()
         });
-        */
-        
         log('info', 'Resume stored successfully', { storageKey, fileSize: file.size, fileHash });
         return storageKey;
     } catch (error) {
@@ -225,39 +242,67 @@ async function storeResumeFile(file, submissionId) {
 }
 
 /**
- * Send confirmation email (SendGrid / Mailgun placeholder)
- * Replace with actual implementation
+ * Send an email via a transactional email REST API (SendGrid) using fetch.
+ * Env: SENDGRID_API_KEY (required to send), EMAIL_FROM (verified sender, optional).
  */
-async function sendConfirmationEmail(recipientEmail, submissionId) {
+async function sendEmail(env, { to, subject, text, html, replyTo }) {
+    const apiKey = env.SENDGRID_API_KEY;
+    if (!apiKey) { log('warn', 'Email skipped — SENDGRID_API_KEY not set', { to }); return false; }
+    const from = env.EMAIL_FROM || 'careers@newsouthtechnologies.com';
+    const payload = {
+        personalizations: [{ to: [{ email: to }] }],
+        from: { email: from, name: 'New South Technologies' },
+        subject,
+        content: [
+            { type: 'text/plain', value: text || '' },
+            ...(html ? [{ type: 'text/html', value: html }] : [])
+        ]
+    };
+    if (replyTo) payload.reply_to = { email: replyTo };
+    const res = await fetch('https://api.sendgrid.com/v3/mail/send', {
+        method: 'POST',
+        headers: { 'Authorization': `Bearer ${apiKey}`, 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+    });
+    if (!res.ok) {
+        const detail = (await res.text().catch(() => '')).slice(0, 300);
+        log('error', 'Email send failed', { status: res.status, detail, to });
+        return false;
+    }
+    return true;
+}
+
+/**
+ * Confirmation to the applicant + a notification to the careers inbox.
+ * Email failure never fails the submission (the resume is already stored).
+ */
+async function sendConfirmationEmail(recipientEmail, submissionId, env, context = {}) {
     try {
-        // TODO: Implement actual email sending
-        // Example using SendGrid:
-        /*
-        const sgMail = require('@sendgrid/mail');
-        const apiKey = env.get(CONFIG.EMAIL_SERVICE_ENV);
-        sgMail.setApiKey(apiKey);
-        
-        const msg = {
+        const applicantSent = await sendEmail(env, {
             to: recipientEmail,
-            from: 'careers@newsouthtechnologies.com',
-            subject: 'Application Received - NewSouth Technologies',
-            text: `Thank you for your application (${submissionId}). We'll review within 5 business days.`,
-            html: `
-                <p>Thank you for your interest in NewSouth Technologies.</p>
-                <p><strong>Submission ID:</strong> ${submissionId}</p>
-                <p>We'll review your application within 5 business days.</p>
-                <p>Questions? Reply to this email or contact privacy@newsouthtechnologies.com</p>
-            `
-        };
-        
-        await sgMail.send(msg);
-        */
-        
-        log('info', 'Confirmation email sent', { recipientEmail, submissionId });
-        return true;
+            subject: 'Application Received — New South Technologies',
+            text: `Thank you for your application (${submissionId}). We will review it within 5 business days.`,
+            html: `<p>Thank you for your interest in New South Technologies.</p>`
+                + `<p><strong>Submission ID:</strong> ${submissionId}</p>`
+                + `<p>We will review your application within 5 business days.</p>`
+                + `<p>Questions? Contact <a href="mailto:privacy@newsouthtechnologies.com">privacy@newsouthtechnologies.com</a>.</p>`,
+            replyTo: 'careers@newsouthtechnologies.com'
+        });
+
+        const notifyTo = env.CAREERS_NOTIFY_TO || 'careers@newsouthtechnologies.com';
+        await sendEmail(env, {
+            to: notifyTo,
+            subject: `New application: ${context.position || 'position'} (${submissionId})`,
+            text: `New application received.
+Submission: ${submissionId}
+Position: ${context.position || 'n/a'}
+Clearance: ${context.clearance || 'n/a'}`
+        });
+
+        log('info', 'Confirmation email sent', { recipientEmail, submissionId, applicantSent });
+        return applicantSent;
     } catch (error) {
         log('error', 'Failed to send confirmation email', { recipientEmail, error: error.message });
-        // Don't throw - email failure shouldn't fail the submission
         return false;
     }
 }
@@ -283,7 +328,8 @@ async function scheduleAutomaticDeletion(submissionId, storageKey, daysUntilDele
 // MAIN HANDLER
 // ============================================
 
-export default async function handler(request, env) {
+export async function onRequest(context) {
+    const { request, env } = context;
     const startTime = Date.now();
     
     try {
@@ -484,7 +530,7 @@ export default async function handler(request, env) {
         // Store file
         let storageKey;
         try {
-            storageKey = await storeResumeFile(resume, submissionId);
+            storageKey = await storeResumeFile(resume, submissionId, env);
         } catch (storageError) {
             log('error', 'File storage failed', { submissionId, error: storageError.message });
             return Response.json({
@@ -509,7 +555,7 @@ export default async function handler(request, env) {
 
         // Store metadata
         try {
-            await storeSubmissionMetadata(submissionMetadata);
+            await storeSubmissionMetadata(submissionMetadata, env);
         } catch (metadataError) {
             log('error', 'Metadata storage failed', { submissionId, error: metadataError.message });
             // Continue - don't fail submission if metadata fails (file is already stored)
@@ -519,7 +565,7 @@ export default async function handler(request, env) {
         await scheduleAutomaticDeletion(submissionId, storageKey, CONFIG.RESUME_RETENTION_DAYS);
 
         // Send confirmation email
-        const emailSent = await sendConfirmationEmail(sanitizedData.email, submissionId);
+        const emailSent = await sendConfirmationEmail(sanitizedData.email, submissionId, env, { position: sanitizedData.positionInterest, clearance: sanitizedData.clearanceStatus });
 
         // Success response
         log('info', 'Application processed successfully', {
@@ -556,19 +602,9 @@ export default async function handler(request, env) {
 }
 
 // ============================================
-// TEST UTILITIES (Optional)
+// EXPORTS (helpers exposed for unit testing)
 // ============================================
 
-// For local testing, you can add a GET endpoint for health checks
-if (request.method === 'GET' && env.TEST_MODE === 'true') {
-    return Response.json({
-        status: 'ok',
-        version: '1.0.0',
-        timestamp: new Date().toISOString()
-    });
-}
-
-// Export for testing
 export {
     sanitizeInput,
     isValidEmail,
