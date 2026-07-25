@@ -76,3 +76,30 @@
     font-size: 0.95rem;
     line-height: 1.55;
 }
+
+/* Feature cards are now links to the relevant Insights article. */
+a.capability-feature {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+a.capability-feature:hover,
+a.capability-feature:focus-visible {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+    border-top-color: var(--color-teal-hover);
+    outline: none;
+}
+a.capability-feature:focus-visible {
+    box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.35), var(--shadow-lg);
+}
+a.capability-feature:hover h3 { color: var(--color-teal-accent); }
+.feature-more {
+    display: inline-block;
+    margin-top: 0.85rem;
+    color: var(--color-teal-accent);
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+a.capability-feature:hover .feature-more { text-decoration: underline; }
