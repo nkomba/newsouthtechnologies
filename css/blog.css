@@ -2,6 +2,19 @@
    BLOG PAGE STYLES
    ========================================= */
 
+/* Screen-reader-only helper (blog page loads only style.css + blog.css) */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
 /* Blog Hero */
 .hero-blog {
     min-height: 45vh;
@@ -9,6 +22,16 @@
 
 .hero-blog h1 {
     font-size: clamp(2.5rem, 5vw, 3.5rem);
+}
+
+.hero-blog .hero-eyebrow {
+    display: inline-block;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-weight: 600;
+    color: var(--color-teal-accent);
+    margin-bottom: var(--spacing-md);
 }
 
 /* Featured Post */

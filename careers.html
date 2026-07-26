@@ -3,379 +3,398 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Join NewSouth Technologies. We're hiring professionals in legacy modernization, cybersecurity, AI governance, and governed agility. Apply now.">
-    <title>Careers | NewSouth Technologies</title>
-    
-    <!-- Core styles -->
-    <link rel="stylesheet" href="css/styles.css">
-    
-    <!-- Form security disclosure component styles -->
-    <link rel="stylesheet" href="css/components/form-security-disclosure.css">
-    
-    <!-- Career page specific styles -->
-    <link rel="stylesheet" href="css/careers.css">
+    <meta name="description" content="Join New South Technologies. We're hiring cleared professionals in legacy modernization, cybersecurity, AI governance, and governed agility for federal and state agencies. Apply now.">
+    <meta name="theme-color" content="#0F172A">
+
+    <title>Careers | New South Technologies</title>
+
+    <!-- Cookie Consent -->
+    <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="624242ee-2ac5-42aa-a480-a0beb5be0497" data-blockingmode="auto" type="text/javascript"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="icon" href="./favicon.ico" sizes="any">
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="./apple-touch-icon.png">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/components/form-security-disclosure.css">
+    <link rel="stylesheet" href="./css/careers.css">
 </head>
 <body>
 
-    <!-- Header / Navigation (existing) -->
-    <header class="site-header">
-        <nav class="main-nav" aria-label="Main navigation">
-            <a href="index.html" class="logo">
-                <span class="logo-text">NewSouth Technologies</span>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-inner">
+            <a href="./index.html" class="logo" aria-label="New South Technologies Home">
+                <img src="./assets/images/logo-lockup.svg" alt="New South Technologies Logo" class="logo-img">
             </a>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="training.html">Training</a></li>
-                <li><a href="modernization.html">Modernize</a></li>
-                <li><a href="governed-agility.html">Governed Agile</a></li>
-                <li><a href="responsible-ai.html">Responsible AI</a></li>
-                <li><a href="careers.html" class="active" aria-current="page">Careers</a></li>
-                <li><a href="blog.html">Insights</a></li>
-                <li><a href="index.html#contact">Request Audit</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <!-- Main content -->
+            <button class="mobile-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Toggle navigation menu">
+                <span class="hamburger-icon"></span>
+            </button>
+
+            <ul id="main-nav" class="nav-links">
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./training.html">Training</a></li>
+                <li><a href="./modernization.html">Modernize</a></li>
+                <li><a href="./governed-agility.html">Governed Agile</a></li>
+                <li><a href="./responsible-ai.html">Responsible AI</a></li>
+                <li><a href="./careers.html" aria-current="page">Careers</a></li>
+                <li><a href="./blog.html">Insights</a></li>
+                <li><a href="./index.html#contact" class="btn btn-primary">Request Audit</a></li>
+            </ul>
+        </div>
+    </nav>
+
     <main id="main-content">
 
-        <section class="page-hero">
+        <!-- Hero -->
+        <header class="hero hero-careers">
+            <div class="hero-pattern" aria-hidden="true"></div>
+            <div class="container hero-content">
+                <span class="hero-eyebrow">Careers</span>
+                <h1>Build Your Career at New South Technologies</h1>
+                <p>Shape the future of federal IT alongside cleared practitioners who deliver governed modernization, cybersecurity, and responsible AI every day.</p>
+                <div class="hero-actions">
+                    <a href="#application-heading" class="btn btn-primary">View Open Roles</a>
+                    <a href="#why-join" class="btn btn-secondary">Why Join Us</a>
+                </div>
+            </div>
+        </header>
+
+        <!-- Why Join -->
+        <section class="why-join" id="why-join">
             <div class="container">
-                <h1>Build Your Career at NewSouth Technologies</h1>
-                <p class="hero-subtitle">Shape the future of federal IT while advancing your professional growth.</p>
-            </div>
-        </section>
-
-        <section class="career-benefits container">
-            <h2>Why Join Us</h2>
-            <div class="benefits-grid">
-                <div class="benefit-card">
-                    <h3>Meaningful Work</h3>
-                    <p>Impact federal agencies serving millions of citizens through modernized systems and secure infrastructure.</p>
-                </div>
-                <div class="benefit-card">
-                    <h3>Growth Investment</h3>
-                    <p>Certification sponsorship (CISSP, CISM, PMP, AWS) plus dedicated learning time.</p>
-                </div>
-                <div class="benefit-card">
-                    <h3>Flexibility</h3>
-                    <p>Remote-first culture with hybrid options. Flexible schedules for work-life integration.</p>
-                </div>
-                <div class="benefit-card">
-                    <h3>Competitive Compensation</h3>
-                    <p>Salary ranges commensurate with experience. Comprehensive benefits package.</p>
+                <h2>Why Join Us</h2>
+                <div class="why-grid">
+                    <div class="why-card">
+                        <h3>Meaningful Work</h3>
+                        <p>Impact federal agencies serving millions of citizens through modernized systems and secure infrastructure.</p>
+                    </div>
+                    <div class="why-card">
+                        <h3>Growth Investment</h3>
+                        <p>Certification sponsorship (CISSP, CISM, PMP, AWS) plus dedicated learning time.</p>
+                    </div>
+                    <div class="why-card">
+                        <h3>Flexibility</h3>
+                        <p>Remote-first culture with hybrid options. Flexible schedules for work-life integration.</p>
+                    </div>
+                    <div class="why-card">
+                        <h3>Competitive Compensation</h3>
+                        <p>Salary ranges commensurate with experience. Comprehensive benefits package.</p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- ============================================
-             APPLICATION FORM SECTION
-             ============================================ -->
-        <section class="application-form-section container" aria-labelledby="application-heading">
-            <h2 id="application-heading">Submit Your Application</h2>
-            <p>We're currently seeking candidates for the following areas:</p>
-            <ul class="open-positions">
-                <li>Senior Cloud Architect (Azure Government)</li>
-                <li>CMMC Assessor / Cybersecurity Consultant</li>
-                <li>AI Governance Specialist</li>
-                <li>Legacy Modernization Program Manager</li>
-                <li>DevSecOps Engineer</li>
-            </ul>
-
-            <!-- ===================================================
-                 FORM SECURITY DISCLOSURE - INSERTED HERE
-                 =================================================== -->
-            <div class="form-security-banner" role="region" aria-labelledby="security-heading">
-                <div class="security-icon" aria-hidden="true">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6d4aff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                    </svg>
+        <!-- Application Form -->
+        <section class="application-section" aria-labelledby="application-heading">
+            <div class="container">
+                <div class="section-header">
+                    <h2 id="application-heading">Submit Your Application</h2>
+                    <p>We're currently seeking candidates for the following areas.</p>
                 </div>
-                
-                <h4 id="security-heading">How We Protect Your Submission</h4>
-                
-                <div class="security-details">
-                    <div class="security-item">
-                        <strong>🔒 Encrypted in Transit:</strong> All data is transmitted over TLS 1.3 (HTTPS). Your connection is verified by Cloudflare SSL certificates.
-                    </div>
-                    <div class="security-item">
-                        <strong>🏛️ Where Data Is Stored:</strong> Submissions are processed by Cloudflare Workers and stored in Azure Government Cloud. See full details below.
-                    </div>
-                    <div class="security-item">
-                        <strong>👥 Who Can Access:</strong> Only authorized NewSouth personnel with a legitimate business need. Access is logged and audited quarterly.
-                    </div>
-                    <div class="security-item">
-                        <strong>⏱️ Retention Period:</strong> 
-                        <ul>
-                            <li>Careers/resumes: <strong>18 months</strong> from submission (then securely deleted)</li>
-                            <li>Accepted candidates: <strong>7 years</strong> post-hire (HRIS archive)</li>
-                        </ul>
-                    </div>
-                    <div class="security-item">
-                        <strong>📄 Compliance Framework:</strong> We follow NIST SP 800-171 controls for CUI. See our <a href="privacy-form-submissions.html">Form-Specific Privacy Notice</a>.
-                    </div>
-                </div>
-                
-                <p class="security-note">
-                    <small>Questions? Contact us at <a href="mailto:privacy@newsouthtechnologies.com">privacy@newsouthtechnologies.com</a>.</small>
-                </p>
-            </div>
-            <!-- END SECURITY DISCLOSURE -->
 
-            <!-- Application Form -->
-            <form id="careers-application" 
-                  action="/api/forms/careers" 
-                  method="POST" 
-                  enctype="multipart/form-data"
-                  novalidate>
-                
-                <!-- Personal Information -->
-                <fieldset class="form-fieldset">
-                    <legend>Contact Information</legend>
-                    
-                    <div class="form-group">
-                        <label for="full-name">Full Name <span class="required">*</span></label>
-                        <input type="text" 
-                               id="full-name" 
-                               name="fullName" 
-                               required
-                               autocomplete="name">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="email">Email Address <span class="required">*</span></label>
-                        <input type="email" 
-                               id="email" 
-                               name="email" 
-                               required
-                               autocomplete="email">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="phone">Phone Number <span class="required">*</span></label>
-                        <input type="tel" 
-                               id="phone" 
-                               name="phone" 
-                               required
-                               autocomplete="tel">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="linkedin">LinkedIn Profile URL (optional)</label>
-                        <input type="url" 
-                               id="linkedin" 
-                               name="linkedin" 
-                               placeholder="https://linkedin.com/in/yourprofile"
-                               autocomplete="url">
-                    </div>
-                </fieldset>
+                <div class="job-application-form">
+                    <ul class="open-positions">
+                        <li>Senior Cloud Architect (Azure Government)</li>
+                        <li>CMMC Assessor / Cybersecurity Consultant</li>
+                        <li>AI Governance Specialist</li>
+                        <li>Legacy Modernization Program Manager</li>
+                        <li>DevSecOps Engineer</li>
+                    </ul>
 
-                <!-- Professional Information -->
-                <fieldset class="form-fieldset">
-                    <legend>Professional Background</legend>
-                    
-                    <div class="form-group">
-                        <label for="position-interest">Position of Interest <span class="required">*</span></label>
-                        <select id="position-interest" 
-                                name="positionInterest" 
-                                required>
-                            <option value="">Select a position...</option>
-                            <option value="cloud-architect">Senior Cloud Architect (Azure Government)</option>
-                            <option value="cmmc-assessor">CMMC Assessor / Cybersecurity Consultant</option>
-                            <option value="ai-governance">AI Governance Specialist</option>
-                            <option value="program-manager">Legacy Modernization Program Manager</option>
-                            <option value="devsecops">DevSecOps Engineer</option>
-                            <option value="other">Other / Not Specified</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="clearance-status">Current Security Clearance <span class="required">*</span></label>
-                        <select id="clearance-status" 
-                                name="clearanceStatus" 
-                                required>
-                            <option value="">Select clearance status...</option>
-                            <option value="none">No current clearance</option>
-                            <option value="secret">Secret (active)</option>
-                            <option value="top-secret">Top Secret (active)</option>
-                            <option value="ts-si">TS/SCI (active)</option>
-                            <option value="eligible">Clearance eligible</option>
-                            <option value="pending">Pending clearance</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="work-authorisation">Work Authorization Status <span class="required">*</span></label>
-                        <select id="work-authorisation" 
-                                name="workAuthorization" 
-                                required>
-                            <option value="">Select authorization...</option>
-                            <option value="us-citizen">U.S. Citizen</option>
-                            <option value="permanent-resident">Permanent Resident (Green Card)</option>
-                            <option value="visa">Visa Holder (need sponsorship)</option>
-                            <option value="other">Other</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="experience-years">Years of Relevant Experience</label>
-                        <input type="number" 
-                               id="experience-years" 
-                               name="experienceYears" 
-                               min="0" 
-                               max="50"
-                               placeholder="e.g., 10">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="certifications">Relevant Certifications (comma-separated)</label>
-                        <input type="text" 
-                               id="certifications" 
-                               name="certifications" 
-                               placeholder="e.g., CISSP, CISM, PMP, AWS Solutions Architect">
-                    </div>
-                </fieldset>
-
-                <!-- Resume Upload -->
-                <fieldset class="form-fieldset">
-                    <legend>Resume Upload</legend>
-                    
-                    <div class="form-group">
-                        <label for="resume">Resume / CV <span class="required">*</span></label>
-                        <input type="file" 
-                               id="resume" 
-                               name="resume" 
-                               accept=".pdf,.doc,.docx" 
-                               required
-                               aria-describedby="resume-help resume-limit">
-                        <div id="resume-help" class="form-help">
-                            Accepted formats: PDF, DOC, DOCX. Maximum file size: 5MB.
+                    <!-- Form Security Disclosure -->
+                    <div class="form-security-banner" role="region" aria-labelledby="security-heading">
+                        <div class="security-icon" aria-hidden="true">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                            </svg>
                         </div>
-                        <div id="resume-limit" class="form-warning" hidden>
-                            File exceeds 5MB limit. Please compress or convert to PDF.
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="cover-letter">Cover Letter (optional)</label>
-                        <textarea id="cover-letter" 
-                                  name="coverLetter" 
-                                  rows="4"
-                                  maxlength="2000"
-                                  aria-describedby="cover-letter-help"></textarea>
-                        <div id="cover-letter-help" class="form-help">
-                            Maximum 2,000 characters. Tell us why you're interested in NewSouth Technologies.
-                        </div>
-                    </div>
-                </fieldset>
 
-                <!-- Equal Opportunity Declaration -->
-                <fieldset class="form-fieldset eeo-section">
-                    <legend>Equal Employment Opportunity</legend>
-                    <p class="form-intro">
-                        This information is collected for EEO tracking purposes only. Your response is voluntary
-                        and will not affect your application consideration.
+                        <h4 id="security-heading">How We Protect Your Submission</h4>
+
+                        <div class="security-details">
+                            <div class="security-item">
+                                <strong>🔒 Encrypted in Transit:</strong> All data is transmitted over TLS 1.3 (HTTPS). Your connection is verified by Cloudflare SSL certificates.
+                            </div>
+                            <div class="security-item">
+                                <strong>🏛️ Where Data Is Stored:</strong> Submissions are processed by Cloudflare Workers and stored in Azure Government Cloud. See full details below.
+                            </div>
+                            <div class="security-item">
+                                <strong>👥 Who Can Access:</strong> Only authorized New South personnel with a legitimate business need. Access is logged and audited quarterly.
+                            </div>
+                            <div class="security-item">
+                                <strong>⏱️ Retention Period:</strong>
+                                <ul>
+                                    <li>Careers/resumes: <strong>18 months</strong> from submission (then securely deleted)</li>
+                                    <li>Accepted candidates: <strong>7 years</strong> post-hire (HRIS archive)</li>
+                                </ul>
+                            </div>
+                            <div class="security-item">
+                                <strong>📄 Compliance Framework:</strong> We follow NIST SP 800-171 controls for CUI. See our <a href="./privacy-form-submissions.html">Form Submissions Notice</a>.
+                            </div>
+                        </div>
+
+                        <p class="security-note">
+                            <small>Questions? Contact us at <a href="mailto:privacy@newsouthtechnologies.com">privacy@newsouthtechnologies.com</a>.</small>
+                        </p>
+                    </div>
+                    <!-- END SECURITY DISCLOSURE -->
+
+                    <!-- Application Form -->
+                    <form id="careers-application"
+                          action="/api/forms/careers"
+                          method="POST"
+                          enctype="multipart/form-data"
+                          novalidate>
+
+                        <!-- Contact Information -->
+                        <fieldset class="form-fieldset">
+                            <legend>Contact Information</legend>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="full-name">Full Name <span class="required">*</span></label>
+                                    <input type="text" id="full-name" name="fullName" required autocomplete="name">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="email">Email Address <span class="required">*</span></label>
+                                    <input type="email" id="email" name="email" required autocomplete="email">
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="phone">Phone Number <span class="required">*</span></label>
+                                    <input type="tel" id="phone" name="phone" required autocomplete="tel">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="linkedin">LinkedIn Profile URL (optional)</label>
+                                    <input type="url" id="linkedin" name="linkedin" placeholder="https://linkedin.com/in/yourprofile" autocomplete="url">
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <!-- Professional Background -->
+                        <fieldset class="form-fieldset">
+                            <legend>Professional Background</legend>
+
+                            <div class="form-group full-width">
+                                <label for="position-interest">Position of Interest <span class="required">*</span></label>
+                                <select id="position-interest" name="positionInterest" required>
+                                    <option value="">Select a position...</option>
+                                    <option value="cloud-architect">Senior Cloud Architect (Azure Government)</option>
+                                    <option value="cmmc-assessor">CMMC Assessor / Cybersecurity Consultant</option>
+                                    <option value="ai-governance">AI Governance Specialist</option>
+                                    <option value="program-manager">Legacy Modernization Program Manager</option>
+                                    <option value="devsecops">DevSecOps Engineer</option>
+                                    <option value="other">Other / Not Specified</option>
+                                </select>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="clearance-status">Current Security Clearance <span class="required">*</span></label>
+                                    <select id="clearance-status" name="clearanceStatus" required>
+                                        <option value="">Select clearance status...</option>
+                                        <option value="none">No current clearance</option>
+                                        <option value="secret">Secret (active)</option>
+                                        <option value="top-secret">Top Secret (active)</option>
+                                        <option value="ts-si">TS/SCI (active)</option>
+                                        <option value="eligible">Clearance eligible</option>
+                                        <option value="pending">Pending clearance</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="work-authorisation">Work Authorization Status <span class="required">*</span></label>
+                                    <select id="work-authorisation" name="workAuthorization" required>
+                                        <option value="">Select authorization...</option>
+                                        <option value="us-citizen">U.S. Citizen</option>
+                                        <option value="permanent-resident">Permanent Resident (Green Card)</option>
+                                        <option value="visa">Visa Holder (need sponsorship)</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="experience-years">Years of Relevant Experience</label>
+                                    <input type="number" id="experience-years" name="experienceYears" min="0" max="50" placeholder="e.g., 10">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="certifications">Relevant Certifications (comma-separated)</label>
+                                    <input type="text" id="certifications" name="certifications" placeholder="e.g., CISSP, CISM, PMP, AWS Solutions Architect">
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <!-- Resume Upload -->
+                        <fieldset class="form-fieldset">
+                            <legend>Resume Upload</legend>
+
+                            <div class="form-group full-width">
+                                <label for="resume">Resume / CV <span class="required">*</span></label>
+                                <div class="file-upload-wrapper">
+                                    <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" required aria-describedby="resume-help resume-limit">
+                                    <span class="upload-hint" id="resume-help">Accepted formats: PDF, DOC, DOCX. Maximum file size: 5MB.</span>
+                                </div>
+                                <div id="resume-limit" class="field-hint" hidden>
+                                    File exceeds 5MB limit. Please compress or convert to PDF.
+                                </div>
+                            </div>
+
+                            <div class="form-group full-width">
+                                <label for="cover-letter">Cover Letter (optional)</label>
+                                <textarea id="cover-letter" name="coverLetter" rows="4" maxlength="2000" aria-describedby="cover-letter-help"></textarea>
+                                <span class="field-hint" id="cover-letter-help">Maximum 2,000 characters. Tell us why you're interested in New South Technologies.</span>
+                            </div>
+                        </fieldset>
+
+                        <!-- Equal Employment Opportunity -->
+                        <fieldset class="form-fieldset eeo-section">
+                            <legend>Equal Employment Opportunity</legend>
+                            <p class="form-intro">
+                                This information is collected for EEO tracking purposes only. Your response is voluntary
+                                and will not affect your application consideration.
+                            </p>
+
+                            <div class="form-group">
+                                <label>Veteran Status</label>
+                                <div class="radio-group">
+                                    <input type="radio" id="veteran-protected" name="veteranStatus" value="protected">
+                                    <label for="veteran-protected">Protected Veteran</label>
+
+                                    <input type="radio" id="veteran-not" name="veteranStatus" value="not">
+                                    <label for="veteran-not">Not a Protected Veteran</label>
+
+                                    <input type="radio" id="veteran-prefer" name="veteranStatus" value="prefer">
+                                    <label for="veteran-prefer">I prefer not to self-identify</label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Disability Status</label>
+                                <div class="radio-group">
+                                    <input type="radio" id="disability-yes" name="disabilityStatus" value="yes">
+                                    <label for="disability-yes">Yes, I have a disability</label>
+
+                                    <input type="radio" id="disability-no" name="disabilityStatus" value="no">
+                                    <label for="disability-no">No, I do not have a disability</label>
+
+                                    <input type="radio" id="disability-prefer" name="disabilityStatus" value="prefer">
+                                    <label for="disability-prefer">I prefer not to self-identify</label>
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <!-- Privacy Acknowledgment -->
+                        <fieldset class="form-fieldset acknowledgment-section">
+                            <legend>Privacy Acknowledgment</legend>
+
+                            <div class="checkbox-group">
+                                <label class="checkbox-label" for="privacy-consent">
+                                    <input type="checkbox" id="privacy-consent" name="privacyConsent" required>
+                                    <span>I acknowledge that I have read and understood the
+                                    <a href="./privacy-form-submissions.html" target="_blank">Form Submissions Notice</a>
+                                    and consent to the collection and processing of my information as described.
+                                    <span class="required">*</span></span>
+                                </label>
+                            </div>
+
+                            <div class="checkbox-group">
+                                <label class="checkbox-label" for="terms-consent">
+                                    <input type="checkbox" id="terms-consent" name="termsConsent" required>
+                                    <span>I certify that all information provided is accurate and complete.
+                                    <span class="required">*</span></span>
+                                </label>
+                            </div>
+                        </fieldset>
+
+                        <!-- Submit -->
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary btn-large" id="submit-application">Submit Application</button>
+                            <button type="reset" class="btn btn-secondary">Clear Form</button>
+                        </div>
+
+                        <!-- Success / Error Messages -->
+                        <div class="form-message success-message" id="success-message" hidden role="alert">
+                            <h4>Application Submitted Successfully</h4>
+                            <p>Thank you for your interest in New South Technologies. We've sent a confirmation email to your address. Our recruiting team will review your application within 5 business days.</p>
+                        </div>
+
+                        <div class="form-message error-message" id="error-message" hidden role="alert">
+                            <h4>Submission Error</h4>
+                            <p>There was an issue submitting your application. Please try again. If the problem persists, contact us at <a href="mailto:careers@newsouthtechnologies.com">careers@newsouthtechnologies.com</a>.</p>
+                        </div>
+                    </form>
+
+                    <p class="apply-note">
+                        Questions about a role or the process? Reach our recruiting team at
+                        <a href="mailto:careers@newsouthtechnologies.com">careers@newsouthtechnologies.com</a>.
                     </p>
-                    
-                    <div class="form-group">
-                        <label>Veteran Status</label>
-                        <div class="radio-group">
-                            <input type="radio" id="veteran-protected" name="veteranStatus" value="protected">
-                            <label for="veteran-protected">Protected Veteran</label>
-                            
-                            <input type="radio" id="veteran-not" name="veteranStatus" value="not">
-                            <label for="veteran-not">Not a Protected Veteran</label>
-                            
-                            <input type="radio" id="veteran-prefer" name="veteranStatus" value="prefer">
-                            <label for="veteran-prefer">I prefer not to self-identify</label>
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label>Disability Status</label>
-                        <div class="radio-group">
-                            <input type="radio" id="disability-yes" name="disabilityStatus" value="yes">
-                            <label for="disability-yes">Yes, I have a disability</label>
-                            
-                            <input type="radio" id="disability-no" name="disabilityStatus" value="no">
-                            <label for="disability-no">No, I do not have a disability</label>
-                            
-                            <input type="radio" id="disability-prefer" name="disabilityStatus" value="prefer">
-                            <label for="disability-prefer">I prefer not to self-identify</label>
-                        </div>
-                    </div>
-                </fieldset>
-
-                <!-- Privacy Acknowledgment -->
-                <fieldset class="form-fieldset acknowledgment-section">
-                    <legend>Privacy Acknowledgment</legend>
-                    
-                    <div class="checkbox-group">
-                        <input type="checkbox" 
-                               id="privacy-consent" 
-                               name="privacyConsent" 
-                               required>
-                        <label for="privacy-consent">
-                            I acknowledge that I have read and understood the 
-                            <a href="privacy-form-submissions.html" target="_blank">Form-Specific Privacy Notice</a>
-                            and consent to the collection and processing of my information as described.
-                            <span class="required">*</span>
-                        </label>
-                    </div>
-                    
-                    <div class="checkbox-group">
-                        <input type="checkbox" 
-                               id="terms-consent" 
-                               name="termsConsent" 
-                               required>
-                        <label for="terms-consent">
-                            I certify that all information provided is accurate and complete.
-                            <span class="required">*</span>
-                        </label>
-                    </div>
-                </fieldset>
-
-                <!-- Submit Button -->
-                <div class="form-actions">
-                    <button type="submit" class="btn btn-primary" id="submit-application">
-                        Submit Application
-                    </button>
-                    <button type="reset" class="btn btn-secondary">
-                        Clear Form
-                    </button>
                 </div>
-
-                <!-- Success/Error Messages (hidden by default) -->
-                <div class="form-message success-message" id="success-message" hidden role="alert">
-                    <h4>Application Submitted Successfully</h4>
-                    <p>Thank you for your interest in NewSouth Technologies. We've sent a confirmation email to your address. Our recruiting team will review your application within 5 business days.</p>
-                </div>
-                
-                <div class="form-message error-message" id="error-message" hidden role="alert">
-                    <h4>Submission Error</h4>
-                    <p>There was an issue submitting your application. Please try again. If the problem persists, contact us at <a href="mailto:careers@newsouthtechnologies.com">careers@newsouthtechnologies.com</a>.</p>
-                </div>
-            </form>
+            </div>
         </section>
 
     </main>
 
-    <!-- Footer (existing) -->
-    <footer class="site-footer">
-        <div class="container">
-            <nav class="footer-nav">
-                <a href="privacy-policy.html">Privacy Policy</a>
-                <a href="privacy-form-submissions.html">Form Submissions Notice</a>
-                <a href="accessibility.html">Accessibility</a>
-                <a href="terms.html">Terms of Service</a>
-                <a href="contact.html">Contact</a>
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <h3>New South Technologies</h3>
+                <p>Governance-first modernization for the capital region.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Capabilities</h4>
+                <ul>
+                    <li><a href="./modernization.html">Modernize</a></li>
+                    <li><a href="./governed-agility.html">Governed Agile</a></li>
+                    <li><a href="./responsible-ai.html">Responsible AI</a></li>
+                    <li><a href="./training.html">Training</a></li>
+                    <li><a href="./feedback.html">Training Feedback &amp; Quality</a></li>
+                    <li><a href="./request-training.html">Request Training</a></li>
+                    <li><a href="./blog.html">Insights</a></li>
+                </ul>
+            </div>
+            <div class="footer-credentials">
+                <h4>Credentials</h4>
+                <p>Active Clearances: Secret, TS/SCI</p>
+                <p>Certifications: PMP, SAFe, AWS GovCloud</p>
+                <!-- FEDLINE:start --><p>SAM.gov: Registered &amp; active &middot; Small Business, 8(a) / SDB, SDVOSB / VOSB</p><!-- FEDLINE:end -->
+            </div>
+            <div class="footer-contact">
+                <h4>Contact</h4>
+                <a href="mailto:info@newsouthtechnologies.com" class="btn btn-primary">Request a Compliance Audit</a>
+                <p>Washington, D.C. Metro</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <nav class="footer-nav" aria-label="Legal">
+                <a href="./privacy-policy.html">Privacy Policy</a>
+                <a href="./privacy-form-submissions.html">Form Submissions Notice</a>
+                <a href="./accessibility.html">Accessibility</a>
+                <a href="./terms.html">Terms of Service</a>
+                <a href="./contact.html">Contact</a>
             </nav>
-            <p>&copy; 2026 NewSouth Technologies. All rights reserved.</p>
+            <p>&copy; 2026 New South Technologies. All rights reserved.</p>
         </div>
     </footer>
 
-    <!-- JavaScript -->
-    <script src="js/main.js"></script>
-    <script src="js/careers-form-validation.js"></script>
+    <!-- Scripts -->
+    <script src="./js/main.js" defer></script>
+    <script src="./js/careers-form-validation.js" defer></script>
 </body>
 </html>

@@ -115,6 +115,23 @@ async function calculateFileHash(file) {
     return hashHex;
 }
 
+/**
+ * Content-based file-type check (magic bytes). Do NOT trust the client-supplied
+ * MIME type or extension. Returns 'pdf' | 'ooxml' (docx/xlsx zip) | 'ole' (legacy
+ * .doc) | null. A magic-byte check is not a malware scan — run AV on the stored
+ * object (see the CONFIG scan hook) before a human opens it.
+ */
+async function sniffFileType(file) {
+    const bytes = new Uint8Array(await file.slice(0, 8).arrayBuffer());
+    const startsWith = (sig) => sig.every((b, i) => bytes[i] === b);
+    if (startsWith([0x25, 0x50, 0x44, 0x46])) return 'pdf';                 // "%PDF"
+    if (startsWith([0x50, 0x4B, 0x03, 0x04]) ||                             // "PK.." zip/docx
+        startsWith([0x50, 0x4B, 0x05, 0x06]) ||
+        startsWith([0x50, 0x4B, 0x07, 0x08])) return 'ooxml';
+    if (startsWith([0xD0, 0xCF, 0x11, 0xE0, 0xA1, 0xB1, 0x1A, 0xE1])) return 'ole'; // legacy .doc
+    return null;
+}
+
 // ============================================
 // RATE LIMITING
 // ============================================
@@ -399,6 +416,20 @@ export async function onRequest(context) {
             });
         }
 
+        // DoS guard: reject oversized requests before buffering the body.
+        const declaredLength = parseInt(request.headers.get('Content-Length') || '0', 10);
+        const maxRequestBytes = CONFIG.MAX_FILE_SIZE_MB * 1024 * 1024 + 256 * 1024; // file + form fields
+        if (declaredLength && declaredLength > maxRequestBytes) {
+            log('warn', 'Request too large (Content-Length)', { declaredLength });
+            return Response.json({
+                success: false,
+                error: `Request exceeds the ${CONFIG.MAX_FILE_SIZE_MB}MB limit`
+            }, {
+                status: 413,
+                headers: corsHeaders
+            });
+        }
+
         // Parse multipart form data
         let formData;
         try {
@@ -524,12 +555,25 @@ export async function onRequest(context) {
             });
         }
 
-        // File type check
+        // File type check (declared MIME) — first line of defense.
         if (!CONFIG.ALLOWED_FILE_TYPES.includes(resume.type)) {
             log('warn', 'Invalid file type', { fileName: resume.name, fileType: resume.type });
             return Response.json({
                 success: false,
                 error: 'Only PDF and Word documents accepted'
+            }, {
+                status: 400,
+                headers: corsHeaders
+            });
+        }
+
+        // Content-based check (magic bytes) — do not trust the declared MIME type.
+        const sniffed = await sniffFileType(resume);
+        if (!sniffed) {
+            log('warn', 'File content does not match an accepted type', { fileName: resume.name, declaredType: resume.type });
+            return Response.json({
+                success: false,
+                error: 'The uploaded file is not a valid PDF or Word document'
             }, {
                 status: 400,
                 headers: corsHeaders

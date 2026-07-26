@@ -404,18 +404,33 @@ function initBlogFilter() {
     const blogCards = document.querySelectorAll('.blog-card');
     if (filterButtons.length === 0 || blogCards.length === 0) return;
 
+    const statusEl = document.querySelector('.filter-status');
+
     filterButtons.forEach(button => {
         button.addEventListener('click', (e) => {
             e.preventDefault();
             const clickedCategory = button.getAttribute('data-category');
 
-            filterButtons.forEach(btn => btn.classList.remove('active'));
-            button.classList.add('active');
+            filterButtons.forEach(btn => {
+                const isActive = btn === button;
+                btn.classList.toggle('active', isActive);
+                btn.setAttribute('aria-pressed', String(isActive));
+            });
 
+            let visible = 0;
             blogCards.forEach(card => {
                 const cardCategory = card.getAttribute('data-category');
-                card.style.display = (clickedCategory === 'all' || cardCategory === clickedCategory) ? 'block' : 'none';
+                const show = (clickedCategory === 'all' || cardCategory === clickedCategory);
+                card.style.display = show ? 'block' : 'none';
+                if (show) visible++;
             });
+
+            if (statusEl) {
+                const label = button.textContent.trim();
+                statusEl.textContent = clickedCategory === 'all'
+                    ? 'Showing all topics.'
+                    : `Showing ${visible} article${visible === 1 ? '' : 's'} in ${label}.`;
+            }
         });
     });
 }
