@@ -116,32 +116,50 @@ async function calculateFileHash(file) {
 }
 
 // ============================================
-// RATE LIMITING (In-Memory for Demo)
+// RATE LIMITING
 // ============================================
+//
+// Uses a Cloudflare KV namespace (binding: RATE_LIMIT) so limits hold across
+// serverless isolates. Bind it in the Cloudflare Pages dashboard
+// (Settings -> Functions -> KV namespace bindings, variable name RATE_LIMIT).
+// If the binding is absent, it falls back to a best-effort in-memory counter
+// (only effective within a single isolate) so local/dev still works.
 
-// In production, use Redis or KV store for distributed rate limiting
-const rateLimitStore = new Map();
+const rateLimitStore = new Map(); // in-memory fallback only
 
-function checkRateLimit(ipAddress) {
+async function checkRateLimit(env, ipAddress) {
+    const windowSec = Math.ceil(CONFIG.RATE_LIMIT_WINDOW_MS / 1000);
+    const limit = CONFIG.RATE_LIMIT_REQUESTS;
+
+    // Preferred: distributed counter in KV.
+    if (env && env.RATE_LIMIT && typeof env.RATE_LIMIT.get === 'function') {
+        try {
+            const key = `rl:${ipAddress}`;
+            const current = parseInt((await env.RATE_LIMIT.get(key)) || '0', 10);
+            if (current >= limit) {
+                log('warn', 'Rate limit exceeded (KV)', { ipAddress, count: current });
+                return false;
+            }
+            // Increment; keep the window TTL. (Not perfectly atomic, but sufficient
+            // for abuse prevention; tighten with a Durable Object if needed.)
+            await env.RATE_LIMIT.put(key, String(current + 1), { expirationTtl: windowSec });
+            return true;
+        } catch (e) {
+            log('error', 'KV rate-limit error; allowing request', { error: e.message });
+            return true; // fail open on infrastructure error, not on abuse
+        }
+    }
+
+    // Fallback: in-memory sliding window (single isolate only).
     const now = Date.now();
     const windowStart = now - CONFIG.RATE_LIMIT_WINDOW_MS;
-    
-    // Get existing entries for this IP
-    const entries = rateLimitStore.get(ipAddress) || [];
-    
-    // Filter to only recent requests
-    const recentEntries = entries.filter(timestamp => timestamp > windowStart);
-    
-    // Check if limit exceeded
-    if (recentEntries.length >= CONFIG.RATE_LIMIT_REQUESTS) {
-        log('warn', 'Rate limit exceeded', { ipAddress, count: recentEntries.length });
+    const recent = (rateLimitStore.get(ipAddress) || []).filter(t => t > windowStart);
+    if (recent.length >= limit) {
+        log('warn', 'Rate limit exceeded (memory)', { ipAddress, count: recent.length });
         return false;
     }
-    
-    // Add current request
-    recentEntries.push(now);
-    rateLimitStore.set(ipAddress, recentEntries);
-    
+    recent.push(now);
+    rateLimitStore.set(ipAddress, recent);
     return true;
 }
 
@@ -335,7 +353,9 @@ export async function onRequest(context) {
     try {
         // CORS headers for all responses
         const corsHeaders = {
-            'Access-Control-Allow-Origin': '*', // Restrict in production to specific domains
+            // Restrict to our own origin; override via ALLOWED_ORIGIN env if needed.
+            'Access-Control-Allow-Origin': env.ALLOWED_ORIGIN || 'https://newsouthtechnologies.com',
+            'Vary': 'Origin',
             'Access-Control-Allow-Methods': 'POST, OPTIONS',
             'Access-Control-Allow-Headers': 'Content-Type',
             'Content-Security-Policy': "default-src 'self'",
@@ -368,7 +388,7 @@ export async function onRequest(context) {
                         'unknown';
 
         // Rate limiting check
-        if (!checkRateLimit(clientIP)) {
+        if (!(await checkRateLimit(env, clientIP))) {
             log('warn', 'Request blocked - rate limit', { clientIP });
             return Response.json({
                 success: false,

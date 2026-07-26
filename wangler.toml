@@ -1,20 +1,34 @@
+# ⚠ FILENAME: Cloudflare reads "wrangler.toml". This file is intentionally named
+# "wangler.toml" so it stays INERT and does not alter the current, working
+# root-served Pages build ("v2 root directory strategy", no config).
+#
+# Do NOT simply rename it. If you want Cloudflare to use this config, first
+# confirm the output directory: for this repo the site is served from the root,
+# so pages_build_output_dir must be "." (NOT "./public", which would break the
+# build). Then rename to wrangler.toml and redeploy.
+
 name = "newsouth-technologies"
 compatibility_date = "2024-01-01"
-pages_build_output_dir = "./public"
+pages_build_output_dir = "."
 
-# Environment variables (DO NOT commit secrets to Git!)
+# Non-secret variables.
 [vars]
 LOG_LEVEL = "info"
 
-# Secrets (add via `wrangler secret put`)
-# wrangler secret put AZURE_STORAGE_CONNECTION_STRING
-# wrangler secret put SENDGRID_API_KEY
+# --- Secrets (set in the Cloudflare Pages dashboard → Settings → Environment
+#     variables, as encrypted values — never commit them):
+#       AZURE_BLOB_ACCOUNT, AZURE_BLOB_SAS, AZURE_BLOB_CONTAINER (optional),
+#       AZURE_BLOB_HOST_SUFFIX (optional), SENDGRID_API_KEY, EMAIL_FROM,
+#       CAREERS_NOTIFY_TO (optional), ALLOWED_ORIGIN (optional)
 
-# Bindings for Cloudflare services
-[[r2_buckets]]
-binding = 'RESUMES_BUCKET'
-bucket_name = 'newsouth-resumes'
+# --- Rate-limiting KV namespace used by /api/forms/careers.
+#     Create a KV namespace, then bind it as "RATE_LIMIT" in the dashboard
+#     (Settings → Functions → KV namespace bindings), or uncomment and fill:
+# [[kv_namespaces]]
+# binding = "RATE_LIMIT"
+# id = "<your-kv-namespace-id>"
 
-[[kv_namespaces]]
-binding = 'RATE_LIMIT_STORE'
-id = 'your-kv-namespace-id'
+# NOTE: The careers handler stores resumes in Azure Government Cloud via REST
+# (matching the published privacy notice) and sends email via SendGrid — it does
+# NOT use R2. The previous R2 bucket + AZURE_STORAGE_CONNECTION_STRING entries
+# were removed to eliminate configuration drift.

@@ -2,3 +2,23 @@
 Thumbs.db
 .vscode/
 node_modules/
+
+# ── Do NOT deploy internal / sensitive artifacts (public web root) ──
+# Office temp/lock files and generated reports (security & compliance reports
+# must never be publicly downloadable).
+~$*
+*.docx
+*.xlsx
+
+# Internal notes, AI-agent context, and internal QA/security reports.
+CLAUDE.md
+research_notes.md
+Documents.txt
+QA-Peer-Review-Report.html
+
+# Internal business/legal/branding templates (NDA, MSA, SOW, invoice,
+# letterhead, email signature, business card, etc.) — not for public access.
+documents/
+
+# Misnamed leftover — the live config file is "_headers" (no extension).
+_headers.txt

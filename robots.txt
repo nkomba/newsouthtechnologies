@@ -1,5 +1,10 @@
-User-agent: *
-Allow: /
-Disallow: /admin/
-Disallow: /private/
+# Crawler directives for New South Technologies.
+#
+# Cloudflare's managed robots feature prepends a "User-agent: *" group
+# (search / AI-bot content signals) to this file at serve time. We keep this
+# file minimal — a single global Sitemap directive and no duplicate
+# "User-agent: *" group — so crawlers see exactly one group. With no Disallow
+# rules, the whole site is crawlable by default. Add any path rules to the
+# Cloudflare managed block rather than reintroducing a second group here.
+
 Sitemap: https://newsouthtechnologies.com/sitemap.xml
