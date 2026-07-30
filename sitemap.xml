@@ -1,130 +1,158 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/css" href="https://www.xml-sitemaps.com/css/sitemap.css"?>
-<urlset
-      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-  xmlns:fo="http://www.w3.org/1999/XSL/Format"
-  xmlns:xhtml="http://www.w3.org/1999/xhtml"
-      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
-
-
-<url>
-  <loc>https://newsouthtechnologies.com/</loc>
-  <lastmod>2026-06-26T12:50:00+00:00</lastmod>
-  <priority>1.00</priority>
-</url>
-<url>
-  <loc>https://newsouthtechnologies.com/training</loc>
-  <lastmod>2026-07-22T12:00:00+00:00</lastmod>
-  <priority>0.90</priority>
-</url>
-<url>
-  <loc>https://newsouthtechnologies.com/modernization</loc>
-  <lastmod>2026-07-25T12:00:00+00:00</lastmod>
-  <priority>0.90</priority>
-</url>
-<url>
-  <loc>https://newsouthtechnologies.com/governed-agility</loc>
-  <lastmod>2026-07-25T12:00:00+00:00</lastmod>
-  <priority>0.90</priority>
-</url>
-<url>
-  <loc>https://newsouthtechnologies.com/responsible-ai</loc>
-  <lastmod>2026-07-25T12:00:00+00:00</lastmod>
-  <priority>0.90</priority>
-</url>
-<url>
-  <loc>https://newsouthtechnologies.com/contact</loc>
-  <lastmod>2026-07-25T12:00:00+00:00</lastmod>
-  <priority>0.70</priority>
-</url>
-<url>
-  <loc>https://newsouthtechnologies.com/case-studies</loc>
-  <lastmod>2026-07-25T12:00:00+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://newsouthtechnologies.com/feedback</loc>
-  <lastmod>2026-07-22T12:00:00+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://newsouthtechnologies.com/request-training</loc>
-  <lastmod>2026-07-22T12:00:00+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://newsouthtechnologies.com/careers</loc>
-  <lastmod>2026-06-26T12:50:00+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://newsouthtechnologies.com/blog</loc>
-  <lastmod>2026-06-26T12:50:00+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://newsouthtechnologies.com/assets/downloads/modernization-blueprint.pdf</loc>
-  <lastmod>2026-06-26T12:50:00+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://newsouthtechnologies.com/assets/downloads/governed-agile-framework.pdf</loc>
-  <lastmod>2026-06-26T12:50:00+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://newsouthtechnologies.com/assets/downloads/ai-governance-playbook.pdf</loc>
-  <lastmod>2026-06-26T12:50:00+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://newsouthtechnologies.com/cmmc-calculator</loc>
-  <lastmod>2026-06-26T12:50:00+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://newsouthtechnologies.com/careers?position=grc-lead</loc>
-  <lastmod>2026-06-26T12:50:00+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://newsouthtechnologies.com/blog/strangler-fig-modernization</loc>
-  <lastmod>2026-04-26T12:00:00+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://newsouthtechnologies.com/blog/fedramp-agile-atop</loc>
-  <lastmod>2026-05-10T12:00:00+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://newsouthtechnologies.com/blog/omb-m26-04-guide</loc>
-  <lastmod>2026-06-07T12:00:00+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://newsouthtechnologies.com/blog/governed-agility-vs-speed</loc>
-  <lastmod>2026-05-17T12:00:00+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://newsouthtechnologies.com/blog/cmmc-2-checklist</loc>
-  <lastmod>2026-05-24T12:00:00+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://newsouthtechnologies.com/blog/5-signs-legacy-risk</loc>
-  <lastmod>2026-05-03T12:00:00+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://newsouthtechnologies.com/blog/explainable-ai-xai</loc>
-  <lastmod>2026-05-31T12:00:00+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://newsouthtechnologies.com/</loc>
+    <lastmod>2026-07-30T12:00:00+00:00</lastmod>
+    <priority>1.00</priority>
+  </url>
+  <url>
+    <loc>https://newsouthtechnologies.com/services.html</loc>
+    <lastmod>2026-07-30T12:00:00+00:00</lastmod>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://newsouthtechnologies.com/modernization.html</loc>
+    <lastmod>2026-07-30T12:00:00+00:00</lastmod>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://newsouthtechnologies.com/governed-agility.html</loc>
+    <lastmod>2026-07-30T12:00:00+00:00</lastmod>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://newsouthtechnologies.com/responsible-ai.html</loc>
+    <lastmod>2026-07-30T12:00:00+00:00</lastmod>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://newsouthtechnologies.com/about.html</loc>
+    <lastmod>2026-07-30T12:00:00+00:00</lastmod>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://newsouthtechnologies.com/capability-statement.html</loc>
+    <lastmod>2026-07-30T12:00:00+00:00</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://newsouthtechnologies.com/compliance-resources.html</loc>
+    <lastmod>2026-07-30T12:00:00+00:00</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://newsouthtechnologies.com/faq.html</loc>
+    <lastmod>2026-07-30T12:00:00+00:00</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://newsouthtechnologies.com/training.html</loc>
+    <lastmod>2026-07-30T12:00:00+00:00</lastmod>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://newsouthtechnologies.com/courses/fedramp-landing-zone-readiness.html</loc>
+    <lastmod>2026-07-30T12:00:00+00:00</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://newsouthtechnologies.com/courses/strangler-fig-migration-federal-it.html</loc>
+    <lastmod>2026-07-30T12:00:00+00:00</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://newsouthtechnologies.com/courses/legacy-mainframe-decoupling-bootcamp.html</loc>
+    <lastmod>2026-07-30T12:00:00+00:00</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://newsouthtechnologies.com/request-training.html</loc>
+    <lastmod>2026-07-30T12:00:00+00:00</lastmod>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://newsouthtechnologies.com/case-studies.html</loc>
+    <lastmod>2026-07-30T12:00:00+00:00</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://newsouthtechnologies.com/careers.html</loc>
+    <lastmod>2026-07-30T12:00:00+00:00</lastmod>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://newsouthtechnologies.com/cmmc-calculator.html</loc>
+    <lastmod>2026-07-30T12:00:00+00:00</lastmod>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://newsouthtechnologies.com/blog.html</loc>
+    <lastmod>2026-07-30T12:00:00+00:00</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://newsouthtechnologies.com/blog/strangler-fig-modernization.html</loc>
+    <lastmod>2026-07-30T12:00:00+00:00</lastmod>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://newsouthtechnologies.com/blog/fedramp-agile-atop.html</loc>
+    <lastmod>2026-07-30T12:00:00+00:00</lastmod>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://newsouthtechnologies.com/blog/governed-agility-vs-speed.html</loc>
+    <lastmod>2026-07-30T12:00:00+00:00</lastmod>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://newsouthtechnologies.com/blog/omb-m26-04-guide.html</loc>
+    <lastmod>2026-07-30T12:00:00+00:00</lastmod>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://newsouthtechnologies.com/blog/explainable-ai-xai.html</loc>
+    <lastmod>2026-07-30T12:00:00+00:00</lastmod>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://newsouthtechnologies.com/blog/cmmc-2-checklist.html</loc>
+    <lastmod>2026-07-30T12:00:00+00:00</lastmod>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://newsouthtechnologies.com/blog/5-signs-legacy-risk.html</loc>
+    <lastmod>2026-07-30T12:00:00+00:00</lastmod>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://newsouthtechnologies.com/contact.html</loc>
+    <lastmod>2026-07-30T12:00:00+00:00</lastmod>
+    <priority>0.60</priority>
+  </url>
+  <url>
+    <loc>https://newsouthtechnologies.com/feedback.html</loc>
+    <lastmod>2026-07-30T12:00:00+00:00</lastmod>
+    <priority>0.60</priority>
+  </url>
+  <url>
+    <loc>https://newsouthtechnologies.com/accessibility.html</loc>
+    <lastmod>2026-07-30T12:00:00+00:00</lastmod>
+    <priority>0.40</priority>
+  </url>
+  <url>
+    <loc>https://newsouthtechnologies.com/privacy-policy.html</loc>
+    <lastmod>2026-07-30T12:00:00+00:00</lastmod>
+    <priority>0.30</priority>
+  </url>
+  <url>
+    <loc>https://newsouthtechnologies.com/privacy-form-submissions.html</loc>
+    <lastmod>2026-07-30T12:00:00+00:00</lastmod>
+    <priority>0.30</priority>
+  </url>
+  <url>
+    <loc>https://newsouthtechnologies.com/terms.html</loc>
+    <lastmod>2026-07-30T12:00:00+00:00</lastmod>
+    <priority>0.30</priority>
+  </url>
 </urlset>

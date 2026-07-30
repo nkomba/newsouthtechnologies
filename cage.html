@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, follow">
+    <title>CAGE Registration Response - New South Technologies, LLC</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 8.5in;
+            margin: 0 auto;
+            padding: 0.5in;
+            background: #fff;
+        }
+        
+        /* Print Button Styles */
+        .print-button-container {
+            text-align: center;
+            margin-bottom: 20px;
+            position: sticky;
+            top: 0;
+            background: #fff;
+            z-index: 1000;
+            padding: 10px 0;
+            border-bottom: 2px solid #eee;
+        }
+        
+        .print-btn {
+            background: linear-gradient(135deg, #6d4aff 0%, #4a3ab8 100%);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 6px;
+            box-shadow: 0 4px 6px rgba(109, 74, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .print-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(109, 74, 255, 0.4);
+        }
+        
+        .print-btn::before {
+            content: "🖨️ ";
+            margin-right: 8px;
+        }
+        
+        .header {
+            border-bottom: 3px solid #6d4aff;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .company-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 30px;
+        }
+        
+        .sender-info h1 {
+            color: #6d4aff;
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+        
+        .sender-info p {
+            font-size: 12px;
+            margin: 3px 0;
+        }
+        
+        .recipient-info {
+            text-align: right;
+            font-size: 12px;
+        }
+        
+        .subject-line {
+            background: #f4f4f4;
+            padding: 15px;
+            border-left: 4px solid #6d4aff;
+            margin: 20px 0;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        
+        .section {
+            margin: 25px 0;
+            padding: 20px;
+            background: #fafafa;
+            border-left: 3px solid #ccc;
+        }
+        
+        .section-title {
+            color: #6d4aff;
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+        
+        .question-answer {
+            margin: 15px 0;
+        }
+        
+        .question {
+            font-weight: bold;
+            color: #444;
+            margin-bottom: 8px;
+        }
+        
+        .answer {
+            padding: 10px;
+            background: #fff;
+            border-left: 2px solid #6d4aff;
+            margin-left: 15px;
+        }
+        
+        .checkmark {
+            color: #6d4aff;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+        
+        .attachment-note {
+            background: #e8f4f8;
+            padding: 15px;
+            margin-top: 15px;
+            font-style: italic;
+            font-size: 12px;
+            border-radius: 4px;
+        }
+        
+        .footer {
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 2px solid #ccc;
+            text-align: center;
+            font-size: 11px;
+            color: #666;
+        }
+        
+        .signature-block {
+            margin-top: 40px;
+        }
+        
+        .signature-name {
+            font-size: 16px;
+            font-weight: bold;
+            color: #6d4aff;
+        }
+        
+        .signature-title {
+            font-size: 12px;
+            color: #666;
+        }
+        
+        .disclaimer {
+            background: #fff3cd;
+            padding: 15px;
+            margin: 20px 0;
+            font-size: 11px;
+            border: 1px solid #ffc107;
+            border-radius: 4px;
+        }
+        
+        /* Print-Specific Styles */
+        @media print {
+            .print-button-container {
+                display: none;
+            }
+            
+            body {
+                padding: 0.5in;
+                max-width: none;
+                background: #fff;
+            }
+            
+            .section, .attachment-note, .disclaimer {
+                background-color: #fff !important;
+                border: 1px solid #ddd;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            
+            .subject-line {
+                background-color: #f4f4f4 !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            
+            .answer {
+                background-color: #fff !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            
+            .sender-info h1, .signature-name, .section-title {
+                color: #6d4aff !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            
+            .header {
+                border-bottom: 3px solid #6d4aff !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- PRINT BUTTON -->
+    <div class="print-button-container">
+        <button onclick="window.print()" class="print-btn">
+            Save as PDF
+        </button>
+        <p style="font-size: 11px; color: #666; margin-top: 8px;">
+            Tip: In print dialog, select "Save as PDF" as destination | Ensure backgrounds/images are enabled
+        </p>
+    </div>
+
+    <!-- HEADER -->
+    <div class="header">
+        <div class="company-info">
+            <div class="sender-info">
+                <h1>NEW SOUTH TECHNOLOGIES, LLC</h1>
+                <p>2343 Archdale Rd</p>
+                <p>Reston, VA 20191-1624</p>
+                <p>UEI: MCWZEB6BM5C5</p>
+                <p>Email: eugene@newsouthtechnologies.com</p>
+                <p>Phone: (703) 715-8667</p>
+            </div>
+            <div class="recipient-info">
+                <p><strong>Commercial and Government Entity (CAGE)</strong></p>
+                <p>Enterprise Sourcing, Medical, Contingency (ACH)</p>
+                <p>Defense Logistics Agency (DLA)</p>
+                <p>CAGEReview@dla.mil</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- SUBJECT LINE -->
+    <div class="subject-line">
+        RE: CAGE Registration Inquiry - UEI: MCWZEB6BM5C5 - NEW SOUTH TECHNOLOGIES, LLC
+    </div>
+
+    <!-- SALUTATION -->
+    <p style="margin: 20px 0;"><strong>Date:</strong> July 28, 2026</p>
+    
+    <p style="margin: 20px 0;">Dear CAGE Review Team,</p>
+
+    <p style="margin: 20px 0 20px 20px;">
+        Thank you for your correspondence regarding our SAM registration. We have carefully reviewed your 
+        requirements and are pleased to provide the requested documentation and verification below to 
+        facilitate the processing of our CAGE code assignment.
+    </p>
+
+    <div class="disclaimer">
+        <strong>ATTACHMENT NOTE:</strong> The following documents are attached to this email transmission:
+        <ol style="margin-left: 20px; margin-top: 10px;">
+            <li>New South Technologies SCC Screenshot July 28 2026 - Legal Business Name Verification</li>
+            <li>Power Bill - Address Verification</li>
+        </ol>
+    </div>
+
+    <!-- SECTION 1: LEGAL BUSINESS NAME DOCUMENTATION -->
+    <div class="section">
+        <div class="section-title">1. Legal Business Name (LBN) Documentation</div>
+        
+        <div class="question-answer">
+            <div class="question">Documentation Provided:</div>
+            <div class="answer">
+                <span class="checkmark">✓</span> Screenshot of Active and In Good Standing status from Virginia Division of Corporations (with computer date and timestamp)<br><br>
+                This screenshot was obtained directly from the Virginia State Corporation Commission website on July 28, 2026, confirming that NEW SOUTH TECHNOLOGIES, LLC is currently Active and In Good Standing. The screenshot includes the computer date and timestamp as required.
+            </div>
+        </div>
+        
+
+    </div>
+
+    <!-- SECTION 2: ADDRESS VERIFICATION -->
+    <div class="section">
+        <div class="section-title">2. Address Verification</div>
+        
+        <div class="question-answer">
+            <div class="question">Is the SAM physical address correct and complete?</div>
+            <div class="answer">
+                <span class="checkmark">✓</span> Yes, the physical address is correct and complete: 2343 Archdale Rd, Reston, VA 20191-1624
+            </div>
+        </div>
+
+        <div class="question-answer">
+            <div class="question">What type of location does your business operate out of?</div>
+            <div class="answer">
+                <span class="checkmark">✓</span> This is a residential home office owned by the company principals<br>
+                The premises are owned by the company co-managing partners and serve as the registered principal place of business.
+            </div>
+        </div>
+
+        <div class="question-answer">
+            <div class="question">Is the majority of your business operations conducted from this location?</div>
+            <div class="answer">
+                <span class="checkmark">✓</span> Yes, the majority of our business operations are conducted from this location.<br>
+                Administrative functions, client consultations, project management, and strategic planning activities are primarily conducted from this facility.
+            </div>
+        </div>
+
+        <div class="question-answer">
+            <div class="question">Address Verification Document:</div>
+            <div class="answer">
+                <span class="checkmark">✓</span> Utility Bill - Power/Electricity<br>
+                An original utility bill from the electricity provider is attached, showing the exact service address matching our SAM registration: 2343 Archdale Rd, Reston, VA 20191-1624. The account is in the name of the company principals.
+            </div>
+        </div>
+    </div>
+
+    <!-- SECTION 3: POINT OF CONTACT VERIFICATION -->
+    <div class="section">
+        <div class="section-title">3. Point of Contact (POC) Verification</div>
+        
+        <div class="question-answer">
+            <div class="question">Primary POC: EUGENE P. NKOMBA</div>
+            <div class="answer">
+                <strong>Relationship:</strong> Owner/Officer/Employee/Partner — Co-Managing Partner<br><br>
+                <strong>Email Validity:</strong> <span class="checkmark">✓</span> Confirmed — eugene@newsouthtechnologies.com is a valid business email addressed specifically to this individual<br><br>
+                <strong>Phone Validity:</strong> <span class="checkmark">✓</span> Confirmed — (703) 715-8667 reaches Mr. Nkomba directly<br><br>
+                <strong>Additional Context:</strong> Mr. Nkomba is Co-Managing Partner of New South Technologies, LLC with over 30 years of executive coaching, Six Sigma Master Black Belt, agile coaching, DevSecOps, cybersecurity, and audit/risk/quality management experience. He holds credentials including MBA, PCC, CPCC, CISA, CISM, CRISC, PMP, PMI-ACP, PSM III, and ASQ-CMQ/OE.
+            </div>
+        </div>
+
+        <div class="question-answer">
+            <div class="question">Alternate POC: CATHERINE NKOMBA</div>
+            <div class="answer">
+                <strong>Relationship:</strong> Owner/Officer/Employee/Partner — Co-Managing Partner/Co-Founder<br><br>
+                <strong>Email Validity:</strong> <span class="checkmark">✓</span> Confirmed — catherine@newsouthtechnologies.com is a valid business email addressed specifically to this individual<br><br>
+                <strong>Phone Validity:</strong> <span class="checkmark">✓</span> Confirmed — (301) 573-1689 reaches Ms. Nkomba directly<br><br>
+                <strong>Additional Context:</strong> Ms. Nkomba is Co-Managing Partner/Co-Founder of New South Technologies, LLC specializing in agile coaching. She holds credentials including PMP, SPC6, ICP-AC, and PSPO II.
+            </div>
+        </div>
+
+        <div class="attachment-note">
+            ℹ️ Both email domains (newsouthtechnologies.com) are owned and operated by our company and are not generic public email services such as Gmail, Yahoo, or Protonmail. The domain is registered to New South Technologies, LLC and configured for business operations.
+        </div>
+    </div>
+
+    <!-- DECLARATION -->
+    <div class="section">
+        <div class="section-title">4. Declaration of Accuracy</div>
+        
+        <p style="margin: 15px 0 15px 15px;">
+            I hereby certify that all information provided in this response is accurate, complete, and 
+            truthful to the best of my knowledge. All attached documentation is genuine and obtained 
+            through appropriate official channels. We understand that any false statements may result 
+            in disqualification from federal contracting opportunities and potential legal consequences.
+        </p>
+    </div>
+
+    <!-- SIGNATURE -->
+    <div class="signature-block">
+        <p style="margin: 30px 0 10px 15px;">Respectfully submitted,</p>
+        
+        <div style="margin: 40px 0 20px 15px; text-align: center;">
+            <img src="" alt="[Signature]" style="max-height: 60px; display: none;" id="signature-image">
+            <p class="signature-name">Eugene P. Nkomba</p>
+            <p class="signature-title">Co-Managing Partner & Executive Coach</p>
+            <p style="font-size: 11px; color: #666; margin-top: 5px;">New South Technologies, LLC</p>
+            <p style="font-size: 11px; color: #666;">Email: eugene@newsouthtechnologies.com</p>
+            <p style="font-size: 11px; color: #666;">Phone: (703) 715-8667</p>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        <p>This document was prepared for submission to the Defense Logistics Agency CAGE Code Office.</p>
+        <p>Reference UEI: MCWZEB6BM5C5 | Response Date: July 28, 2026</p>
+        <p style="margin-top: 10px; font-size: 10px;">© 2026 New South Technologies, LLC. All rights reserved.</p>
+    </div>
+</body>
+</html>

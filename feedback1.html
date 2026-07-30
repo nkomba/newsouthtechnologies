@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, follow">
+    <title>Submit a Concern — New South Technologies</title>
+    <meta name="description" content="Submit a concern, complaint, or feedback to New South Technologies. Our Customer Resolution Process ensures timely, transparent resolution.">
+    <link rel="stylesheet" href="css/feedback.css">
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="nav-bar">
+    <div class="nav-container">
+        <a href="index.html" class="nav-logo">New South Technologies</a>
+        <button class="nav-toggle" aria-label="Toggle navigation">
+            <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="perspectives.html">Perspectives</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="careers.html">Careers</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Page Header -->
+<header class="page-header">
+    <div class="container">
+        <h1>Submit a Concern</h1>
+        <p>Your feedback drives our continuous improvement. All concerns are acknowledged within 24 business hours.</p>
+    </div>
+</header>
+
+<!-- Feedback Form Section -->
+<section class="feedback-section">
+    <div class="container">
+        <div class="feedback-intro">
+            <h2>Customer Resolution Process</h2>
+            <p>
+                New South Technologies takes every concern seriously. Whether you are experiencing a service issue,
+                have a complaint about a deliverable, or wish to provide feedback on an engagement, please use the
+                form below. A unique case ID will be assigned to your submission, and a designated case owner will
+                be your point of contact throughout the resolution process.
+            </p>
+        </div>
+
+        <form id="feedback-form" class="feedback-form" action="https://formspree.io/f/your-form-id" method="POST">
+
+            <!-- Step 1: Your Information -->
+            <fieldset class="form-step">
+                <legend>Your Information</legend>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="fullName">Full Name <span class="required">*</span></label>
+                        <input type="text" id="fullName" name="fullName" required
+                               placeholder="Jane Doe">
+                    </div>
+                    <div class="form-group">
+                        <label for="organization">Organization <span class="required">*</span></label>
+                        <input type="text" id="organization" name="organization" required
+                               placeholder="Department of Treasury">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="email">Email Address <span class="required">*</span></label>
+                        <input type="email" id="email" name="email" required
+                               placeholder="jane.doe@treasury.gov">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone"
+                               placeholder="(555) 123-4567">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="engagement">Engagement / Contract Reference</label>
+                    <input type="text" id="engagement" name="engagement"
+                           placeholder="Contract # or project name">
+                </div>
+            </fieldset>
+
+            <!-- Step 2: Concern Details -->
+            <fieldset class="form-step">
+                <legend>Concern Details</legend>
+
+                <div class="form-group">
+                    <label for="concernType">Type of Concern <span class="required">*</span></label>
+                    <select id="concernType" name="concernType" required>
+                        <option value="">— Please select —</option>
+                        <option value="Service Issue">Service delivery issue</option>
+                        <option value="Deliverable Defect">Deliverable defect or deficiency</option>
+                        <option value="Communication">Communication breakdown</option>
+                        <option value="Timeline">Timeline or milestone concern</option>
+                        <option value="Billing">Billing or contract dispute</option>
+                        <option value="Security">Cybersecurity or data handling concern</option>
+                        <option value="Compliance">Compliance or regulatory concern</option>
+                        <option value="General Feedback">General feedback or suggestion</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="severity">Severity Level <span class="required">*</span></label>
+                    <select id="severity" name="severity" required>
+                        <option value="">— Please select —</option>
+                        <option value="Critical">Critical — service outage, security breach, or regulatory failure</option>
+                        <option value="High">High — significant deliverable defect or milestone impact</option>
+                        <option value="Medium">Medium — minor deliverable issue or documentation gap</option>
+                        <option value="Low">Low — general inquiry, feedback, or suggestion</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="subject">Subject Line <span class="required">*</span></label>
+                    <input type="text" id="subject" name="subject" required
+                           placeholder="Brief summary of your concern">
+                </div>
+
+                <div class="form-group">
+                    <label for="description">Detailed Description <span class="required">*</span></label>
+                    <textarea id="description" name="description" rows="6" required
+                              placeholder="Please provide as much detail as possible: what happened, when it occurred, who was involved, and the impact on your organization."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="desiredResolution">Desired Resolution</label>
+                    <textarea id="desiredResolution" name="desiredResolution" rows="3"
+                              placeholder="What outcome would you consider satisfactory?"></textarea>
+                </div>
+            </fieldset>
+
+            <!-- Step 3: Attachments & Consent -->
+            <fieldset class="form-step">
+                <legend>Supporting Materials</legend>
+
+                <div class="form-group">
+                    <label for="attachments">Attach Supporting Documents</label>
+                    <input type="file" id="attachments" name="attachments" multiple
+                           accept=".pdf,.doc,.docx,.xls,.xlsx,.png,.jpg,.jpeg">
+                    <p class="form-hint">Accepted formats: PDF, DOC, DOCX, XLS, XLSX, PNG, JPG. Max 10 MB per file.</p>
+                </div>
+
+                <div class="form-group checkbox-group">
+                    <input type="checkbox" id="consent" name="consent" required>
+                    <label for="consent" class="checkbox-label">
+                        I consent to New South Technologies processing the information provided in this form
+                        for the purpose of investigating and resolving my concern. I understand that my
+                        information will be handled in accordance with the New South Technologies
+                        <a href="privacy.html">Privacy Policy</a>. <span class="required">*</span>
+                    </label>
+                </div>
+
+                <div class="form-group checkbox-group">
+                    <input type="checkbox" id="anonymous" name="anonymous" value="yes">
+                    <label for="anonymous" class="checkbox-label">
+                        I would prefer my concern to be reviewed anonymously (note: this may limit our
+                        ability to communicate resolution progress).
+                    </label>
+                </div>
+            </fieldset>
+
+            <!-- Submit -->
+            <div class="form-actions">
+                <button type="submit" class="btn-primary">Submit Concern</button>
+                <button type="reset" class="btn-secondary">Clear Form</button>
+            </div>
+        </form>
+
+        <!-- Alternative Contact -->
+        <div class="alt-contact">
+            <h3>Prefer to speak with someone directly?</h3>
+            <p>
+                <strong>Email:</strong> customersuccess@newsouthtechnologies.com<br>
+                <strong>Executive Escalation:</strong> leadership@newsouthtechnologies.com<br>
+                <strong>Hours:</strong> Monday–Friday, 8:00 AM – 6:00 PM ET
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- What Happens Next -->
+<section class="next-steps">
+    <div class="container">
+        <h2>What Happens After You Submit?</h2>
+        <div class="steps-grid">
+            <div class="step-card">
+                <div class="step-number">1</div>
+                <h3>Acknowledgment</h3>
+                <p>You receive a confirmation email with a unique case ID within 24 business hours.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">2</div>
+                <h3>Assignment</h3>
+                <p>A dedicated case owner is assigned based on severity and service line.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">3</div>
+                <h3>Investigation</h3>
+                <p>Facts are gathered, stakeholders are engaged, and root cause is assessed.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">4</div>
+                <h3>Resolution</h3>
+                <p>A proposed solution is presented and implemented upon your agreement.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">5</div>
+                <h3>Closure</h3>
+                <p>You confirm satisfaction, a survey is sent, and lessons learned are captured.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="site-footer">
+    <div class="container">
+        <p>&copy; 2026 New South Technologies. All rights reserved.</p>
+        <p>Legacy Modernization • Governed Agility • Cybersecurity • AI Governance</p>
+    </div>
+</footer>
+
+<script src="js/feedback.js"></script>
+</body>
+</html>

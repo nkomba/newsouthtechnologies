@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, follow">
+<title>Invoice — PM Training June 2024 — New South Technologies</title>
+
+<style>
+:root {
+    --nst-primary: #1a2b4a;
+    --nst-accent: #2d6cdf;
+    --nst-light: #f4f6fa;
+    --nst-border: #d0d7e2;
+    --nst-text: #1a2332;
+    --nst-muted: #5a6878;
+}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    color: var(--nst-text); background: #e8ecf2; line-height: 1.6;
+    font-size: 11pt; -webkit-print-color-adjust: exact; print-color-adjust: exact;
+}
+.invoice { max-width: 800px; margin: 40px auto; background: #fff; padding: 48px 56px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); }
+.invoice-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 40px; padding-bottom: 24px; border-bottom: 3px solid var(--nst-primary); }
+.provider-block h1 { font-size: 1.6rem; color: var(--nst-primary); margin-bottom: 6px; letter-spacing: -0.01em; }
+.provider-block .tagline { font-size: 0.78rem; color: var(--nst-muted); margin-bottom: 12px; }
+.provider-block .provider-details { font-size: 0.82rem; color: var(--nst-muted); line-height: 1.5; }
+.provider-block .provider-details strong { color: var(--nst-primary); }
+.invoice-meta { text-align: right; }
+.invoice-meta .invoice-label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--nst-muted); margin-bottom: 2px; }
+.invoice-meta .invoice-number { font-size: 1.3rem; font-weight: 700; color: var(--nst-primary); margin-bottom: 16px; }
+.invoice-meta .meta-row { margin-bottom: 8px; }
+.invoice-meta .meta-row .meta-label { font-size: 0.78rem; color: var(--nst-muted); font-weight: 600; }
+.invoice-meta .meta-row .meta-value { font-size: 0.88rem; color: var(--nst-text); font-weight: 500; }
+.bill-to { margin-bottom: 36px; padding: 20px 24px; background: var(--nst-light); border-left: 4px solid var(--nst-accent); border-radius: 4px; }
+.bill-to h2 { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--nst-muted); margin-bottom: 8px; }
+.bill-to .client-name { font-size: 1.05rem; font-weight: 700; color: var(--nst-primary); margin-bottom: 4px; }
+.bill-to .client-address { font-size: 0.85rem; color: var(--nst-muted); line-height: 1.5; }
+.line-items { width: 100%; border-collapse: collapse; margin-bottom: 32px; font-size: 0.88rem; }
+.line-items th { background: var(--nst-primary); color: #fff; padding: 10px 14px; text-align: left; font-weight: 600; font-size: 0.82rem; }
+.line-items th.center { text-align: center; }
+.line-items th.right { text-align: right; }
+.line-items td { padding: 14px; border-bottom: 1px solid var(--nst-border); vertical-align: top; }
+.line-items td.center { text-align: center; }
+.line-items td.right { text-align: right; }
+.line-items .item-desc { font-weight: 600; color: var(--nst-primary); margin-bottom: 4px; }
+.line-items .item-sub { font-size: 0.82rem; color: var(--nst-muted); line-height: 1.5; }
+.line-items tr:nth-child(even) td { background: var(--nst-light); }
+.totals { margin-left: auto; width: 300px; margin-bottom: 40px; }
+.totals table { width: 100%; border-collapse: collapse; }
+.totals td { padding: 8px 0; font-size: 0.88rem; border-bottom: 1px solid var(--nst-border); }
+.totals .totals-label { color: var(--nst-muted); font-weight: 500; }
+.totals .totals-value { text-align: right; font-weight: 600; color: var(--nst-text); }
+.totals .grand-total td { padding-top: 14px; border-top: 2px solid var(--nst-primary); border-bottom: none; font-size: 1.05rem; font-weight: 700; color: var(--nst-primary); }
+.payment-status { margin-bottom: 36px; padding: 16px 24px; border: 2px solid #27ae60; border-radius: 6px; background: #e8f5e9; text-align: center; }
+.payment-status .status-label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em; color: #27ae60; font-weight: 700; margin-bottom: 4px; }
+.payment-status .status-text { font-size: 0.95rem; color: var(--nst-text); font-weight: 600; }
+.credentials { margin-bottom: 36px; padding: 24px; border: 1px solid var(--nst-border); border-radius: 8px; background: var(--nst-light); }
+.credentials h3 { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--nst-muted); margin-bottom: 12px; }
+.credentials .cred-list { font-size: 0.82rem; color: var(--nst-text); line-height: 1.7; }
+.credentials .cred-list strong { color: var(--nst-primary); }
+.terms { margin-bottom: 32px; }
+.terms h3 { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--nst-muted); margin-bottom: 10px; }
+.terms ol { padding-left: 20px; font-size: 0.8rem; color: var(--nst-muted); line-height: 1.6; }
+.signature-block { display: flex; justify-content: space-between; margin-top: 48px; margin-bottom: 32px; }
+.sig-col { width: 45%; }
+.sig-label { font-size: 0.82rem; color: var(--nst-primary); font-weight: 600; margin-bottom: 40px; }
+.sig-line { border-top: 1px solid var(--nst-text); padding-top: 6px; font-size: 0.78rem; color: var(--nst-muted); }
+.sig-name { font-weight: 600; color: var(--nst-primary); font-size: 0.88rem; margin-bottom: 2px; }
+.sig-title { font-size: 0.78rem; color: var(--nst-muted); }
+.invoice-footer { margin-top: 40px; padding-top: 20px; border-top: 2px solid var(--nst-primary); text-align: center; font-size: 0.76rem; color: var(--nst-muted); }
+.invoice-footer p { margin-bottom: 4px; }
+.pdf-actions { text-align: center; margin-bottom: 20px; }
+.btn-pdf { display: inline-block; background: var(--nst-accent); color: #fff; padding: 10px 28px; border-radius: 6px; font-size: 0.9rem; font-weight: 600; text-decoration: none; cursor: pointer; border: none; }
+.btn-pdf:hover { background: #1e54b0; }
+@media print {
+    @page { size: Letter; margin: 0.6in; }
+    body { background: #fff; font-size: 11pt; }
+    .invoice { max-width: none; margin: 0; padding: 0; box-shadow: none; }
+    .pdf-actions { display: none !important; }
+    * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+    .invoice-header { page-break-after: avoid; }
+    .line-items { page-break-inside: auto; }
+    .line-items tr { page-break-inside: avoid; }
+    .totals, .payment-status, .credentials, .signature-block { page-break-inside: avoid; }
+}
+@media (max-width: 768px) {
+    .invoice { padding: 32px 24px; margin: 20px auto; }
+    .invoice-header { flex-direction: column; gap: 20px; }
+    .invoice-meta { text-align: left; }
+    .line-items { font-size: 0.78rem; }
+    .line-items th, .line-items td { padding: 8px; }
+    .totals { width: 100%; }
+    .signature-block { flex-direction: column; gap: 32px; }
+    .sig-col { width: 100%; }
+}
+</style>
+</head>
+<body>
+
+<div class="pdf-actions">
+    <button class="btn-pdf" onclick="window.print()">⬇ Save as PDF</button>
+</div>
+
+<div class="invoice">
+
+    <div class="invoice-header">
+        <div class="provider-block">
+            <h1>New South Technologies</h1>
+            <div class="tagline">Legacy Modernization • Governed Agility • Cybersecurity • AI Governance</div>
+            <div class="provider-details">
+                <strong>Patrice "Coco" Nkomba</strong><br>
+                Co-Managing Partner &amp; Principal Consultant<br>
+                [Street Address] • [City, State ZIP]<br>
+                [Phone] • [Email]<br>
+                newsouthtechnologies.com
+            </div>
+        </div>
+        <div class="invoice-meta">
+            <div class="invoice-label">Invoice</div>
+            <div class="invoice-number">2024-PMTR-018</div>
+            <div class="meta-row">
+                <div class="meta-label">Invoice Date</div>
+                <div class="meta-value">June 17, 2024</div>
+            </div>
+            <div class="meta-row">
+                <div class="meta-label">Service Period</div>
+                <div class="meta-value">June 10 – 14, 2024</div>
+            </div>
+            <div class="meta-row">
+                <div class="meta-label">Terms</div>
+                <div class="meta-value">Net 30</div>
+            </div>
+            <div class="meta-row">
+                <div class="meta-label">Due Date</div>
+                <div class="meta-value">July 17, 2024</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bill-to">
+        <h2>Bill To</h2>
+        <div class="client-name">[Client Organization Name]</div>
+        <div class="client-address">
+            [Attention: Contact Name]<br>
+            [Street Address]<br>
+            [City, State ZIP]
+        </div>
+    </div>
+
+    <table class="line-items">
+        <thead>
+            <tr>
+                <th style="width: 45%;">Description</th>
+                <th class="center" style="width: 15%;">Dates</th>
+                <th class="center" style="width: 10%;">Qty (Hours)</th>
+                <th class="right" style="width: 15%;">Rate</th>
+                <th class="right" style="width: 15%;">Amount</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <div class="item-desc">Agile Project Management &amp; Scrum Mastery Training</div>
+                    <div class="item-sub">
+                        Intensive 40-hour training program covering agile project management
+                        principles and Scrum framework implementation. Topics included agile
+                        values and principles, Scrum roles and ceremonies, sprint planning and
+                        backlog management, release forecasting, servant leadership for project
+                        managers, agile metrics and reporting, scaling Scrum across teams,
+                        and transitioning from waterfall to hybrid delivery models in federal
+                        environments.
+                    </div>
+                </td>
+                <td class="center">Jun 10–14, 2024</td>
+                <td class="center">40</td>
+                <td class="right">$[Rate]/hr</td>
+                <td class="right">$[Amount]</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="totals">
+        <table>
+            <tr>
+                <td class="totals-label">Subtotal</td>
+                <td class="totals-value">$[Amount]</td>
+            </tr>
+            <tr>
+                <td class="totals-label">Tax</td>
+                <td class="totals-value">$0.00</td>
+            </tr>
+            <tr class="grand-total">
+                <td class="totals-label">Total Due</td>
+                <td class="totals-value">$[Total]</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="payment-status">
+        <div class="status-label">Payment Status</div>
+        <div class="status-text">PAID — Payment received June 28, 2024</div>
+    </div>
+
+    <div class="credentials">
+        <h3>Trainer Qualifications</h3>
+        <div class="cred-list">
+            <strong>Patrice "Coco" Nkomba</strong> — Co-Managing Partner, New South Technologies<br>
+            Credentials: MBA, PCC, CPCC, CISA, CISM, CRISC, PMP, PMI-ACP, PSM III, ASQ-CMQ/OE<br><br>
+            Additional qualifications include Six Sigma Master Black Belt, certified Agile Coach,
+            and 30+ years of professional experience across federal agencies and enterprise
+            organizations including U.S. Department of Treasury, U.S. Department of Commerce,
+            USPTO, U.S. Department of Homeland Security, Northrop Grumman, Grant Thornton LLP,
+            IBM, and AT&amp;T.
+        </div>
+    </div>
+
+    <div class="terms">
+        <h3>Terms &amp; Conditions</h3>
+        <ol>
+            <li>Payment due within 30 days of invoice date.</li>
+            <li>All training materials and content are proprietary to New South Technologies and may not be reproduced without written consent.</li>
+            <li>This invoice serves as documentation of project management training delivery for PMI credential compliance purposes.</li>
+            <li>Please remit payment to the address listed above or via electronic funds transfer.</li>
+        </ol>
+    </div>
+
+    <div class="signature-block">
+        <div class="sig-col">
+            <div class="sig-label">Authorized Representative — New South Technologies</div>
+            <div class="sig-line">
+                <div class="sig-name">Patrice "Coco" Nkomba</div>
+                <div class="sig-title">Co-Managing Partner &amp; Principal Consultant</div>
+            </div>
+        </div>
+        <div class="sig-col">
+            <div class="sig-label">Authorized by Client</div>
+            <div class="sig-line">
+                <div class="sig-name">[Client Authorized Signer Name]</div>
+                <div class="sig-title">[Title] — [Client Organization]</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="invoice-footer">
+        <p><strong>New South Technologies</strong></p>
+        <p>Legacy Modernization • Governed Agility • Cybersecurity • AI Governance</p>
+        <p>Invoice #2024-PMTR-018 — June 17, 2024</p>
+    </div>
+
+</div>
+
+</body>
+</html>

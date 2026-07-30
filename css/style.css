@@ -1207,3 +1207,29 @@ input:focus, textarea:focus {
 .fed-value.fed-pending { font-weight: 400; font-style: italic; color: #94A3B8; }
 .fed-note { text-align: center; max-width: 780px; margin: 0 auto; font-size: 0.85rem; color: #CBD5E1; line-height: 1.55; }
 .fed-note a { color: #2DD4BF; text-decoration: underline; }
+
+
+/* ===== SEO pages (about/services/capability/compliance/faq/courses) ===== */
+.section { padding: 3.5rem 0; }
+.section--alt { background: rgba(15,23,42,0.03); }
+.hero--interior { padding: 3rem 0 2rem; }
+.hero--interior h1 { max-width: 22ch; }
+.eyebrow { text-transform: uppercase; letter-spacing: .08em; font-size: .8rem; font-weight: 700; color: var(--color-teal-accent, #0d9488); margin-bottom: .5rem; }
+.fact-list { list-style: disc; padding-left: 1.4rem; line-height: 1.7; max-width: 70ch; }
+.fact-list li { margin: .35rem 0; }
+.cta-row { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1.5rem; }
+.team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap: 1.5rem; margin-top: 1.5rem; }
+.team-card { background: #fff; border: 1px solid rgba(15,23,42,.1); border-radius: 10px; padding: 1.25rem 1.4rem; }
+.team-card .title { color: var(--color-teal-accent, #0d9488); font-weight: 600; margin: .2rem 0 .6rem; }
+.course-layout { display: grid; grid-template-columns: 1.7fr 1fr; gap: 2.5rem; align-items: start; }
+.course-signup { background: #0F172A; color: #fff; border-radius: 12px; padding: 1.5rem; position: sticky; top: 1rem; }
+.course-signup label { color: #E2E8F0; }
+.course-signup input[type=text], .course-signup input[type=email] { width: 100%; }
+.module-list { padding-left: 1.4rem; line-height: 1.7; }
+.faq-item { border-bottom: 1px solid rgba(15,23,42,.12); padding: .5rem 0; }
+.faq-item summary { cursor: pointer; list-style: none; }
+.faq-item summary h2 { display: inline; font-size: 1.15rem; }
+.faq-item[open] summary h2 { color: var(--color-teal-accent, #0d9488); }
+.footer-brand-id { font-weight: 600; opacity: .9; margin: .15rem 0 .5rem; }
+.footer-disambig { opacity: .7; margin-top: .6rem; }
+@media (max-width: 800px){ .course-layout{ grid-template-columns: 1fr; } .course-signup{ position: static; } }

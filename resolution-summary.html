@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, follow">
+    <title>Customer Resolution Process — New South Technologies</title>
+    <meta name="description" content="How New South Technologies handles customer concerns: a simple, transparent resolution process with clear timelines.">
+    <link rel="stylesheet" href="css/resolution-summary.css">
+</head>
+<body>
+
+<nav class="nav-bar">
+    <div class="nav-container">
+        <a href="index.html" class="nav-logo">New South Technologies</a>
+        <button class="nav-toggle" aria-label="Toggle navigation">
+            <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="perspectives.html">Perspectives</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </div>
+</nav>
+
+<header class="summary-header">
+    <div class="container">
+        <p class="eyebrow">Customer Resolution Process</p>
+        <h1>Your Concern. Our Commitment.</h1>
+        <p class="lead">
+            We take every client concern seriously. Here is exactly what happens when you bring an issue to us —
+            from first contact to resolution and beyond.
+        </p>
+    </div>
+</header>
+
+<section class="summary-body">
+    <div class="container">
+
+        <!-- Three columns: Submit, Resolve, Improve -->
+        <div class="pillar-grid">
+
+            <div class="pillar">
+                <div class="pillar-icon">📋</div>
+                <h2>1. Tell Us</h2>
+                <p>Submit your concern via our <a href="feedback.html">feedback form</a>, email, or your engagement manager.</p>
+                <p class="pillar-meta"><strong>Acknowledged within 24 business hours</strong></p>
+            </div>
+
+            <div class="pillar">
+                <div class="pillar-icon">🔍</div>
+                <h2>2. We Investigate</h2>
+                <p>A dedicated case owner gathers facts, engages stakeholders, and identifies root cause.</p>
+                <p class="pillar-meta"><strong>Resolution timeline based on severity</strong></p>
+            </div>
+
+            <div class="pillar">
+                <div class="pillar-icon">✅</div>
+                <h2>3. We Resolve & Learn</h2>
+                <p>We implement the agreed solution, confirm your satisfaction, and capture lessons learned.</p>
+                <p class="pillar-meta"><strong>Continuous improvement built in</strong></p>
+            </div>
+        </div>
+
+        <!-- Severity Quick Reference -->
+        <div class="severity-table">
+            <h2>Resolution Timelines at a Glance</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Severity</th>
+                        <th>What It Means</th>
+                        <th>First Response</th>
+                        <th>Target Resolution</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="sev-critical">
+                        <td><span class="sev-badge sev-critical-badge">Critical</span></td>
+                        <td>Service outage, security breach, regulatory failure</td>
+                        <td>4 hours</td>
+                        <td>24–48 hours</td>
+                    </tr>
+                    <tr class="sev-high">
+                        <td><span class="sev-badge sev-high-badge">High</span></td>
+                        <td>Significant deliverable defect or milestone impact</td>
+                        <td>8 hours</td>
+                        <td>5 business days</td>
+                    </tr>
+                    <tr class="sev-medium">
+                        <td><span class="sev-badge sev-medium-badge">Medium</span></td>
+                        <td>Minor deliverable issue, scope clarification</td>
+                        <td>24 hours</td>
+                        <td>10 business days</td>
+                    </tr>
+                    <tr class="sev-low">
+                        <td><span class="sev-badge sev-low-badge">Low</span></td>
+                        <td>General inquiry, feedback, suggestion</td>
+                        <td>48 hours</td>
+                        <td>15 business days</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Escalation Path -->
+        <div class="escalation-box">
+            <h2>Need to Escalate?</h2>
+            <p>If your concern is not being resolved to your satisfaction, you may escalate at any time:</p>
+            <div class="escalation-chain">
+                <span class="chain-step">Case Owner</span>
+                <span class="chain-arrow">→</span>
+                <span class="chain-step">Engagement Manager</span>
+                <span class="chain-arrow">→</span>
+                <span class="chain-step">Quality Director</span>
+                <span class="chain-arrow">→</span>
+                <span class="chain-step chain-final">Chief Executive Officer</span>
+            </div>
+            <p class="escalation-contact">
+                Executive escalations: <a href="mailto:leadership@newsouthtechnologies.com">leadership@newsouthtechnologies.com</a>
+            </p>
+        </div>
+
+        <!-- CTA -->
+        <div class="summary-cta">
+            <h2>Have a Concern?</h2>
+            <p>Submit it now and receive a case ID within 24 business hours.</p>
+            <a href="feedback.html" class="btn-primary">Submit a Concern</a>
+            <a href="customer-resolution-process.pdf" class="btn-secondary" download>Download Full Process (PDF)</a>
+        </div>
+    </div>
+</section>
+
+<footer class="site-footer">
+    <div class="container">
+        <p>&copy; 2026 New South Technologies. All rights reserved.</p>
+        <p>Legacy Modernization • Governed Agility • Cybersecurity • AI Governance</p>
+    </div>
+</footer>
+
+<script>
+    // Mobile nav toggle
+    document.querySelector('.nav-toggle')?.addEventListener('click', function () {
+        document.querySelector('.nav-links').classList.toggle('active');
+    });
+</script>
+</body>
+</html>

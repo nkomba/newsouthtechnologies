@@ -1,0 +1,1198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, follow">
+<title>Customer Resolution Process — New South Technologies</title>
+
+<style>
+/* ============================================
+   PRINT-OPTIMIZED STYLESHEET
+   New South Technologies — CRP Document
+   ============================================ */
+
+/* ---------- ROOT VARIABLES ---------- */
+:root {
+    --nst-primary: #1a2b4a;
+    --nst-accent: #2d6cdf;
+    --nst-light: #f4f6fa;
+    --nst-border: #d0d7e2;
+    --nst-text: #1a2332;
+    --nst-muted: #5a6878;
+    --nst-page-bg: #ffffff;
+}
+
+/* ---------- RESET ---------- */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ---------- BASE ---------- */
+body {
+    font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    color: var(--nst-text);
+    background: var(--nst-page-bg);
+    line-height: 1.65;
+    font-size: 11pt;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+}
+
+/* ---------- PAGE LAYOUT ---------- */
+.document {
+    max-width: 850px;
+    margin: 40px auto;
+    padding: 0 40px;
+}
+
+/* ---------- TYPOGRAPHY ---------- */
+h1 {
+    font-size: 1.7rem;
+    color: var(--nst-primary);
+    margin-bottom: 8px;
+    line-height: 1.3;
+}
+
+h2 {
+    font-size: 1.25rem;
+    color: var(--nst-primary);
+    margin-top: 32px;
+    margin-bottom: 14px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid var(--nst-accent);
+}
+
+h3 {
+    font-size: 1.05rem;
+    color: var(--nst-primary);
+    margin-top: 22px;
+    margin-bottom: 10px;
+}
+
+h4 {
+    font-size: 0.95rem;
+    color: var(--nst-primary);
+    margin-top: 16px;
+    margin-bottom: 6px;
+}
+
+p {
+    margin-bottom: 12px;
+}
+
+ul, ol {
+    margin-bottom: 12px;
+    padding-left: 24px;
+}
+
+li {
+    margin-bottom: 4px;
+}
+
+a {
+    color: var(--nst-accent);
+    text-decoration: none;
+}
+
+strong {
+    color: var(--nst-primary);
+}
+
+/* ---------- COVER SECTION ---------- */
+.cover {
+    text-align: center;
+    padding: 60px 40px 48px;
+    background: linear-gradient(135deg, var(--nst-primary) 0%, #243b63 100%);
+    color: #ffffff;
+    border-radius: 8px;
+    margin-bottom: 40px;
+}
+
+.cover-eyebrow {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    opacity: 0.7;
+    margin-bottom: 12px;
+}
+
+.cover h1 {
+    color: #ffffff;
+    font-size: 2rem;
+    margin-bottom: 8px;
+    border: none;
+    padding: 0;
+}
+
+.cover-subtitle {
+    font-size: 1rem;
+    opacity: 0.85;
+    margin-bottom: 24px;
+}
+
+.cover-services {
+    font-size: 0.85rem;
+    opacity: 0.7;
+    margin-bottom: 0;
+}
+
+/* ---------- DOCUMENT CONTROL TABLE ---------- */
+.doc-control {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 32px;
+}
+
+.doc-control th {
+    background: var(--nst-primary);
+    color: #ffffff;
+    padding: 8px 14px;
+    text-align: left;
+    font-size: 0.85rem;
+}
+
+.doc-control td {
+    padding: 8px 14px;
+    border: 1px solid var(--nst-border);
+    font-size: 0.88rem;
+    background: var(--nst-light);
+}
+
+.doc-control td:first-child {
+    font-weight: 600;
+    color: var(--nst-primary);
+    width: 35%;
+}
+
+/* ---------- TABLES ---------- */
+table.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    font-size: 0.88rem;
+}
+
+table.data-table th {
+    background: var(--nst-primary);
+    color: #ffffff;
+    padding: 10px 12px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.85rem;
+}
+
+table.data-table td {
+    padding: 9px 12px;
+    border: 1px solid var(--nst-border);
+    vertical-align: top;
+}
+
+table.data-table tr:nth-child(even) td {
+    background: var(--nst-light);
+}
+
+/* ---------- SEVERITY BADGES ---------- */
+.sev-badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 4px;
+    font-size: 0.78rem;
+    font-weight: 700;
+}
+
+.sev-critical { background: #fce4e4; color: #c0392b; }
+.sev-high     { background: #fef3e2; color: #e67e22; }
+.sev-medium   { background: #eaf4ff; color: #2d6cdf; }
+.sev-low      { background: #e8f5e9; color: #27ae60; }
+
+/* ---------- FLOW DIAGRAM ---------- */
+.flow-diagram {
+    background: var(--nst-light);
+    border: 1px solid var(--nst-border);
+    border-radius: 8px;
+    padding: 28px;
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+.flow-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+}
+
+.flow-row:last-child {
+    margin-bottom: 0;
+}
+
+.flow-box {
+    background: #ffffff;
+    border: 2px solid var(--nst-accent);
+    border-radius: 6px;
+    padding: 10px 18px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--nst-primary);
+    min-width: 120px;
+    text-align: center;
+}
+
+.flow-arrow {
+    color: var(--nst-accent);
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.flow-arrow-down {
+    color: var(--nst-accent);
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin: 2px 0;
+}
+
+/* ---------- CALLOUT BOXES ---------- */
+.callout {
+    background: var(--nst-light);
+    border-left: 4px solid var(--nst-accent);
+    padding: 16px 20px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+.callout p {
+    margin-bottom: 0;
+}
+
+.callout-warning {
+    border-left-color: #e67e22;
+    background: #fef9f3;
+}
+
+.callout-info {
+    border-left-color: var(--nst-accent);
+}
+
+/* ---------- CODE/PRE TEMPLATES ---------- */
+.template-block {
+    background: var(--nst-light);
+    border: 1px solid var(--nst-border);
+    border-radius: 6px;
+    padding: 16px 20px;
+    margin-bottom: 20px;
+    font-family: 'Consolas', 'Courier New', monospace;
+    font-size: 0.82rem;
+    line-height: 1.5;
+    white-space: pre-wrap;
+    color: var(--nst-text);
+}
+
+.template-block strong {
+    color: var(--nst-primary);
+}
+
+/* ---------- HR DIVIDER ---------- */
+hr.divider {
+    border: none;
+    border-top: 1px solid var(--nst-border);
+    margin: 32px 0;
+}
+
+/* ---------- SIGNATURE TABLE ---------- */
+.signature-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 24px;
+}
+
+.signature-table th {
+    background: var(--nst-primary);
+    color: #ffffff;
+    padding: 8px 12px;
+    text-align: left;
+    font-size: 0.85rem;
+}
+
+.signature-table td {
+    padding: 14px 12px;
+    border: 1px solid var(--nst-border);
+    font-size: 0.88rem;
+    height: 48px;
+}
+
+/* ---------- GLOSSARY ---------- */
+.glossary-table td:first-child {
+    font-weight: 600;
+    color: var(--nst-primary);
+    width: 18%;
+}
+
+/* ---------- CONTACT BLOCK ---------- */
+.contact-block {
+    background: var(--nst-primary);
+    color: #ffffff;
+    padding: 28px 32px;
+    border-radius: 8px;
+    margin-top: 32px;
+}
+
+.contact-block h3 {
+    color: #ffffff;
+    margin-top: 0;
+    margin-bottom: 14px;
+    border: none;
+}
+
+.contact-block p {
+    margin-bottom: 6px;
+    font-size: 0.9rem;
+    opacity: 0.92;
+}
+
+.contact-block strong {
+    color: #ffffff;
+}
+
+/* ---------- PAGE BREAKS ---------- */
+.page-break {
+    page-break-before: always;
+}
+
+.avoid-break {
+    page-break-inside: avoid;
+}
+
+/* ---------- FOOTER ---------- */
+.doc-footer {
+    margin-top: 48px;
+    padding-top: 20px;
+    border-top: 2px solid var(--nst-primary);
+    text-align: center;
+    font-size: 0.82rem;
+    color: var(--nst-muted);
+}
+
+.doc-footer p {
+    margin-bottom: 4px;
+}
+
+/* ---------- SCREEN-ONLY NAV ---------- */
+.pdf-actions {
+    text-align: center;
+    margin-bottom: 24px;
+    display: block;
+}
+
+.btn-pdf {
+    display: inline-block;
+    background: var(--nst-accent);
+    color: #ffffff;
+    padding: 10px 28px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    transition: background 0.2s ease;
+}
+
+.btn-pdf:hover {
+    background: #1e54b0;
+}
+
+/* ============================================
+   PRINT MEDIA QUERIES
+   ============================================ */
+@media print {
+
+    @page {
+        size: Letter;
+        margin: 0.75in 0.75in 0.75in 0.75in;
+    }
+
+    body {
+        font-size: 11pt;
+        background: #ffffff;
+    }
+
+    .document {
+        max-width: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Hide screen-only elements */
+    .pdf-actions {
+        display: none !important;
+    }
+
+    /* Cover page styling */
+    .cover {
+        page-break-after: always;
+        margin-bottom: 0;
+        border-radius: 0;
+    }
+
+    /* Ensure headings stay with content */
+    h2, h3, h4 {
+        page-break-after: avoid;
+    }
+
+    /* Keep tables together where possible */
+    table.data-table {
+        page-break-inside: auto;
+    }
+
+    table.data-table tr {
+        page-break-inside: avoid;
+    }
+
+    /* Keep flow diagrams intact */
+    .flow-diagram {
+        page-break-inside: avoid;
+    }
+
+    /* Keep callouts intact */
+    .callout {
+        page-break-inside: avoid;
+    }
+
+    /* Keep template blocks intact */
+    .template-block {
+        page-break-inside: avoid;
+    }
+
+    /* Keep signature rows together */
+    .signature-table tr {
+        page-break-inside: avoid;
+    }
+
+    /* Force major sections to start on new page */
+    .page-break {
+        page-break-before: always;
+    }
+
+    /* Colors must print */
+    * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+}
+
+/* ============================================
+   RESPONSIVE (SCREEN VIEW)
+   ============================================ */
+@media (max-width: 768px) {
+    .document {
+        padding: 0 20px;
+        margin: 20px auto;
+    }
+
+    .cover {
+        padding: 40px 20px;
+    }
+
+    .cover h1 {
+        font-size: 1.5rem;
+    }
+
+    table.data-table {
+        font-size: 0.78rem;
+    }
+
+    table.data-table th,
+    table.data-table td {
+        padding: 6px 8px;
+    }
+
+    .flow-row {
+        flex-direction: column;
+    }
+
+    .flow-arrow {
+        transform: rotate(90deg);
+    }
+}
+</style>
+</head>
+<body>
+
+<div class="document">
+
+    <!-- ===== PDF ACTION BUTTON (screen only) ===== -->
+    <div class="pdf-actions">
+        <button class="btn-pdf" onclick="window.print()">
+            ⬇ Save as PDF
+        </button>
+    </div>
+
+    <!-- ===== COVER PAGE ===== -->
+    <div class="cover">
+        <p class="cover-eyebrow">Quality Management Office</p>
+        <h1>Customer Resolution Process</h1>
+        <p class="cover-subtitle">
+            Communication and Resolution Path for Addressing<br>
+            Customer Complaints and Issues
+        </p>
+        <p class="cover-services">
+            Legacy Modernization &nbsp;•&nbsp; Governed Agility &nbsp;•&nbsp; Cybersecurity &nbsp;•&nbsp; AI Governance
+        </p>
+    </div>
+
+    <!-- ===== DOCUMENT CONTROL ===== -->
+    <table class="doc-control avoid-break">
+        <tr><td>Document Title</td><td>Customer Resolution Process</td></tr>
+        <tr><td>Organization</td><td>New South Technologies</td></tr>
+        <tr><td>Version</td><td>1.0</td></tr>
+        <tr><td>Effective Date</td><td>January 2026</td></tr>
+        <tr><td>Classification</td><td>Public</td></tr>
+        <tr><td>Owner</td><td>Quality Management Office</td></tr>
+        <tr><td>Review Cycle</td><td>Quarterly</td></tr>
+    </table>
+
+    <div class="page-break"></div>
+
+    <!-- ===== 1. EXECUTIVE SUMMARY ===== -->
+    <h2>1. Executive Summary</h2>
+    <p>
+        New South Technologies is committed to delivering excellence in legacy modernization, governed agility,
+        cybersecurity, and AI governance services. This Customer Resolution Process establishes a clear,
+        accountable framework for addressing client concerns, complaints, or service issues. Our approach
+        integrates Six Sigma quality management principles with agile responsiveness to ensure timely,
+        transparent, and satisfactory resolutions.
+    </p>
+    <p>
+        Every concern received is treated as an opportunity to strengthen our partnership and improve
+        our delivery practices.
+    </p>
+
+    <!-- ===== 2. PURPOSE AND SCOPE ===== -->
+    <h2>2. Purpose and Scope</h2>
+
+    <h3>2.1 Purpose</h3>
+    <p>
+        To provide a standardized, fair, and efficient process for receiving, evaluating, and resolving
+        customer complaints or issues in a manner that preserves trust and drives continuous improvement.
+    </p>
+
+    <h3>2.2 Scope</h3>
+    <p>
+        Applies to all clients, prospective clients, and stakeholders engaging with New South Technologies
+        across all service lines:
+    </p>
+    <ul>
+        <li>Legacy Modernization</li>
+        <li>Governed Agility Framework</li>
+        <li>Cybersecurity &amp; Compliance</li>
+        <li>AI Governance</li>
+        <li>Executive Coaching &amp; Organizational Development</li>
+    </ul>
+    <p>
+        This process covers concerns related to service delivery, deliverable quality, communications,
+        timelines, billing, and contractual obligations.
+    </p>
+
+    <!-- ===== 3. GUIDING PRINCIPLES ===== -->
+    <h2>3. Guiding Principles</h2>
+    <table class="data-table avoid-break">
+        <thead>
+            <tr>
+                <th>Principle</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td><strong>Timeliness</strong></td><td>All concerns acknowledged within 24 business hours</td></tr>
+            <tr><td><strong>Transparency</strong></td><td>Clear communication at every stage of the resolution process</td></tr>
+            <tr><td><strong>Accountability</strong></td><td>Designated case owner responsible for each resolution</td></tr>
+            <tr><td><strong>Confidentiality</strong></td><td>Protection of client information and sensitive concerns</td></tr>
+            <tr><td><strong>Continuous Improvement</strong></td><td>All resolutions feed into organizational learning and process enhancement</td></tr>
+            <tr><td><strong>Fairness</strong></td><td>Impartial evaluation of concerns regardless of client size or contract value</td></tr>
+        </tbody>
+    </table>
+
+    <div class="page-break"></div>
+
+    <!-- ===== 4. PROCESS FLOW ===== -->
+    <h2>4. Process Flow Overview</h2>
+
+    <div class="flow-diagram avoid-break">
+        <div class="flow-row">
+            <div class="flow-box">Receipt</div>
+            <span class="flow-arrow">→</span>
+            <div class="flow-box">Acknowledge</div>
+            <span class="flow-arrow">→</span>
+            <div class="flow-box">Classify</div>
+        </div>
+        <div class="flow-arrow-down">↓</div>
+        <div class="flow-row">
+            <div class="flow-box">Investigate</div>
+            <span class="flow-arrow">→</span>
+            <div class="flow-box">Resolution</div>
+            <span class="flow-arrow">→</span>
+            <div class="flow-box">Close</div>
+        </div>
+        <div class="flow-arrow-down">↓</div>
+        <div class="flow-row">
+            <div class="flow-box">Learning</div>
+        </div>
+    </div>
+
+    <table class="data-table avoid-break">
+        <thead>
+            <tr>
+                <th>Phase</th>
+                <th>Description</th>
+                <th>Owner</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td><strong>Receipt</strong></td><td>Concern logged with unique case ID</td><td>Customer Success Lead</td></tr>
+            <tr><td><strong>Acknowledgment</strong></td><td>Confirmation sent within SLA</td><td>Case Owner</td></tr>
+            <tr><td><strong>Classification</strong></td><td>Severity level determined</td><td>Customer Success Lead</td></tr>
+            <tr><td><strong>Investigation</strong></td><td>Facts gathered, stakeholders engaged</td><td>Case Owner</td></tr>
+            <tr><td><strong>Resolution</strong></td><td>Solution proposed and implemented</td><td>Case Owner + Client</td></tr>
+            <tr><td><strong>Closure</strong></td><td>Satisfaction confirmed, case archived</td><td>Case Owner</td></tr>
+            <tr><td><strong>Learning</strong></td><td>Root cause analysis, improvement initiated</td><td>Quality Assurance</td></tr>
+        </tbody>
+    </table>
+
+    <div class="page-break"></div>
+
+    <!-- ===== 5. SEVERITY CLASSIFICATION ===== -->
+    <h2>5. Severity Classification Matrix</h2>
+    <table class="data-table avoid-break">
+        <thead>
+            <tr>
+                <th>Severity</th>
+                <th>Definition</th>
+                <th>Initial Response</th>
+                <th>Target Resolution</th>
+                <th>Escalation Path</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><span class="sev-badge sev-critical">Critical (P1)</span></td>
+                <td>Service outage, security breach, regulatory compliance failure</td>
+                <td>4 hours</td>
+                <td>24–48 hours</td>
+                <td>CEO / Partner Level</td>
+            </tr>
+            <tr>
+                <td><span class="sev-badge sev-high">High (P2)</span></td>
+                <td>Significant deliverable defect, milestone impact, resource constraint</td>
+                <td>8 hours</td>
+                <td>5 business days</td>
+                <td>Senior Leadership</td>
+            </tr>
+            <tr>
+                <td><span class="sev-badge sev-medium">Medium (P3)</span></td>
+                <td>Minor deliverable issue, scope clarification, documentation gap</td>
+                <td>24 hours</td>
+                <td>10 business days</td>
+                <td>Engagement Manager</td>
+            </tr>
+            <tr>
+                <td><span class="sev-badge sev-low">Low (P4)</span></td>
+                <td>General inquiry, feedback, suggestion, cosmetic concern</td>
+                <td>48 hours</td>
+                <td>15 business days</td>
+                <td>Project Lead</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="callout callout-info">
+        <p>
+            <strong>Note:</strong> Severity classification may be adjusted during investigation if new
+            information emerges. Clients may request reclassification at any time.
+        </p>
+    </div>
+
+    <div class="page-break"></div>
+
+    <!-- ===== 6. COMMUNICATION PATHWAYS ===== -->
+    <h2>6. Communication Pathways</h2>
+
+    <h3>6.1 Submission Channels</h3>
+    <table class="data-table avoid-break">
+        <thead>
+            <tr>
+                <th>Channel</th>
+                <th>Contact Method</th>
+                <th>Best For</th>
+                <th>Availability</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Online Form</strong></td>
+                <td>newsouthtechnologies.com/feedback</td>
+                <td>Structured submissions</td>
+                <td>24/7</td>
+            </tr>
+            <tr>
+                <td><strong>Email</strong></td>
+                <td>customersuccess@newsouthtechnologies.com</td>
+                <td>All concern types</td>
+                <td>Business Hours</td>
+            </tr>
+            <tr>
+                <td><strong>Engagement Manager</strong></td>
+                <td>Direct contact via assigned representative</td>
+                <td>Ongoing engagement issues</td>
+                <td>As needed</td>
+            </tr>
+            <tr>
+                <td><strong>Executive Escalation</strong></td>
+                <td>leadership@newsouthtechnologies.com</td>
+                <td>Unresolved critical matters</td>
+                <td>Business Hours</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>6.2 Communication Cadence</h3>
+    <table class="data-table avoid-break">
+        <thead>
+            <tr>
+                <th>Stage</th>
+                <th>Frequency</th>
+                <th>Responsible Party</th>
+                <th>Deliverable</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>Acknowledgment</td><td>Within 24 business hours</td><td>Case Owner</td><td>Confirmation email with case ID</td></tr>
+            <tr><td>Status Update</td><td>Weekly (or per severity)</td><td>Case Owner</td><td>Progress report</td></tr>
+            <tr><td>Investigation Complete</td><td>Upon fact gathering</td><td>Case Owner</td><td>Findings summary</td></tr>
+            <tr><td>Resolution Proposal</td><td>After investigation</td><td>Case Owner</td><td>Proposed solution with options</td></tr>
+            <tr><td>Implementation</td><td>Per agreed timeline</td><td>Case Owner</td><td>Completion notice</td></tr>
+            <tr><td>Closure Confirmation</td><td>At case closure</td><td>Case Owner</td><td>Satisfaction survey</td></tr>
+        </tbody>
+    </table>
+
+    <h3>6.3 Preferred Communication Method</h3>
+    <p>
+        Clients may indicate their preferred communication method (email, phone, video call) during the
+        acknowledgment phase. Preferences will be honored throughout the resolution process unless
+        circumstances require alternative contact.
+    </p>
+
+    <div class="page-break"></div>
+
+    <!-- ===== 7. ROLES AND RESPONSIBILITIES ===== -->
+    <h2>7. Roles and Responsibilities</h2>
+    <table class="data-table avoid-break">
+        <thead>
+            <tr>
+                <th>Role</th>
+                <th>Responsibility</th>
+                <th>Accountability</th>
+                <th>Typical Assignment</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Customer Success Lead</strong></td>
+                <td>Intake, triage, case assignment, process oversight</td>
+                <td>Process adherence</td>
+                <td>Quality Operations</td>
+            </tr>
+            <tr>
+                <td><strong>Engagement Manager</strong></td>
+                <td>Primary client relationship, coordination</td>
+                <td>Client relationship health</td>
+                <td>Account Lead</td>
+            </tr>
+            <tr>
+                <td><strong>Case Owner</strong></td>
+                <td>Investigation, resolution execution, client communication</td>
+                <td>Outcome delivery</td>
+                <td>Subject Matter Expert</td>
+            </tr>
+            <tr>
+                <td><strong>Quality Assurance</strong></td>
+                <td>Root cause analysis, trend tracking, improvement initiation</td>
+                <td>Process enhancement</td>
+                <td>QA Team</td>
+            </tr>
+            <tr>
+                <td><strong>Leadership Team</strong></td>
+                <td>P1/P2 escalation review, strategic oversight</td>
+                <td>Organizational accountability</td>
+                <td>Partners / Directors</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="callout callout-info">
+        <p>
+            <strong>Single Point of Contact:</strong> Each case has one designated Case Owner who serves
+            as the consistent point of contact throughout the resolution lifecycle.
+        </p>
+    </div>
+
+    <div class="page-break"></div>
+
+    <!-- ===== 8. DETAILED RESOLUTION WORKFLOW ===== -->
+    <h2>8. Detailed Resolution Workflow</h2>
+
+    <h3>Step 1: Receipt and Logging</h3>
+    <ul>
+        <li>All concerns entered into centralized tracking system</li>
+        <li>Unique case ID assigned (format: CRS-YYYY-NNNN)</li>
+        <li>Initial categorization applied (service line, concern type)</li>
+        <li>Automated receipt notification sent to submitting party</li>
+    </ul>
+    <p><strong>Duration:</strong> Immediate upon submission &nbsp;|&nbsp; <strong>Output:</strong> Logged case with tracking number</p>
+
+    <h3>Step 2: Acknowledgment</h3>
+    <ul>
+        <li>Formal acknowledgment sent within SLA timeframe (Section 5)</li>
+        <li>Case ID provided to client</li>
+        <li>Expected timeline communicated based on severity</li>
+        <li>Case owner identified and introduced</li>
+    </ul>
+    <p><strong>Duration:</strong> 4–48 business hours (per severity) &nbsp;|&nbsp; <strong>Output:</strong> Acknowledgment confirmation</p>
+
+    <h3>Step 3: Investigation</h3>
+    <ul>
+        <li>Facts gathered from all relevant parties (internal and external)</li>
+        <li>Documentation reviewed (deliverables, emails, contracts, meeting notes)</li>
+        <li>Root cause preliminary assessment conducted</li>
+        <li>Impact evaluation completed (timeline, cost, reputation, compliance)</li>
+        <li>Stakeholders identified and briefed as appropriate</li>
+    </ul>
+    <p><strong>Duration:</strong> Typically 1–5 business days &nbsp;|&nbsp; <strong>Output:</strong> Investigation findings summary</p>
+
+    <h3>Step 4: Resolution Development</h3>
+    <ul>
+        <li>Remediation options developed (often 2–3 alternatives)</li>
+        <li>Cost/benefit analysis performed where applicable</li>
+        <li>Timeline for each option estimated</li>
+        <li>Client preference solicited and incorporated</li>
+        <li>Agreement on path forward documented</li>
+    </ul>
+    <p><strong>Duration:</strong> 1–3 business days after investigation &nbsp;|&nbsp; <strong>Output:</strong> Resolution proposal with sign-off</p>
+
+    <h3>Step 5: Implementation</h3>
+    <ul>
+        <li>Resolution executed per agreed approach</li>
+        <li>Verification testing performed (if applicable)</li>
+        <li>Quality checks completed</li>
+        <li>Client confirmation obtained</li>
+        <li>Documentation updated in case file</li>
+    </ul>
+    <p><strong>Duration:</strong> Varies by complexity (1–10 business days) &nbsp;|&nbsp; <strong>Output:</strong> Implemented resolution with verification</p>
+
+    <h3>Step 6: Closure and Learning</h3>
+    <ul>
+        <li>Customer satisfaction survey administered</li>
+        <li>Root cause analysis finalized (mandatory for P1–P2)</li>
+        <li>Corrective and preventive actions (CAPA) documented</li>
+        <li>Process improvements initiated if systemic issue identified</li>
+        <li>Case archived in tracking system</li>
+    </ul>
+    <p><strong>Duration:</strong> Within 3 business days of resolution &nbsp;|&nbsp; <strong>Output:</strong> Closed case record, improvement initiative</p>
+
+    <div class="page-break"></div>
+
+    <!-- ===== 9. ESCALATION PROCEDURES ===== -->
+    <h2>9. Escalation Procedures</h2>
+
+    <h3>9.1 Internal Escalation Path</h3>
+
+    <div class="flow-diagram avoid-break">
+        <div class="flow-row">
+            <div class="flow-box">Case Owner</div>
+            <span class="flow-arrow">→</span>
+            <div class="flow-box">Engagement Manager</div>
+            <span class="flow-arrow">→</span>
+            <div class="flow-box">Quality Director</div>
+            <span class="flow-arrow">→</span>
+            <div class="flow-box">Chief Executive Officer</div>
+        </div>
+    </div>
+
+    <h3>9.2 Triggers for Escalation</h3>
+    <p>An escalation is warranted when any of the following occur:</p>
+    <ul>
+        <li>SLA breach risk identified</li>
+        <li>Client requests escalation explicitly</li>
+        <li>Cross-functional dependency blocking resolution</li>
+        <li>Reputational risk assessment requires leadership attention</li>
+        <li>Contractual or legal implications arise</li>
+        <li>Pattern of repeated issues with same client</li>
+    </ul>
+
+    <h3>9.3 External Communication Protocol</h3>
+    <ul>
+        <li>All public-facing communications pre-approved by leadership</li>
+        <li>Legal review engaged for contractual or regulatory implications</li>
+        <li>Media/press inquiries directed to designated spokesperson only</li>
+        <li>No unauthorized disclosures to third parties</li>
+    </ul>
+
+    <div class="page-break"></div>
+
+    <!-- ===== 10. METRICS AND REPORTING ===== -->
+    <h2>10. Metrics and Reporting</h2>
+
+    <h3>10.1 Key Performance Indicators</h3>
+    <table class="data-table avoid-break">
+        <thead>
+            <tr>
+                <th>KPI</th>
+                <th>Target</th>
+                <th>Measurement Method</th>
+                <th>Reporting</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>First Response Time</td><td>&lt; 24 business hours</td><td>Case timestamp comparison</td><td>Weekly</td></tr>
+            <tr><td>Resolution Rate</td><td>&gt; 95% within SLA</td><td>Closed cases vs. open cases</td><td>Monthly</td></tr>
+            <tr><td>Customer Satisfaction</td><td>&gt; 4.5 / 5.0</td><td>Post-closure survey</td><td>Monthly</td></tr>
+            <tr><td>Repeat Complaint Rate</td><td>&lt; 5%</td><td>Same-issue recurrence tracking</td><td>Quarterly</td></tr>
+            <tr><td>Escalation Rate</td><td>&lt; 10% of total cases</td><td>Escalated vs. non-escalated</td><td>Monthly</td></tr>
+            <tr><td>Average Resolution Time</td><td>Per severity matrix</td><td>End-to-end duration</td><td>Monthly</td></tr>
+        </tbody>
+    </table>
+
+    <h3>10.2 Reports Generated For</h3>
+    <ul>
+        <li><strong>Monthly Operational Review</strong> — Leadership team review of all open/closed cases</li>
+        <li><strong>Quarterly Executive Dashboard</strong> — Trend analysis, systemic issues, improvement initiatives</li>
+        <li><strong>Annual Continuous Improvement Planning</strong> — Year-over-year performance, process updates</li>
+    </ul>
+
+    <h3>10.3 Client Transparency</h3>
+    <p>Upon request, clients may receive:</p>
+    <ul>
+        <li>Status report on their active cases</li>
+        <li>Aggregate statistics (anonymized) for benchmarking</li>
+        <li>Summary of resolution actions taken</li>
+    </ul>
+
+    <div class="page-break"></div>
+
+    <!-- ===== 11. CONTINUOUS IMPROVEMENT ===== -->
+    <h2>11. Continuous Improvement Integration</h2>
+    <p>All resolved cases contribute to organizational learning:</p>
+    <table class="data-table avoid-break">
+        <thead>
+            <tr>
+                <th>Event</th>
+                <th>Requirement</th>
+                <th>Timeline</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>P1 Cases</td><td>Mandatory post-mortem</td><td>Within 5 business days</td></tr>
+            <tr><td>P2 Cases</td><td>Root cause analysis documented</td><td>Within 10 business days</td></tr>
+            <tr><td>P3–P4 Cases</td><td>Spot-review sampling</td><td>Monthly sampling</td></tr>
+            <tr><td>Trend Analysis</td><td>Cross-case pattern identification</td><td>Monthly</td></tr>
+            <tr><td>Process Updates</td><td>Quarterly effectiveness review</td><td>Quarterly</td></tr>
+        </tbody>
+    </table>
+    <p>Feedback loop ensures lessons learned inform:</p>
+    <ul>
+        <li>Service delivery methodologies</li>
+        <li>Training and competency development</li>
+        <li>Contract and Statement of Work templates</li>
+        <li>Quality assurance checkpoints</li>
+        <li>Onboarding and knowledge transfer processes</li>
+    </ul>
+
+    <!-- ===== 12. CONFIDENTIALITY AND DATA PROTECTION ===== -->
+    <h2>12. Confidentiality and Data Protection</h2>
+
+    <h3>12.1 Information Handling</h3>
+    <ul>
+        <li>All customer concerns handled with strict confidentiality</li>
+        <li>Personal identifiable information (PII) protected under applicable privacy policies</li>
+        <li>Case records accessible only to need-to-know personnel</li>
+        <li>Encryption applied to electronic case files where appropriate</li>
+    </ul>
+
+    <h3>12.2 Record Retention</h3>
+    <ul>
+        <li>Case records retained for minimum 7 years per professional liability requirements</li>
+        <li>Archival and retrieval procedures in place for audit purposes</li>
+        <li>Secure destruction protocol after retention period expires</li>
+    </ul>
+
+    <h3>12.3 Regulatory Alignment</h3>
+    <p>This process aligns with relevant frameworks including:</p>
+    <ul>
+        <li>Federal Acquisition Regulation (FAR) provisions for contractor conduct</li>
+        <li>CMMC 2.0 requirements for controlled unclassified information (CUI)</li>
+        <li>GDPR and state privacy laws where applicable</li>
+        <li>Industry-specific compliance standards (e.g., HIPAA, FedRAMP)</li>
+    </ul>
+
+    <div class="page-break"></div>
+
+    <!-- ===== APPENDIX A: RESPONSE TEMPLATES ===== -->
+    <h2>Appendix A: Sample Response Templates</h2>
+
+    <h3>A.1 Acknowledgment Template</h3>
+    <div class="template-block avoid-break">Subject: Concern Received – Case #[CRS-ID]
+
+Dear [Customer Name],
+
+Thank you for bringing this matter to our attention. We have 
+received your concern and assigned case number [CRS-ID].
+
+Our [Role] will serve as your point of contact and will provide 
+a status update by [Date/Timeframe]. We take your feedback 
+seriously and are committed to resolving this matter promptly.
+
+Should you have any immediate questions, please contact me 
+directly at [phone/email].
+
+Best regards,
+[Name]
+[Title]
+New South Technologies</div>
+
+    <h3>A.2 Resolution Confirmation Template</h3>
+    <div class="template-block avoid-break">Subject: Concern Resolved – Case #[CRS-ID]
+
+Dear [Customer Name],
+
+We are pleased to confirm that the issue you reported has been 
+resolved. Summary of actions taken: [Brief description].
+
+Please let us know if you have any further questions or require 
+additional assistance. We appreciate the opportunity to address 
+your concerns and value your continued partnership.
+
+Best regards,
+[Name]
+[Title]
+New South Technologies</div>
+
+    <h3>A.3 Escalation Notification Template</h3>
+    <div class="template-block avoid-break">Subject: Escalated Concern – Case #[CRS-ID]
+
+Dear [Customer Name],
+
+Per your request [or: given the nature of this concern], this 
+matter has been escalated to [Level/Individual]. They will be 
+contacting you within [timeframe] to discuss next steps.
+
+Rest assured that this escalation does not diminish our 
+commitment to a thorough and fair resolution.
+
+Best regards,
+[Name]
+[Title]
+New South Technologies</div>
+
+    <!-- ===== APPENDIX B: RELATED DOCUMENTS ===== -->
+    <h2>Appendix B: Related Documents</h2>
+    <table class="data-table avoid-break">
+        <thead>
+            <tr>
+                <th>Document</th>
+                <th>Purpose</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>Service Level Agreement (SLA) Templates</td><td>Defines baseline service commitments</td></tr>
+            <tr><td>Customer Success Playbook</td><td>Guides proactive client engagement</td></tr>
+            <tr><td>Quality Management Framework</td><td>Overall QMS structure and requirements</td></tr>
+            <tr><td>Privacy Policy</td><td>Data handling and protection standards</td></tr>
+            <tr><td>Terms of Engagement</td><td>Contractual foundation for client relationships</td></tr>
+            <tr><td>Code of Conduct</td><td>Ethical standards for employee interactions</td></tr>
+        </tbody>
+    </table>
+
+    <!-- ===== APPENDIX C: GLOSSARY ===== -->
+    <h2>Appendix C: Glossary of Terms</h2>
+    <table class="data-table glossary-table avoid-break">
+        <thead>
+            <tr>
+                <th>Term</th>
+                <th>Definition</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>CAPA</td><td>Corrective and Preventive Action</td></tr>
+            <tr><td>CUI</td><td>Controlled Unclassified Information</td></tr>
+            <tr><td>KPI</td><td>Key Performance Indicator</td></tr>
+            <tr><td>P1–P4</td><td>Priority levels (Critical to Low)</td></tr>
+            <tr><td>SLA</td><td>Service Level Agreement</td></tr>
+            <tr><td>SOW</td><td>Statement of Work</td></tr>
+        </tbody>
+    </table>
+
+    <div class="page-break"></div>
+
+    <!-- ===== DOCUMENT APPROVAL ===== -->
+    <h2>Document Approval</h2>
+    <table class="signature-table avoid-break">
+        <thead>
+            <tr>
+                <th>Role</th>
+                <th>Name</th>
+                <th>Signature</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>Prepared By</td><td>Quality Team Lead</td><td></td><td></td></tr>
+            <tr><td>Reviewed By</td><td>Engagement Director</td><td></td><td></td></tr>
+            <tr><td>Approved By</td><td>Chief Executive Officer</td><td></td><td></td></tr>
+        </tbody>
+    </table>
+
+    <!-- ===== REVISION HISTORY ===== -->
+    <h2>Revision History</h2>
+    <table class="data-table avoid-break">
+        <thead>
+            <tr>
+                <th>Version</th>
+                <th>Date</th>
+                <th>Changes</th>
+                <th>Author</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>1.0</td><td>January 2026</td><td>Initial release</td><td>Quality Team</td></tr>
+        </tbody>
+    </table>
+
+    <!-- ===== CONTACT INFORMATION ===== -->
+    <div class="contact-block avoid-break">
+        <h3>Contact Information</h3>
+        <p><strong>Customer Success Lead</strong></p>
+        <p>Email: customersuccess@newsouthtechnologies.com</p>
+        <p>Website: newsouthtechnologies.com/feedback</p>
+        <br>
+        <p><strong>Executive Escalation</strong></p>
+        <p>Email: leadership@newsouthtechnologies.com</p>
+        <br>
+        <p><strong>Hours of Operation</strong></p>
+        <p>Monday–Friday, 8:00 AM – 6:00 PM Eastern Time</p>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <div class="doc-footer">
+        <p>&copy; 2026 New South Technologies. All rights reserved.</p>
+        <p>Legacy Modernization • Governed Agility • Cybersecurity • AI Governance</p>
+        <p>Customer Resolution Process — Version 1.0</p>
+    </div>
+
+</div>
+
+</body>
+</html>
