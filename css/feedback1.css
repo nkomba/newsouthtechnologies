@@ -1,0 +1,415 @@
+/* ============================================
+   NewSouth Technologies — Feedback Form Styles
+   ============================================ */
+
+:root {
+    --nst-primary: #1a2b4a;
+    --nst-accent: #2d6cdf;
+    --nst-light: #f4f6fa;
+    --nst-border: #d0d7e2;
+    --nst-text: #1a2332;
+    --nst-muted: #5a6878;
+    --nst-danger: #c0392b;
+    --nst-success: #27ae60;
+    --nst-warning: #e67e22;
+}
+
+/* Reset & Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    color: var(--nst-text);
+    background: var(--nst-light);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* Navigation */
+.nav-bar {
+    background: var(--nst-primary);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 64px;
+}
+
+.nav-logo {
+    color: #ffffff;
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-decoration: none;
+    letter-spacing: -0.02em;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 28px;
+}
+
+.nav-links a {
+    color: #cfd8e8;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+    color: #ffffff;
+}
+
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.nav-toggle span {
+    width: 24px;
+    height: 2px;
+    background: #ffffff;
+    border-radius: 2px;
+}
+
+/* Page Header */
+.page-header {
+    background: linear-gradient(135deg, var(--nst-primary) 0%, #243b63 100%);
+    color: #ffffff;
+    padding: 64px 0 48px;
+    text-align: center;
+}
+
+.page-header h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.page-header p {
+    font-size: 1.05rem;
+    opacity: 0.9;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Feedback Section */
+.feedback-section {
+    padding: 56px 0;
+}
+
+.feedback-intro {
+    margin-bottom: 40px;
+    max-width: 720px;
+}
+
+.feedback-intro h2 {
+    font-size: 1.6rem;
+    color: var(--nst-primary);
+    margin-bottom: 12px;
+}
+
+.feedback-intro p {
+    color: var(--nst-muted);
+}
+
+/* Form Steps */
+.feedback-form {
+    max-width: 720px;
+}
+
+.form-step {
+    border: 1px solid var(--nst-border);
+    border-radius: 8px;
+    padding: 32px;
+    margin-bottom: 24px;
+    background: #ffffff;
+}
+
+.form-step legend {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--nst-primary);
+    padding: 0 12px;
+    margin-bottom: 20px;
+}
+
+.form-row {
+    display: flex;
+    gap: 20px;
+}
+
+.form-row .form-group {
+    flex: 1;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--nst-text);
+    margin-bottom: 6px;
+}
+
+.required {
+    color: var(--nst-danger);
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid var(--nst-border);
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-family: inherit;
+    background: #ffffff;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--nst-accent);
+    box-shadow: 0 0 0 3px rgba(45, 108, 223, 0.12);
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.form-hint {
+    font-size: 0.82rem;
+    color: var(--nst-muted);
+    margin-top: 4px;
+}
+
+/* Checkbox Group */
+.checkbox-group {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.checkbox-group input[type="checkbox"] {
+    margin-top: 4px;
+    flex-shrink: 0;
+}
+
+.checkbox-label {
+    font-weight: 400;
+    font-size: 0.9rem;
+    color: var(--nst-muted);
+    line-height: 1.5;
+}
+
+.checkbox-label a {
+    color: var(--nst-accent);
+}
+
+/* Form Actions */
+.form-actions {
+    display: flex;
+    gap: 16px;
+    margin-top: 32px;
+}
+
+.btn-primary {
+    background: var(--nst-accent);
+    color: #ffffff;
+    border: none;
+    padding: 12px 32px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.btn-primary:hover {
+    background: #1e54b0;
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--nst-muted);
+    border: 1px solid var(--nst-border);
+    padding: 12px 32px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.btn-secondary:hover {
+    background: var(--nst-light);
+}
+
+/* Alternative Contact */
+.alt-contact {
+    margin-top: 48px;
+    padding: 24px;
+    background: var(--nst-light);
+    border-left: 4px solid var(--nst-accent);
+    border-radius: 4px;
+}
+
+.alt-contact h3 {
+    font-size: 1.1rem;
+    color: var(--nst-primary);
+    margin-bottom: 8px;
+}
+
+.alt-contact p {
+    color: var(--nst-muted);
+    font-size: 0.92rem;
+}
+
+/* Next Steps */
+.next-steps {
+    background: var(--nst-primary);
+    color: #ffffff;
+    padding: 56px 0;
+}
+
+.next-steps h2 {
+    text-align: center;
+    font-size: 1.8rem;
+    margin-bottom: 40px;
+}
+
+.steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 24px;
+}
+
+.step-card {
+    text-align: center;
+    padding: 24px 16px;
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 8px;
+    transition: background 0.2s ease;
+}
+
+.step-card:hover {
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.step-number {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--nst-accent);
+    color: #ffffff;
+    font-size: 1.1rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 12px;
+}
+
+.step-card h3 {
+    font-size: 1rem;
+    margin-bottom: 8px;
+}
+
+.step-card p {
+    font-size: 0.85rem;
+    opacity: 0.85;
+}
+
+/* Footer */
+.site-footer {
+    background: #0f1c33;
+    color: #8a9bb5;
+    padding: 32px 0;
+    text-align: center;
+}
+
+.site-footer p {
+    font-size: 0.85rem;
+    margin-bottom: 4px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .nav-toggle {
+        display: flex;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 64px;
+        left: 0;
+        right: 0;
+        background: var(--nst-primary);
+        flex-direction: column;
+        padding: 16px 24px;
+        gap: 12px;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .form-step {
+        padding: 20px;
+    }
+
+    .page-header h1 {
+        font-size: 1.6rem;
+    }
+
+    .steps-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .steps-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-actions {
+        flex-direction: column;
+    }
+}
