@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, follow">
+    <title>Page Not Found (404) | New South Technologies</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        .nf-main {
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 4rem 1rem;
+        }
+        .nf-inner { max-width: 640px; }
+        .nf-code {
+            font-size: clamp(3.5rem, 12vw, 6rem);
+            font-weight: 700;
+            line-height: 1;
+            margin: 0 0 0.5rem;
+            color: #0F172A;
+            letter-spacing: -0.02em;
+        }
+        .nf-title { font-size: 1.5rem; font-weight: 600; margin: 0 0 1rem; }
+        .nf-text { font-size: 1.05rem; line-height: 1.6; margin: 0 0 2rem; color: #475569; }
+        .nf-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+        .nf-links { margin-top: 2.5rem; font-size: 0.95rem; }
+        .nf-links a { margin: 0 0.5rem; }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container nav-inner">
+            <a href="/index.html" class="logo" aria-label="New South Technologies Home">
+                <img src="/assets/images/logo-lockup.svg" alt="New South Technologies Logo" class="logo-img">
+            </a>
+            <button class="mobile-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Toggle navigation menu">
+                <span class="hamburger-icon"></span>
+            </button>
+            <ul id="main-nav" class="nav-links">
+                <li><a href="/index.html">Home</a></li>
+                <li><a href="/training.html">Training</a></li>
+                <li><a href="/modernization.html">Modernize</a></li>
+                <li><a href="/governed-agility.html">Governed Agile</a></li>
+                <li><a href="/responsible-ai.html">Responsible AI</a></li>
+                <li><a href="/careers.html">Careers</a></li>
+                <li><a href="/blog.html">Insights</a></li>
+                <li><a href="/index.html#contact" class="btn btn-primary">Request Audit</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="nf-main">
+        <div class="nf-inner">
+            <p class="nf-code">404</p>
+            <h1 class="nf-title">This page couldn&rsquo;t be found</h1>
+            <p class="nf-text">The page you&rsquo;re looking for doesn&rsquo;t exist or may have moved. Let&rsquo;s get you back to something useful.</p>
+            <div class="nf-actions">
+                <a href="/index.html" class="btn btn-primary">Return to homepage</a>
+                <a href="/index.html#contact" class="btn btn-secondary">Request a compliance audit</a>
+            </div>
+            <nav class="nf-links" aria-label="Helpful links">
+                <a href="/services.html">Services</a>
+                <a href="/modernization.html">Modernization</a>
+                <a href="/blog.html">Insights</a>
+                <a href="/case-studies.html">Case Studies</a>
+                <a href="/contact.html">Contact</a>
+            </nav>
+        </div>
+    </main>
+</body>
+</html>
