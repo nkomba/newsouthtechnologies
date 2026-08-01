@@ -25,13 +25,34 @@
     <!-- Stylesheets -->
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/training.css">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://newsouthtechnologies.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Training",
+      "item": "https://newsouthtechnologies.com/training"
+    }
+  ]
+}
+    </script>
 </head>
 <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
 
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container nav-inner">
-            <a href="./index.html" class="logo" aria-label="New South Technologies Home">
+            <a href="/" class="logo" aria-label="New South Technologies Home">
                 <img src="./assets/images/logo-lockup.svg" alt="New South Technologies Logo" class="logo-img">
             </a>
 
@@ -40,19 +61,19 @@
             </button>
 
             <ul id="main-nav" class="nav-links">
-                <li><a href="./index.html">Home</a></li>
-                <li><a href="./training.html" aria-current="page">Training</a></li>
-                <li><a href="./modernization.html">Modernize</a></li>
-                <li><a href="./governed-agility.html">Governed Agile</a></li>
-                <li><a href="./responsible-ai.html">Responsible AI</a></li>
-                <li><a href="./careers.html">Careers</a></li>
-                <li><a href="./blog.html">Insights</a></li>
-                <li><a href="./index.html#contact" class="btn btn-primary">Request Audit</a></li>
+                <li><a href="/">Home</a></li>
+                <li><a href="/training" aria-current="page">Training</a></li>
+                <li><a href="/modernization">Modernize</a></li>
+                <li><a href="/governed-agility">Governed Agile</a></li>
+                <li><a href="/responsible-ai">Responsible AI</a></li>
+                <li><a href="/careers">Careers</a></li>
+                <li><a href="/blog">Insights</a></li>
+                <li><a href="/#contact" class="btn btn-primary">Request Audit</a></li>
             </ul>
         </div>
     </nav>
 
-    <main>
+    <main id="main-content">
         <!-- Hero -->
         <header class="hero hero-training">
             <div class="hero-pattern" aria-hidden="true"></div>
@@ -91,15 +112,15 @@
                 </div>
                 <div class="grid">
                     <article class="card">
-                        <h3><a href="./courses/fedramp-landing-zone-readiness.html">FedRAMP Landing Zone Readiness</a></h3>
+                        <h3><a href="/courses/fedramp-landing-zone-readiness">FedRAMP Landing Zone Readiness</a></h3>
                         <p>Design and stand up a FedRAMP-aligned cloud landing zone with NIST 800-53 controls and ATO-ready evidence.</p>
                     </article>
                     <article class="card">
-                        <h3><a href="./courses/strangler-fig-migration-federal-it.html">Strangler-Fig Migration for Federal IT Teams</a></h3>
+                        <h3><a href="/courses/strangler-fig-migration-federal-it">Strangler-Fig Migration for Federal IT Teams</a></h3>
                         <p>Modernize a legacy mainframe incrementally &mdash; no big-bang cutover, no mission downtime.</p>
                     </article>
                     <article class="card">
-                        <h3><a href="./courses/legacy-mainframe-decoupling-bootcamp.html">Legacy Mainframe Decoupling Bootcamp</a></h3>
+                        <h3><a href="/courses/legacy-mainframe-decoupling-bootcamp">Legacy Mainframe Decoupling Bootcamp</a></h3>
                         <p>An intensive bootcamp for government contractors decoupling business logic from aging mainframes.</p>
                     </article>
                 </div>
@@ -612,7 +633,7 @@
                     <p>Participant feedback, delivery review, and continuous refinement are built into how we maintain strong learner outcomes and client satisfaction, cohort after cohort. See the standards we hold and how each session informs the next.</p>
                 </div>
                 <div class="quality-band-cta">
-                    <a href="./feedback.html" class="btn btn-primary">View Training Feedback &amp; Quality</a>
+                    <a href="/feedback" class="btn btn-primary">View Training Feedback &amp; Quality</a>
                 </div>
             </div>
         </section>
@@ -622,7 +643,7 @@
             <div class="container">
                 <div class="section-header">
                     <h2>Why Train With New South Technologies</h2>
-                    <p>We teach the disciplines we practice on live federal and state modernization programs — and we measure every session. See how we gather and act on participant feedback on our <a href="./feedback.html">Training Feedback &amp; Quality</a> page.</p>
+                    <p>We teach the disciplines we practice on live federal and state modernization programs — and we measure every session. See how we gather and act on participant feedback on our <a href="/feedback">Training Feedback &amp; Quality</a> page.</p>
                 </div>
                 <div class="why-train-grid">
                     <div class="why-train-card">
@@ -653,7 +674,7 @@
         <section class="training-inquiry" id="inquiry">
             <div class="container">
                 <h2>Request Training</h2>
-                <p class="inquiry-sub">Tell us what you're after — confirmed dates, pricing, an enterprise session, or a private cohort — and we'll respond within one business day. Need more options (job title, participant count, timeframe)? Use the <a href="./request-training.html">full training request form</a>.</p>
+                <p class="inquiry-sub">Tell us what you're after — confirmed dates, pricing, an enterprise session, or a private cohort — and we'll respond within one business day. Need more options (job title, participant count, timeframe)? Use the <a href="/request-training">full training request form</a>.</p>
 
                 <form action="https://formspree.io/f/mvznzwav" method="POST" class="training-form">
                     <div class="form-row">
@@ -735,10 +756,10 @@
                     <input type="hidden" name="_next" value="https://newsouthtechnologies.com/thanks.html">
 
                     <div class="form-privacy-notice">
-                        <p><span aria-hidden="true">🔒</span> Submitted over <strong>TLS 1.3 (HTTPS)</strong> and processed by our third-party form provider, <strong>Formspree</strong> (US-based, SOC 2 Type II). We collect only the details you enter here. See how form data is encrypted, stored, and retained in our <a href="./privacy-form-submissions.html">Form Submissions Notice</a>.</p>
+                        <p><span aria-hidden="true">🔒</span> Submitted over <strong>TLS 1.3 (HTTPS)</strong> and processed by our third-party form provider, <strong>Formspree</strong> (US-based, SOC 2 Type II). We collect only the details you enter here. See how form data is encrypted, stored, and retained in our <a href="/privacy-form-submissions">Form Submissions Notice</a>.</p>
                         <div class="form-consent">
                             <input type="checkbox" id="privacy-consent" name="privacyConsent" required>
-                            <label for="privacy-consent">I consent to New South Technologies processing my information as described in the <a href="./privacy-form-submissions.html">Form Submissions Notice</a>. *</label>
+                            <label for="privacy-consent">I consent to New South Technologies processing my information as described in the <a href="/privacy-form-submissions">Form Submissions Notice</a>. *</label>
                         </div>
                     </div>
 
@@ -760,13 +781,13 @@
             <div class="footer-links">
                 <h4>Capabilities</h4>
                 <ul>
-                    <li><a href="./modernization.html">Modernize</a></li>
-                    <li><a href="./governed-agility.html">Governed Agile</a></li>
-                    <li><a href="./responsible-ai.html">Responsible AI</a></li>
-                    <li><a href="./training.html">Training</a></li>
-                    <li><a href="./feedback.html">Training Feedback &amp; Quality</a></li>
-                    <li><a href="./request-training.html">Request Training</a></li>
-                    <li><a href="./blog.html">Insights</a></li>
+                    <li><a href="/modernization">Modernize</a></li>
+                    <li><a href="/governed-agility">Governed Agile</a></li>
+                    <li><a href="/responsible-ai">Responsible AI</a></li>
+                    <li><a href="/training">Training</a></li>
+                    <li><a href="/feedback">Training Feedback &amp; Quality</a></li>
+                    <li><a href="/request-training">Request Training</a></li>
+                    <li><a href="/blog">Insights</a></li>
                 </ul>
             </div>
             <div class="footer-credentials">
@@ -783,11 +804,11 @@
         </div>
         <div class="footer-bottom">
             <nav class="footer-nav" aria-label="Legal">
-                <a href="./privacy-policy.html">Privacy Policy</a>
-                <a href="./privacy-form-submissions.html">Form Submissions Notice</a>
-                <a href="./accessibility.html">Accessibility</a>
-                <a href="./terms.html">Terms of Service</a>
-                <a href="./contact.html">Contact</a>
+                <a href="/privacy-policy">Privacy Policy</a>
+                <a href="/privacy-form-submissions">Form Submissions Notice</a>
+                <a href="/accessibility">Accessibility</a>
+                <a href="/terms">Terms of Service</a>
+                <a href="/contact">Contact</a>
             </nav>
             <p>&copy; 2026 New South Technologies. All rights reserved.</p>
         </div>

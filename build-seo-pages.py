@@ -84,26 +84,27 @@ def head(title, desc, canonical, extra="", prefix="./", keywords=""):
     <link rel="stylesheet" href="{prefix}css/article.css">
 {extra}</head>
 <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
 '''
 
 def nav(active, prefix="./"):
     c = lambda n: ' aria-current="page"' if n == active else ''
     return f'''    <nav class="navbar">
         <div class="container nav-inner">
-            <a href="{prefix}index.html" class="logo" aria-label="New South Technologies Home">
+            <a href="/" class="logo" aria-label="New South Technologies Home">
                 <img src="{prefix}assets/images/logo-lockup.svg" alt="New South Technologies Logo" class="logo-img">
             </a>
             <button class="mobile-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Toggle navigation menu">
                 <span class="hamburger-icon"></span>
             </button>
             <ul id="main-nav" class="nav-links">
-                <li><a href="{prefix}index.html"{c('home')}>Home</a></li>
-                <li><a href="{prefix}services.html"{c('services')}>Services</a></li>
-                <li><a href="{prefix}training.html"{c('training')}>Training</a></li>
-                <li><a href="{prefix}about.html"{c('about')}>About</a></li>
-                <li><a href="{prefix}capability-statement.html"{c('cap')}>Capability</a></li>
-                <li><a href="{prefix}blog.html"{c('blog')}>Insights</a></li>
-                <li><a href="{prefix}index.html#contact" class="btn btn-primary">Request Audit</a></li>
+                <li><a href="/"{c('home')}>Home</a></li>
+                <li><a href="/services"{c('services')}>Services</a></li>
+                <li><a href="/training"{c('training')}>Training</a></li>
+                <li><a href="/about"{c('about')}>About</a></li>
+                <li><a href="/capability-statement"{c('cap')}>Capability</a></li>
+                <li><a href="/blog"{c('blog')}>Insights</a></li>
+                <li><a href="/#contact" class="btn btn-primary">Request Audit</a></li>
             </ul>
         </div>
     </nav>
@@ -121,22 +122,22 @@ def footer(prefix="./"):
             <div class="footer-links">
                 <h4>Company</h4>
                 <ul>
-                    <li><a href="{prefix}about.html">About</a></li>
-                    <li><a href="{prefix}services.html">Services</a></li>
-                    <li><a href="{prefix}capability-statement.html">Capability Statement</a></li>
-                    <li><a href="{prefix}compliance-resources.html">Compliance Resources</a></li>
-                    <li><a href="{prefix}faq.html">FAQ</a></li>
-                    <li><a href="{prefix}case-studies.html">Case Studies</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/services">Services</a></li>
+                    <li><a href="/capability-statement">Capability Statement</a></li>
+                    <li><a href="/compliance-resources">Compliance Resources</a></li>
+                    <li><a href="/faq">FAQ</a></li>
+                    <li><a href="/case-studies">Case Studies</a></li>
                 </ul>
             </div>
             <div class="footer-links">
                 <h4>Capabilities</h4>
                 <ul>
-                    <li><a href="{prefix}modernization.html">Modernize</a></li>
-                    <li><a href="{prefix}governed-agility.html">Governed Agile</a></li>
-                    <li><a href="{prefix}responsible-ai.html">Responsible AI</a></li>
-                    <li><a href="{prefix}training.html">Training</a></li>
-                    <li><a href="{prefix}careers.html">Careers</a></li>
+                    <li><a href="/modernization">Modernize</a></li>
+                    <li><a href="/governed-agility">Governed Agile</a></li>
+                    <li><a href="/responsible-ai">Responsible AI</a></li>
+                    <li><a href="/training">Training</a></li>
+                    <li><a href="/careers">Careers</a></li>
                 </ul>
             </div>
             <div class="footer-contact">
@@ -147,11 +148,11 @@ def footer(prefix="./"):
         </div>
         <div class="footer-bottom">
             <nav class="footer-nav" aria-label="Legal">
-                <a href="{prefix}privacy-policy.html">Privacy Policy</a>
-                <a href="{prefix}privacy-form-submissions.html">Form Submissions Notice</a>
-                <a href="{prefix}accessibility.html">Accessibility</a>
-                <a href="{prefix}terms.html">Terms of Service</a>
-                <a href="{prefix}contact.html">Contact</a>
+                <a href="/privacy-policy">Privacy Policy</a>
+                <a href="/privacy-form-submissions">Form Submissions Notice</a>
+                <a href="/accessibility">Accessibility</a>
+                <a href="/terms">Terms of Service</a>
+                <a href="/contact">Contact</a>
             </nav>
             <p>&copy; 2026 New South Technologies, LLC. All rights reserved.</p>
         </div>
@@ -163,7 +164,7 @@ def footer(prefix="./"):
 
 def page(fname, title, desc, canonical, active, main_html, extra="", prefix="./", keywords=""):
     html = head(title, desc, canonical, extra, prefix, keywords) + nav(active, prefix) + \
-           "    <main>\n" + main_html + "\n    </main>\n" + footer(prefix)
+           "    <main id=\"main-content\">\n" + main_html + "\n    </main>\n" + footer(prefix)
     with open(fname, "w", encoding="utf-8", newline="") as f:
         f.write(html)
     print("wrote", fname)

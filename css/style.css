@@ -1233,3 +1233,8 @@ input:focus, textarea:focus {
 .footer-brand-id { font-weight: 600; opacity: .9; margin: .15rem 0 .5rem; }
 .footer-disambig { opacity: .7; margin-top: .6rem; }
 @media (max-width: 800px){ .course-layout{ grid-template-columns: 1fr; } .course-signup{ position: static; } }
+
+
+/* Accessibility: skip to main content (WCAG 2.4.1 Bypass Blocks) */
+.skip-link{position:absolute;top:-48px;left:0;background:#0F172A;color:#fff;padding:10px 16px;z-index:1000;text-decoration:none;font-weight:600;border-radius:0 0 4px 0;}
+.skip-link:focus{top:0;}

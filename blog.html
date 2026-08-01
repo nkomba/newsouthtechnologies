@@ -24,32 +24,53 @@
     <!-- Stylesheets -->
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/blog.css">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://newsouthtechnologies.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Insights",
+      "item": "https://newsouthtechnologies.com/blog"
+    }
+  ]
+}
+    </script>
 </head>
 <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
 
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container nav-inner">
-            <a href="./index.html" class="logo" aria-label="New South Technologies Home">
+            <a href="/" class="logo" aria-label="New South Technologies Home">
                 <img src="./assets/images/logo-lockup.svg" alt="New South Technologies Logo" class="logo-img">
             </a>
             <button class="mobile-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Toggle navigation menu">
                 <span class="hamburger-icon"></span>
             </button>
             <ul id="main-nav" class="nav-links">
-                <li><a href="./index.html">Home</a></li>
-                <li><a href="./training.html">Training</a></li>
-                <li><a href="./modernization.html">Modernize</a></li>
-                <li><a href="./governed-agility.html">Governed Agile</a></li>
-                <li><a href="./responsible-ai.html">Responsible AI</a></li>
-                <li><a href="./careers.html">Careers</a></li>
-                <li><a href="./blog.html" aria-current="page">Insights</a></li>
-                <li><a href="./index.html#contact" class="btn btn-primary">Request Audit</a></li>
+                <li><a href="/">Home</a></li>
+                <li><a href="/training">Training</a></li>
+                <li><a href="/modernization">Modernize</a></li>
+                <li><a href="/governed-agility">Governed Agile</a></li>
+                <li><a href="/responsible-ai">Responsible AI</a></li>
+                <li><a href="/careers">Careers</a></li>
+                <li><a href="/blog" aria-current="page">Insights</a></li>
+                <li><a href="/#contact" class="btn btn-primary">Request Audit</a></li>
             </ul>
         </div>
     </nav>
 
-    <main>
+    <main id="main-content">
         <!-- Header -->
         <header class="hero hero-blog">
             <div class="hero-pattern" aria-hidden="true"></div>
@@ -80,7 +101,7 @@
                 <div class="blog-grid">
 
                     <!-- Legacy Modernization -->
-                    <a href="blog/5-signs-legacy-risk.html" class="blog-card" data-category="legacy">
+                    <a href="/blog/5-signs-legacy-risk" class="blog-card" data-category="legacy">
                         <div class="blog-card-image category-legacy">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
                             <span class="post-category">Legacy Modernization</span>
@@ -92,7 +113,7 @@
                         </div>
                     </a>
 
-                    <a href="blog/strangler-fig-modernization.html" class="blog-card" data-category="legacy">
+                    <a href="/blog/strangler-fig-modernization" class="blog-card" data-category="legacy">
                         <div class="blog-card-image category-legacy">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
                             <span class="post-category">Legacy Modernization</span>
@@ -105,7 +126,7 @@
                     </a>
 
                     <!-- Governed Agility -->
-                    <a href="blog/governed-agility-vs-speed.html" class="blog-card" data-category="agility">
+                    <a href="/blog/governed-agility-vs-speed" class="blog-card" data-category="agility">
                         <div class="blog-card-image category-agility">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
                             <span class="post-category">Governed Agility</span>
@@ -118,7 +139,7 @@
                     </a>
 
                     <!-- Compliance -->
-                    <a href="blog/fedramp-agile-atop.html" class="blog-card" data-category="compliance">
+                    <a href="/blog/fedramp-agile-atop" class="blog-card" data-category="compliance">
                         <div class="blog-card-image category-compliance">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
                             <span class="post-category">Compliance</span>
@@ -130,7 +151,7 @@
                         </div>
                     </a>
 
-                    <a href="blog/cmmc-2-checklist.html" class="blog-card" data-category="compliance">
+                    <a href="/blog/cmmc-2-checklist" class="blog-card" data-category="compliance">
                         <div class="blog-card-image category-compliance">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
                             <span class="post-category">Compliance</span>
@@ -143,7 +164,7 @@
                     </a>
 
                     <!-- AI Governance -->
-                    <a href="blog/explainable-ai-xai.html" class="blog-card" data-category="ai">
+                    <a href="/blog/explainable-ai-xai" class="blog-card" data-category="ai">
                         <div class="blog-card-image category-ai">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg>
                             <span class="post-category">AI Governance</span>
@@ -155,7 +176,7 @@
                         </div>
                     </a>
 
-                    <a href="blog/omb-m26-04-guide.html" class="blog-card" data-category="ai">
+                    <a href="/blog/omb-m26-04-guide" class="blog-card" data-category="ai">
                         <div class="blog-card-image category-ai">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg>
                             <span class="post-category">AI Governance</span>
@@ -182,12 +203,12 @@
             <div class="footer-links">
                 <h4>Capabilities</h4>
                 <ul>
-                    <li><a href="./modernization.html">Modernize</a></li>
-                    <li><a href="./governed-agility.html">Governed Agile</a></li>
-                    <li><a href="./responsible-ai.html">Responsible AI</a></li>
-                    <li><a href="./training.html">Training</a></li>
-                    <li><a href="./feedback.html">Training Feedback &amp; Quality</a></li>
-                    <li><a href="./careers.html">Careers</a></li>
+                    <li><a href="/modernization">Modernize</a></li>
+                    <li><a href="/governed-agility">Governed Agile</a></li>
+                    <li><a href="/responsible-ai">Responsible AI</a></li>
+                    <li><a href="/training">Training</a></li>
+                    <li><a href="/feedback">Training Feedback &amp; Quality</a></li>
+                    <li><a href="/careers">Careers</a></li>
                 </ul>
             </div>
             <div class="footer-credentials">
@@ -204,11 +225,11 @@
         </div>
         <div class="footer-bottom">
             <nav class="footer-nav" aria-label="Legal">
-                <a href="./privacy-policy.html">Privacy Policy</a>
-                <a href="./privacy-form-submissions.html">Form Submissions Notice</a>
-                <a href="./accessibility.html">Accessibility</a>
-                <a href="./terms.html">Terms of Service</a>
-                <a href="./contact.html">Contact</a>
+                <a href="/privacy-policy">Privacy Policy</a>
+                <a href="/privacy-form-submissions">Form Submissions Notice</a>
+                <a href="/accessibility">Accessibility</a>
+                <a href="/terms">Terms of Service</a>
+                <a href="/contact">Contact</a>
             </nav>
             <p>&copy; 2026 New South Technologies. All rights reserved.</p>
         </div>

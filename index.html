@@ -106,13 +106,28 @@
     <!-- Stylesheets -->
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/accessible-comparison.css">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://newsouthtechnologies.com/"
+    }
+  ]
+}
+    </script>
 </head>
 <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
 
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container nav-inner">
-            <a href="./index.html" class="logo" aria-label="New South Technologies Home">
+            <a href="/" class="logo" aria-label="New South Technologies Home">
                 <img src="./assets/images/logo-lockup.svg" alt="New South Technologies Logo" class="logo-img">
             </a>
 
@@ -121,19 +136,19 @@
             </button>
 
             <ul id="main-nav" class="nav-links">
-                <li><a href="./index.html" aria-current="page">Home</a></li>
-                <li><a href="./training.html">Training</a></li>
-                <li><a href="./modernization.html">Modernize</a></li>
-                <li><a href="./governed-agility.html">Governed Agile</a></li>
-                <li><a href="./responsible-ai.html">Responsible AI</a></li>
-                <li><a href="./careers.html">Careers</a></li>
-                <li><a href="./blog.html">Insights</a></li>
+                <li><a href="/" aria-current="page">Home</a></li>
+                <li><a href="/training">Training</a></li>
+                <li><a href="/modernization">Modernize</a></li>
+                <li><a href="/governed-agility">Governed Agile</a></li>
+                <li><a href="/responsible-ai">Responsible AI</a></li>
+                <li><a href="/careers">Careers</a></li>
+                <li><a href="/blog">Insights</a></li>
                 <li><a href="#contact" class="btn btn-primary">Request Audit</a></li>
             </ul>
         </div>
     </nav>
 
-    <main>
+    <main id="main-content">
         <!-- Hero Section -->
         <header class="hero">
             <div class="hero-pattern" aria-hidden="true"></div>
@@ -191,7 +206,7 @@
                         <div class="card-icon">
                             <img src="./assets/images/icon-modernize.svg" alt="" aria-hidden="true">
                         </div>
-                        <h3><a href="./modernization.html">Modernization with Purpose</a></h3>
+                        <h3><a href="/modernization">Modernization with Purpose</a></h3>
                         <p>We decouple business logic from legacy mainframes using incremental strangler-fig patterns — no big-bang cutover, no mission disruption. Every migration step produces a FedRAMP-aligned landing zone and a compliance posture your auditors can trace.</p>
                         <div class="card-actions">
                             <a href="./assets/downloads/modernization-blueprint.pdf" target="_blank" class="card-link btn-outline" download>
@@ -206,7 +221,7 @@
                         <div class="card-icon">
                             <img src="./assets/images/icon-agility.svg" alt="" aria-hidden="true">
                         </div>
-                        <h3><a href="./governed-agility.html">Governed Agility</a></h3>
+                        <h3><a href="/governed-agility">Governed Agility</a></h3>
                         <p>Embed compliance directly into your DevSecOps pipelines. Achieve continuous authorization with zero unplanned downtime.</p>
                         <div class="card-actions">
                             <a href="./assets/downloads/governed-agile-framework.pdf" target="_blank" class="card-link btn-outline" download>
@@ -221,7 +236,7 @@
                         <div class="card-icon">
                             <img src="./assets/images/icon-ai.svg" alt="" aria-hidden="true">
                         </div>
-                        <h3><a href="./responsible-ai.html">Responsible AI &amp; Data Governance</a></h3>
+                        <h3><a href="/responsible-ai">Responsible AI &amp; Data Governance</a></h3>
                         <p>Deploy AI systems that pass audit. Implement explainability, bias mitigation, and continuous monitoring on the NIST AI RMF — and be ready for OMB M-26-04 unbiased-LLM procurement.</p>
                         <div class="card-actions">
                             <a href="./assets/downloads/ai-governance-playbook.pdf" target="_blank" class="card-link btn-outline" download>
@@ -409,7 +424,7 @@
                     <div class="leadership-cta">
                         <p>Ready to work with a team that understands the stakes?</p>
                         <div class="cta-button-group">
-                            <a href="./cmmc-calculator.html" class="btn btn-primary">Calculate Your CMMC Readiness Score Now</a>
+                            <a href="/cmmc-calculator" class="btn btn-primary">Calculate Your CMMC Readiness Score Now</a>
                             <a href="#contact" class="btn btn-secondary">Request a Consultation</a>
                         </div>
                     </div>
@@ -542,7 +557,7 @@
 
                 <div class="proof-actions">
                     <a href="./assets/downloads/newsouth-capabilities-statement.pdf" class="btn btn-primary" download>📄 Download the Capabilities Statement (PDF)</a>
-                    <a href="./case-studies.html" class="btn btn-secondary">See Case Studies</a>
+                    <a href="/case-studies" class="btn btn-secondary">See Case Studies</a>
                 </div>
 
                 <h3 class="proof-quote-heading">In our clients' words</h3>
@@ -591,10 +606,10 @@
                     </div>
 
                     <div class="form-privacy-notice">
-                        <p><span aria-hidden="true">🔒</span> Submitted over <strong>TLS 1.3 (HTTPS)</strong> and processed by our third-party form provider, <strong>Formspree</strong> (US-based, SOC 2 Type II). We collect only the details you enter here. See how form data is encrypted, stored, and retained in our <a href="./privacy-form-submissions.html">Form Submissions Notice</a>.</p>
+                        <p><span aria-hidden="true">🔒</span> Submitted over <strong>TLS 1.3 (HTTPS)</strong> and processed by our third-party form provider, <strong>Formspree</strong> (US-based, SOC 2 Type II). We collect only the details you enter here. See how form data is encrypted, stored, and retained in our <a href="/privacy-form-submissions">Form Submissions Notice</a>.</p>
                         <div class="form-consent">
                             <input type="checkbox" id="privacy-consent" name="privacyConsent" required>
-                            <label for="privacy-consent">I consent to New South Technologies processing my information as described in the <a href="./privacy-form-submissions.html">Form Submissions Notice</a>. *</label>
+                            <label for="privacy-consent">I consent to New South Technologies processing my information as described in the <a href="/privacy-form-submissions">Form Submissions Notice</a>. *</label>
                         </div>
                     </div>
 
@@ -625,25 +640,25 @@
                 <div class="footer-links">
                     <h4>Company</h4>
                     <ul>
-                        <li><a href="./about.html">About</a></li>
-                        <li><a href="./services.html">Services</a></li>
-                        <li><a href="./capability-statement.html">Capability Statement</a></li>
-                        <li><a href="./compliance-resources.html">Compliance Resources</a></li>
-                        <li><a href="./faq.html">FAQ</a></li>
+                        <li><a href="/about">About</a></li>
+                        <li><a href="/services">Services</a></li>
+                        <li><a href="/capability-statement">Capability Statement</a></li>
+                        <li><a href="/compliance-resources">Compliance Resources</a></li>
+                        <li><a href="/faq">FAQ</a></li>
                     </ul>
                 </div>
                 <div class="footer-links">
                     <h4>Capabilities</h4>
                     <ul>
-                        <li><a href="./modernization.html">Modernize</a></li>
-                        <li><a href="./governed-agility.html">Governed Agile</a></li>
-                        <li><a href="./responsible-ai.html">Responsible AI</a></li>
-                        <li><a href="./training.html">Training</a></li>
-                        <li><a href="./feedback.html">Training Feedback &amp; Quality</a></li>
-                        <li><a href="./request-training.html">Request Training</a></li>
-                        <li><a href="./case-studies.html">Case Studies</a></li>
-                        <li><a href="./careers.html">Careers</a></li>
-                        <li><a href="./blog.html">Insights</a></li>
+                        <li><a href="/modernization">Modernize</a></li>
+                        <li><a href="/governed-agility">Governed Agile</a></li>
+                        <li><a href="/responsible-ai">Responsible AI</a></li>
+                        <li><a href="/training">Training</a></li>
+                        <li><a href="/feedback">Training Feedback &amp; Quality</a></li>
+                        <li><a href="/request-training">Request Training</a></li>
+                        <li><a href="/case-studies">Case Studies</a></li>
+                        <li><a href="/careers">Careers</a></li>
+                        <li><a href="/blog">Insights</a></li>
                     </ul>
                 </div>
                 <div class="footer-credentials">
@@ -660,15 +675,15 @@
             </div>
 
             <nav class="legal-links" aria-label="Legal">
-                <a href="./privacy-policy.html">Privacy Policy</a>
+                <a href="/privacy-policy">Privacy Policy</a>
                 <span class="separator" aria-hidden="true">&middot;</span>
-                <a href="./privacy-form-submissions.html">Form Submissions Notice</a>
+                <a href="/privacy-form-submissions">Form Submissions Notice</a>
                 <span class="separator" aria-hidden="true">&middot;</span>
-                <a href="./accessibility.html">Accessibility</a>
+                <a href="/accessibility">Accessibility</a>
                 <span class="separator" aria-hidden="true">&middot;</span>
-                <a href="./terms.html">Terms of Service</a>
+                <a href="/terms">Terms of Service</a>
                 <span class="separator" aria-hidden="true">&middot;</span>
-                <a href="./contact.html">Contact</a>
+                <a href="/contact">Contact</a>
             </nav>
         </div>
     </footer>
