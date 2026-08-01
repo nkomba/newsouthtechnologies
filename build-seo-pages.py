@@ -59,7 +59,6 @@ def head(title, desc, canonical, extra="", prefix="./", keywords=""):
     <title>{title}</title>
     <link rel="canonical" href="{canonical}">
 
-    <meta name="msvalidate.01" content="REPLACE_WITH_BING_VERIFICATION_TOKEN">
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="New South Technologies">
