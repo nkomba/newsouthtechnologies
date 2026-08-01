@@ -5,7 +5,7 @@ three Course pages with consistent nav/footer + per-page structured data.
 Re-runnable: overwrites only the generated files."""
 import json, os
 
-OG_IMG = "https://newsouthtechnologies.com/assets/images/logo-lockup.svg"
+OG_IMG = "https://newsouthtechnologies.com/assets/images/og-image.png"
 BASE = "https://newsouthtechnologies.com/"
 
 ORG_LD = {
@@ -66,6 +66,8 @@ def head(title, desc, canonical, extra="", prefix="./", keywords=""):
     <meta property="og:description" content="{desc}">
     <meta property="og:url" content="{canonical}">
     <meta property="og:image" content="{OG_IMG}">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="{title}">
