@@ -65,6 +65,12 @@
 
   <!-- Course pages -->
   <url>
+    <loc>https://newsouthtechnologies.com/courses/ai-for-business-leaders</loc>
+    <lastmod>2026-08-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+  <url>
     <loc>https://newsouthtechnologies.com/courses/fedramp-landing-zone-readiness</loc>
     <lastmod>2026-06-25</lastmod>
     <changefreq>monthly</changefreq>

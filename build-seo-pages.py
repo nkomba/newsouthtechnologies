@@ -32,7 +32,10 @@ ORG_LD = {
          "areaServed": "US", "availableLanguage": "English"},
         {"@type": "ContactPoint", "contactType": "procurement", "email": "procurement@newsouthtechnologies.com",
          "areaServed": "US"}],
-    "sameAs": []
+    "sameAs": [
+        "https://www.linkedin.com/company/newsouthtechnologies",
+        "https://twitter.com/newsouthtech"
+    ]
 }
 
 def ld(obj):
