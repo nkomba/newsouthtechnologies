@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Federal legacy modernization from New South Technologies: incremental strangler-fig migration off mainframes to FedRAMP-aligned cloud, with audit-ready compliance evidence at every step and no big-bang cutover.">
+    <meta name="description" content="Strangler-fig modernization for federal agencies: migrate off mainframes to FedRAMP-aligned cloud with audit-ready evidence and no big-bang cutover.">
     <meta name="keywords" content="legacy modernization, federal mainframe migration, strangler fig pattern, FedRAMP, cloud modernization, application modernization, government IT modernization">
     <meta name="theme-color" content="#0F172A">
     <title>Legacy Modernization for Federal Agencies | New South Technologies</title>
@@ -15,7 +15,7 @@
     <meta property="og:title" content="Legacy Modernization for Federal Agencies | New South Technologies">
     <meta property="og:description" content="Incremental, audit-ready migration off legacy mainframes to FedRAMP-aligned cloud — no big-bang cutover, no mission disruption.">
     <meta property="og:url" content="https://newsouthtechnologies.com/modernization">
-    <meta property="og:image" content="https://newsouthtechnologies.com/assets/images/og-image.png">
+    <meta property="og:image" content="https://newsouthtechnologies.com/assets/images/services/modernization-og.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
 
@@ -23,12 +23,21 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Legacy Modernization for Federal Agencies | New South Technologies">
     <meta name="twitter:description" content="Incremental, audit-ready migration off legacy mainframes to FedRAMP-aligned cloud — no big-bang cutover, no mission disruption.">
-    <meta name="twitter:image" content="https://newsouthtechnologies.com/assets/images/og-image.png">
+    <meta name="twitter:image" content="https://newsouthtechnologies.com/assets/images/services/modernization-og.png">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="624242ee-2ac5-42aa-a480-a0beb5be0497" data-blockingmode="auto" type="text/javascript"></script>
+    <!-- Google Analytics 4 — loads only after Cookiebot 'statistics' consent -->
+    <script type="text/plain" data-cookieconsent="statistics" src="https://www.googletagmanager.com/gtag/js?id=G-RSHY8DLE4D"></script>
+    <script type="text/plain" data-cookieconsent="statistics">
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-RSHY8DLE4D', { 'anonymize_ip': true });
+    </script>
 
     <!-- Favicon -->
     <link rel="icon" href="./favicon.ico" sizes="any">
@@ -41,24 +50,32 @@
     <link rel="stylesheet" href="./css/capability.css">
 
     <!-- Structured Data -->
-    <script type="application/ld+json">
+        <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Service",
-      "name": "Legacy Modernization",
-      "serviceType": "Federal legacy system modernization",
+      "@id": "https://newsouthtechnologies.com/modernization#service",
+      "name": "Federal Legacy Modernization",
+      "serviceType": "Legacy system modernization and cloud migration",
+      "url": "https://newsouthtechnologies.com/modernization",
+      "description": "Incremental strangler-fig migration off legacy mainframes to FedRAMP-aligned cloud, producing audit-ready compliance evidence at every step with no big-bang cutover.",
       "provider": {
-        "@type": "Organization",
-        "name": "New South Technologies",
-        "url": "https://newsouthtechnologies.com/"
+        "@id": "https://newsouthtechnologies.com/#organization"
       },
-      "areaServed": "United States",
+      "areaServed": [
+        {
+          "@type": "AdministrativeArea",
+          "name": "Washington, D.C. Metropolitan Area (DC-MD-VA)"
+        },
+        {
+          "@type": "Country",
+          "name": "United States"
+        }
+      ],
       "audience": {
         "@type": "Audience",
         "audienceType": "Federal civilian agencies and state governments"
-      },
-      "description": "Incremental strangler-fig migration off legacy mainframes to FedRAMP-aligned cloud, producing audit-ready compliance evidence at every step.",
-      "url": "https://newsouthtechnologies.com/modernization.html"
+      }
     }
     </script>
     <script type="application/ld+json">
@@ -114,6 +131,15 @@
     </nav>
 
     <main id="main-content">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <div class="container">
+                <ol>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/services">Services</a></li>
+                    <li aria-current="page">Legacy Modernization</li>
+                </ol>
+            </div>
+        </nav>
         <header class="article-hero">
             <div class="container">
                 <span class="post-category">Capability</span>

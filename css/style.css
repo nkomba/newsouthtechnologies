@@ -1238,3 +1238,36 @@ input:focus, textarea:focus {
 /* Accessibility: skip to main content (WCAG 2.4.1 Bypass Blocks) */
 .skip-link{position:absolute;top:-48px;left:0;background:#0F172A;color:#fff;padding:10px 16px;z-index:1000;text-decoration:none;font-weight:600;border-radius:0 0 4px 0;}
 .skip-link:focus{top:0;}
+
+/* ---- Breadcrumb navigation (SEO + a11y) ---- */
+.breadcrumb {
+  margin: 0;
+  padding: 1rem 0 0;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+.breadcrumb ol {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+}
+.breadcrumb li { display: flex; align-items: center; color: var(--color-slate, #475569); }
+.breadcrumb li + li::before {
+  content: "/";
+  margin-right: 0.5rem;
+  color: var(--color-slate, #94a3b8);
+  user-select: none;
+}
+.breadcrumb a { color: var(--color-teal-accent, #0D9488); text-decoration: none; }
+.breadcrumb a:hover, .breadcrumb a:focus-visible { text-decoration: underline; }
+.breadcrumb a:focus-visible {
+  outline: 2px solid var(--color-teal-accent, #0D9488);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+.breadcrumb [aria-current="page"] { color: var(--color-text-dark, #1E293B); font-weight: 500; }

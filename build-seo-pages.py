@@ -7,6 +7,7 @@ import json, os
 
 OG_IMG = "https://newsouthtechnologies.com/assets/images/og-image.png"
 BASE = "https://newsouthtechnologies.com/"
+ORG_ID = BASE + "#organization"
 
 ORG_LD = {
     "@context": "https://schema.org", "@type": "Organization",
@@ -80,6 +81,15 @@ def head(title, desc, canonical, extra="", prefix="./", keywords=""):
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="624242ee-2ac5-42aa-a480-a0beb5be0497" data-blockingmode="auto" type="text/javascript"></script>
+    <!-- Google Analytics 4 — loads only after Cookiebot 'statistics' consent -->
+    <script type="text/plain" data-cookieconsent="statistics" src="https://www.googletagmanager.com/gtag/js?id=G-RSHY8DLE4D"></script>
+    <script type="text/plain" data-cookieconsent="statistics">
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){{dataLayer.push(arguments);}}
+      gtag('js', new Date());
+      gtag('config', 'G-RSHY8DLE4D', {{ 'anonymize_ip': true }});
+    </script>
     <link rel="icon" href="{prefix}favicon.ico" sizes="any">
     <link rel="icon" href="{prefix}favicon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="{prefix}apple-touch-icon.png">
@@ -239,8 +249,38 @@ page("about.html", "About New South Technologies | Federal Legacy Modernization 
      keywords="New South Technologies, about New South Technologies, federal legacy modernization firm, Washington DC modernization, New South Technologies LLC")
 
 # ---------------------------------------------------------------- SERVICES
-services_extra = crumbs([("Home", BASE), ("Services", BASE + "services.html")], "./")
-services_main = '''        <header class="hero hero--interior">
+SERVICES_SERVICE_LD = {
+    "@context": "https://schema.org", "@type": "Service",
+    "@id": BASE + "services#service",
+    "name": "Federal IT Modernization Services",
+    "serviceType": "Federal IT modernization consulting",
+    "url": BASE + "services",
+    "description": ("End-to-end federal IT modernization: incremental legacy migration, "
+        "governed agile delivery, and responsible AI governance — all producing "
+        "audit-ready compliance evidence."),
+    "provider": {"@id": ORG_ID},
+    "areaServed": [
+        {"@type": "AdministrativeArea", "name": "Washington, D.C. Metropolitan Area (DC-MD-VA)"},
+        {"@type": "Country", "name": "United States"}],
+    "audience": {"@type": "Audience",
+                 "audienceType": "Federal civilian agencies and state governments"},
+    "hasOfferCatalog": {"@type": "OfferCatalog", "name": "Service offerings",
+        "itemListElement": [
+            {"@type": "Offer", "itemOffered": {"@id": BASE + "modernization#service"}},
+            {"@type": "Offer", "itemOffered": {"@id": BASE + "governed-agility#service"}},
+            {"@type": "Offer", "itemOffered": {"@id": BASE + "responsible-ai#service"}}]},
+}
+services_extra = ld(SERVICES_SERVICE_LD) + crumbs(
+    [("Home", BASE), ("Services", BASE + "services.html")], "./")
+services_main = '''        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <div class="container">
+                <ol>
+                    <li><a href="/">Home</a></li>
+                    <li aria-current="page">Services</li>
+                </ol>
+            </div>
+        </nav>
+        <header class="hero hero--interior">
             <div class="container hero-content">
                 <h1>Federal Modernization Services</h1>
                 <p>Three tightly-integrated practices that take D.C.-area civilian agencies and state governments from brittle legacy systems to governed, auditable cloud.</p>

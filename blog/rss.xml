@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>New South Technologies — Insights</title>
+    <link>https://newsouthtechnologies.com/blog</link>
+    <atom:link href="https://newsouthtechnologies.com/blog/rss.xml" rel="self" type="application/rss+xml" />
+    <description>Federal legacy modernization, governed agility, FedRAMP, and responsible AI insights from New South Technologies.</description>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 07 Jun 2026 12:00:00 GMT</lastBuildDate>
+    <item>
+      <title>Understanding OMB M-26-04: A Practical Guide for Federal AI Procurement</title>
+      <description>The new OMB M-26-04 'Unbiased AI Principles' changes how agencies buy AI systems. Here is what contractors need to demonstrate and what CIOs need to verify.</description>
+      <link>https://newsouthtechnologies.com/blog/omb-m26-04-guide</link>
+      <guid isPermaLink="true">https://newsouthtechnologies.com/blog/omb-m26-04-guide</guid>
+      <pubDate>Sun, 07 Jun 2026 12:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Explainable AI (XAI) in Government: Why Black-Box Models Won't Pass Audit</title>
+      <description>If your AI model can't explain its decisions, it can't survive an OIG review. Learn why Explainable AI (XAI) is a mandatory requirement for federal authorization, not a 'nice-to-have'.</description>
+      <link>https://newsouthtechnologies.com/blog/explainable-ai-xai</link>
+      <guid isPermaLink="true">https://newsouthtechnologies.com/blog/explainable-ai-xai</guid>
+      <pubDate>Sun, 31 May 2026 12:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>CMMC 2.0 Readiness Checklist for DoD Contractors</title>
+      <description>Every system handling CUI needs a current CMMC status. Use this actionable checklist to assess your readiness before the next SPRS update deadline.</description>
+      <link>https://newsouthtechnologies.com/blog/cmmc-2-checklist</link>
+      <guid isPermaLink="true">https://newsouthtechnologies.com/blog/cmmc-2-checklist</guid>
+      <pubDate>Sun, 24 May 2026 12:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Why 'Governed Agility' Beats Pure Speed in Federal IT</title>
+      <description>Speed without auditability isn't progress—it's risk. Learn why federal IT needs Governed Agility: a framework that embeds compliance into every sprint, not an afterthought.</description>
+      <link>https://newsouthtechnologies.com/blog/governed-agility-vs-speed</link>
+      <guid isPermaLink="true">https://newsouthtechnologies.com/blog/governed-agility-vs-speed</guid>
+      <pubDate>Sun, 17 May 2026 12:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>How to Achieve FedRAMP ATO Without Slowing Down Agile Delivery</title>
+      <description>FedRAMP and Agile are not enemies. Learn how to design DevSecOps pipelines that produce audit-ready artifacts as a byproduct of sprint delivery.</description>
+      <link>https://newsouthtechnologies.com/blog/fedramp-agile-atop</link>
+      <guid isPermaLink="true">https://newsouthtechnologies.com/blog/fedramp-agile-atop</guid>
+      <pubDate>Sun, 10 May 2026 12:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>5 Signs Your Agency's Legacy System Is a Compliance Risk</title>
+      <description>Manual compliance processes, siloed data, and undocumented interdependencies are red flags. Learn the 5 signs your legacy system is a ticking time bomb for your OIG audit.</description>
+      <link>https://newsouthtechnologies.com/blog/5-signs-legacy-risk</link>
+      <guid isPermaLink="true">https://newsouthtechnologies.com/blog/5-signs-legacy-risk</guid>
+      <pubDate>Sun, 03 May 2026 12:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>The Strangler Fig Pattern: Modernizing Mainframes Without Mission Disruption</title>
+      <description>How the strangler fig pattern lets federal agencies incrementally replace legacy systems while cutting big-bang cutover risk and keeping systems operational.</description>
+      <link>https://newsouthtechnologies.com/blog/strangler-fig-modernization</link>
+      <guid isPermaLink="true">https://newsouthtechnologies.com/blog/strangler-fig-modernization</guid>
+      <pubDate>Sun, 26 Apr 2026 12:00:00 GMT</pubDate>
+    </item>
+  </channel>
+</rss>
