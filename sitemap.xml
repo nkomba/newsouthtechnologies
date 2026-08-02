@@ -115,6 +115,12 @@
     <priority>0.70</priority>
   </url>
   <url>
+    <loc>https://newsouthtechnologies.com/case-studies/cmmc-compliance</loc>
+    <lastmod>2026-08-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+  <url>
     <loc>https://newsouthtechnologies.com/careers</loc>
     <lastmod>2026-07-20</lastmod>
     <changefreq>weekly</changefreq>

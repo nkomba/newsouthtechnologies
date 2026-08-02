@@ -1,0 +1,192 @@
+/* ==============================================
+   CMMC COMPLIANCE CASE STUDY EXTENSIONS
+   Location: /css/components/case-study-cmmc.css
+   Extends: case-study.css
+   ============================================== */
+
+/* CMMC-Specific Hero Styling */
+.case-hero--cmmc {
+    background: linear-gradient(135deg, #f0f4ff 0%, #e6eeff 100%);
+    border-bottom: 3px solid var(--color-primary);
+}
+
+.hero-badge {
+    display: flex;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+    flex-wrap: wrap;
+}
+
+.badge--cmmc {
+    background: var(--color-primary);
+    color: var(--color-white);
+}
+
+.badge--defense {
+    background: var(--color-bg-secondary);
+    color: var(--color-text-dark);
+    border: 1px solid var(--color-border-medium);
+}
+
+/* CMMC Summary Card */
+.summary-card--cmmc {
+    border-left-color: var(--color-primary);
+    background: linear-gradient(to right, #f8faff, #fff);
+}
+
+/* CMMC Challenge Cards */
+.challenge-card--cmmc {
+    border-top: 3px solid var(--color-primary);
+    border-left: none;
+}
+
+.challenge-card--cmmc:hover {
+    border-top-color: var(--color-primary-dark, var(--color-primary));
+}
+
+/* CMMC Gap Analysis Table */
+.gap-table-wrapper {
+    overflow-x: auto;
+    max-width: 100%;
+}
+
+.gap-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--color-white);
+    box-shadow: var(--shadow-sm);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+}
+
+.gap-table th,
+.gap-table td {
+    padding: var(--spacing-md) var(--spacing-lg);
+    text-align: left;
+    border-bottom: 1px solid var(--color-border-light);
+}
+
+.gap-table th {
+    background: var(--color-bg-tertiary);
+    font-weight: 600;
+    color: var(--color-text-dark);
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.5px;
+}
+
+.gap-table tbody tr:hover {
+    background: var(--color-bg-secondary);
+}
+
+.gap-table tfoot {
+    background: var(--color-primary);
+    color: var(--color-white);
+}
+
+.gap-table tfoot td {
+    border: none;
+    font-weight: 600;
+}
+
+.control-count {
+    font-weight: 700;
+    color: var(--color-primary);
+    font-size: 1.125rem;
+}
+
+/* CMMC Phase Blocks */
+.phase-block--cmmc .phase-header {
+    background: linear-gradient(to right, #f0f4ff, #fff);
+    border-bottom-color: var(--color-border-medium);
+}
+
+.phase-block--cmmc .phase-number {
+    color: var(--color-primary);
+}
+
+/* Technical Block Subsections */
+.technical-block {
+    background: var(--color-white);
+    border: 1px solid var(--color-border-light);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-md) var(--spacing-lg);
+    margin: var(--spacing-md) 0;
+}
+
+.technical-block h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text-dark);
+    margin: 0 0 var(--spacing-sm);
+}
+
+.technical-block p {
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: var(--color-text-primary);
+    margin: 0;
+}
+
+/* CMMC Testimonial Card */
+.testimonial-card--cmmc {
+    background: linear-gradient(to right, #f0f4ff, #ffffff);
+    border: 2px solid var(--color-primary);
+}
+
+.testimonial-card--cmmc::before {
+    color: var(--color-primary);
+    opacity: 0.15;
+}
+
+/* CMMC CTA Section */
+.cta-section--cmmc {
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+}
+
+.btn--cmmc {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn--cmmc::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.btn--cmmc:hover::after {
+    left: 100%;
+}
+
+/* CMMC Metrics Accent */
+.metric-item:nth-child(odd) {
+    border-top: 3px solid var(--color-primary);
+}
+
+/* Accessibility Enhancements */
+@media (prefers-reduced-motion: reduce) {
+    .btn--cmmc::after {
+        display: none;
+    }
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+    .summary-card--cmmc {
+        border-left-width: 6px;
+    }
+    
+    .challenge-card--cmmc {
+        border-top-width: 4px;
+    }
+    
+    .gap-table {
+        border: 2px solid var(--color-text-dark);
+    }
+}
