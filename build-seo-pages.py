@@ -43,13 +43,36 @@ def ld(obj):
     body = json.dumps(obj, indent=2).replace("\n", "\n    ")
     return '    <script type="application/ld+json">\n    ' + body + '\n    </script>\n'
 
+def _clean_url(url):
+    """Canonical (extensionless) URL: strip .html, index.html -> /."""
+    if not url: return url
+    if url.endswith("index.html"): return url[:-len("index.html")]
+    if url.endswith(".html"): return url[:-len(".html")]
+    return url
+
 def crumbs(items, prefix):
     els = []
     for i, (name, url) in enumerate(items, 1):
         el = {"@type": "ListItem", "position": i, "name": name}
-        if url: el["item"] = url
+        if url: el["item"] = _clean_url(url)
         els.append(el)
     return ld({"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": els})
+
+def vcrumbs(items):
+    """Visible breadcrumb nav matching the BreadcrumbList JSON-LD."""
+    lis = ""
+    for i, (name, url) in enumerate(items):
+        if i == len(items) - 1 or not url:
+            lis += f'                    <li aria-current="page">{name}</li>\n'
+        else:
+            href = _clean_url(url).replace(BASE, "/")
+            lis += f'                    <li><a href="{href}">{name}</a></li>\n'
+    return ('        <nav class="breadcrumb" aria-label="Breadcrumb">\n'
+            '            <div class="container">\n'
+            '                <ol>\n' + lis +
+            '                </ol>\n'
+            '            </div>\n'
+            '        </nav>\n')
 
 def head(title, desc, canonical, extra="", prefix="./", keywords=""):
     kw = f'\n    <meta name="keywords" content="{keywords}">' if keywords else ""
@@ -175,9 +198,9 @@ def footer(prefix="./"):
 </html>
 '''
 
-def page(fname, title, desc, canonical, active, main_html, extra="", prefix="./", keywords=""):
+def page(fname, title, desc, canonical, active, main_html, extra="", prefix="./", keywords="", crumb_html=""):
     html = head(title, desc, canonical, extra, prefix, keywords) + nav(active, prefix) + \
-           "    <main id=\"main-content\">\n" + main_html + "\n    </main>\n" + footer(prefix)
+           "    <main id=\"main-content\">\n" + crumb_html + main_html + "\n    </main>\n" + footer(prefix)
     with open(fname, "w", encoding="utf-8", newline="") as f:
         f.write(html)
     print("wrote", fname)
@@ -465,7 +488,8 @@ faq_body += '''            </div>
 page("faq.html", "FAQ | New South Technologies (Federal Legacy Modernization)",
      "FAQs about New South Technologies: our federal modernization services, strangler-fig migration, FedRAMP alignment, SAM.gov registration, and how we differ from NewSouth Technologies, Inc. of Raleigh, NC.",
      BASE + "faq.html", "", faq_body, faq_extra,
-     keywords="New South Technologies FAQ, strangler-fig migration, FedRAMP landing zone, federal modernization vendor")
+     keywords="New South Technologies FAQ, strangler-fig migration, FedRAMP landing zone, federal modernization vendor",
+     crumb_html=vcrumbs([("Home", BASE), ("FAQ", None)]))
 
 print("core pages done")
 
@@ -473,7 +497,7 @@ print("core pages done")
 os.makedirs("courses", exist_ok=True)
 
 def course_page(slug, title, short_desc, long_desc, audience, outcomes, modules, duration_days):
-    url = BASE + "courses/" + slug + ".html"
+    url = BASE + "courses/" + slug
     course_ld = {
         "@context": "https://schema.org", "@type": "Course",
         "name": title, "description": long_desc,
@@ -543,7 +567,8 @@ def course_page(slug, title, short_desc, long_desc, audience, outcomes, modules,
 '''
     page(f"courses/{slug}.html", f"{title} | New South Technologies Training",
          short_desc, url, "training", body, extra, prefix="../",
-         keywords=title + ", federal IT training, government modernization course, New South Technologies training")
+         keywords=title + ", federal IT training, government modernization course, New South Technologies training",
+         crumb_html=vcrumbs([("Home", BASE), ("Training", BASE + "training.html"), (title, None)]))
 
 course_page(
     "fedramp-landing-zone-readiness",
