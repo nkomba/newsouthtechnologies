@@ -3,9 +3,10 @@
 Produces About, Services, Capability Statement, Compliance Resources, FAQ, and
 three Course pages with consistent nav/footer + per-page structured data.
 Re-runnable: overwrites only the generated files."""
-import json, os
+import json, os, re
 
 OG_IMG = "https://newsouthtechnologies.com/assets/images/og-image.png"
+LOGO_LOCKUP = "https://newsouthtechnologies.com/assets/images/logo-lockup.svg"
 BASE = "https://newsouthtechnologies.com/"
 ORG_ID = BASE + "#organization"
 
@@ -13,7 +14,7 @@ ORG_LD = {
     "@context": "https://schema.org", "@type": "Organization",
     "@id": BASE + "#organization",
     "name": "New South Technologies", "legalName": "New South Technologies, LLC",
-    "url": BASE, "logo": OG_IMG, "image": OG_IMG,
+    "url": BASE, "logo": LOGO_LOCKUP, "image": LOGO_LOCKUP,
     "description": ("New South Technologies is a Washington, D.C. metro area firm that helps "
         "federal civilian agencies and state governments modernize legacy mainframe systems "
         "using incremental strangler-fig migration to FedRAMP-aligned cloud landing zones, "
@@ -50,6 +51,13 @@ def _clean_url(url):
     if url.endswith(".html"): return url[:-len(".html")]
     return url
 
+def _clean_links(html):
+    """Rewrite relative page links to root-relative extensionless: ./x.html -> /x, ../x.html -> /x, index -> /."""
+    html = re.sub(r'href="\.\.?/([^"?#]+)\.html(#[^"]*)?"',
+                  lambda m: 'href="/' + m.group(1) + (m.group(2) or '') + '"', html)
+    html = html.replace('href="/index#', 'href="/#').replace('href="/index"', 'href="/"')
+    return html
+
 def crumbs(items, prefix):
     els = []
     for i, (name, url) in enumerate(items, 1):
@@ -75,6 +83,7 @@ def vcrumbs(items):
             '        </nav>\n')
 
 def head(title, desc, canonical, extra="", prefix="./", keywords=""):
+    canonical = _clean_url(canonical)
     kw = f'\n    <meta name="keywords" content="{keywords}">' if keywords else ""
     return f'''<!DOCTYPE html>
 <html lang="en">
@@ -135,10 +144,11 @@ def nav(active, prefix="./"):
             </button>
             <ul id="main-nav" class="nav-links">
                 <li><a href="/"{c('home')}>Home</a></li>
-                <li><a href="/services"{c('services')}>Services</a></li>
                 <li><a href="/training"{c('training')}>Training</a></li>
-                <li><a href="/about"{c('about')}>About</a></li>
-                <li><a href="/capability-statement"{c('cap')}>Capability</a></li>
+                <li><a href="/modernization"{c('modernize')}>Modernize</a></li>
+                <li><a href="/governed-agility"{c('governed')}>Governed Agile</a></li>
+                <li><a href="/responsible-ai"{c('responsible')}>Responsible AI</a></li>
+                <li><a href="/careers"{c('careers')}>Careers</a></li>
                 <li><a href="/blog"{c('blog')}>Insights</a></li>
                 <li><a href="/#contact" class="btn btn-primary">Request Audit</a></li>
             </ul>
@@ -201,6 +211,7 @@ def footer(prefix="./"):
 def page(fname, title, desc, canonical, active, main_html, extra="", prefix="./", keywords="", crumb_html=""):
     html = head(title, desc, canonical, extra, prefix, keywords) + nav(active, prefix) + \
            "    <main id=\"main-content\">\n" + crumb_html + main_html + "\n    </main>\n" + footer(prefix)
+    html = _clean_links(html)
     with open(fname, "w", encoding="utf-8", newline="") as f:
         f.write(html)
     print("wrote", fname)

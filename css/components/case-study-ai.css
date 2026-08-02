@@ -1,0 +1,134 @@
+/* ==============================================
+   AI GOVERNANCE CASE STUDY EXTENSIONS
+   Location: /css/components/case-study-ai.css
+   Extends: case-study.css
+   ============================================== */
+
+/* AI-Specific Hero Styling */
+.case-hero--ai {
+    background: linear-gradient(135deg, #f5f0ff 0%, #e8dff5 100%);
+    border-bottom: 3px solid var(--color-primary);
+}
+
+.hero-badge {
+    display: flex;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+    flex-wrap: wrap;
+}
+
+.badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: var(--border-radius-sm);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.badge--ai {
+    background: var(--color-primary);
+    color: var(--color-white);
+}
+
+.badge--compliance {
+    background: var(--color-bg-secondary);
+    color: var(--color-text-dark);
+    border: 1px solid var(--color-border-medium);
+}
+
+/* AI Summary Card */
+.summary-card--ai {
+    border-left-color: var(--color-primary);
+    background: linear-gradient(to right, #faf8ff, #fff);
+}
+
+/* AI Challenge Cards */
+.challenge-card--ai {
+    border-top: 3px solid var(--color-primary);
+}
+
+.challenge-card--ai:hover {
+    border-top-color: var(--color-primary-dark, var(--color-primary));
+}
+
+/* Phase Blocks with AI styling */
+.phase-block--ai .phase-header {
+    background: linear-gradient(to right, #f5f0ff, #fff);
+    border-bottom-color: var(--color-border-medium);
+}
+
+.phase-block--ai .phase-number {
+    color: var(--color-primary);
+}
+
+/* Success Highlight Variation */
+.highlight--success {
+    background: #f0fdf4;
+    border-color: #22c55e;
+}
+
+/* Differentiators with AI accent */
+.diff-item--ai {
+    border-left: 3px solid var(--color-primary);
+}
+
+/* AI Testimonial Card */
+.testimonial-card--ai {
+    background: linear-gradient(to right, #f5f0ff, #ffffff);
+    border: 2px solid var(--color-primary);
+}
+
+.testimonial-card--ai::before {
+    color: var(--color-primary);
+    opacity: 0.15;
+}
+
+/* AI CTA Section */
+.cta-section--ai {
+    background: linear-gradient(135deg, var(--color-primary) 0%, #5a3fcc 100%);
+}
+
+.btn--ai {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn--ai::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.btn--ai:hover::after {
+    left: 100%;
+}
+
+/* AI Metrics Accent */
+.metric-item:nth-child(odd) {
+    border-top: 3px solid var(--color-primary);
+}
+
+/* Accessibility Enhancements */
+@media (prefers-reduced-motion: reduce) {
+    .btn--ai::after {
+        display: none;
+    }
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+    .summary-card--ai {
+        border-left-width: 6px;
+    }
+    
+    .challenge-card--ai {
+        border-top-width: 4px;
+    }
+}

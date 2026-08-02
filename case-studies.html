@@ -39,7 +39,59 @@
 
     <!-- Stylesheets -->
     <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/article.css">
+    <link rel="stylesheet" href="./css/blog.css">
+    <style>
+        /* Case-study-specific tweaks layered on top of the Insights (blog) styles */
+        .case-note {
+            max-width: 820px;
+            margin: 0 auto var(--spacing-xl);
+            padding: var(--spacing-md) var(--spacing-lg);
+            background-color: var(--color-white);
+            border-left: 4px solid var(--color-teal-accent);
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+            box-shadow: var(--shadow-md);
+            color: var(--color-slate);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        .case-note a { color: var(--color-teal-accent); font-weight: 600; }
+        .blog-card .card-metrics {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-md);
+        }
+        .blog-card .card-metrics span {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--color-navy-primary);
+            background-color: var(--color-offwhite);
+            border: 1px solid #E2E8F0;
+            border-radius: 12px;
+            padding: 3px 10px;
+        }
+        .blog-card-coming-soon .cs-status {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--color-slate);
+            background-color: #E2E8F0;
+            border-radius: 12px;
+            padding: 3px 10px;
+            margin-bottom: var(--spacing-sm);
+        }
+        .blog-card-coming-soon .cs-ref { font-size: 0.85rem; }
+        .blog-card-coming-soon .cs-ref a { color: var(--color-teal-accent); font-weight: 600; }
+        .case-read-more {
+            display: inline-block;
+            margin-top: var(--spacing-xs);
+            font-weight: 600;
+            color: var(--color-teal-accent);
+            font-size: 0.9rem;
+        }
+    </style>
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -81,90 +133,106 @@
                 <li><a href="/responsible-ai">Responsible AI</a></li>
                 <li><a href="/careers">Careers</a></li>
                 <li><a href="/blog">Insights</a></li>
+                <li><a href="/case-studies" aria-current="page">Case Studies</a></li>
                 <li><a href="/#contact" class="btn btn-primary">Request Audit</a></li>
             </ul>
         </div>
     </nav>
 
     <main id="main-content">
-        <header class="article-hero">
-            <div class="container">
-                <span class="post-category">Case Studies</span>
+        <!-- Header -->
+        <header class="hero hero-blog">
+            <div class="hero-pattern" aria-hidden="true"></div>
+            <div class="container hero-content">
+                <span class="hero-eyebrow">Case Studies</span>
                 <h1>Evidence, Not Adjectives</h1>
-                <p class="article-subtitle">Every engagement leaves behind an audit trail. These case studies follow the same structure — the challenge, our approach, and the specific evidence that proves the outcome.</p>
+                <p>Anonymized, evidence-backed accounts of our federal and state engagements. Every case study follows the same structure — the challenge, our approach, and the specific evidence that proves the outcome.</p>
             </div>
         </header>
 
-        <article class="article-body">
+        <!-- Category Filter -->
+        <section class="category-filter" aria-label="Filter case studies by practice">
             <div class="container">
-
-                <p class="case-note"><strong>A note on how we publish these.</strong> We only publish outcomes we can substantiate. The profiles below describe the kind of work we do in each practice and the specific artifacts an engagement produces; as clients clear them, we replace these with fully written, anonymized-but-specific accounts tied to the evidence that proves them. Named references are available to qualified evaluators under NDA in the meantime — email <a href="mailto:procurement@newsouthtechnologies.com">procurement@newsouthtechnologies.com</a>.</p>
-
-                <article class="case-study">
-                    <span class="case-tag">Legacy Modernization · Cabinet-level federal agency</span>
-                    <h2>Retiring a legacy mainframe one auditable slice at a time</h2>
-                    <div class="case-cols">
-                        <div>
-                            <h3>Challenge</h3>
-                            <p>An aging mainframe carries mission-critical business logic, compliance tracking is manual, and interdependencies are poorly documented — making every change slow and every audit painful.</p>
-                        </div>
-                        <div>
-                            <h3>Approach</h3>
-                            <p>We decouple business logic in incremental strangler-fig slices, landing each in a FedRAMP-aligned environment with identity, logging, encryption, and network controls documented from day one — no big-bang cutover, no planned mission downtime.</p>
-                        </div>
-                        <div>
-                            <h3>Evidence &amp; Outcome</h3>
-                            <p>Each increment ships with a control-to-requirement traceability matrix and a compliance evidence pack mapped to NIST SP 800-53 and FedRAMP baselines — the artifacts an Authorizing Official or Inspector General actually asks for.</p>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="case-study">
-                    <span class="case-tag">Governed Agility · State government agency</span>
-                    <h2>Moving toward continuous authorization without slowing releases</h2>
-                    <div class="case-cols">
-                        <div>
-                            <h3>Challenge</h3>
-                            <p>Delivery teams want to ship faster, but each release triggers an authorization scramble, and controls are verified once a year rather than continuously.</p>
-                        </div>
-                        <div>
-                            <h3>Approach</h3>
-                            <p>We embed controls as code in the delivery pipeline so compliance evidence is generated as a byproduct of every build, moving the program toward continuous authorization (cATO) in partnership with the authorizing official.</p>
-                        </div>
-                        <div>
-                            <h3>Evidence &amp; Outcome</h3>
-                            <p>An always-current control inventory, automated test and scan results tied to each release, and an immutable change history — so authorization can be maintained continuously instead of reconstructed at audit time.</p>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="case-study">
-                    <span class="case-tag">Responsible AI · Federal program office</span>
-                    <h2>Standing up an AI-assisted workflow designed to pass review</h2>
-                    <div class="case-cols">
-                        <div>
-                            <h3>Challenge</h3>
-                            <p>A program wants to adopt an AI- or LLM-assisted workflow but must satisfy NIST AI RMF expectations and OMB M-26-04 procurement requirements before it can be authorized.</p>
-                        </div>
-                        <div>
-                            <h3>Approach</h3>
-                            <p>We put data governance, bias testing, explainability, and continuous monitoring in place and map each to the applicable framework, so the system is designed to pass review rather than retrofitted to it.</p>
-                        </div>
-                        <div>
-                            <h3>Evidence &amp; Outcome</h3>
-                            <p>A documented data-governance and bias-testing record and an explainability matrix, packaged so an authorizing official can trace how the system behaves and why.</p>
-                        </div>
-                    </div>
-                </article>
-
-                <div class="article-cta">
-                    <h3>Want the details behind these?</h3>
-                    <p>Qualified evaluators can request named references and our full capabilities statement.</p>
-                    <a href="/contact" class="btn btn-primary">Contact Procurement</a>
+                <div class="filter-list" role="group" aria-label="Case study practices">
+                    <button type="button" class="filter-btn active" data-category="all" aria-pressed="true">All Case Studies</button>
+                    <button type="button" class="filter-btn" data-category="legacy" aria-pressed="false">Legacy Modernization</button>
+                    <button type="button" class="filter-btn" data-category="agility" aria-pressed="false">Governed Agility</button>
+                    <button type="button" class="filter-btn" data-category="ai" aria-pressed="false">AI Governance</button>
                 </div>
-
             </div>
-        </article>
+        </section>
+
+        <!-- Case Study Grid -->
+        <section class="blog-grid-section">
+            <div class="container">
+                <p class="case-note"><strong>A note on how we publish these.</strong> We only publish outcomes we can substantiate. As clients clear them, we replace practice profiles with fully written, anonymized-but-specific accounts tied to the evidence that proves them. Named references are available to qualified evaluators under NDA in the meantime — email <a href="mailto:procurement@newsouthtechnologies.com">procurement@newsouthtechnologies.com</a>.</p>
+                <p class="filter-status sr-only" role="status" aria-live="polite">Showing all case studies.</p>
+                <div class="blog-grid">
+
+                    <!-- Legacy Modernization — Published -->
+                    <a href="/case-studies/legacy-modernization" class="blog-card" data-category="legacy">
+                        <div class="blog-card-image category-legacy">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+                            <span class="post-category">Legacy Modernization</span>
+                        </div>
+                        <div class="blog-card-content">
+                            <h3>Legacy COBOL Mainframe Modernization for a Federal Civilian Agency</h3>
+                            <p>A strangler-fig migration off a 40-year-old COBOL system to FedRAMP-aligned microservices — with zero unplanned downtime and a clean OIG review.</p>
+                            <div class="card-metrics">
+                                <span>0 outages</span>
+                                <span>−43% cost</span>
+                                <span>0 audit findings</span>
+                                <span>18-month engagement</span>
+                            </div>
+                            <span class="case-read-more">Read the case study →</span>
+                        </div>
+                    </a>
+
+                    <!-- Governed Agility — In publication -->
+                    <div class="blog-card blog-card-coming-soon" data-category="agility">
+                        <div class="blog-card-image category-agility">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+                            <span class="post-category">Governed Agility</span>
+                        </div>
+                        <div class="blog-card-content">
+                            <span class="cs-status">In publication</span>
+                            <h3>Moving toward continuous authorization without slowing releases</h3>
+                            <p>Controls embedded as code in the delivery pipeline, so compliance evidence is generated as a byproduct of every build — moving a state program toward continuous authorization (cATO).</p>
+                            <p class="cs-ref">Named reference available under NDA — <a href="mailto:procurement@newsouthtechnologies.com">contact procurement</a>.</p>
+                        </div>
+                    </div>
+
+                    <!-- Responsible AI — Published -->
+                    <a href="/case-studies/ai-governance" class="blog-card" data-category="ai">
+                        <div class="blog-card-image category-ai">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg>
+                            <span class="post-category">AI Governance</span>
+                        </div>
+                        <div class="blog-card-content">
+                            <h3>Establishing Responsible AI Governance for a Federal Research Institution</h3>
+                            <p>From experimental ML pipelines to auditable production systems in 14 months — bias testing, explainability, and continuous ATO aligned to OMB M-26-04 and NIST AI RMF.</p>
+                            <div class="card-metrics">
+                                <span>−62% approval time</span>
+                                <span>100% bias docs</span>
+                                <span>45 models</span>
+                                <span>14-month engagement</span>
+                            </div>
+                            <span class="case-read-more">Read the case study →</span>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="newsletter">
+            <div class="container newsletter-inner">
+                <h2>Want the details behind these?</h2>
+                <p>Qualified evaluators can request named references and our full capabilities statement.</p>
+                <a href="/contact" class="btn btn-primary">Contact Procurement</a>
+            </div>
+        </section>
     </main>
 
     <!-- Footer -->
